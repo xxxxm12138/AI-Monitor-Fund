@@ -2,7 +2,7 @@
 
 **日期** 2026-09-20 ｜ **性质** 运行机制对齐（B 汇总既有文档 · 待 D 复核）｜ **目的** 把"输入一个新 AI 前沿事件 → 画出可能空间 → 最可能路径 → 导向哪个 ticker"这条链的每一环、每一环的数据在哪、谁做，全部梳理清楚，作为叠数据迭代的地基。
 
-**上游文档**：doc16([3-AI侧1](../research/3-AI侧1)) · doc24/24v2/26/29([8-schema_AI](../research/8-schema_AI)) · doc25([9-映射](../research/9-映射)) · doc23([7-data_source](../research/7-data_source)) · JEV-intelligence-graph · PLAN-decision-layer
+**上游文档**：doc16([3-AI侧1](../research/3-AI侧1.md)) · doc24/24v2/26/29([8-schema_AI](../research/8-schema_AI.md)) · doc25([9-映射](../research/9-映射.md)) · doc23([7-data_source](../research/7-data_source.md)) · JEV-intelligence-graph · PLAN-decision-layer
 
 ---
 

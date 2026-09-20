@@ -1,0 +1,103 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>判断结果 · 源 → 路径表</title>
+<style>
+:root{--bg:#f4f5f7;--card:#fff;--ink:#1f2329;--mut:#8a9099;--line:#e6e8eb;--line2:#eff1f3;--accent:#3b5bdb;--accent-soft:#eef1fb;
+ --up:#1a7f45;--up-bg:#e3f4e9;--dn:#b3271e;--shock:#b5730c;--shock-bg:#fbf0dd}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:13px/1.5 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+.app{display:grid;grid-template-columns:270px 1fr;gap:12px;max-width:1300px;margin:0 auto;padding:14px 12px;height:100vh}
+.side{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:auto}
+.hd{padding:10px 13px;border-bottom:1px solid var(--line);font-size:11px;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.04em}
+.src{padding:10px 13px;border-bottom:1px solid var(--line2);cursor:pointer}.src:hover{background:#fafbfc}.src.on{background:var(--accent-soft)}
+.src .nm{font-size:12.5px;font-weight:600}.src.on .nm{color:var(--accent)}
+.src .m{color:var(--mut);font-size:11px;margin-top:2px;display:flex;align-items:center;gap:7px}
+.src .rd{font-weight:700;color:var(--ink)}.dir{font-weight:700}.dir.u{color:var(--up)}.dir.s{color:var(--shock)}.dir.f{color:var(--mut)}
+.src .np{margin-left:auto;background:#eef0f3;border-radius:999px;padding:0 7px;font-size:10.5px;color:var(--mut)}
+.main{background:var(--card);border:1px solid var(--line);border-radius:6px;display:flex;flex-direction:column;min-width:0;overflow:hidden}
+.mh{padding:12px 15px;border-bottom:1px solid var(--line)}
+.mh .t{font-size:14px;font-weight:700}.mh .sub{color:var(--mut);font-size:11.5px;margin-top:3px}
+.mh .flow{margin-top:8px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-size:12px;color:var(--mut)}
+.mh .flow b{color:var(--ink)}
+.tw{overflow:auto;flex:1}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{position:sticky;top:0;background:#fafbfc;text-align:left;color:var(--mut);font-weight:600;font-size:10.5px;text-transform:uppercase;padding:9px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+th.r,td.r{text-align:right}
+td{padding:9px 12px;border-bottom:1px solid var(--line2);vertical-align:middle}tr:last-child td{border-bottom:0}
+tbody tr:hover{background:#fafbff}
+.tk{font-weight:700}.tk.hot{color:var(--up)}
+.chain{color:#454b52;font-size:11.5px}.chain .m{background:#f4f2fb;border:1px solid #e2ddf3;color:#5f52a6;border-radius:5px;padding:1px 6px;margin:0 2px;font-size:10.5px}
+.chain .direct{color:var(--mut);font-style:italic}
+.et{border:1px solid var(--line);border-radius:4px;padding:0 6px;font-size:10px;color:var(--mut)}
+.pl{border:1px solid var(--line);border-radius:4px;padding:0 6px;font-size:10.5px;color:var(--mut);font-weight:600}
+.num{font-variant-numeric:tabular-nums;font-weight:600}
+.dom{font-size:10.5px;padding:0 6px;border-radius:4px}.dom.t{background:var(--up-bg);color:var(--up)}.dom.w{background:var(--shock-bg);color:var(--shock)}
+.q{font-size:10.5px;font-weight:600;padding:1px 7px;border-radius:5px}.q.act{background:var(--shock-bg);color:var(--shock)}.q.watch{background:var(--accent-soft);color:var(--accent)}.q.priced{background:#f3f4f6;color:var(--mut)}
+.ex{font-size:10px;padding:0 6px;border-radius:4px;margin-right:3px;white-space:nowrap}.ex.code{background:var(--up-bg);color:var(--up)}.ex.llm{background:#efeafc;color:#6d4bc4}.ex.human{background:#f3f4f6;color:var(--mut)}
+.ex .tr{color:#6d4bc4;text-decoration:underline;cursor:pointer;margin-left:3px}
+.foot{padding:9px 15px;border-top:1px solid var(--line);color:var(--mut);font-size:11px}
+</style></head><body>
+<div class="app">
+ <div class="side"><div class="hd">源信号 · 选一个看它的判断结果</div><div id="srcs"></div></div>
+ <div class="main">
+  <div class="mh" id="mh"></div>
+  <div class="tw"><table><thead><tr>
+   <th>落点票</th><th>传导链（中间机制）</th><th>边类型</th><th class="r">跳</th><th>方向</th><th>确定性</th><th class="r">可交易</th><th class="r">预警</th><th>2×2 定位</th><th>执行 / 监测</th>
+  </tr></thead><tbody id="rows"></tbody></table></div>
+  <div class="foot" id="foot"></div>
+ </div>
+</div>
+<script>
+// 每个源信号 + 它生成的路径(每条一行,真数据来自 edge_registry / v_edge_calc)
+const SRC=[
+ {id:'gpu',nm:'GPU / 加速器出货',rd:'$89B',pct:'+117%',dir:'u',p:'P1',dt:'2026Q2',
+  paths:[
+   {tk:'AMD',chain:[],et:'E2 供应链',hops:1,dir:'u',tier:'T1',trad:0.39,warn:0.10,dom:'t',q:'priced'},
+   {tk:'MRVL',chain:[],et:'E2 供应链',hops:1,dir:'u',tier:'T1',trad:0.39,warn:0.10,dom:'t',q:'priced'},
+   {tk:'INTC',chain:[],et:'E2 供应链',hops:1,dir:'u',tier:'T1',trad:0.39,warn:0.10,dom:'t',q:'priced'},
+   {tk:'SUPX',chain:[],et:'E2 供应链',hops:1,dir:'u',tier:'T1',trad:0.39,warn:0.10,dom:'t',q:'priced'},
+   {tk:'NBIS',chain:['GPU 供给/成本'],et:'E2 供应链',hops:1,dir:'u',tier:'T2',trad:0.26,warn:0.10,dom:'t',q:'priced'},
+  ]},
+ {id:'zte',nm:'中际旭创 半年营收',rd:'¥417.78亿',pct:'+182%',dir:'u',p:'P1',dt:'2026H1',cn:1,
+  paths:[
+   {tk:'NBIS',chain:['全球 AI 在建强度','neocloud 扩张'],et:'E2 供应链',hops:3,dir:'u',tier:'T1',trad:0.32,warn:0.36,dom:'w',q:'act',lead:'18d 领先'},
+  ]},
+ {id:'export',nm:'BIS 对华出口管制',rd:'91 FR 1684',pct:'',dir:'s',p:'P1',dt:'2026-01',
+  paths:[
+   {tk:'NBIS',chain:['GPU 供给/成本'],et:'E5 regime',hops:2,dir:'s',tier:'T2',trad:0.08,warn:0.14,dom:'w',q:'act'},
+  ]},
+ {id:'lab',nm:'Reflection 一级融资',rd:'$1B+ 合同',pct:'',dir:'u',p:'P1',dt:'2026-07',
+  paths:[
+   {tk:'NBIS',chain:['lab 算力采购力'],et:'E3 客户需求',hops:2,dir:'u',tier:'T2',trad:0.08,warn:0.26,dom:'w',q:'act',lead:'~180d 领先'},
+  ]},
+ {id:'power',nm:'全球数据中心用电',rd:'415 TWh',pct:'+12%',dir:'u',p:'P1',dt:'2026',
+  paths:[
+   {tk:'FCEL',chain:['电力需求'],et:'E3 客户需求',hops:2,dir:'u',tier:'T2',trad:0.08,warn:0.14,dom:'w',q:'watch'},
+   {tk:'NBIS',chain:['数据中心用电审批'],et:'E5 regime',hops:2,dir:'u',tier:'T2',trad:0.08,warn:0.14,dom:'w',q:'watch'},
+  ]},
+ {id:'oc',nm:'开源 vs 闭源差距（AA）',rd:'53 vs 45',pct:'',dir:'f',p:'P1',dt:'2026-09',
+  ext:[{t:'抽取·LLM 聚类',k:'llm',tr:1},{t:'证伪·人 D',k:'human'}],
+  paths:[
+   {tk:'NBIS',chain:['推理需求弹性'],et:'E3 客户需求',hops:2,dir:'f',tier:'T3',trad:0.06,warn:0.26,dom:'w',q:'watch'},
+  ]},
+];
+const DEFEXT=[{t:'抽取·一手 API',k:'code'},{t:'判断·规则+人',k:'human'}];
+let cur='gpu';
+const DIRT={u:'↑',s:'!',f:'→'},QT={act:'现在动',watch:'观察',priced:'确认用'};
+function renderSrcs(){document.getElementById('srcs').innerHTML=SRC.map(s=>`<div class="src ${s.id===cur?'on':''}" data-i="${s.id}"><div class="nm">${s.nm}${s.cn?' <span style="color:#c2334d;font-size:10px">CN</span>':''}</div><div class="m"><span class="rd">${s.rd}</span>${s.pct?`<span class="dir ${s.dir}">${s.pct}</span>`:`<span class="dir ${s.dir}">${DIRT[s.dir]}</span>`}<span class="pl" style="font-weight:400;border:0;color:var(--mut)">${s.p} · ${s.dt}</span><span class="np">${s.paths.length} 路径</span></div></div>`).join('');
+ document.querySelectorAll('.src').forEach(e=>e.onclick=()=>{cur=e.dataset.i;render()});}
+function render(){renderSrcs();const s=SRC.find(x=>x.id===cur);
+ const reach=[...new Set(s.paths.map(p=>p.tk))];
+ document.getElementById('mh').innerHTML=`<div class="t">${s.nm} <span class="dir ${s.dir}" style="font-size:13px">${s.pct||DIRT[s.dir]}</span></div>
+  <div class="sub">1 个源数据 → <b>${s.paths.length} 条路径</b> → 可达 <b>${reach.length}</b> 个票（${reach.join(' · ')}）· 每条路径一行，字段 = 传导链 / 边类型 / 跳数 / 方向 / 确定性 / 可交易·预警 / 主导 / 2×2</div>`;
+ const ext=(s.ext||DEFEXT).map(e=>`<span class="ex ${e.k}">${e.t}${e.tr?'<span class="tr">⋯trace</span>':''}</span>`).join('');
+ document.getElementById('rows').innerHTML=s.paths.map(p=>{
+  const chain=p.chain.length?p.chain.map(c=>`<span class="m">${c}</span>`).join('<span style="color:var(--mut)">→</span>'):'<span class="direct">直连（0 中间节点）</span>';
+  return `<tr><td class="tk ${p.dom==='t'?'hot':''}">${p.tk}</td>
+   <td class="chain">${chain}</td><td><span class="et">${p.et}</span></td><td class="r">${p.hops}</td>
+   <td><span class="dir ${p.dir}">${DIRT[p.dir]}</span></td><td><span class="pl">${p.tier}</span>${p.lead?` <span style="color:var(--mut);font-size:10.5px">${p.lead}</span>`:''}</td>
+   <td class="r num">${p.trad}</td><td class="r num">${p.warn}</td>
+   <td><span class="q ${p.q}">${QT[p.q]}</span></td>
+   <td>${ext}</td></tr>`}).join('');
+ document.getElementById('foot').innerHTML=`每行 = 一条判断出的路径（propagate 输出）。<b>执行/监测列</b>:<span class="ex code">绿=规则/code</span> <span class="ex llm">紫=LLM(带 Langfuse trace)</span> <span class="ex human">灰=人 A–D</span>。LLM 抽取/聚类经 Langfuse trace+eval 打分,低分告警转人工;分回填 → 校准曲线。`;
+}
+render();
+</script></body></html>

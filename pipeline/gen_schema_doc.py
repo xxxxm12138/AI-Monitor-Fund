@@ -15,7 +15,7 @@ def fillrate(t,c):
     except Exception: return '—'
 out.append('## 一、表与字段（含当前有值率：非空 / 总行）'); out.append('')
 for t in tables:
-    out.append(f'### `{t}`  · {cnt(t)} 行'); out.append(''); out.append('| 列 | 含义 | 设计出处 | 有值 | 可推导→视图 |'); out.append('|---|---|---|---|---|')
+    out.append(f'<a id="tbl-{t}"></a>'); out.append(f'### `{t}`  · {cnt(t)} 行'); out.append(''); out.append('| 列 | 含义 | 设计出处 | 有值 | 可推导→视图 |'); out.append('|---|---|---|---|---|')
     for (c,m,ref,der,view) in con.execute("SELECT column_name, meaning, design_ref, derivable, served_by_view FROM schema_doc WHERE table_name=? ORDER BY rowid", [t]).fetchall():
         out.append(f'| `{c}` | {m} | {ref or ""} | {"—" if der else fillrate(t,c)} | {("→ " + view) if der else ""} |')
     out.append('')

@@ -17,7 +17,20 @@
 >
 > 它不是"一个会写研报的 AI",而是一张**自我校准的 Intelligence Graph**。
 
+## 目录
+
+- [设计出发点 · 为什么是一张 Intelligence Graph](#design)
+- [这套映射是怎么长出来的 · 从供需对接到因果图](#build)
+- [四算子 ↔ 现有 schema(点落点看字段结构)](#operators)
+- [目录结构](#layout)
+- [如何运行](#run)
+- [数据模型(五层)](#datamodel)
+- [方法与分工](#roles)
+- [数据说明](#datanote)
+
 ---
+
+<a id="design"></a>
 
 ## 设计出发点 · 为什么是一张 Intelligence Graph
 
@@ -33,24 +46,55 @@
 
 投研恰好是最典型的 **decision-native**(而非 generation-native)工作负载:每个节点的输入 state 很复杂(多源证据、可信度、口径是否可比),输出却是**有限候选上的一个选择 + 一个置信度**。所以结论不是"我们要用某个模型",而是——**基金的投资体系本身应该按这个计算范式来设计**:重决策、压缩、预测、剪枝;生成只在图的**边缘**出现(写简报、向人解释、提出新的解释候选)。
 
-- **之前**分析"AI 发展如何导向到某只 ticker",已经有一定逻辑(按供应链、按竞对关系……)——本质上就是在一个人工枚举的候选空间里工作。这套 Intelligence Graph 让它可以**更细化、可扩张、可校准**,甚至整个基金的投资体系都可以采用这种形式。
+- **之前**分析"AI 发展如何导向到某只 ticker",已经有一定逻辑(按供应链、按竞对关系……)——本质上就是在一个人工枚举的候选空间里工作。下一节把这个**真实的构建过程**摊开;它让这套图可以**更细化、可扩张、可校准**,甚至整个基金的投资体系都可以采用这种形式。
 - **compute 的执行者不必是通用大模型**:它可以是 *for-representation / for-prediction / for-selection* 的专用**小模型**。schema 只声明每个决策点的 **typed I/O 契约**,执行者(人 / 通用 LLM / 专用模型 / 规则代码)是**可替换件**。
 - 押注的是 **Computation Specialization,而非 Model Specialization**。所以**今天的每一行数据,同时是明天专用模型的 I/O 契约与训练集**——这就是"**为后来的 AI 基建做设计**"的具体含义。
 
 > 完整设计立场文见 [`pipeline/JEV-intelligence-graph.md`](pipeline/JEV-intelligence-graph.md)(原文 [`pipeline/JEV`](pipeline/JEV))。
 
-### 四算子 ↔ 现有 schema(各就各位)
+---
+
+<a id="build"></a>
+
+## 这套映射是怎么长出来的 · 从供需对接到因果图
+
+<div align="center">
+<img src="assets/readme/bowtie.svg" alt="供需对接 bowtie:AI 供给 D1–D7 → 六类边 → 持仓 ticker" width="100%">
+</div>
+
+上一节那句"已经有一定逻辑(供应链、竞对……)"不是空话——它是一步步搭出来的。这套「AI 发展 → 基金 ticker」映射的真实构建路径(每步附当时的过程原稿):
+
+| 步 | 做了什么 | 过程原稿 / 落点 |
+|---|---|---|
+| ① 供给侧建模 | 把 AI 发展拆成 **D1–D7 七维节点**(算力 / 数据 / 资本 / 人才 / 能力前沿 / 商用 / 政策·能源),每维一条"拆解主轴"保证查全 | [`3-AI侧`](research/3-AI侧1.md) |
+| ② 需求侧建模 | 每只持仓票的驱动指标、关注点与可观测量 | [`4-指标测`](research/4-指标测1.md) |
+| ③ **供需对接** | 把 AI 节点 × 持仓 ticker 连成一张有向图(即上图 bowtie) | [`5-AI×指标结合`](research/5-AI%26指标侧结合1.md) |
+| ④ schema 设计 | 把节点 / 边 / 事实 / 判断落成可计算的表(四类 fct、R 指标、E 边、判断表) | [`6-schema1`](research/6-schema1.md) · [`8-schema_AI`](research/8-schema_AI.md) · [`schema.sql`](pipeline/schema.sql) |
+| ⑤ **点 · 边 · 权重(映射范式)** | 逐票向上游反推 · 六类边 E1–E6 · 跳数 · **映射价值 = 传导确定性 × 节点质量** · 边确定性三层验证 T1/T2/T3 → `edge_registry` | [`9-映射`](research/9-映射.md) · [`edge_registry` 字段结构 ↗](pipeline/SCHEMA.md#tbl-edge_registry) |
+| ⑥ 实例验证 | NBIS 七条链(光互连 / 在建强度 / 上电 / lab 融资 / 能力→推理 / 政策审批 / 出口管制)逐链核对 | [`10-NBIS实例`](research/10-NBIS实例.md) |
+
+**正是这套具体逻辑,才被抽象成四算子 Intelligence Graph**:供需对接 = REPRESENT + PROPOSE 的雏形,点-边-权重打分 = SELECT,逐票向上游反推 = 在候选空间里剪枝。下一节是它到 schema 的正式对应。
+
+---
+
+<a id="operators"></a>
+
+## 四算子 ↔ 现有 schema(点落点看字段结构)
+
+> 「落点」列里带 ↗ 的表名可点击,直接跳到 [`pipeline/SCHEMA.md`](pipeline/SCHEMA.md) 对应表的**字段结构**(列 · 含义 · 设计出处 · 有值率)。
 
 | 算子 | 含义 | 在本体系的落点 |
 |---|---|---|
-| **REPRESENT** 压缩表征 | 把混乱世界压成 point-in-time、可比较的 state | `stg_observation` → 四类 `fct_*` + 通用元数据层(`knowledge_time` / P1–P5 / `anchor` / `snapshot_id` / `owner`)· `source_master` |
-| **PROPOSE** 枚举候选 | 扩张候选空间:新解释、新机制从哪来 | `edge_registry` 六类边 E1–E6(本体 / 供应链 / 需求 / 竞对 / 主题 / 资金人才)· 前沿雷达 · 假设台账 |
-| **PREDICT** 指标预判 | 在指标空间(而非文本)预判后果 | `lead_time_est` · `expectation_base`(Forecast)· 日历排期未来行 · `warning = τ·l·e` |
-| **SELECT** 剪枝选择 | 有限候选上的高频判断:路由 / 分级 / 验证 / 排序 | 接入路由 · `observation_direction` · 两道闸(可信度 → 重要性)· 三态对账 · `tradable`/`warning` 排序 |
-| **闭环** 自我校准 | confidence → outcome → 校准曲线 | `decision_log` 六元组 · `v_calibration` · `calib_status` 状态机(human → shadow → assisted → auto) |
+| **REPRESENT** 压缩表征 | 把混乱世界压成 point-in-time、可比较的 state | [`stg_observation`↗](pipeline/SCHEMA.md#tbl-stg_observation) → 四类 [`fct_*`↗](pipeline/SCHEMA.md#tbl-fct_quant) + 通用元数据层(knowledge_time / P1–P5 / anchor / snapshot_id / owner)· [`source_master`↗](pipeline/SCHEMA.md#tbl-source_master) |
+| **PROPOSE** 枚举候选 | 扩张候选空间:新解释、新机制从哪来 | [`edge_registry`↗](pipeline/SCHEMA.md#tbl-edge_registry) 六类边 E1–E6(本体 / 供应链 / 需求 / 竞对 / 主题 / 资金人才)· 前沿雷达 · [假设台账↗](pipeline/SCHEMA.md#tbl-assumption) |
+| **PREDICT** 指标预判 | 在指标空间(而非文本)预判后果 | [`metric_registry`↗](pipeline/SCHEMA.md#tbl-metric_registry).lead_time_est · expectation_base(Forecast)· [日历排期↗](pipeline/SCHEMA.md#tbl-calendar) · warning = τ·l·e |
+| **SELECT** 剪枝选择 | 有限候选上的高频判断:路由 / 分级 / 验证 / 排序 | 接入路由 · [`observation_direction`↗](pipeline/SCHEMA.md#tbl-observation_direction) · 两道闸(可信度 → 重要性)· 三态对账 · `tradable`/`warning` 排序 |
+| **闭环** 自我校准 | confidence → outcome → 校准曲线 | [`decision_log`↗](pipeline/SCHEMA.md#tbl-decision_log) 六元组 · `v_calibration` · [`decision_registry`↗](pipeline/SCHEMA.md#tbl-decision_registry).calib_status 状态机(human → shadow → assisted → auto) |
 | **分工即 routing policy** | 确定性代码 → 专用判断 → 小生成模型 → human 的 cascade | AI 生成 / 分析师复核 / 数据团队,**边界随校准数据移动** |
 
 ---
+
+<a id="layout"></a>
 
 ## 目录结构
 
@@ -71,12 +115,14 @@ AI-Monitor-Fund/
 │   ├── tables/              7 张建库底稿 CSV(建库后冻结,改数走 migrations)
 │   └── Anatole_13F_2023Q2-2026Q2_1.xlsx   持仓 13F
 ├── docs/                    顶层方法 / 协作日志 / 信息架构文档
-├── research/                研究过程:AI 侧 · schema 演进 · 映射 · NBIS 实例 · 假设台账 · 数据源
+├── research/                研究过程:AI 侧 · 指标侧 · 供需结合 · schema 演进 · 映射 · NBIS 实例 · 假设
 ├── submission/             题目 · 二面记录 · 合伙人背景与岗位画像
 └── assets/                  独立 HTML 产出(监测日历 · schema 浏览器)· readme 图形
 ```
 
 ---
+
+<a id="run"></a>
 
 ## 如何运行
 
@@ -107,7 +153,7 @@ python3 checks.py           # 应得 ERROR 0
 
 ```bash
 cd pipeline
-python3 gen_schema_doc.py   # 库 → SCHEMA.md(每列有值率)
+python3 gen_schema_doc.py   # 库 → SCHEMA.md(每列有值率 + 每表锚点)
 python3 gen_browser.py      # 库 → schema_browser.html(按思路 / 按数据层双视图)
 python3 build_dashboard2.py # 库 → panel_v2.html(数据管理者面板)
 ```
@@ -116,25 +162,31 @@ python3 build_dashboard2.py # 库 → panel_v2.html(数据管理者面板)
 
 ---
 
+<a id="datamodel"></a>
+
 ## 数据模型(五层)
 
 | 层 | 表 / 视图 |
 |---|---|
-| 接入 | `stg_observation`(一行一个事实,人 / agent 的登记格式) |
-| 资产 | `entity_master` · `metric_registry`(R,指标定义)· `edge_registry`(E,六类边 × 跳数 × T1–T3)· `fct_quant/event/opinion/frontier`(四类事实)· `source_master` |
-| 治理 | `assumption` · `coefficient` · `metric_factor`(r/e/l/s/φ)· `observation_direction` · `key_fact` |
-| 治理·决策层 | `decision_registry`(每类重复判断的 I/O 契约 + calib_status)· `decision_log`(六元组:state_anchor / candidates / choice / confidence / basis / outcome)· `candidate_pool` |
+| 接入 | [`stg_observation`](pipeline/SCHEMA.md#tbl-stg_observation)(一行一个事实,人 / agent 的登记格式) |
+| 资产 | [`entity_master`](pipeline/SCHEMA.md#tbl-entity_master) · [`metric_registry`](pipeline/SCHEMA.md#tbl-metric_registry)(R,指标定义)· [`edge_registry`](pipeline/SCHEMA.md#tbl-edge_registry)(E,六类边 × 跳数 × T1–T3)· `fct_quant/event/opinion/frontier`(四类事实)· [`source_master`](pipeline/SCHEMA.md#tbl-source_master) |
+| 治理 | `assumption` · `coefficient` · [`metric_factor`](pipeline/SCHEMA.md#tbl-metric_factor)(r/e/l/s/φ)· `observation_direction` · `key_fact` |
+| 治理·决策层 | [`decision_registry`](pipeline/SCHEMA.md#tbl-decision_registry)(每类重复判断的 I/O 契约 + calib_status)· [`decision_log`](pipeline/SCHEMA.md#tbl-decision_log)(六元组:state_anchor / candidates / choice / confidence / basis / outcome)· [`candidate_pool`](pipeline/SCHEMA.md#tbl-candidate_pool) |
 | 元数据 | `schema_doc` · `migration_log` · `change_log` · `thesis_node` · `decision_fork` · `artifact_anchor` |
 
 完整字典见 [`pipeline/SCHEMA.md`](pipeline/SCHEMA.md);运行机制见 [`pipeline/PIPELINE.md`](pipeline/PIPELINE.md);数据岗操作见 [`pipeline/README.md`](pipeline/README.md)。
 
 ---
 
+<a id="roles"></a>
+
 ## 方法与分工
 
 每条判断在库内显式标注执行者:**AI 生成 / 分析师复核 / 数据团队**(`decision_log.executor_kind`),配合 `calib_status` 状态机(human → shadow → assisted → auto):**未经校准验证的判断不得自动化,其输出禁用于 sizing 与告警阈值**。这既满足题目对 AI / 人分工的要求,也让整套推理链可审计——而这张"谁在什么置信度下执行什么判断"的表,就是这套 Intelligence Graph 里最难被复制的部分。
 
 ---
+
+<a id="datanote"></a>
 
 ## 数据说明
 

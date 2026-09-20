@@ -1,0 +1,123 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>判断过程层 · Insight 层</title>
+<style>
+:root{--bg:#f4f5f7;--card:#fff;--ink:#1f2329;--mut:#8a9099;--line:#e6e8eb;--line2:#eff1f3;--accent:#3b5bdb;--accent-soft:#eef1fb;
+ --up:#1a7f45;--up-bg:#e3f4e9;--dn:#b3271e;--dn-bg:#fbe6e4;--shock:#b5730c;--shock-bg:#fbf0dd}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:13px/1.55 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:16px 14px 50px}
+.nav{display:flex;gap:10px;align-items:center;margin-bottom:14px}
+.nav .ti{font-size:15px;font-weight:700;margin-right:6px}
+.tabs{display:flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;font-size:12.5px;background:var(--card)}
+.tabs span{padding:6px 14px;border-right:1px solid var(--line);cursor:pointer;color:var(--mut)}.tabs span:last-child{border-right:0}.tabs span.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.tabs span.ghost{color:#c4c9cf;cursor:default}
+h2{font-size:13px;margin:16px 0 8px;color:var(--ink)}h2 .s{color:var(--mut);font-weight:400;font-size:11.5px;margin-left:6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px}
+.grid{display:grid;gap:12px}.g3{grid-template-columns:1fr 1fr 1fr}.g2{grid-template-columns:1fr 1fr}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;color:var(--mut);font-weight:600;font-size:10.5px;text-transform:uppercase;padding:8px 12px;border-bottom:1px solid var(--line)}
+td{padding:8px 12px;border-bottom:1px solid var(--line2)}tr:last-child td{border-bottom:0}
+.pl{border:1px solid var(--line);border-radius:4px;padding:0 7px;font-size:10.5px;color:var(--mut)}
+.tier-A{color:var(--accent);font-weight:600}.tier-B{color:var(--shock);font-weight:600}.tier-C{color:var(--mut)}
+.exec{font-size:10.5px;padding:0 6px;border-radius:4px}.exec.auto{background:var(--up-bg);color:var(--up)}.exec.assisted{background:var(--accent-soft);color:var(--accent)}.exec.human{background:#f3f4f6;color:var(--mut)}
+.calib{padding:14px}.calib .row{display:flex;align-items:center;gap:10px;margin-top:9px}
+.sm{display:flex;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;font-size:11.5px;max-width:520px}
+.sm span{flex:1;text-align:center;padding:6px;border-right:1px solid var(--line);color:var(--mut)}.sm span:last-child{border-right:0}.sm span.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.warnbox{background:var(--shock-bg);border:1px solid #eecfa0;border-radius:7px;padding:9px 12px;font-size:12px;color:#7a5312;margin-top:8px}
+.trace{padding:13px}
+.prop{border-left:3px solid var(--line);padding:6px 0 6px 12px;margin:6px 0;font-size:12px}
+.prop.sel{border-left-color:var(--up)}.prop .tg{font-size:10px;color:var(--mut)}
+.prop .st{font-size:10px;font-weight:600;margin-left:6px}.prop .st.sel{color:var(--up)}.prop .st.open{color:var(--shock)}
+.ph{padding:10px 13px;border-bottom:1px solid var(--line);font-weight:700;font-size:12.5px;display:flex;align-items:center;gap:8px}
+.ph .r{margin-left:auto;color:var(--mut);font-weight:400;font-size:11px}
+.pb{padding:12px 13px}
+.k{color:var(--mut);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-top:11px}.k:first-child{margin-top:0}
+.v{font-size:12.5px;margin-top:3px}
+.reg{display:inline-block;padding:1px 9px;border-radius:5px;font-size:11px;font-weight:600}.reg.b{background:var(--up-bg);color:var(--up)}.reg.o{background:var(--shock-bg);color:var(--shock)}.reg.p{background:var(--dn-bg);color:var(--dn)}
+.fals{background:#fff8f0;border:1px solid #f0dcc0;border-radius:6px;padding:8px 10px;font-size:11.5px;color:#7a5312;margin-top:4px}
+.edge{font-size:11.5px;color:#454b52}.edge .w{color:var(--mut)}
+.q{display:inline-block;padding:1px 8px;border-radius:5px;font-size:11px;font-weight:600;background:var(--shock-bg);color:var(--shock)}
+.pot{display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid var(--line);border-radius:7px;margin-top:6px}
+.pot b{font-weight:700}.pot .tag{color:var(--mut);font-size:11px}.pot .r{margin-left:auto;display:flex;gap:6px;align-items:center}
+.note{color:var(--mut);font-size:11px;margin-top:10px}
+</style></head><body><div class="wrap">
+<div class="nav"><span class="ti">面板三层</span>
+ <div class="tabs"><span class="ghost">源数据（见 D1–D7 工作台）</span><span class="on" data-t="j">判断过程</span><span data-t="i">Insight</span></div>
+ <span style="color:var(--mut);font-size:11.5px" id="sub"></span>
+</div>
+<div id="body"></div>
+</div>
+<script>
+let t='j';
+const J=`
+<h2>判断分层<span class="s">· 决策层登记的每类判断,按投研重要性分层 + 执行档位(auto/assisted/human)</span></h2>
+<div class="card"><table><thead><tr><th>判断类型</th><th>层</th><th>执行档</th><th>判断数</th><th>校准状态</th></tr></thead><tbody>
+ <tr><td>方向判断 d_direction</td><td class="tier-A">A 投研</td><td><span class="exec assisted">assisted</span></td><td>—</td><td>规则起草+人复核</td></tr>
+ <tr><td>三态对账 d_regime</td><td class="tier-A">A 投研</td><td><span class="exec human">human</span></td><td>1</td><td>human</td></tr>
+ <tr><td>边验证档位 d_edge_tier</td><td class="tier-A">A 投研</td><td><span class="exec human">human</span></td><td>6</td><td>human</td></tr>
+ <tr><td>因子赋值 d_factor</td><td class="tier-A">A 投研</td><td><span class="exec assisted">assisted</span></td><td>30</td><td>待 D 逐因子复核</td></tr>
+ <tr><td>背离解释 d_divergence_explain</td><td class="tier-A">A 投研</td><td><span class="exec human">human</span></td><td>1</td><td>human</td></tr>
+ <tr><td>证伪闸 / 影响力闸</td><td class="tier-B">B 准入</td><td><span class="exec human">human</span></td><td>9</td><td>human</td></tr>
+ <tr><td>接入路由 d_route</td><td class="tier-C">C 运维</td><td><span class="exec auto">auto</span></td><td>规则</td><td>确定性代码(豁免)</td></tr>
+</tbody></table></div>
+
+<h2>校准<span class="s">· 差异化核心:我们说 90% 把握时,真的对 90% 吗(RLCD / JEV)</span></h2>
+<div class="card calib">
+ <div>置信度分档 → 事后命中率(v_calibration)。状态机:每类判断从人做 → 模型旁跑攒曲线 → 高置信自动、低置信转人。</div>
+ <div class="row"><div class="sm"><span class="on">human 人做</span><span>shadow 旁跑攒曲线</span><span>assisted 分流</span><span>auto 抽查</span></div></div>
+ <div class="warnbox">诚实缺口:现 19 条判断中 <b>0 条已回填 outcome</b> → 校准曲线还长不出来。这是让整套自动迭代跑起来的<b>唯一生死线</b>——按复验节奏回填对错,曲线才成立。校准未达标的判断类型,禁标 assisted/auto(🟠闸)。</div>
+</div>
+
+<h2>背离 → 提出候选 → 选择<span class="s">· 最能体现"判断过程":出现背离时提哪些解释、选了哪个、为什么(PROPOSE→SELECT trace)</span></h2>
+<div class="card trace">
+ <div style="font-weight:700;font-size:12.5px">record:r133 · Anthropic $35B / NVIDIA 兼投资担保供芯 <span class="q" style="margin-left:6px">背离 ! · 待 D 选</span></div>
+ <div class="prop">① 行业性资本结构,非 NBIS 特有风险(投 CoreWeave/OpenAI 同款)<span class="st open">open</span></div>
+ <div class="prop">② 收入质量风险:供芯方入股+担保 = 需求自我印证,backlog 应剔除关联部分<span class="st open">open</span></div>
+ <div class="prop">③ 披露口径未明,等 10-K 关联交易披露再判<span class="st open">open</span></div>
+ <div class="prop">④ 新指标提案:循环融资敞口比 = NVIDIA 关联承诺 / 总承诺<span class="st open">open · new_metric</span></div>
+ <div class="note">4 个候选由 B 提出(PROPOSE);<b>选择必须 D</b>(registry 规定),现挂 D 待定。</div>
+ <div style="font-weight:700;font-size:12.5px;margin-top:14px">record:r166 · BIS 对华出口规则 <span class="q" style="background:var(--up-bg);color:var(--up);margin-left:6px">已选</span></div>
+ <div class="prop sel">作 D7 regime 变量处理,挂 e_export_nbis(T2 事件研究),方向不下注<span class="st sel">selected · doc28 定论</span></div>
+</div>
+
+<div class="note">数据:decision_registry / decision_log / candidate_pool / v_calibration。这一层现在是"下钻三张卡"看不到的——它把"我们怎么想的、多有把握、事后对不对"显式化,是别人(Daloopa/DataHub)都没有的。</div>
+`;
+const I=`
+<h2>持仓 thesis 看板<span class="s">· 每票:一句话 thesis + regime + 最强支撑边 + 什么推翻 + 下一验证点 + 该动/观察</span></h2>
+<div class="grid g3">
+ <div class="card"><div class="ph">◆ NBIS<span class="r">L2 · 51.2%</span></div><div class="pb">
+  <div class="k">thesis / regime</div><div class="v"><span class="reg b">信念</span> 上游供给(光模块/capex)与下游需求(lab 融资转合同)同向</div>
+  <div class="k">最强支撑边</div><div class="v edge">lab 融资 → NBIS <span class="w">预警 0.77</span> · 光模块 → NBIS <span class="w">可交易 0.32</span></div>
+  <div class="k">什么推翻(falsifier)</div><div class="fals">训练算力增速回落 &lt;2×/年、开源闭源归零且前沿档降价;或 12-31 并网 &lt;800MW / Q3 预付低于指引</div>
+  <div class="k">下一验证点 · 定位</div><div class="v">Q3 并网兑现 + 预付到账 &nbsp; <span class="q">现在动 · regime</span></div>
+ </div></div>
+ <div class="card"><div class="ph">◆ RBRK<span class="r">L4 · 29.8%</span></div><div class="pb">
+  <div class="k">thesis / regime</div><div class="v"><span class="reg b">信念</span> 企业 adoption 一手读数(Sub-ARR +33%)向好;政策 fair use 顺风偏空</div>
+  <div class="k">最强支撑边</div><div class="v edge">企业 adoption → RBRK <span class="w">可交易 0.24</span></div>
+  <div class="k">什么推翻</div><div class="fals">Sub-ARR 连续两季低于 FY27 指引($1,880–1,885M 需约 +30%);AI-native 挑战者拿下大客户</div>
+  <div class="k">下一验证点 · 定位</div><div class="v">下季 Sub-ARR 增速 &nbsp; <span class="q" style="background:var(--accent-soft);color:var(--accent)">观察</span></div>
+ </div></div>
+ <div class="card"><div class="ph">◆ FCEL<span class="r">L1 · 7.1%</span></div><div class="pb">
+  <div class="k">thesis / regime</div><div class="v"><span class="reg o">观察</span> 收入下滑,但首个 75MW 数据中心供电协议落地</div>
+  <div class="k">最强支撑边</div><div class="v edge">数据中心供电 → FCEL <span class="w">regime 0.14</span></div>
+  <div class="k">什么推翻</div><div class="fals">10-31 年化产能未达 100MW;Q4 仍不披露 75MW 对手方;供电订单半年无新增</div>
+  <div class="k">下一验证点 · 定位</div><div class="v">100MW 产能 + 协议披露 &nbsp; <span class="q" style="background:var(--accent-soft);color:var(--accent)">观察</span></div>
+ </div></div>
+</div>
+
+<h2>潜在标的<span class="s">· 仓外被事件照亮、证据够硬 → idea generation(别人没有的一侧)</span></h2>
+<div class="card" style="padding:11px 13px">
+ <div class="pot"><b>CRWV</b> <span class="tag">仓外 · neocloud 同业 · 被"AI capex↑"照亮</span><div class="r"><span class="pl">P1</span><span class="pl">T1</span><span style="color:var(--up);font-weight:700">↑</span><span class="q" style="background:var(--accent-soft);color:var(--accent)">进 watchlist?待 D</span></div></div>
+ <div class="note">规则:in_book=FALSE 被 ≥T2/P2 的边打到(C22 阈值)→ 进 candidate_pool → D 决定是否纳入 watchlist。</div>
+</div>
+
+<h2>组合 regime</h2>
+<div class="card" style="padding:12px 13px;font-size:12.5px">
+ <span class="reg b">信念</span> 供需同向(前三大 89%);<b>背离风险挂账</b>:循环融资(r133 待判)、BIS regime(r166 已作 D7 变量)。前沿雷达"决策模型范式"加速中,尚未外溢。
+</div>
+<div class="note">数据:key_fact(status_line/falsifier)· v_ticker_map(最强边)· v_divergence · candidate_pool。这才是"结论/怎么办",不是 KPI 记分卡(那是源数据摘要)。</div>
+`;
+function render(){document.getElementById('body').innerHTML=t==='j'?J:I;
+ document.getElementById('sub').textContent=t==='j'?'· 怎么判的、多有把握、事后对不对':'· 结论:每票 thesis 状态 + 该怎么办';
+ document.querySelectorAll('.tabs span[data-t]').forEach(e=>{e.classList.toggle('on',e.dataset.t===t);e.onclick=()=>{t=e.dataset.t;render()}});}
+render();
+</script></body></html>
