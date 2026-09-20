@@ -1,0 +1,125 @@
+<svg viewBox="0 0 1180 620" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+<defs>
+<marker id="ah" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#9aa0a8"/></marker>
+<marker id="ahr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#b3271e"/></marker>
+<style>
+.bg{fill:#fff}
+.ttl{fill:#1f2329;font-size:17px;font-weight:700}
+.sub{fill:#8a9099;font-size:12px}
+.hd{font-size:13.5px;font-weight:700}
+.tag{fill:#8a9099;font-size:10.5px}
+.node rect{rx:7}
+.nlab{font-size:11.5px;font-weight:600}
+.mlab{font-size:11px}
+.tk{fill:#1f2329;font-size:16px;font-weight:800}
+.tw{fill:#fff;font-size:10px;font-weight:600}
+.cap{fill:#454b52;font-size:11.5px}
+.capb{fill:#1f2329;font-size:11.5px;font-weight:700}
+.risk{fill:#b3271e;font-size:10.5px;font-weight:700}
+.edge{stroke:#c3c8ce;stroke-width:1.6;fill:none}
+.edger{stroke:#b3271e;stroke-width:2;fill:none}
+.edged{stroke:#9aa0a8;stroke-width:1.6;fill:none;stroke-dasharray:4 3}
+.f1{fill:#2f4bb3}.f2{fill:#1a7f45}.f3{fill:#6b4bc4}.f4{fill:#0e7490}.f5{fill:#b5730c}.gr{fill:#8a9099}
+.sr{fill:#eef1fb;stroke:#c9d2f0}.sg{fill:#e3f4e9;stroke:#bfe3cc}.sp{fill:#efeafc;stroke:#ddd3f3}.st{fill:#e0f0f2;stroke:#bfe0e4}.sa{fill:#fbf0dd;stroke:#efdcae}.sn{fill:#f3f4f6;stroke:#e0e3e7}
+.mech{fill:#fbfbfd;stroke:#dfe3e8}
+.choke{fill:#fbeaea;stroke:#e6a9a9;stroke-width:1.6}
+.tkbox{fill:#1f2329}
+.divl{stroke:#e6e8eb;stroke-width:1}
+</style>
+</defs>
+<rect class="bg" x="0" y="0" width="1180" height="620"/>
+<text class="ttl" x="26" y="34">证据结构图 · 稳健性与风险是同一张图</text>
+<text class="sub" x="26" y="55">节点不相交路径数 = 最小割(门格尔定理)。宽扇入 = 稳健;共用节点 = 佐证塌缩;割点标红 = 单点风险。真数据来自 graph_data.py 传导链。</text>
+<line class="divl" x1="590" y1="80" x2="590" y2="540"/>
+
+<!-- ================= NBIS ================= -->
+<text class="hd" x="34" y="98" fill="#1a7f45">NBIS · 宽 / 稳健(主线有咽喉)</text>
+<text class="tag" x="34" y="115">6 条独立通道 → 最小割=6</text>
+
+<!-- sources -->
+<g class="node">
+<rect class="sr" x="34" y="132" width="150" height="34" stroke-width="1"/><rect class="f1" x="34" y="132" width="4" height="34"/><text class="nlab f1" x="46" y="153">供给·光/GPU/capex</text>
+<rect class="sg" x="34" y="176" width="150" height="34" stroke-width="1"/><rect class="f2" x="34" y="176" width="4" height="34"/><text class="nlab f2" x="46" y="197">需求·lab 融资/token</text>
+<rect class="sp" x="34" y="220" width="150" height="34" stroke-width="1"/><rect class="f3" x="34" y="220" width="4" height="34"/><text class="nlab f3" x="46" y="241">能力·训练/AA/bench</text>
+<rect class="st" x="34" y="264" width="150" height="34" stroke-width="1"/><rect class="f4" x="34" y="264" width="4" height="34"/><text class="nlab f4" x="46" y="285">变现·推理弹性/cost</text>
+<rect class="sa" x="34" y="308" width="150" height="34" stroke-width="1"/><rect class="f5" x="34" y="308" width="4" height="34"/><text class="nlab f5" x="46" y="329">政体·出口/循环融资</text>
+<rect class="sn" x="34" y="352" width="150" height="34" stroke-width="1"/><rect class="gr" x="34" y="352" width="4" height="34"/><text class="nlab gr" x="46" y="373">本体·backlog / 上电</text>
+</g>
+
+<!-- mechs -->
+<g class="node">
+<rect class="choke" x="252" y="132" width="150" height="34"/><text class="mlab risk" x="264" y="147">neocloud 上电/在建</text><text class="risk" x="264" y="160">▲ 主线最小割=1</text>
+<rect class="mech" x="252" y="176" width="150" height="34" stroke-width="1"/><text class="mlab" x="264" y="197" fill="#454b52">lab 算力采购力</text>
+<rect class="mech" x="252" y="220" width="150" height="34" stroke-width="1"/><text class="mlab" x="264" y="241" fill="#454b52">推理/训练需求</text>
+<rect class="mech" x="252" y="264" width="150" height="34" stroke-width="1"/><text class="mlab" x="264" y="285" fill="#454b52">推理需求弹性</text>
+</g>
+
+<!-- edges src->mech -->
+<path class="edger" d="M184,149 L250,149" marker-end="url(#ahr)"/>
+<path class="edge" d="M184,193 L250,193" marker-end="url(#ah)"/>
+<path class="edge" d="M184,237 L250,237" marker-end="url(#ah)"/>
+<path class="edge" d="M184,281 L250,281" marker-end="url(#ah)"/>
+<!-- ticker -->
+<rect class="tkbox" x="470" y="222" width="86" height="66" rx="9"/><text class="tw" x="513" y="252" text-anchor="middle">L2 · 51.2%</text><text class="tk" x="513" y="270" text-anchor="middle" fill="#fff">NBIS</text>
+<!-- edges mech->tk + direct -->
+<path class="edger" d="M402,149 C440,149 452,235 468,248" marker-end="url(#ahr)"/>
+<path class="edge" d="M402,193 C440,193 452,240 468,252" marker-end="url(#ah)"/>
+<path class="edge" d="M402,237 L468,252" marker-end="url(#ah)"/>
+<path class="edge" d="M402,281 C440,281 452,262 468,260" marker-end="url(#ah)"/>
+<path class="edge" d="M184,325 C360,335 430,285 468,268" marker-end="url(#ah)"/>
+<path class="edge" d="M184,369 C360,382 430,292 468,274" marker-end="url(#ah)"/>
+
+<!-- NBIS caption -->
+<line class="divl" x1="34" y1="418" x2="560" y2="418"/>
+<text class="capb" x="34" y="442">读法</text>
+<text class="cap" x="34" y="462">6 条通道同时打到 → 断任一条,thesis 仍立(稳健)。</text>
+<text class="cap" x="34" y="480">但价格主线=供给,全汇于 <tspan class="risk">neocloud 上电</tspan> → 断此点掉 3 条供给链,</text>
+<text class="cap" x="34" y="498">退回"本体+需求"。<tspan class="capb">意外</tspan>:旭创 +182% vs 事前预期(待钉指引)。</text>
+<text class="cap" x="34" y="516"><tspan class="capb">edge</tspan>:中国侧光模块营收先于美国分析师看到。<tspan class="capb">动作</tspan>:持有·回调加。</text>
+
+<!-- ================= RBRK ================= -->
+<text class="hd" x="614" y="98" fill="#b5730c">RBRK · 窄 / 脆弱(佐证塌缩到单点)</text>
+<text class="tag" x="614" y="115">看似 4 源,实为 2 条独立多头通道</text>
+
+<!-- sources -->
+<g class="node">
+<rect class="sg" x="614" y="150" width="150" height="34" stroke-width="1"/><rect class="f2" x="614" y="150" width="4" height="34"/><text class="nlab f2" x="626" y="171">企业采用(Sub-ARR)</text>
+<rect class="st" x="614" y="212" width="150" height="34" stroke-width="1"/><rect class="f4" x="614" y="212" width="4" height="34"/><text class="nlab f4" x="626" y="233">版权诉讼</text>
+<rect class="sa" x="614" y="256" width="150" height="34" stroke-width="1"/><rect class="f5" x="614" y="256" width="4" height="34"/><text class="nlab f5" x="626" y="277">AI 监管</text>
+<rect class="sn" x="614" y="326" width="150" height="34" stroke-width="1"/><rect class="gr" x="614" y="326" width="4" height="34"/><text class="nlab gr" x="626" y="347">新范式(做空侧)</text>
+</g>
+
+<!-- mechs -->
+<g class="node">
+<rect class="choke" x="832" y="150" width="152" height="34"/><text class="mlab risk" x="844" y="165">企业数据就绪</text><text class="risk" x="844" y="178">▲ 增长引擎=单节点</text>
+<rect x="832" y="230" width="152" height="34" rx="7" fill="#fdf5e6" stroke="#e9d09a" stroke-width="1.6"/><text class="mlab" x="844" y="245" fill="#8a5a08">治理/合规预算</text><text x="844" y="258" font-size="10.5px" font-weight="700" fill="#b5730c">◆ 2 条汇于此 → 合为 1</text>
+</g>
+
+<!-- edges -->
+<path class="edger" d="M764,167 L830,167" marker-end="url(#ahr)"/>
+<path class="edge" d="M764,229 C800,229 806,244 830,246" marker-end="url(#ah)"/>
+<path class="edge" d="M764,273 C800,273 806,250 830,250" marker-end="url(#ah)"/>
+<!-- ticker -->
+<rect class="tkbox" x="1052" y="200" width="86" height="66" rx="9"/><text class="tw" x="1095" y="230" text-anchor="middle">L4 · 29.8%</text><text class="tk" x="1095" y="248" text-anchor="middle" fill="#fff">RBRK</text>
+<path class="edger" d="M984,167 C1024,167 1036,215 1050,226" marker-end="url(#ahr)"/>
+<path class="edge" d="M984,247 L1050,240" marker-end="url(#ah)"/>
+<path class="edged" d="M764,343 C960,352 1010,280 1050,258" marker-end="url(#ah)"/>
+<text x="905" y="368" font-size="10px" fill="#b3271e" font-style="italic">做空路径在跑</text>
+
+<!-- RBRK caption -->
+<line class="divl" x1="614" y1="418" x2="1146" y2="418"/>
+<text class="capb" x="614" y="442">读法</text>
+<text class="cap" x="614" y="462">版权+监管<tspan class="risk"> 共用「治理预算」节点</tspan> → 条形数成 2,图算=1。</text>
+<text class="cap" x="614" y="480">多头只剩 2 通道,增长全押 <tspan class="risk">单节点「企业采用」</tspan> → 断即空。</text>
+<text class="cap" x="614" y="498"><tspan class="capb">意外</tspan>:Sub-ARR +33%(一手 nowcast,信息量高)。</text>
+<text class="cap" x="614" y="516"><tspan class="capb">edge</tspan>:Sub-ARR 早于财报读到。<tspan class="capb">动作</tspan>:观察·单线待再确认。</text>
+
+<!-- legend -->
+<line class="divl" x1="26" y1="556" x2="1146" y2="556"/>
+<g transform="translate(26,580)">
+<rect x="0" y="-10" width="26" height="3" fill="#b3271e"/><text x="34" y="-4" font-size="11px" fill="#454b52">红边/红框 = 割点(最小割),单点风险</text>
+<rect x="300" y="-11" width="16" height="16" rx="4" class="choke"/><text x="324" y="-4" font-size="11px" fill="#454b52">共用节点 = 独立性塌缩(2→1)</text>
+<line x1="600" y1="-9" x2="626" y2="-9" stroke="#9aa0a8" stroke-width="1.6" stroke-dasharray="4 3"/><text x="634" y="-4" font-size="11px" fill="#454b52">虚线 = 做空/反向路径</text>
+<text x="820" y="-4" font-size="11px" fill="#8a9099">意外/edge/动作 = 文字数据点,不进图</text>
+</g>
+</svg>

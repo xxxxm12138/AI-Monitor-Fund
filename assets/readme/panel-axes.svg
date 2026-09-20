@@ -1,0 +1,97 @@
+<svg viewBox="0 0 1000 660" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+<defs>
+<marker id="a" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#3b5bdb"/></marker>
+<marker id="ag" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#8a9099"/></marker>
+</defs>
+<rect x="0" y="0" width="1000" height="660" fill="#fff"/>
+<text x="26" y="34" font-size="17" font-weight="700" fill="#1f2329">面板骨架 · 公司层筛选加在哪(两轴模型)</text>
+<text x="26" y="55" font-size="12" fill="#8a9099">顶条=公司轴(新增,锚结论层) · 左栏=源轴(现有,锚原料层) · 中心卡=图+表叠放互相佐证 · 机制节点只在图内下钻</text>
+
+<!-- panel container -->
+<rect x="24" y="80" width="952" height="556" rx="10" fill="#fdfdfe" stroke="#e6e8eb"/>
+
+<!-- TOP company bar (NEW, highlighted) -->
+<rect x="40" y="94" width="920" height="56" rx="8" fill="#eef1fb" stroke="#3b5bdb" stroke-width="1.6"/>
+<text x="54" y="112" font-size="11" font-weight="700" fill="#3b5bdb">公司轴 · 新增在这里(顶部 LEGEND 条)</text>
+<g font-size="11.5" font-weight="600">
+<rect x="54" y="120" width="118" height="22" rx="11" fill="#1f2329"/><text x="63" y="135" fill="#fff">NBIS 51.2%</text>
+<rect x="180" y="120" width="118" height="22" rx="11" fill="#fff" stroke="#c9d2f0"/><text x="189" y="135" fill="#1f2329">RBRK 29.8%</text>
+<rect x="306" y="120" width="70" height="22" rx="11" fill="#fff" stroke="#c9d2f0"/><text x="315" y="135" fill="#1f2329">STAA</text>
+<rect x="384" y="120" width="70" height="22" rx="11" fill="#fff" stroke="#c9d2f0"/><text x="393" y="135" fill="#1f2329">FCEL</text>
+<rect x="462" y="120" width="70" height="22" rx="11" fill="#fff" stroke="#c9d2f0"/><text x="471" y="135" fill="#8a9099">尾仓</text>
+<line x1="546" y1="118" x2="546" y2="144" stroke="#c9d2f0"/>
+<rect x="558" y="120" width="150" height="22" rx="11" fill="#fbf0dd" stroke="#efdcae"/><text x="567" y="135" fill="#8a5a08">潜在标的 CRWV…</text>
+<line x1="720" y1="118" x2="720" y2="144" stroke="#c9d2f0"/>
+<rect x="732" y="120" width="96" height="22" rx="11" fill="#e3f4e9" stroke="#bfe3cc"/><text x="741" y="135" fill="#1a7f45">组合(默认)</text>
+</g>
+
+<!-- LEFT source axis (existing) -->
+<rect x="40" y="166" width="220" height="452" rx="8" fill="#f6f7f9" stroke="#e6e8eb"/>
+<text x="54" y="188" font-size="11" font-weight="700" fill="#5a6069">源轴 · 现有(不动)</text>
+<text x="54" y="205" font-size="10.5" fill="#8a9099">LEGEND已选 · 搜索 · 类型标签</text>
+<g font-size="11" fill="#454b52">
+<rect x="54" y="216" width="192" height="20" rx="4" fill="#fff" stroke="#e6e8eb"/><text x="62" y="230">量价 | 事件 | 前沿 | 观点</text>
+<rect x="54" y="244" width="192" height="30" rx="5" fill="#fff" stroke="#e6e8eb"/><text x="62" y="263" font-weight="600">▸ D1 算力  (8)</text>
+<rect x="54" y="280" width="192" height="30" rx="5" fill="#eef1fb" stroke="#c9d2f0"/><text x="62" y="299" font-weight="600" fill="#3b5bdb">▾ D1 · 供给族  (8)</text>
+<text x="72" y="326">☑ 旭创营收 +182%</text>
+<text x="72" y="346">☑ GPU 出货 $89B</text>
+<text x="72" y="366">☑ 出口管制 91FR</text>
+<rect x="54" y="378" width="192" height="26" rx="5" fill="#fff" stroke="#e6e8eb"/><text x="62" y="395" font-weight="600">▸ D3 资本  (3)</text>
+<rect x="54" y="410" width="192" height="26" rx="5" fill="#fff" stroke="#e6e8eb"/><text x="62" y="427" font-weight="600">▸ D5 能力  (6)</text>
+<rect x="54" y="442" width="192" height="26" rx="5" fill="#fff" stroke="#e6e8eb"/><text x="62" y="459" font-weight="600">▸ D7 政策·能源  (5)</text>
+</g>
+<text x="54" y="600" font-size="10" fill="#8a9099">选源 → 过滤图/驱动跨公司扇出</text>
+
+<!-- CENTER card: graph + table -->
+<rect x="272" y="166" width="688" height="452" rx="8" fill="#fff" stroke="#e6e8eb"/>
+<text x="288" y="190" font-size="13.5" font-weight="700" fill="#1f2329">NBIS · 判断卡</text>
+<text x="380" y="190" font-size="11" fill="#8a9099">(顶条聚焦某票时渲染;默认「组合」=扇出表)</text>
+
+<!-- graph zone -->
+<rect x="288" y="204" width="656" height="230" rx="7" fill="#fbfcfd" stroke="#dfe3e8" stroke-dasharray="5 3"/>
+<text x="302" y="224" font-size="11.5" font-weight="700" fill="#1a7f45">① 证据结构图(票锚 · 扇入)</text>
+<text x="302" y="242" font-size="10.5" fill="#8a9099">独立通道数 = 最小割(门格尔) · 割点标红 · 共用节点=佐证塌缩</text>
+<!-- mini graph glyph -->
+<g>
+<rect x="316" y="262" width="86" height="20" rx="5" fill="#eef1fb" stroke="#c9d2f0"/><text x="324" y="276" font-size="10" fill="#2f4bb3">供给族</text>
+<rect x="316" y="290" width="86" height="20" rx="5" fill="#e3f4e9" stroke="#bfe3cc"/><text x="324" y="304" font-size="10" fill="#1a7f45">需求族</text>
+<rect x="316" y="318" width="86" height="20" rx="5" fill="#efeafc" stroke="#ddd3f3"/><text x="324" y="332" font-size="10" fill="#6b4bc4">能力族</text>
+<rect x="316" y="346" width="86" height="20" rx="5" fill="#fbf0dd" stroke="#efdcae"/><text x="324" y="360" font-size="10" fill="#b5730c">政体族</text>
+<rect x="470" y="262" width="120" height="22" rx="5" fill="#fbeaea" stroke="#e6a9a9"/><text x="478" y="277" font-size="10" font-weight="700" fill="#b3271e">neocloud 上电 ▲割点</text>
+<rect x="470" y="304" width="120" height="20" rx="5" fill="#fbfbfd" stroke="#dfe3e8"/><text x="478" y="318" font-size="10" fill="#454b52">lab 采购力</text>
+<rect x="470" y="330" width="120" height="20" rx="5" fill="#fbfbfd" stroke="#dfe3e8"/><text x="478" y="344" font-size="10" fill="#454b52">推理需求</text>
+<rect x="660" y="292" width="70" height="46" rx="8" fill="#1f2329"/><text x="695" y="312" font-size="9" fill="#fff" text-anchor="middle">L2·51.2%</text><text x="695" y="326" font-size="13" font-weight="800" fill="#fff" text-anchor="middle">NBIS</text>
+<path d="M402,272 L470,273" stroke="#b3271e" stroke-width="1.6" fill="none"/>
+<path d="M402,300 L470,314" stroke="#c3c8ce" stroke-width="1.4" fill="none"/>
+<path d="M402,328 C440,328 450,338 470,340" stroke="#c3c8ce" stroke-width="1.4" fill="none"/>
+<path d="M590,273 C630,273 645,300 658,310" stroke="#b3271e" stroke-width="1.6" fill="none" marker-end="url(#a)"/>
+<path d="M590,314 L658,314" stroke="#c3c8ce" stroke-width="1.4" fill="none"/>
+<path d="M590,340 C630,340 645,326 658,320" stroke="#c3c8ce" stroke-width="1.4" fill="none"/>
+<text x="760" y="300" font-size="10" fill="#8a9099">机制节点=</text>
+<text x="760" y="314" font-size="10" fill="#8a9099">图内下钻,</text>
+<text x="760" y="328" font-size="10" fill="#8a9099">不作锚</text>
+</g>
+
+<!-- table zone -->
+<rect x="288" y="446" width="656" height="156" rx="7" fill="#fbfcfd" stroke="#dfe3e8" stroke-dasharray="5 3"/>
+<text x="302" y="466" font-size="11.5" font-weight="700" fill="#5a6069">② per-path 原料表(同质多行 · 与图互相佐证)</text>
+<g font-size="10.5" fill="#454b52">
+<line x1="302" y1="478" x2="930" y2="478" stroke="#e6e8eb"/>
+<text x="302" y="494" fill="#8a9099">源信号</text><text x="450" y="494" fill="#8a9099">传导链</text><text x="640" y="494" fill="#8a9099">可交易</text><text x="720" y="494" fill="#8a9099">预警</text><text x="800" y="494" fill="#8a9099">意外</text>
+<line x1="302" y1="502" x2="930" y2="502" stroke="#eff1f3"/>
+<text x="302" y="520">旭创 +182%</text><text x="450" y="520">在建→neocloud上电</text><text x="646" y="520">0.32</text><text x="724" y="520">0.36</text><text x="800" y="520" fill="#b5730c" font-weight="700">+182%↑</text>
+<line x1="302" y1="528" x2="930" y2="528" stroke="#eff1f3"/>
+<text x="302" y="546">GPU 出货 $89B</text><text x="450" y="546">供给/成本→本体</text><text x="646" y="546">0.26</text><text x="724" y="546">0.10</text><text x="800" y="546" fill="#8a9099">priced</text>
+<line x1="302" y1="554" x2="930" y2="554" stroke="#eff1f3"/>
+<text x="302" y="572">出口管制 91FR</text><text x="450" y="572">GPU供给→regime</text><text x="646" y="572">0.08</text><text x="724" y="572">0.14</text><text x="800" y="572" fill="#8a9099">—</text>
+<text x="302" y="592" fill="#8a9099" font-style="italic">表说"多少条、每条的数";图说"塌成几条独立通道、哪根断致命" — 层级不同,互证</text>
+</g>
+
+<!-- axis arrows -->
+<path d="M500,150 L500,204" stroke="#3b5bdb" stroke-width="1.8" fill="none" marker-end="url(#a)" stroke-dasharray="4 3"/>
+<text x="508" y="176" font-size="10" fill="#3b5bdb">选票→渲染扇入图</text>
+<path d="M260,320 L288,320" stroke="#8a9099" stroke-width="1.6" fill="none" marker-end="url(#ag)" stroke-dasharray="4 3"/>
+
+<!-- footnote -->
+<text x="26" y="652" font-size="11" fill="#8a9099">结论:公司选择器加在顶部(公司轴),D1–D7 留在左栏(源轴);两轴各锚一层,机制节点只做图内下钻。默认「组合」=保留现有跨公司扇出。</text>
+</svg>

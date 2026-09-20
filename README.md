@@ -22,6 +22,7 @@
 - [设计出发点 · 为什么是一张 Intelligence Graph](#design)
 - [这套映射是怎么长出来的 · 从供需对接到因果图](#build)
 - [四算子 ↔ 现有 schema(点落点看字段结构)](#operators)
+- [判断层 · 从边到票的判断与自进化闭环](#judgment)
 - [目录结构](#layout)
 - [如何运行](#run)
 - [数据模型(五层)](#datamodel)
@@ -77,6 +78,8 @@
 
 ① 先把 **AI 发展**本身铺成一张**供给侧全景**(七维节点池)→ ② 定义**怎么测**这些节点(数据按结构分四类:量价 / 事件 / 观点 / 前沿,每条带元数据)→ ③ 把 AI 节点**连到持仓票**(有向图,并用"一条 thesis 两端对读"做交叉验证)→ ④ 把节点 / 边 / 事实 / 判断**落成有纪律的表**(schema)→ ⑤ 给每条边**打分排序**(跳数 × 节点质量 → 可交易度 / 预警度,并按 T1/T2/T3 定确定性)→ ⑥ 用 **NBIS 真数跑一遍**验证,到期用真值给预测打分。
 
+**这套体系的目标——从基金数据负责人与合伙人的角度——不是"监测 AI 新闻",而是把 AI 发展变成一项会复利的决策 edge**:对**数据负责人**,是一条可信、可溯、可纠、置信度诚实的数据 → 结论管线,坏数据进不来、每条结论都站得住;对**合伙人**,是更早、带证据、卖方不做的差异化读数(如供给 ⟷ 需求对账抓 neocloud 泡沫),且**每一次判断都在为自动化攒校准与训练数据**。它最终是一张**租不到的 intelligence graph**——模型谁都能租,这张图与它的权重(R + E + 判断 + 校准曲线)租不到;北极星是 **P&L 归因**。
+
 **⑥ 一张图看 NBIS 怎么跑通**——**AI 发展节点(D1–D7)**经**六类边**(带跳数 · cert_tier)按**权重**(可交易 / 预警 / 方向)传导到 NBIS;方向与 tier 是可校准的**分析师判断**。再用供给 ⟷ 需求两端对账,三条预测已兑现:
 
 <div align="center">
@@ -115,6 +118,26 @@
 | **SELECT** 剪枝选择 | 有限候选上的高频判断:路由 / 分级 / 验证 / 排序 | 接入路由 · [`observation_direction`↗](pipeline/SCHEMA.md#tbl-observation_direction) · 两道闸(可信度 → 重要性)· 三态对账 · `tradable`/`warning` 排序 |
 | **闭环** 自我校准 | confidence → outcome → 校准曲线 | [`decision_log`↗](pipeline/SCHEMA.md#tbl-decision_log) 六元组 · `v_calibration` · [`decision_registry`↗](pipeline/SCHEMA.md#tbl-decision_registry).calib_status 状态机(human → shadow → assisted → auto) |
 | **分工即 routing policy** | 确定性代码 → 专用判断 → 小生成模型 → human 的 cascade | AI 生成 / 分析师复核 / 数据团队,**边界随校准数据移动** |
+
+---
+
+<a id="judgment"></a>
+
+## 判断层 · 从边到票的判断与自进化闭环
+
+四算子跑完得到一堆边(per-path);判断层把它们**聚合成对每只票的结论**,并给每种洞见**天然的呈现形式**——不是越加越宽的表(列是浅层信息)。详见 [`docs/19-判断层设计`](docs/19-判断层设计.md) 与 [`docs/20-执行路由与校准闭环`](docs/20-执行路由与校准闭环.md)。
+
+**稳健性与风险是同一张图**:源→机制→票,佐证度 = 节点不相交路径数 = 最小割(门格尔定理),割点 = 关键风险单点。NBIS 6 条独立通道宽,但主线汇于 neocloud 上电;RBRK 版权 + 监管共用治理预算节点、实为 2 条通道 = 脆弱(独立性按共享节点算,不是按维度数)。
+
+<img src="assets/readme/evidence-structure.svg" alt="证据结构图:稳健性 = 最小割(门格尔)" width="100%">
+
+**两轴导航**:顶部公司轴(锚每票综合卡 / 扇入)+ 左栏 D1–D7 源轴(锚跨公司扇出 / 原料);机制节点只作图内下钻。表与图信息层级不同,互相佐证,缺一不可。
+
+<img src="assets/readme/panel-axes.svg" alt="面板两轴:公司轴 + 源轴" width="100%">
+
+**自进化闭环**:谁做判断(code / llm / model / human)= f(可形式化, 语义, 奈特不确定, 基率, 频率×价值),`运行档 = min(能力上限, 校准闸允许成熟度)`。双控制器——内环优化主体质量,外环按**影子成绩**沿 human→shadow→assisted→auto 升降路由;regime 变则 auto 隔离回人。北极星 = P&L 归因。
+
+<img src="assets/readme/calibration-loop.svg" alt="校准复盘双控制器闭环" width="100%">
 
 ---
 
