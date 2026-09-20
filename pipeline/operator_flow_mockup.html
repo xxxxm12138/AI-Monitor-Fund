@@ -1,0 +1,95 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>四算子 · 点击分别显示</title>
+<style>
+:root{--bg:#f4f5f7;--card:#fff;--ink:#1f2329;--mut:#8a9099;--line:#e6e8eb;--line2:#eff1f3;--accent:#3b5bdb;--accent-soft:#eef1fb;
+ --up:#1a7f45;--up-bg:#e3f4e9;--dn:#b3271e;--shock:#b5730c;--shock-bg:#fbe6cf}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:13px/1.55 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:1000px;margin:0 auto;padding:18px 16px 50px}
+h1{font-size:17px;margin:0 0 3px}.lead{color:var(--mut);font-size:12.5px;margin:0 0 14px}
+.evt{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:11px 14px;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.evt .lb{font-size:10px;color:var(--mut)}.evt .t{font-weight:700}.evt .meta{color:var(--mut);font-size:11.5px;margin-left:auto}
+.flow{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--card)}
+.op{flex:1;padding:11px 13px;border-right:1px solid var(--line);cursor:pointer;position:relative}
+.op:last-child{border-right:0}.op.on{background:var(--accent-soft)}
+.op .k{font-size:12.5px;font-weight:700;color:var(--mut)}.op.on .k{color:var(--accent)}
+.op .d{font-size:10.5px;color:var(--mut);margin-top:2px}
+.op .arw{position:absolute;right:-1px;top:50%;transform:translateY(-50%);z-index:2;color:#c4c9cf;font-size:12px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:8px;margin-top:12px;min-height:280px}
+.ph{padding:11px 15px;border-bottom:1px solid var(--line);font-weight:700;font-size:13px;display:flex;align-items:baseline;gap:8px}
+.ph .s{color:var(--mut);font-weight:400;font-size:11.5px}
+.pb{padding:14px 15px}
+.k{color:var(--mut);font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-top:13px}.k:first-child{margin-top:0}
+.v{font-size:12.5px;margin-top:3px}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:5px;padding:1px 8px;font-size:11px;margin:2px 5px 2px 0;background:#fbfbfd}
+.tag.d{border-color:#c9d2f0;color:var(--accent);background:var(--accent-soft)}
+.ok{color:var(--up);font-weight:600}.gate{background:var(--up-bg);border:1px solid #bfe3cc;border-radius:6px;padding:8px 11px;margin-top:5px;font-size:12px}
+.gate .no{color:var(--mut)}
+.chainrow{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin:4px 0}
+.node{border:1px solid var(--line);border-radius:6px;padding:3px 8px;font-size:11.5px;background:#fbfbfd}
+.node.src{border-color:var(--shock);color:#8a5a08;background:var(--shock-bg)}.node.mech{background:#f4f2fb;border-color:#e2ddf3;color:#5f52a6}.node.tk{border-color:#bfe3cc;color:var(--up);font-weight:600;background:var(--up-bg)}
+.ar{color:var(--mut);font-size:11px}
+table{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px}
+th{text-align:left;color:var(--mut);font-weight:600;font-size:10.5px;text-transform:uppercase;padding:7px 10px;border-bottom:1px solid var(--line2)}
+td{padding:7px 10px;border-bottom:1px solid var(--line2)}tr:last-child td{border-bottom:0}
+.dir{font-weight:700}.dir.s{color:var(--shock)}.dir.u{color:var(--up)}.dir.f{color:var(--mut)}
+.pl{border:1px solid var(--line);border-radius:4px;padding:0 6px;font-size:10.5px;color:var(--mut)}
+.tk{color:var(--up);font-weight:600}
+.rank{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line2)}.rank:last-child{border-bottom:0}
+.rank .n{font-weight:700;width:52px}.rank .bar{height:8px;border-radius:4px;background:var(--accent)}
+.rank .meta{color:var(--mut);font-size:11px;margin-left:auto}
+.quad{display:grid;grid-template-columns:52px 1fr 1fr;border:1px solid var(--line);border-radius:7px;overflow:hidden;font-size:11px;margin-top:8px;max-width:360px}
+.quad>div{padding:6px 8px;border-top:1px solid var(--line);border-left:1px solid var(--line)}.quad .h{background:#fafbfc;font-weight:600;color:var(--mut);border-top:0}.quad .rh{background:#fafbfc;font-weight:600;color:var(--mut);display:flex;align-items:center}
+.qa{background:#fdf1e3aa}.qa b{color:var(--shock)}.qp b{color:var(--mut)}
+.concl{margin-top:12px;padding:9px 12px;background:#fafbfc;border:1px solid var(--line);border-radius:7px;font-size:12px}.concl b{color:var(--ink)}
+</style></head><body><div class="wrap">
+<h1>四算子流程条 · 点每一段显示什么</h1>
+<p class="lead">输入一个 AI 事件后,顶栏亮起 REPRESENT;点每一段 = 看该段结果。同一条 pipeline,由粗到细:分类 → 扇出 → 预测 → 排序。</p>
+<div class="evt"><span class="lb">输入事件</span><span class="t">BIS 收紧对华先进算力出口</span><span class="meta">2026-01-15 · 91 FR 1684 · 联邦公报</span></div>
+<div class="flow" id="flow"></div>
+<div class="panel"><div class="ph" id="ph"></div><div class="pb" id="pb"></div></div>
+</div>
+<script>
+const OPS=[
+ {k:'① REPRESENT',d:'压成入口 + 两道闸'},
+ {k:'② PROPOSE',d:'扇出可能空间'},
+ {k:'③ PREDICT',d:'每路径方向×领先'},
+ {k:'④ SELECT',d:'打分排序→ticker'},
+];
+const VIEW={
+ 0:{h:'REPRESENT',s:'把这条内容压成图上一个带标签的入口',b:`
+  <div class="k">分类五元组（自动 A/B，两道闸 D 复核）</div>
+  <div class="v"><span class="tag d">维 D7 政策·能源</span><span class="tag d">机制 GPU 供给 / 成本</span><span class="tag">data_class 类2 事件</span><span class="tag">signal_role regime</span><span class="tag">源档 T_a · P1 联邦公报一手</span></div>
+  <div class="k">两道闸</div>
+  <div class="gate">证伪闸 <span class="ok">✓ 一手确证（FR Doc + 政策文本，可核）</span> → 影响力闸 <span class="ok">✓ 高</span>（改算力供给与地域分配，触瓶颈层）</div>
+  <div class="concl"><b>结论：</b>过双闸 → 可外溢到票（regime 级）。<span style="color:var(--mut)">若厂商 PR / claimed_only 未过闸 → 留 watchlist，不外溢。</span></div>`},
+ 1:{h:'PROPOSE',s:'从入口沿六类边扇出，枚举所有可达路径 = 可能空间',b:`
+  <div class="k">可能空间：7 条路径 → 6 个票</div>
+  <div class="chainrow"><span class="node src">出口管制</span><span class="ar">→</span><span class="node mech">GPU 供给 / 成本</span><span class="ar">→</span><span class="node tk">AMD</span><span class="node tk">INTC</span><span class="node tk">MRVL</span><span class="node tk">SUPX</span><span class="node tk">NBIS</span></div>
+  <div class="chainrow"><span class="node src">出口管制</span><span class="ar">→</span><span class="node mech">数据中心电力</span><span class="ar">→</span><span class="node tk">FCEL</span><span class="node tk">NBIS</span></div>
+  <div class="concl"><span style="color:var(--mut)">这一步只管"能打到哪"，不管强弱方向——先把空间画全（PROPOSE 扩张），下一步再剪。</span></div>`},
+ 2:{h:'PREDICT',s:'每条路径的方向 × 领先期 × 传导确定性',b:`
+  <table><thead><tr><th>路径</th><th>方向</th><th>领先期</th><th>确定性</th></tr></thead><tbody>
+   <tr><td>出口管制 → GPU 供给 → NBIS（成本/可得）</td><td><span class="dir s">! 冲击</span></td><td>事件驱动</td><td><span class="pl">T2</span></td></tr>
+   <tr><td>出口管制 → GPU 供给 → AMD / INTC / MRVL / SUPX</td><td><span class="dir s">! 冲击</span></td><td>事件驱动</td><td><span class="pl">T2</span></td></tr>
+   <tr><td>出口管制 → 电力 → FCEL / NBIS（上电节奏）</td><td><span class="dir f">→ 间接</span></td><td>季度级</td><td><span class="pl">T2</span></td></tr>
+  </tbody></table>
+  <div class="concl"><span style="color:var(--mut)">! = 需人判的冲击（regime 变量，不是单向利好利空）；确定性 T2 = 结构对账级，不可直接回测。</span></div>`},
+ 3:{h:'SELECT',s:'路径打分 → 剪枝排序 → 落到 ticker',b:`
+  <div class="k">按最强路径分排序（权重取 v_edge_calc）</div>
+  <div style="margin-top:4px">
+   <div class="rank"><span class="n">NBIS</span><span class="bar" style="width:40%"></span><span class="meta">0.30 · 2 路径 · ! regime</span></div>
+   <div class="rank"><span class="n">FCEL</span><span class="bar" style="width:40%"></span><span class="meta">0.30 · 1 路径 · →</span></div>
+   <div class="rank"><span class="n">AMD 等</span><span class="bar" style="width:15%"></span><span class="meta">0.11 · 各 1 路径 · !</span></div>
+  </div>
+  <div class="k">2×2 定位（领先期 × 证据级）</div>
+  <div class="quad"><div class="h"></div><div class="h">证据硬</div><div class="h">证据软</div><div class="rh">领先长</div><div class="qa"><b>0</b></div><div><b>0</b></div><div class="rh">领先短</div><div class="qa"><b>6</b>现在动·regime</div><div class="qp"><b>0</b></div></div>
+  <div class="concl"><b>结论：</b>regime 级冲击，NBIS 供给成本承压为主线；<b>方向不下注</b>（T2 regime，只给方向 + 挂 watchlist）。仓外无新命中。</div>`},
+};
+let cur=0;
+function render(){
+ document.getElementById('flow').innerHTML=OPS.map((o,i)=>`<div class="op ${i===cur?'on':''}" data-i="${i}"><div class="k">${o.k}</div><div class="d">${o.d}</div>${i<3?'<span class="arw">▸</span>':''}</div>`).join('');
+ document.querySelectorAll('.op').forEach(e=>e.onclick=()=>{cur=+e.dataset.i;render()});
+ const v=VIEW[cur];document.getElementById('ph').innerHTML=`${v.h}<span class="s">· ${v.s}</span>`;document.getElementById('pb').innerHTML=v.b;
+}
+render();
+</script></body></html>

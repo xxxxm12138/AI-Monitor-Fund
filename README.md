@@ -1,19 +1,54 @@
-# AI-Monitor-Fund · AI 发展监测体系
+<div align="center">
 
-面向成长股基金(港股 / 美股)的 **AI 发展监测体系**:把「一条 AI 前沿动态」压成可计算 state,沿因果链传导,导向具体持仓 ticker 与可观测 KPI,全程可信、可溯、可纠、可校准。
+<img src="assets/readme/hero.svg" alt="Anatole — AI 发展监测体系 · Intelligence Graph" width="100%">
 
-方法论是 **JEV 智能图四算子 + 闭环**:
+<br/>
 
-```
-新 AI 前沿内容
-  → ① REPRESENT  获取 + 压缩:源分级 → 两道闸(可信度 / 重要性) → 分维 D1–D7 / 机制 / data_class
-  → ② PROPOSE    枚举可能空间:沿六类边 E1–E6 扇出所有可达路径
-  → ③ PREDICT    每条路径:方向(↑↓→!) × 领先期 τ × 传导确定性
-  → ④ SELECT     打分(可交易 c·r·s·φ / 预警 τ·l·e) → 剪枝 → 排序 → 落到 ticker
-  → ⑤ 闭环        confidence → outcome → 校准曲线,映射图自我校准
-```
+![paradigm](https://img.shields.io/badge/paradigm-Intelligence_Graph-8B5CF6?style=flat-square)
+![workload](https://img.shields.io/badge/workload-decision--native-089981?style=flat-square)
+![truth source](https://img.shields.io/badge/truth_source-DuckDB-2962FF?style=flat-square)
+![Python](https://img.shields.io/badge/Python-3-2962FF?style=flat-square&logo=python&logoColor=white)
+![as-of](https://img.shields.io/badge/as--of-2026--09-55617A?style=flat-square)
+![status](https://img.shields.io/badge/interview-submission-1E2A44?style=flat-square)
 
-**真值源 = `pipeline/anatole_ai_monitor.duckdb`**(DuckDB 单文件)。任何改库都走 `pipeline/migrations/` 下一个编号脚本,由 `migrate.py` 应用并在库内登记(`migration_log` + 字段级 `change_log`),已应用脚本 checksum 冻结。库能从零复现。
+</div>
+
+> 面向成长股基金(港股 / 美股)的 **AI 发展监测体系**:把一条 AI 前沿动态压成可计算的表征,沿因果链传导,导向具体持仓 ticker 与可观测 KPI——全程可信、可溯、可纠、可校准。
+>
+> 它不是"一个会写研报的 AI",而是一张**自我校准的 Intelligence Graph**。
+
+---
+
+## 设计出发点 · 为什么是一张 Intelligence Graph
+
+<div align="center">
+<img src="assets/readme/paradigm.svg" alt="计算范式:compress → propose → predict → prune → typed decision" width="100%">
+</div>
+
+这套体系的出发点,是一个关于**计算范式**的判断:
+
+> **能用 Generation 表达的智能,不一定应该用 Generation 计算。**
+
+有时候我们需要的不是更多的**生成**,而是把复杂、多源、口径不一的信息,**以合适的形式压缩到一个 pattern 表征**里(REPRESENT),在此之上枚举候选、做预测(PREDICT),再高频地**剪枝、选择**(SELECT),通过这样一个范式**验证一个又一个决策节点**——最终形成的,是一条推理链条,以及塑造整条「表征 → 预测 → 剪枝 → 选择 → 迭代」链路的**权重**。
+
+投研恰好是最典型的 **decision-native**(而非 generation-native)工作负载:每个节点的输入 state 很复杂(多源证据、可信度、口径是否可比),输出却是**有限候选上的一个选择 + 一个置信度**。所以结论不是"我们要用某个模型",而是——**基金的投资体系本身应该按这个计算范式来设计**:重决策、压缩、预测、剪枝;生成只在图的**边缘**出现(写简报、向人解释、提出新的解释候选)。
+
+- **之前**分析"AI 发展如何导向到某只 ticker",已经有一定逻辑(按供应链、按竞对关系……)——本质上就是在一个人工枚举的候选空间里工作。这套 Intelligence Graph 让它可以**更细化、可扩张、可校准**,甚至整个基金的投资体系都可以采用这种形式。
+- **compute 的执行者不必是通用大模型**:它可以是 *for-representation / for-prediction / for-selection* 的专用**小模型**。schema 只声明每个决策点的 **typed I/O 契约**,执行者(人 / 通用 LLM / 专用模型 / 规则代码)是**可替换件**。
+- 押注的是 **Computation Specialization,而非 Model Specialization**。所以**今天的每一行数据,同时是明天专用模型的 I/O 契约与训练集**——这就是"**为后来的 AI 基建做设计**"的具体含义。
+
+> 完整设计立场文见 [`pipeline/JEV-intelligence-graph.md`](pipeline/JEV-intelligence-graph.md)(原文 [`pipeline/JEV`](pipeline/JEV))。
+
+### 四算子 ↔ 现有 schema(各就各位)
+
+| 算子 | 含义 | 在本体系的落点 |
+|---|---|---|
+| **REPRESENT** 压缩表征 | 把混乱世界压成 point-in-time、可比较的 state | `stg_observation` → 四类 `fct_*` + 通用元数据层(`knowledge_time` / P1–P5 / `anchor` / `snapshot_id` / `owner`)· `source_master` |
+| **PROPOSE** 枚举候选 | 扩张候选空间:新解释、新机制从哪来 | `edge_registry` 六类边 E1–E6(本体 / 供应链 / 需求 / 竞对 / 主题 / 资金人才)· 前沿雷达 · 假设台账 |
+| **PREDICT** 指标预判 | 在指标空间(而非文本)预判后果 | `lead_time_est` · `expectation_base`(Forecast)· 日历排期未来行 · `warning = τ·l·e` |
+| **SELECT** 剪枝选择 | 有限候选上的高频判断:路由 / 分级 / 验证 / 排序 | 接入路由 · `observation_direction` · 两道闸(可信度 → 重要性)· 三态对账 · `tradable`/`warning` 排序 |
+| **闭环** 自我校准 | confidence → outcome → 校准曲线 | `decision_log` 六元组 · `v_calibration` · `calib_status` 状态机(human → shadow → assisted → auto) |
+| **分工即 routing policy** | 确定性代码 → 专用判断 → 小生成模型 → human 的 cascade | AI 生成 / 分析师复核 / 数据团队,**边界随校准数据移动** |
 
 ---
 
@@ -21,7 +56,7 @@
 
 ```
 AI-Monitor-Fund/
-├── README.md                本文件:总览 · 结构 · 如何运行
+├── README.md                本文件
 ├── pipeline/                工程核心:真值源库 + 代码 + 迁移 + 视图 + 校验
 │   ├── anatole_ai_monitor.duckdb   真值源(29 张表 + 视图)
 │   ├── schema.sql · views.sql      表结构 / 可推导视图
@@ -29,8 +64,8 @@ AI-Monitor-Fund/
 │   ├── core.py · db_read.py · directions.py · factors.py · entities.py · metadata.py
 │   ├── migrations/                 0000_bootstrap → 00NN,一次改库 = 一个脚本
 │   ├── snapshots/                  来源原文本地快照(证据,snapshot_id = 文件名)
-│   ├── build_dashboard2.py · build_panel.py · gen_browser.py · gen_schema_doc.py   产出生成器
-│   ├── PIPELINE.md · SCHEMA.md · README.md   运行机制 / 字段字典 / 数据岗手册
+│   ├── build_dashboard2.py · build_panel.py · gen_browser.py · gen_schema_doc.py
+│   ├── PIPELINE.md · SCHEMA.md · README.md    运行机制 / 字段字典 / 数据岗手册
 │   └── JEV-intelligence-graph.md · PANEL-DESIGN.md · UI-SPEC.md · …   方法与设计文档
 ├── data/
 │   ├── tables/              7 张建库底稿 CSV(建库后冻结,改数走 migrations)
@@ -38,7 +73,7 @@ AI-Monitor-Fund/
 ├── docs/                    顶层方法 / 协作日志 / 信息架构文档
 ├── research/                研究过程:AI 侧 · schema 演进 · 映射 · NBIS 实例 · 假设台账 · 数据源
 ├── submission/             题目 · 二面记录 · 合伙人背景与岗位画像
-└── assets/                  独立 HTML 产出(AI 发展监测日历 · schema 浏览器)
+└── assets/                  独立 HTML 产出(监测日历 · schema 浏览器)· readme 图形
 ```
 
 ---
@@ -97,7 +132,7 @@ python3 build_dashboard2.py # 库 → panel_v2.html(数据管理者面板)
 
 ## 方法与分工
 
-每条判断在库内显式标注执行者:**AI 生成 / 分析师复核 / 数据团队**(`decision_log.executor_kind`),配合 calib_status 状态机(human → shadow → assisted → auto):未经校准验证的判断不得自动化。这既满足题目对 AI / 人分工的要求,也让整套推理链可审计。
+每条判断在库内显式标注执行者:**AI 生成 / 分析师复核 / 数据团队**(`decision_log.executor_kind`),配合 `calib_status` 状态机(human → shadow → assisted → auto):**未经校准验证的判断不得自动化,其输出禁用于 sizing 与告警阈值**。这既满足题目对 AI / 人分工的要求,也让整套推理链可审计——而这张"谁在什么置信度下执行什么判断"的表,就是这套 Intelligence Graph 里最难被复制的部分。
 
 ---
 
