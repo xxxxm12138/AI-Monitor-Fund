@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 470" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', Helvetica, Arial, sans-serif">
+  <rect width="1200" height="470" rx="18" fill="#FBFCFE"/>
+  <rect x="1" y="1" width="1198" height="468" rx="17" fill="none" stroke="#E0E3EB" stroke-width="1"/>
+
+  <text x="600" y="34" text-anchor="middle" font-size="14" font-weight="600" fill="#5B6472">NBIS 实例 · 一条 thesis 两端对读(真实数据 · as-of 2026-09)</text>
+  <text x="190" y="64" text-anchor="middle" font-size="12.5" font-weight="600" fill="#2158E0">供给端读 · 算力在建多少</text>
+  <text x="1010" y="64" text-anchor="middle" font-size="12.5" font-weight="600" fill="#077568">需求端读 · 需求真不真、续不续</text>
+
+  <!-- 连线 -->
+  <g stroke="#C6CEDD" stroke-width="1.2">
+    <line x1="340" y1="105" x2="520" y2="200"/>
+    <line x1="340" y1="155" x2="520" y2="200"/>
+    <line x1="340" y1="205" x2="520" y2="200"/>
+    <line x1="340" y1="255" x2="520" y2="200"/>
+  </g>
+  <g stroke="#B7DCD2" stroke-width="1.2">
+    <line x1="860" y1="121" x2="680" y2="200"/>
+    <line x1="860" y1="181" x2="680" y2="200"/>
+    <line x1="860" y1="241" x2="680" y2="200"/>
+  </g>
+
+  <!-- 左:供给端真数 -->
+  <g font-size="13" fill="#131722">
+    <rect x="40" y="84"  width="300" height="42" rx="8" fill="#EAF0FE" stroke="#2962FF" stroke-width="1.1"/><text x="56" y="110">中际旭创 2026Q1 营收</text><text x="324" y="110" text-anchor="end" font-weight="700" fill="#089981">+192%</text>
+    <rect x="40" y="134" width="300" height="42" rx="8" fill="#EAF0FE" stroke="#2962FF" stroke-width="1.1"/><text x="56" y="160">光模块出货 24M → 63M 只</text>
+    <rect x="40" y="184" width="300" height="42" rx="8" fill="#EAF0FE" stroke="#2962FF" stroke-width="1.1"/><text x="56" y="210">NBIS 收入 $582.3M</text><text x="324" y="210" text-anchor="end" font-weight="700" fill="#089981">+454%</text>
+    <rect x="40" y="234" width="300" height="42" rx="8" fill="#EAF0FE" stroke="#2962FF" stroke-width="1.1"/><text x="56" y="260">backlog $40B · 5GW 在建</text>
+  </g>
+
+  <!-- 中:NBIS -->
+  <rect x="520" y="150" width="160" height="100" rx="12" fill="#2962FF"/>
+  <text x="600" y="196" text-anchor="middle" font-size="26" font-weight="800" fill="#FFFFFF">NBIS</text>
+  <text x="600" y="222" text-anchor="middle" font-size="12.5" fill="#CFE0FF">51% · neocloud</text>
+
+  <!-- 右:需求端真数 -->
+  <g font-size="13" fill="#131722">
+    <rect x="860" y="100" width="300" height="42" rx="8" fill="#E3F4F0" stroke="#089981" stroke-width="1.1"/><text x="876" y="126">Reflection $2B 融资 · 2025-10</text>
+    <rect x="860" y="160" width="300" height="42" rx="8" fill="#DCF0EA" stroke="#089981" stroke-width="1.6"/><text x="876" y="186" font-weight="700">→ 签 NBIS $1B 算力合同 · 2026-07</text>
+    <rect x="860" y="220" width="300" height="42" rx="8" fill="#E3F4F0" stroke="#089981" stroke-width="1.1"/><text x="876" y="246">Cohere $240M ARR</text>
+  </g>
+
+  <!-- 对账逻辑 -->
+  <rect x="40" y="300" width="1120" height="66" rx="10" fill="#F5F7FB" stroke="#E0E3EB"/>
+  <text x="60" y="326" font-size="12.5" font-weight="700" fill="#5B6472">对账逻辑</text>
+  <g font-size="13">
+    <circle cx="70" cy="346" r="5" fill="#089981"/>
+    <text x="84" y="351" fill="#131722"><tspan font-weight="700" fill="#077568">同向</tspan>(供给猛建 + 需求涌入)→ 周期健康 · backlog 可信 · 支持加仓</text>
+    <circle cx="600" cy="346" r="5" fill="#F23645"/>
+    <text x="614" y="351" fill="#131722"><tspan font-weight="700" fill="#C0293A">背离</tspan>(供给还在建 · 需求转冷)→ neocloud 泡沫 / 循环融资预警(WeWork 2.0)· 减仓</text>
+  </g>
+
+  <!-- 已兑现 -->
+  <rect x="40" y="380" width="1120" height="60" rx="10" fill="#E3F4F0" stroke="#089981" stroke-width="1.2"/>
+  <text x="60" y="405" font-size="13" font-weight="700" fill="#077568">已兑现 ✓ 三条边级方向预测全部 correct</text>
+  <text x="60" y="426" font-size="12.5" fill="#131722">光模块 ↑ → NBIS ↑ &#160;·&#160; lab 融资 → 签 $1B 合同 &#160;·&#160; hyperscaler capex ↑ → NBIS &#160;&#160;(命中率 100% @ 中置信 · 小样本诚实标注)</text>
+</svg>
