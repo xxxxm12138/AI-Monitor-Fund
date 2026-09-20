@@ -1,0 +1,124 @@
+# SNAPSHOT · IEA · Electricity 2026 (February 2026) · Executive summary · demand outlook 2026–2030; >2 500 GW of projects incl. data centres stalled in grid connection queues
+# source: https://www.iea.org/reports/electricity-2026/executive-summary
+# fetched: 2026-09-20 · curl -sL -A 'Anatole research' · iea.org HTML → text（仅正文节选）
+
+ Global electricity demand is forecast to increase at a brisk average annual rate of 3.6% over the 2026-2030 forecast period, supported by rising consumption from industry, electric vehicles, air conditioning and data centres. Worldwide electricity demand grew by 3% year-on-year in 2025. This followed growth of 4.4% in 2024, when intense heat waves and strong industrial activity in many regions boosted electricity use. Looking ahead, annual demand growth over the next five years is set to be 50% higher on average compared with the average across the previous decade.
+
+ Global electricity total demand growth by sector and end-use, 2015-2030
+
+ Open
+
+ Notes
+
+ Values for the 2025-2030 period are forecasts.
+
+ Global electricity average annual demand growth by sector and end-use, 2015-2030
+
+ Open
+
+ For the first time in three decades, excluding periods of crisis‑related disruption, global electricity demand outpaced economic growth in 2024 in what is set to become a broader trend in the coming years. Despite a slight reversal in 2025 due to weather conditions that affected electricity demand, a fundamental shift in the longstanding relationship between electricity demand and economic activity is set to be a defining feature of the forecast period. Through 2030, electricity consumption is projected to grow at least 2.5 times as fast as overall energy demand.
+Emerging economies continue to be the main pillar of demand growth, accounting for nearly 80% of additional electricity consumption through 2030. While India and Southeast Asia are increasingly set to drive rising energy demand over the coming decade, China is forecast to remain the single largest contributor to global electricity demand growth through 2030, accounting for close to 50% of the increase. Over the next five years, China alone is expected to add demand equivalent to the total electricity consumption of the European Union (EU) today, with average growth of 4.9% annually. This is close to its 2025 pace of 5% but slower than its 6.5% average over the past decade. India and Southeast Asia’s share of electricity demand growth among emerging economies is forecast to rise substantially by 2030, driven by robust economic growth and rapidly rising demand for air conditioning, which is set to boost both annual consumption and peak loads.
+Electricity demand growth in advanced economies is accelerating again after 15 years of stagnation. This resurgence signals a new era in which electricity is a major energy input to some of the most dynamic drivers of global economies, such as artificial intelligence (AI), data centres and advanced manufacturing. In 2025, advanced economies accounted for almost 20% of global electricity demand growth, up from 17% in 2024. We expect this share to remain near the 20% level on average over the forecast period, driven by expanding industrial activity and the continued growth of data centres, electric vehicles and other end‑uses of electricity. In the United States, electricity demand rose by 2.1% in 2025 and is projected to grow by nearly 2% annually through 2030, with around half of the total increase driven by the rapid expansion of data centres. After rising by less than 1% in 2025, electricity demand in the European Union is expected to grow more strongly. Assuming a moderate rebound in industrial activity, EU demand is forecast to increase by around 2% per year through 2030 – although consumption is not expected to return to 2021 levels before 2028. Many other advanced economies – such as Australia, Canada, Japan and Korea – are also expected to see faster electricity demand growth through 2030.
+
+ Global electricity demand total growth by region, 2015-2030
+
+ Open
+
+ Global electricity average annual demand growth by region, 2015-2030
+
+ Open
+
+ Half of the world’s electricity is forecast to come from renewables and nuclear by 2030
+
+ Total generation from renewables is overtaking coal, in line with previous IEA forecasts. With solar PV generating record amounts of electricity, renewable output rose rapidly in 2025, virtually matching the level of coal‑fired generation based on the latest available data. This was despite weaker hydropower output in some regions and lower‑than‑average wind speeds, particularly in Europe, which tempered overall growth in renewable generation. Renewable output is forecast to grow by about 1 000 terawatt-hours (TWh) annually through 2030, with solar PV alone accounting for over 600 TWh. In percentage terms, renewable generation is forecast to rise at an annual rate of 8% per year. Renewables and nuclear are together expected to account for around half of global electricity generation by 2030.
+
+ Year-on-year global change in electricity generation by source, 2019-2030
+
+ Open
+
+ Notes
+
+ Other non-renewables include oil, waste and other non-renewable energy sources. Data for 2025 are preliminary. Data for 2026 and 2030 are forecast values.
+
+ Nuclear generation set a new record in 2025 and is set to continue rising steadily through 2030. Nuclear power output in 2025 was supported by reactor restarts in Japan, higher generation in France, and new capacity additions in China, India and other countries. While most of the growth in nuclear generation through 2030 is expected to occur in emerging economies, with China alone accounting for around 40% of the global increase, nuclear energy is also regaining strategic importance in many advanced economies, underpinned by supportive policy frameworks to extend the lifetime of reactors and add new capacity.
+
+ Global nuclear generation by countries and regions, 1973-2030
+
+ Open
+
+ Although coal generation is set to lose ground globally, it remains the single largest source of electricity in 2030
+
+ Globally, coal‑fired generation remained broadly flat in 2025, but regional trends diverged in ways not seen in previous years. Coal use declined in India and China due to slower electricity demand growth and the rapid expansion of renewables, and it increased in the United States as higher natural gas prices compared with 2024 and a slowdown in the retirement of coal plants, supported by federal policy, prompted higher coal use in the power sector. In the European Union, record solar generation was partially offset by weak hydropower and wind output, limiting the overall decline in coal use.
+Over the 2026-2030 period, renewables, natural gas and nuclear together are expected to meet all additional global electricity demand in aggregate. Complementing renewable and nuclear output, gas‑fired generation is set to grow by an average of 2.6% per year through 2030 – similar to its growth rate in 2019 and significantly faster than the annual average of about 1.4% seen over the past five years. This growth is driven primarily by rising US electricity demand and fuel switching from oil to gas in the Middle East. Renewables, gas and nuclear together are expected to displace generation from coal, which is forecast to decline slightly and return to near its 2021 level by 2030. With coal‑fired output in China expected to decline slightly, increases in India, Southeast Asia and other regions are forecast to be more than offset by declines in Europe and the Americas. Taken together, renewables are set to contribute the highest share of global electricity generation by 2030, though coal will remain the single largest fuel source for power generation.
+
+ Rapidly evolving power systems are bringing grids and flexibility to the forefront of policymaking
+
+ The Age of Electricity requires a fast and efficient expansion of grids and system flexibility to securely and cost‑effectively integrate a changing mix of generation, demand and storage. Variable output from solar PV and wind continues to expand quickly, with their share of global generation set to rise from 17% today to 27% by 2030. Meanwhile, newer sources of demand – such as electric vehicles, heat pumps and highly concentrated loads, such as data centres – are expected to grow rapidly. At the same time, more than 2 500 gigawatts (GW) worth of projects – encompassing renewables, storage, and projects with large loads, such as data centres − remain stalled in grid connection queues worldwide. Since grid investment has lagged well behind investment in generation capacity, many power systems are already experiencing rising congestion‑related curtailment. Meeting forecasted electricity demand through 2030 would require annual grid investment to increase by roughly 50% by 2030 from today’s USD 400 billion, alongside a significant scaling up of grid-related supply chains. At the same time, grids built for peak capacity often have substantial unused capacity during off‑peak periods. As grids and flexibility rise up the policy agenda, making more efficient use of existing systems can help relieve congestion and accelerate integration while grid expansion efforts continue.
+Complementary measures, such as grid‑enhancing technologies and regulatory reforms, can also unlock significant near‑term capacity while grid expansions advance. IEA analysis for this report shows that these measures together could free up enough capacity to connect around 1 200 GW to 1 600 GW of advanced‑stage projects currently stuck in queues worldwide. About 750 GW to 900 GW of projects could be enabled via more flexible, non-firm grid connection agreements. These agreements typically allow faster grid access, with some limitations, and can create extra hosting capacity before grid upgrades are completed. Another 450 GW to 700 GW could be unlocked by deploying grid‑enhancing technologies such as dynamic line rating and advanced power‑flow control, as well as larger upgrades like reconductoring and voltage uprating. Realising this potential would require updates to regulatory frameworks and the timely deployment of technical solutions.
+
+ Estimated grid hosting capacity that can be unlocked via non-firm connection agreements and technology upgrades by source
+
+ Open
+
+ Notes
+
+ The calculation of unlocked capacity via non-firm connection agreements is based on the assessment of public statements by system operators, regulators and governments in markets where this type of contract has already been implemented, taking into account power system characteristics and indicative levels of congestion. Technology upgrades considered in the analysis are dynamic line rating, dynamic transformer rating, advanced power flow control, topology optimisation, storage as a transmission asset, reconductoring and voltage uprating. The calculation of unlocked capacity via technology upgrades is based on literature review of papers, reports, statements and case studies providing quantitative assessments of unlocked capacity and technical/economic viability by solution across a diverse range of transmission networks worldwide. For both non-firm connections and technology upgrades, potentials of unlocked capacity by region and globally have been calculated using existing country- or region-level power grid length by voltage range, conductor types, current rating, number of circuits, congestion, average and peak demand. Hosting capacity values are provided as a high-level estimation based on transmission capacity gains and can differ from real-world applications based on grid- and project- specific detailed connection studies to verify constraints which are not considered in this analysis, e.g. voltage, short-circuit, substation capacity constraints, generation and load profiles, among others. Sources used to develop these methodologies are provided where relevant in the report.
+
+ Estimated grid hosting capacity that can be unlocked via non-firm connection agreements and technology upgrades by region
+
+ Open
+
+ Notes
+
+ The calculation of unlocked capacity via non-firm connection agreements is based on the assessment of public statements by system operators, regulators and governments in markets where this type of contract has already been implemented, taking into account power system characteristics and indicative levels of congestion. Technology upgrades considered in the analysis are dynamic line rating, dynamic transformer rating, advanced power flow control, topology optimisation, storage as a transmission asset, reconductoring and voltage uprating. The calculation of unlocked capacity via technology upgrades is based on literature review of papers, reports, statements and case studies providing quantitative assessments of unlocked capacity and technical/economic viability by solution across a diverse range of transmission networks worldwide. For both non-firm connections and technology upgrades, potentials of unlocked capacity by region and globally have been calculated using existing country- or region-level power grid length by voltage range, conductor types, current rating, number of circuits, congestion, average and peak demand. Hosting capacity values are provided as a high-level estimation based on transmission capacity gains and can differ from real-world applications based on grid- and project- specific detailed connection studies to verify constraints which are not considered in this analysis, e.g. voltage, short-circuit, substation capacity constraints, generation and load profiles, among others. Sources used to develop these methodologies are provided where relevant in the report.
+
+ Utility‑scale battery deployment is accelerating rapidly, becoming a significant source of short‑term flexibility. While conventional power plants remain the primary source of power system flexibility, the growing fleet of large‑scale batteries is playing a rising role in supporting security of supply. The strong growth is especially notable in regions with rapidly rising shares of solar PV and wind in electricity generation. Markets such as California, Germany, South Australia, Texas and the United Kingdom have all seen strong growth in utility‑scale battery capacity in recent years. Battery costs continue to fall, enhancing their competitiveness, but efforts to reduce market barriers and address integration challenges can help unlock their full potential.
+
+ Global emissions from electricity generation are forecast to plateau through 2030
+
+ Global power sector emissions remained flat in 2025 and are forecast to plateau over the 2026-2030 period as renewables and nuclear account for a growing share of generation. Electricity generation remains the largest source of energy‑related emissions, producing around 13 900 million tonnes of carbon dioxide (CO2) annually. After increasing by an average of 1.4% per year between 2022 and 2024, CO2 emissions from electricity generation stabilised in 2025. Compared with a decade earlier, the global CO2 intensity of electricity was down by 14%, and it is set to decline more rapidly through 2030 as the share of low‑emissions generation continues to rise.
+
+ Global CO2 emissions from electricity generation, 2016-2030
+
+ Open
+
+ CO2 emissions from electricity generation in China, 2016-2030
+
+ Open
+
+ Notes
+
+ Data for 2026-2030 are forecast values.
+
+ CO2 emissions from electricity generation in India and Southeast Asia, 2016-2030
+
+ Open
+
+ Notes
+
+ Data for 2026-2030 are forecast values.
+
+ CO2 emissions from electricity generation in selected regions, 2016-2030
+
+ Open
+
+ Notes
+
+ Data for 2026-2030 are forecast values.
+
+ Affordability and competitiveness take centre stage
+
+ Affordability remains a key concern, with household electricity prices in many countries rising faster than incomes since 2019. While energy‑ and supply‑related components of electricity prices have eased from their crisis peaks, they remain well above 2019 levels. Non‑energy components – such as network charges, taxes and other levies – continue to account for a large, and often growing, share of household bills. In addition, electricity is also taxed more heavily than natural gas in many countries, weakening incentives for households to electrify heating, cooking or hot water use. As a result, policymakers are increasingly focusing on policy frameworks, market designs and regulation to improve affordability and encourage electrification. Ensuring prices remain affordable while still reflecting costs and incentivising demand‑side flexibility is emerging as a central challenge. More flexible and efficient use of existing infrastructure can help contain future system costs and deliver greater savings for consumers.
+Electricity price gaps across regions persist, adding competitive pressures. Average wholesale electricity prices in 2025 rose year-on-year in several regions and countries, including in the European Union and the United States, reflecting higher natural gas prices. Meanwhile, prices fell in other countries, such as Australia and India. Competitive pressures are most acute for energy‑intensive industries, with significant differences continuing to be observed across regions.
+
+ Safeguarding the security and resilience of power systems is a critical priority
+
+ Recent large‑scale power outages worldwide underscore the importance of electricity security for modern economies and societies. Power systems face rising risks from ageing infrastructure, extreme weather events, cyberthreats and other emerging vulnerabilities. Blackouts in Chile, the Iberian Peninsula and Mexico in 2025 had widespread impacts. Recent incidents, such as the EstLink-2 cable outage between Finland and Estonia, the Heathrow substation fire and the Berlin arson attack, exposed critical vulnerabilities. Strengthening the physical protection of critical infrastructure and deploying advanced monitoring and early‑detection systems will be essential to guard against threats. As electrification increases, ensuring reliable supply depends on strong grids, resilient supply chains and diverse flexibility resources. Meeting evolving system needs also requires modernised operational frameworks, including updated grid codes, refined reserve requirements and adaptive regulatory structures.
+
+ Next
+
+ Demand
+
+ Newsletters
+
+ The best of the IEA sent straight to your inbox

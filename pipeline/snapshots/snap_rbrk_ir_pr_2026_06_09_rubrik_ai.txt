@@ -1,0 +1,28 @@
+# SNAPSHOT · Rubrik IR press release 2026-06-09 · "Rubrik Now Available as AI Agent" (Rubrik FORWARD, Las Vegas)
+# source: https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Now-Available-as-AI-Agent/default.aspx
+# fetched: 2026-09-20 10:25 via built-in browser get_page_text (curl 403)
+
+Rubrik Now Available as AI Agent
+June 9, 2026
+New Rubrik AI Delivers Agentic Experience for Rubrik Security Cloud and Rubrik Agent Cloud
+
+LAS VEGAS--(BUSINESS WIRE)-- Rubrik FORWARD -- Rubrik (NYSE: RBRK), the Security and AI Operations Company, today announced the launch of Rubrik AI, which transforms its platform with agentic-first experiences to operate at AI speed. Rubrik AI adapts to each organization's context and security threats and autonomously acts at machine speed across Rubrik's product portfolio.
+
+From day one, Rubrik built an API-first platform to provide the industry's leading cyber resilience for customers. Now, the company has innovated the Rubrik platform even further for the agentic era. Rubrik AI powers a new way of interaction with Rubrik's solution suites that is fully agent first: Customers define the business outcomes, and Rubrik AI reasons and autonomously acts to deliver those outcomes.
+
+"Today, Rubrik becomes an agent. Our Agentic Cyber Resilience is designed to mitigate risks from both external AI attacks and internal agent deployments," said Bipul Sinha, CEO, Chairman and Co-Founder, Rubrik. "Rubrik AI will deliver agentic automation to enable resilience against machine-speed cyber breaches and compromised AI agents."
+
+Rubrik AI: Patent pending design reasons, acts, and recovers at machine speed, and features:
+Agentic Mode: One agent across RSC and RAC, reasoning over data, identity, and the agents customers deploy.
+Agentic Guardrails: Built-in controls with RAC ensure every autonomous action is auditable, attributable, and reversible, preventing runaway AI risks.
+Orchestrated Workflows: Multi-step recovery sequences that once took human teams weeks now complete in minutes.
+
+Learn more breaking news at Rubrik FORWARD:
+Rubrik Launches Rubrik Agent Cloud for Anthropic's Claude Code
+Rubrik Unlocks Unstructured Data
+Rubrik Introduces Autonomous Business Recovery Solution for Cloud Applications
+Global Systems Integrators Partner with Rubrik to Deliver Rubrik Agent Cloud for Anthropic's Claude Code
+Rubrik Advances Identity Resilience Through Strata Acquisition and Identity Roll Forward Innovation
+
+About Rubrik: Rubrik (NYSE: RBRK), the Security and AI Operations Company, leads at the intersection of data protection, cyber resilience, and enterprise AI acceleration. Rubrik Security Cloud delivers complete cyber resilience by securing, monitoring, and recovering data, identities, and workloads across clouds. Rubrik Agent Cloud accelerates trusted AI agent deployments at scale by monitoring and auditing agentic actions, enforcing real-time guardrails, fine-tuning for accuracy and undoing agentic mistakes.
+Source: Rubrik

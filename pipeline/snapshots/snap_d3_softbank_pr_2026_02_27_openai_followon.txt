@@ -1,0 +1,85 @@
+# SNAPSHOT · SoftBank Group Corp. press release 2026-02-27 · Follow-on Investments in OpenAI
+# source: https://group.softbank/en/news/press/20260227
+# fetched: 2026-09-20 15:03 · curl -sL -A "Anatole research e1728233@u.nus.edu" · HTML→文本（去 script/style，</p>→换行，</td>→" | "）
+
+Follow-on Investments in OpenAI
+February 27, 2026
+SoftBank Group Corp.
+SoftBank Group Corp. (“SBG”) today announced that, on February 27, 2026 (U.S. time), it entered into a definitive agreement with OpenAI Group PBC (“OpenAI”), a U.S.-based company, to participate in OpenAI’s fundraising round, and to make follow-on investments of USD 30.0 billion (JPY 4,674.3 billion*1) via SoftBank Vision Fund 2 (the “Follow-on Investment”). Upon completion of the Follow-on Investment, SBG’s cumulative investment in OpenAI is expected to total USD 64.6 billion, representing an ownership interest of approximately 13%. The Follow-on Investment is subject to the satisfaction of customary closing conditions.
+SBG’s financial policies*2 regarding LTV (Loan-to-Value: calculated as adjusted net interest-bearing debt ÷ equity value of holdings) and cash position remain unchanged.
+ *1 Converted at USD = JPY 155.81
+ *2 SBG manages LTV below 25% under normal market conditions, with an upper threshold of 35% even in times of emergency. Concurrently, SBG secures a cash position sufficient to cover bond redemptions for at least the next two years.
+ 1. Rationale for the Follow-on Investment
+ SBG has invested an aggregate of USD 34.6 billion in OpenAI through SoftBank Vision Fund 2 since September 2024. To further support OpenAI’s continued growth, SBG has decided to proceed with the Follow-on Investment.
+ 2. Overview of the Follow-on Investment
+ First TrancheSecond TrancheThird Tranche
+Pre-money valuationUSD 730 billion | 
+Investment by SBGUSD 10 billion | USD 10 billion | USD 10 billion | 
+SBG’s investment timingApril 1, 2026
+(Japan time) | July 1, 2026
+(Japan time) | October 1, 2026 
+(Japan time) | 
+SBG’s investing entitySoftBank Vision Fund 2 | 
+Investment targetOpenAI Group PBC | 
+Type of securities to be acquiredPreferred Shares (automatically convertible into common shares of OpenAI upon an IPO or related listing transaction)
+ | 
+scrollable
+scrollable
+ 3. Overview of OpenAI
+(1) NameOpenAI Group PBC | 
+(2) AddressSan Francisco, California, USA | 
+(3) Name and title of representativeSam Altman, Chief Executive Officer | 
+(4) Business
+ descriptionOpenAI Group PBC operates as a public benefit corporation with the same mission as the OpenAI Foundation—namely, to ensure that artificial general intelligence (AGI) benefits all of humanity. | 
+(5) FoundedNovember 2018 (reorganized into a Public Benefit Corporation in October 2025) | 
+ 4. Timeline
+SBG Board resolution regarding the Follow-on Investment*3February 20, 2026 (Japan time) | 
+Execution of the agreement for the Follow-on Investment between SoftBank Vision Fund 2 and OpenAIFebruary 27, 2026 (U.S. time) | 
+Closing of First TrancheApril 1, 2026 (planned, Japan time) | 
+Closing of Second Tranche*4July 1, 2026 (planned, Japan time) | 
+Closing of Third Tranche*4October 1, 2026 (planned, Japan time) | 
+ *3 The final decision with respect to the final terms of the Follow-on Investment and the agreements thereof was delegated to Mr. Yoshimitsu Goto, Board Director, Corporate Officer, Senior Vice President, CFO of SBG to the extent not inconsistent with the contents of the SBG Board resolution.
+ *4 Closing dates may be subject to acceleration in the event of a public listing of OpenAI shares.
+ 5. Financing
+ The consideration for the Follow-on Investment is expected to be financed initially through bridge loans and other financing arrangements from major financial institutions, and subsequently replaced over time through the utilization of existing assets and other financing measures.
+ 6. Comments from Management
+ Masayoshi Son, Chairman & CEO of SoftBank Group Corp., said: “AI is transforming the world at an unprecedented pace. OpenAI is a clear leader, with world-class technology and an unparalleled global user base, and we have strong conviction in its continued growth. Through this additional investment, we will accelerate OpenAI’s research and ecosystem expansion, while advancing our own ASI strategy.”
+ Sam Altman, CEO of OpenAI, said: “We continue to push the frontier across AI infrastructure, research, and products. SoftBank is the perfect long-term partner to help us maximize the benefits of AI for people at global scale.”
+ 7. Impact on Consolidated Financial Results
+ In SBG’s consolidated financial statements, the OpenAI shares will be classified as financial assets measured at fair value through profit or loss (FVTPL). Their fair value will be measured on a quarterly basis, and any changes in fair value will be recognized as investment gains or losses in the consolidated statement of profit or loss.
+ Releases, announcements, presentations and other information available from this page and elsewhere on this website were prepared based on information available and views held at the time of preparation and speak only as of the respective dates on which they are filed or used by SoftBank Group Corp. or the applicable group company, as the case may be. Such information is subject to change and may become out-of-date. Such information may also contain forward-looking statements which are by their nature subject to various risks and uncertainties that may cause actual results and future developments to differ materially from those expressed or implied by such statements. Please read legal notices in its entirety prior to viewing any information available on this website.
+Back to the list
+Previous News
+Next News
+Print
+News
+Press Releases
+Notices
+Webcast
+Vision & Strategy
+Message from Chairman & CEO
+Philosophy
+Vision
+Strategy
+Values
+SoftBank Group History
+Origin of our Brand Name and Logo
+[AI] What dreams are made of
+Investor Relations
+IR News
+IR Calendar
+Events and Presentations
+Financials and Filings
+Annual Reports
+For Shareholders
+Stocks and Bonds
+IR Disclaimers
+Sustainability
+Sustainability News
+Top Message
+Our Approach to Sustainability
+Environmental Initiatives
+Social Initiatives
+Governance
+Portfolio Companies' Sustainability
+ESG Data

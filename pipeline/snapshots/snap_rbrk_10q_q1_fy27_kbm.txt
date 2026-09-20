@@ -1,0 +1,43 @@
+# SNAPSHOT · Rubrik 10-Q · Q1 FY2027 (period 2026-04-30, filed 2026-06-05) · EXCERPT: Key Business Metrics section only
+# source: https://www.sec.gov/Archives/edgar/data/1943896/000194389626000047/rbrk-20260430.htm
+# EDGAR accession: 0001943896-26-000047 · fetched: 2026-09-20 10:24 · fetch UA: Anatole research · text extracted from HTML (tables flattened with ' | ')
+
+Key Business Metrics
+We monitor the following key business metrics to help us evaluate our business. 
+Subscription ARR 
+Subscription ARR is calculated as the annualized value of our active subscriptions as of the measurement date, based on our customers’ total contract value, and assuming any contract that expires during the next 12 months is renewed on existing terms. Subscriptions include offerings for our RSC suite and related data security SaaS solutions, term-based licenses for our RSC-Private suite and related products, prior sales of CDM sold as a subscription term-based license with associated support and related SaaS products, and standalone sales of our SaaS subscription offerings like Anomaly Detection, Sensitive Data Monitoring and Resilience Guardian. We believe Subscription ARR illustrates our success in acquiring new subscription customers and maintaining and expanding our relationships with existing subscription customers.
+The following table sets forth our Subscription ARR as of the dates presented:
+April 30, | 
+2026 | 2025 | 
+(in thousands, except percentages) | 
+Subscription ARR | $ | 1,565,141 | $ | 1,181,269 | 
+% growth | 32 | % | 38 | % | 
+Subscription ARR does not include any maintenance revenue associated with perpetual licenses, which we generally no longer offer. Of the 32% and 38% growth, approximately 0.4 percentage points and 2 percentage points of growth for the three months ended April 30, 2026 and 2025, respectively, were a result of transitioning our existing maintenance customers to our subscription editions. Contributions to growth from these transitions were largely completed in fiscal 2026.
+Cloud Annual Recurring Revenue, or Cloud ARR 
+Cloud ARR is calculated as the annualized value of our active cloud-based subscriptions as of the measurement date, based on our customers’ total contract value, and assuming any contract that expires during the next 12 months is renewed on existing terms. Our cloud-based subscriptions include RSC and RSC-Government (excluding RSC-Private). Cloud ARR also includes SaaS subscription offerings like Anomaly Detection and Sensitive Data Monitoring, which are sold standalone or with prior sales of term-based license offerings of CDM. We believe that Cloud ARR provides important information on new and existing customers purchasing new RSC subscription offerings and existing subscription term-based license customers renewing with RSC subscription offerings.
+The following table sets forth our Cloud ARR as of the dates presented: 
+April 30, | 
+2026 | 2025 | 
+(in thousands, except percentages) | 
+Cloud ARR | $ | 1,393,920 | $ | 971,546 | 
+% growth
+ | 43 | % | 60 | % | 
+Average Subscription Dollar-Based Net Retention Rate 
+Our average subscription dollar-based net retention rate compares our Subscription ARR from the same set of subscription customers across comparable periods. We calculate our average subscription dollar-based net retention rate by first identifying subscription customers (the “Prior Period Subscription Customers”) that were subscription customers at the end of a particular quarter (the “Prior Period”) and calculate the Subscription ARR from the Prior Period Subscription Customers. We then calculate the Subscription ARR from these Prior Period Subscription Customers at the end of the same quarter of the subsequent year (the “Current Period”). This 
+Rubrik, Inc. | Q1 2027 Form 10-Q | 24
+ | 
+Table of Contents
+calculation captures upsells, contraction, and attrition since the Prior Period. We then divide total Current Period Subscription ARR by the total Prior Period Subscription ARR for Prior Period Subscription Customers. Our average subscription dollar-based net retention rate in a particular quarter is obtained by averaging the result from that particular quarter with the corresponding results from each of the prior three quarters. We believe that our average subscription dollar-based net retention rate provides useful information about the evolution of our existing customers as they expand through the increase of data from applications we already secure, new applications for us to secure, additional data security products, and conversion of our recurring revenue related to maintenance contracts into subscription revenue.
+Our historical average subscription dollar-based net retention rate does not include any maintenance revenue associated with perpetual licenses, which we no longer offer. Like Subscription ARR, our historical average subscription dollar-based net retention rate benefits from the transition of our existing maintenance customers to our subscription editions.
+The following table sets forth our average subscription dollar-based net retention rate as of the dates presented:
+April 30, | 
+2026 | 2025 | 
+Average subscription dollar-based net retention rate | approximately 120% | over 120% | 
+Customers with $100,000 or More in Subscription ARR 
+We believe that customers with $100,000 or more in Subscription ARR is a helpful metric in measuring our ability to scale with our customers and the success of our ability to acquire large customers. Additionally, we believe that our ability to increase the number of customers with $100,000 or more in Subscription ARR is a useful indicator of our market penetration and demand for our platform.
+The following table sets forth the number of customers with $100,000 or more in Subscription ARR as of the dates presented: 
+April 30, | 
+2026 | 2025 | 
+Customers with $100,000 or more in Subscription ARR | 2,946 | 2,381 | 
+% growth
+ | 24 | % | 28 | % | 

@@ -1,0 +1,76 @@
+# SNAPSHOT · BIS press release 2026-01-13 · Department of Commerce Revises License Review Policy for Semiconductors Exported to China
+# source: https://www.bis.gov/press-release/department-commerce-revises-license-review-policy-semiconductors-exported-china
+# fetched: 2026-09-20 · curl -sL -A 'Anatole research' · bis.gov HTML → text
+
+An official website of the United States government
+
+Here's how you know
+
+Official websites use .gov
+A .gov website belongs to an official government organization in the United States.
+
+Secure .gov websites use HTTPS
+A lock () or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.
+
+Skip to main content Bureau of Industry and Security 
+U.S. Department of Commerce
+
+HomepageEmail notifications
+
+Regulations
+Licensing
+Learn & Support
+News & Updates
+Enforcement
+About BIS
+
+Regulations
+Licensing
+Learn & Support
+News & Updates
+Enforcement
+About BIS
+
+ Bureau of Industry & Security
+Office of Congressional and Public Affairs 
+
+FOR IMMEDIATE RELEASE | January 13, 2026 | Media Contact: [email protected] 
+Department of Commerce Revises License Review Policy for Semiconductors Exported to China
+ Download as PDF WASHINGTON, D.C. — Today the Department of Commerce’s Bureau of Industry and Security (BIS) issued a rule revising its licensing policy for semiconductor exports to China. BIS will now review export license applications for the Nvidia H200, AMD MI325X, and similar chips on a case-by-case basis provided certain security requirements are met.
+Today’s rule follows President Trump’s December 8, 2025 announcement that the United States will allow the H200 and similar products to be shipped to approved customers in China to strengthen national security.
+In order to qualify, license applicants must demonstrate that exporting these products to China will not reduce global semiconductor production capacity currently available to U.S. customers; that the Chinese purchaser has adopted export compliance procedures, including customer screening; and that the product has undergone independent, third-party testing in the United States to verify its performance and security.
+Under Secretary for Industry and Security Jeffrey Kessler stated: “Export controls should evolve with changes in technology, while protecting national security. Permitting the sale of the H200 to China under controlled conditions will strengthen the American technology ecosystem.”
+The text of the final rule is available on the Federal Register’s website here. The rule is effective immediately upon publication in the Federal Register. Relevant parties can direct questions to Lauren Weber Holley [email protected].
+###
+
+ Bureau of Industry and Security 
+
+Share to YouTube
+Share to Twitter
+Share to LinkedIn
+
+Advancing U.S. national security, foreign policy, and economic objectives by ensuring an effective export control and treaty compliance system and promoting continued U.S. strategic technology leadership.
+
+ Regulations 
+Export Administration Regulations (EAR)Chemical Weapons Convention Regulations (CWCR)Federal Register Notices
+ Licensing 
+About LicensingDetermine what is subject to the EARClassify your itemCountry guidanceGuidance on end-use and end-user controls and U.S. person controlsApply for licenses (SNAP-R)Track applications (STELA)License exceptionsBIS forms
+ Learn & Support 
+About Learn & SupportEventsTraining videosDecision toolsChemical and biological controlsDeemed exportsEncryption controlsExport Compliance Programs (ECPs)Reexports and exports from abroadGuidance & Frequently Asked QuestionsAdvisory Opinions
+ News & Updates 
+News & Updates
+ Enforcement 
+About Export EnforcementDon't Let This Happen To YouOffices & leadershipVoluntary Self-Disclosure
+ About BIS 
+About BISGuiding principlesLeadershipOfficesTechnical Advisory Committees (TAC)Annual reports Freedom of Information ActPrivacy Policy ProgramContact us
+Website updates
+FOIA
+Disclaimer
+Privacy Policy
+SORN
+Information Quality
+Department of Commerce 
+USA.gov
+Accessibility
+Small Business Fairness
+System Use Notice

@@ -1,0 +1,84 @@
+# SNAPSHOT · IEA · Electricity 2024 (January 2024) · Executive summary · data centres 460 TWh (2022) → could exceed 1 000 TWh in 2026
+# source: https://www.iea.org/reports/electricity-2024/executive-summary
+# fetched: 2026-09-20 · curl -sL -A 'Anatole research' · iea.org HTML → text（仅正文节选）
+
+Electricity consumption from data centres, artificial intelligence (AI) and the cryptocurrency sector could double by 2026. Data centres are significant drivers of growth in electricity demand in many regions. After globally consuming an estimated 460 terawatt-hours (TWh) in 2022, data centres’ total electricity consumption could reach more than 1 000 TWh in 2026. This demand is roughly equivalent to the electricity consumption of Japan. Updated regulations and technological improvements, including on efficiency, will be crucial to moderate the surge in energy consumption from data centres. 
+
+ Emerging and developing economies are the engines of global electricity demand growth
+
+ About 85% of additional electricity demand through 2026 is set to come from outside advanced economies, with China contributing substantially even as the country’s economy undergoes structural changes. In 2023, China’s electricity demand rose by 6.4%, driven by the services and industrial sectors. With the country’s economic growth expected to slow and become less reliant on heavy industry, the pace of Chinese electricity demand growth eases to 5.1% in 2024, 4.9% in 2025 and 4.7% in 2026 in our forecasts. Even so, the total increase in China’s electricity demand through 2026 of about 1 400 TWh is more than half of the European Union’s current annual electricity consumption. Electricity consumption per capita in China already exceeded that of the European Union at the end of 2022 and is set to rise further. The rapidly expanding production of solar PV modules and electric vehicles, and the processing of related materials, will support ongoing electricity demand growth in China while the structure of its economy evolves. 
+
+ Change in electricity demand by region, 2022-2026
+
+ Open
+
+ Change in electricity demand by region, 2022-2026
+
+ Download image
+
+ China provides the largest share of global electricity demand growth in terms of volume, but India posts the fastest growth rate through 2026 among major economies. Following a 7% increase in India’s electricity demand in 2023, we expect growth above 6% on average annually until 2026, supported by strong economic activity and expanding ownership of air conditioners. Over the next three years, India will add electricity demand roughly equivalent to the current consumption of the United Kingdom. While renewables are set to meet almost half of this demand growth, one-third is expected to come from rising coal-fired generation. We also expect Southeast Asia to see robust annual increases in electricity demand of 5% on average through 2026, led higher by strong economic activity.
+While electricity use per capita in India and Southeast Asia is rapidly rising, it has been effectively stagnant in Africa for more than three decades. Per capita consumption in Africa even declined in recent years as the population grew faster than electricity supply was made available, and we only expect it to recover to its 2010-15 levels by the end of 2026 at the earliest. Thirty years ago, a person in Africa consumed more electricity on average than someone living in India or Southeast Asia. However, strong increases in electricity demand and supply in India and Southeast Asia in recent decades – which have gone hand in hand with a boom in economic development – have transformed these regions at a spectacular pace. Meanwhile, Africa's per capita electricity consumption in 2023 was half that of India and 70% lower than in Southeast Asia. Our forecast for Africa for the 2024-26 period anticipates average annual growth in total electricity demand of 4%, double the mean growth rate observed between 2017 and 2023. Two-thirds of this growth in demand is set to be met by expanding renewables, with the remainder covered mostly by natural gas.
+Electricity demand in the United States fell by 1.6% in 2023 after increasing 2.6% in 2022, but it is expected to recover in the 2024-26 outlook period. A key reason for the decline was milder weather in 2023 compared with 2022, though a slowdown in the manufacturing sector was also a factor. We forecast a moderate increase in demand of 2.5% in 2024, assuming a reversion to average weather conditions. This will be followed by growth averaging 1% in 2025‑26, led by electrification and the expansion of the data centre sector, which is expected to account for more than one-third of additional demand through 2026. 
+
+ Slim chances of a quick recovery for energy-intensive industries in the European Union
+
+ Electricity demand in the European Union declined for the second consecutive year in 2023, even though energy prices fell from record highs. Following a 3.1% drop in 2022, the 3.2% year-on-year decline in EU demand in 2023 meant that it dropped to levels last seen two decades ago. As in 2022, weaker consumption in the industrial sector was the main factor that reduced electricity demand, as energy prices came down but remained above pre-pandemic levels. In 2023, there were also signs of some permanent demand destruction, especially in the energy-intensive chemical and primary metal production sectors. These segments will remain vulnerable to energy price shocks over our outlook period.
+EU electricity consumption is not expected to return to 2021 levels until 2026 at the earliest. Electricity demand in the European Union’s industrial sector fell by an estimated 6% in 2023 after a similar decline in 2022. Assuming the industrial sector gradually recovers as energy prices moderate, EU electricity demand growth is forecast to rise by an average 2.3% in 2024-26. Electric vehicles, heat pumps and data centres will remain strong pillars of growth over the period – together accounting for half of expected gains in total demand.
+
+ Estimated drivers of change in electricity demand in the European Union, 2021-2026
+
+ Open
+
+ Estimated drivers of change in electricity demand in the European Union, 2021-2026
+
+ Download image
+
+ Electricity prices for energy-intensive industries in the European Union in 2023 were almost double those in the United States and China. Despite an estimated 50% price decline in the European Union in 2023 versus 2022, energy-intensive industries in the region continued to face far higher electricity costs compared with the United States and China in the aftermath of Russia’s invasion of Ukraine. The price gap between energy-intensive industries in the European Union and those in the United States and China, which already existed before the energy crisis, has widened. As a result, the competitiveness of EU energy-intensive industries is expected to remain under pressure. Policy makers are currently discussing new policy initiatives and financial instruments to enable the European Union to position itself among other global industrial heavyweights. The scope and effectiveness of these measures will likely determine the future of the European Union’s energy-intensive industrial sector.
+
+ Clean electricity supply is forecast to meet all of the world’s demand growth through 2026
+
+ Record-breaking electricity generation from low-emissions sources – which includes nuclear and renewables such as solar, wind and hydro – is set to cover all global demand growth over the next three years. Low-emissions sources, which will reduce the role of fossil fuels in producing electricity globally, are forecast to account for almost half of the world’s electricity generation by 2026, up from 39% in 2023. Over the next three years, low-emissions generation is set to rise at twice the annual growth rate between 2018 and 2023 – a consequential change, given that the power sector contributes the most to global carbon dioxide (CO2) emissions today. 
+
+ Changes in global electricity generation, 2022-2026
+
+ Open
+
+ Changes in global electricity generation, 2022-2026
+
+ Download image
+
+ Renewables are set to provide more than one-third of total electricity generation globally by early 2025, overtaking coal. The share of renewables in electricity generation is forecast to rise from 30% in 2023 to 37% in 2026, with the growth largely supported by the expansion of ever cheaper solar PV. Through this period, renewables are set to more than offset demand growth in advanced economies such as the United States and the European Union, displacing fossil-fired supply. At the same time, in China, the rapid expansion of renewable energy sources is expected to meet all additional electricity demand, though the weather and the extent to which the country’s demand growth eases remain key sources of uncertainty for the outlook. The strong expansion in renewable power capacity must also be accompanied by accelerated investment in grids and system flexibility to ensure its smooth integration.
+The rapid growth of renewables, supported by rising nuclear generation, is set to displace global coal-fired generation, which is forecast to fall by an average of 1.7% annually through 2026. This follows a 1.6% increase in coal-fired output in 2023 amid droughts in India and China that reduced hydropower output and increased coal-fired generation, more than offsetting strong declines in coal-fired generation in the United States and the European Union. The major factor that will determine the global outlook is evolving trends in China, where more than half of world’s coal-fired generation takes place. Coal-fired generation in China is currently on course to experience a slow structural decline, driven by the strong expansion of renewables and growing nuclear generation, as well as moderating economic growth. Despite the commissioning of new plants to boost the security of energy supply, the utilisation rate of Chinese coal-fired plants is expected to continue to fall as they are used more flexibly to complement renewables. Nevertheless, coal-fired generation in China will be influenced significantly by the pace of the economy’s rebalancing, hydropower trends, and bottlenecks in integrating renewables into the country’s power system. 
+Natural gas-fired generation is expected to rise slightly over the outlook period. In 2023, sharp declines in gas-fired power generation in the European Union were more than offset by massive gains in the United States, where natural gas, which has increasingly replaced coal, recorded its highest-ever share in power generation. Global gas-fired output grew by less than 1% in 2023. Through 2026, we forecast an average annual growth rate of around 1%. While gas-fired output in Europe is expected to continue declining, global growth will be supported by significant gains in Asia, the Middle East and Africa amid rising demand for power in these regions and the availability of additional liquefied natural gas (LNG) supply from 2025 onward.
+
+ Nuclear power generation is on track to reach a new record high by 2025
+
+ By 2025, global nuclear generation is forecast to exceed its previous record set in 2021. Even as some countries phase out nuclear power or retire plants early, nuclear generation is forecast to grow by close to 3% per year on average through 2026 as maintenance works are completed within France, Japan restarts nuclear production at several power plants, and new reactors begin commercial operations in various markets, including China, India, Korea, and Europe. Many countries are making nuclear power a critical part of their energy strategies as they look to safeguard energy security while reducing greenhouse gas emissions. At the COP28 climate change conference that concluded in December 2023, more than 20 countries signed a joint declaration to triple nuclear power capacity by 2050. Achieving this goal will require tackling the key challenge of reducing construction and financing risks in the nuclear sector. Momentum is also growing behind small modular reactor (SMR) technology. The technology’s development and deployment remains modest and is not without its difficulties, but R&D is starting to pick up.
+
+ Evolution of nuclear power generation by region, 1972-2026
+
+ Open
+
+ Asia remains the main driver of growth in nuclear power, with the region’s share of global nuclear generation forecast to reach 30% in 2026. Asia is set to surpass North America as the region with the largest installed nuclear capacity by the end of 2026, with a large number of plants currently under construction expected to be completed by then. More than half of new reactors expected to become operational during the outlook period are in China and India. Nuclear power has seen particularly strong growth in China over the past decade, with capacity additions of about 37 gigawatts (GW), equivalent to almost two-thirds of its current nuclear capacity. This resulted in China’s share in global nuclear generation rising from 5% in 2014 to about 16% in 2023. China started the commercial operation of its first fourth-generation reactor in December 2023, further underscoring the country's nuclear power advances.
+
+ Emissions from electricity generation are entering structural decline as decarbonisation gathers pace
+
+ Global CO2 emissions from electricity generation are expected to fall by more than 2% in 2024 after increasing by 1% in 2023. This is set to be followed by small declines in 2025 and 2026. The strong growth in coal-fired power generation in 2023 – especially in China and India amid reduced hydropower output – was responsible for the rise in the global electricity sector’s CO2 emissions. As clean electricity supply continues to expand rapidly, the share of fossil fuels in global generation is forecast to decline from 61% in 2023 to 54% in 2026, falling below 60% for the first time in IEA records dating back to 1971. While extreme weather conditions, economic shocks, or changes in government policies could lead to a temporary rise in emissions in individual years, the broader decline in power sector emissions is expected to persist as renewables and nuclear power capacity continue to expand and displace fossil-fired generation. 
+
+ CO2 emissions from electricity generation in China, 2014-2026
+
+ Open
+
+ Global CO2 emissions from electricity generation, 2014-2026
+
+ Open
+
+ CO2 emissions from electricity generation in selected regions, 2014-2026
+
+ Open
+
+ CO2 emissions from electricity generation in India and Southeast Asia, 2014-2026
+
+ Open
+
+ The CO2 intensity of global electricity generation is set to fall at twice the rate recorded in the pre-pandemic period. The forecasted average decline of 4% in CO2 intensity between 2023 and 2026 is double the 2% observed in the period between 2015 and 2019. The European Union is expected to record the highest rate of progress in reducing emissions intensity, averaging an improvement of 13% per year. This is followed by China, with annual improvements forecast at 6%, and the United States at 5%. The decline in the CO2 intensity of electricity generation means that emissions savings via the electrification of transport, heating and industry will become even more substantial.

@@ -1,0 +1,21 @@
+# SNAPSHOT · Rubrik newsroom press release 2026-07-09 · "Rubrik Announces £375 Million UK Investment and Names London as EMEA Headquarters"
+# source: https://www.rubrik.com/company/newsroom/press-releases/26/rubrik-announces-375-million-uk-investment-and-names-london-as-emea-headquarters
+# fetched: 2026-09-20 10:26 via built-in browser get_page_text
+
+JUL 9, 2026 | PRESS RELEASE
+Rubrik Announces £375 Million UK Investment and Names London as EMEA Headquarters
+Investment reflects the UK's growing strategic importance to Rubrik's global business and supports continued expansion across EMEA.
+
+LONDON, UK – July 9th, 2026 – Rubrik (NYSE: RBRK), the Security and AI Operations Company, today announced plans to invest more than £375 million ($500 million USD) in the UK over the next five years. The company also named London as its EMEA headquarters.
+
+The investment reinforces the UK's role as one of Rubrik's fastest-growing and most strategically important markets. It will support Rubrik's continued expansion across EMEA, including further hiring across sales, marketing and customer support.
+
+"The UK is one of the world's leading technology markets, and has become increasingly important to Rubrik's long-term growth," said Bipul Sinha, CEO, Chairman and Co-Founder, Rubrik. "As organisations accelerate AI adoption, cyber resilience is now an urgent business imperative. This investment strengthens our UK ecosystem, helping EMEA customers address the critical need for European data sovereignty, quickly recover from cyberattacks, and safely scale AI."
+
+Kanishka Narayan, Minister for AI and Online Safety commented, "Rubrik's decision to make London its European headquarters is a vote of confidence in Britain's talent and this country as a place to invest, hire and grow. It will create high-skilled jobs and deepen our strengths in the fast-growing fields of cyber and AI, another sign that the UK is where the world's leading tech companies are choosing to build their future."
+
+Rubrik's UK business delivered a record first quarter, including strong customer growth in significant enterprise and public-sector organisations. New customers adopting Rubrik's cyber resilience platform include Fortegra Financial Corporation, Manchester City Council and the Scottish Government.
+
+Rubrik now serves 2,000 customers across EMEA, nearly half of whom use three or more Rubrik products. Establishing London as the company's EMEA headquarters will help Rubrik scale its regional operations, access the UK's deep technology talent pool and support its growing customer base.
+
+On July 8, 2026, Rubrik announced the availability of Rubrik Security Cloud on the AWS European Sovereign Cloud, providing the European Union (EU) public sector and highly regulated private organisations with a cloud-native path for sovereign cyber resilience.

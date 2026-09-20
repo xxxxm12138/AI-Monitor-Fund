@@ -1,0 +1,426 @@
+# SNAPSHOT · Wiley 8-K Ex.99.1 · Q4 / FY2026 results (fiscal year ended 2026-04-30, released 2026-06-16)
+# source: https://www.sec.gov/Archives/edgar/data/107140/000162828026043447/ex991fy26q4.htm
+# fetched: 2026-09-20 · curl -A Anatole UA · text extracted from HTML (tables flattened with ' | ')
+
+EX-99.1
+2
+ex991fy26q4.htm
+EX-99.1
+Research and AI Momentum, Record Margins, and Cash Flow Growth Highlight Wiley's Fourth Quarter and Fiscal 2026 Results
+June 16, 2026 - Hoboken, NJ – Wiley (NYSE: WLY), a global leader in authoritative content and research intelligence for the advancement of scientific discovery, innovation, and learning, today reported results for the fourth quarter and fiscal year ended April 30, 2026.
+Fiscal 2026 Highlights
+• GAAP performance vs. prior year: Revenue of $1,677 is flat including impact of divestitures; Operating Income of $277 million vs. $221 million (+25%); and Diluted Earnings Per Share (EPS) of $4.16 vs. $1.53
+• Adjusted Results at constant currency : Adjusted Revenue of $1,677 million vs. $1,660 million (+1% or flat at constant currency) with Research growth offset by market-related softness in Learning; Adjusted Operating Income of $296 million up 18% with margin expanding by 260 basis points to a record 17.7%; Adjusted EBITDA of $440 million up 10% with margin expanding by 220 basis points to 26.2%; Adjusted EPS rose 15% to $4.19
+• Research momentum: Delivered 5% revenue growth or 4% at constant currency and over 100 basis points of Adjusted EBITDA margin improvement; after fiscal year-end, acquired Emerald Publishing to increase scale in Research and proprietary content advantage in AI economy, and appointed new leader in Research
+• AI and data analytics momentum: Delivered $49 million of AI revenue (+23%) with recurring revenue rapidly scaling; appointed Chief AI and Data Analytics Officer; early lead in life sciences and healthcare AI with landmark partnerships and corporate customer signings; lifetime AI revenue surpassed $110 million
+• Continued cash flow growth: Operating Cash Flow of $261 million (+29%) and Free Cash Flow of $195 million (+55%) driven by higher cash earnings and lower capex moderated by late renewal signings impacting the timing of cash collection
+• Record return to shareholders: Returned record $174 million to shareholders through dividends and share repurchases, including $100 million of repurchases, and raised dividend for 32nd consecutive year
+Management Commentary
+“Fiscal 2026 was Wiley’s breakout year,” said Matthew Kissner, President and CEO. “We accelerated our two reinforcing growth engines — Research and AI and data analytics – while delivering record margins and a significant step change in Free Cash Flow. Research delivered mid-single digit growth on record submissions and output, and the recent acquisition of Emerald Publishing further extends our scale and proprietary content advantage in the AI economy. AI revenue grew double digits to nearly $50 million with a rapidly expanding recurring stream, anchored by landmark partnerships with IQVIA and OpenEvidence and a growing roster of corporate customers. With momentum across both growth engines and a proven playbook, we enter Fiscal 2027 with our strongest conviction yet.”
+Q4 Financial Summary
+Please see accompanying financial tables for more detail on fourth quarter and full year results.
+• Q4 reported revenue of $448 million (+1% as reported, flat at constant currency, or CC)
+• Q4 Diluted EPS of $2.61 (+109%); Adjusted EPS +22% (CC) to $1.67 and Adjusted EBITDA +17% (CC) to $149 million with margin up 480 basis points to 33.2%.
+Research Segment
+• Q4 Research revenue of $296 million was up 5% as reported and 4% (CC), with Research Publishing up 5% (CC) largely driven by strong growth in gold open access and AI licensing. This was partially offset by a 4% decline (CC) in Research Solutions due to a soft recruitment market. Q4 Adjusted EBITDA of $111 million was up 13% (CC). Adjusted EBITDA margin for the quarter rose 300 basis points to 37.7%.
+• Full year Research revenue of $1,130 million was up 5% as reported and 4% CC, driven by growth in recurring revenue models (subscriptions and transformational agreements), gold open access, and AI licensing. Growth trends remained favorable, with submissions and output up significantly. Full year Adjusted EBITDA of $375 million was up 8% (CC). Adjusted EBITDA margin for the year rose 110 basis points to 33.2%.
+Learning Segment
+• Q4 Learning revenue of $152 million was down 6% as reported and 7% (CC) reflecting lower AI licensing revenue in Academic and Professional, macro headwinds, and retail channel softness. Q4 Adjusted EBITDA of $70 million was down 1% (CC). Adjusted EBITDA margin was up 310 basis points to 46.1%, driven by cost discipline and favorable mix.
+• Full year Learning revenue of $547 million was down 7% as reported and at constant currency due to macro headwinds, retail channel softness, and lower AI licensing revenue. Learning Adjusted EBITDA of $208 million for the year was down 6% (CC). Adjusted EBITDA margin rose 60 basis points to 38.0% on continued cost actions.
+Corporate Expenses
+“Corporate Expenses” are the portion of shared services costs not allocated to segments.
+• Q4 Corporate Expenses on an Adjusted EBITDA basis declined 21% as reported and 22% at constant currency on technology transformation and continued restructuring savings, contributing to Adjusted EBITDA margin expansion in the quarter.
+• Full year Corporate Expenses on an Adjusted EBITDA basis declined 14% on a reported basis and 15% at constant currency.
+Balance Sheet, Cash Flow, and Capital Allocation
+• Net Debt-to-EBITDA ratio improved to 1.4x compared to 1.8x in the year-ago period, reflecting higher Adjusted EBITDA and lower net debt of $608 million vs. $714 million due to settlement from a prior divestiture.
+• Net Cash provided by Operating Activities was $261 million (+29%), driven by higher Adjusted EBITDA, lower restructuring payments, and reduced retirement obligations.
+• Free Cash Flow was up 55% to $195 million primarily driven by higher operating cash flow and lower capex. Note that Free Cash Flow was moderated by late renewal signings impacting the timing of cash collection. Fiscal 2026 capex was $65 million vs. $77 million in the prior year.
+• Returns to Shareholders: Wiley allocated $174 million toward dividends and share repurchases, up from $137 million in the prior year. $100 million was allocated to share repurchases, up from $60 million in the prior-year period, and the dividend was raised for the 32nd consecutive year.
+New Business Leaders
+Wiley strengthened its leadership team this year to accelerate its AI and Research strategy. In January 2026, Armughan Rafat joined as Chief AI and Data Analytics Officer, a newly created role on the Executive Leadership Team, to lead the commercialization of AI-ready content and data products for AI developers and corporate R&D teams. Rafat previously served as Chief Analytics Officer at Norstella and Chief Data Officer at Clarivate. In May 2026, Jessica Kowalski joined Wiley as Executive Vice President and General Manager, Research, succeeding Jay Flynn. Kowalski joins from Microsoft and brings more than two decades of experience across research publishing and AI-enabled businesses, including prior senior roles at Amazon Web Services and RELX.
+Fiscal 2027 Outlook
+Metric
+Fiscal 2025
+Fiscal 2026
+Fiscal 2027 Outlook
+Organic Revenue Growth*
+Low-to-mid single digit growth
+(Research: mid-single digit growth)
+Adjusted EBITDA Margin
+24.0%
+26.2%
+26.5% to 27.5%
+Adjusted EPS
+$3.64
+$4.19
+$4.60 to $5.05
+Free Cash Flow
+$126M
+$195M
+$205M
+*Organic Revenue Growth” excludes the effects of the Emerald acquisition and currency movements. All other metrics include the addition of Emerald. Emerald is projected to add $78 million to Revenue (11 months of Fiscal Year) and be accretive to Adjusted EPS by approximately $0.10 and dilutive to Free Cash Flow by $15 million (the Emerald acquisition is expected to turn Free Cash Flow accretive in Fiscal 2028)
+• Organic Revenue Growth - driven by expected core growth in Research, improvement in Learning, and another strong year in AI and data analytics
+• Adjusted EBITDA Margin – reflecting anticipated cost savings and ongoing efficiency gains balanced with high-return, sustainable growth investment
+• Adjusted EPS – growth expectation driven by higher expected Adjusted Operating Income
+• Free Cash Flow – driven by expected cash earnings growth partially offset by year 1 dilution from Emerald ($15M), higher capex ($80M vs. $65M in FY26), expected restructuring costs, and higher cash taxes
+Earnings Conference Call
+Scheduled for today, June 16 at 10:00 am (ET). Access webcast at Investor Relations at investors.wiley.com, or directly at https://events.q4inc.com/attendee/978555203. North American callers, please dial (833) 461-5787 and enter the meeting ID: 373431738 . International callers, please dial (585) 542-9983 and enter the meeting ID: 373431738.
+About Wiley
+Wiley (NYSE: WLY) is a global leader in authoritative content and research intelligence for the advancement of scientific discovery, innovation, and learning. With more than 200 years at the center of the scholarly ecosystem, Wiley combines trusted publishing heritage with AI-powered platforms to transform how knowledge is discovered, accessed, and applied. From individual researchers and students to Fortune 500 R&D teams, Wiley enables the transformation of scientific breakthroughs into real-world impact. From knowledge to impact—Wiley is redefining what's possible in science and learning. Visit us at Wiley.com and Investors.Wiley.com. Follow us on Facebook, X, LinkedIn and Instagram
+Non-GAAP Financial Measures
+Wiley provides non-GAAP financial measures and performance results such as “Adjusted EPS,” “Adjusted Operating Income,” “Adjusted EBITDA,” “Adjusted Income before Taxes,” “Adjusted Income Tax Provision,” “Adjusted Effective Income Tax Rate,” “Free Cash Flow less Product Development Spending,” “organic revenue,” “Adjusted Revenue,” and results on a Constant Currency basis to assess underlying business performance and trends. Management believes non-GAAP financial measures, which exclude the impact of restructuring charges and credits and certain other items, and the impact of divestitures and acquisitions provide a useful comparable basis to analyze operating results and earnings. See the reconciliations of non-GAAP financial measures and explanations of the uses of non-GAAP measures in the supplementary information. We have not provided our 2027 outlook for the most directly comparable U.S. GAAP financial measures, as they are not available without unreasonable effort due to the high variability, complexity, and low visibility with respect to certain items, including restructuring charges and credits, gains and losses on foreign currency, and other gains and losses. These items are uncertain, depend on various factors, and could be material to our consolidated results computed in accordance with U.S. GAAP.
+Forward-Looking Statements
+This release contains certain forward-looking statements concerning the Company's operations, performance, and financial condition. Reliance should not be placed on forward-looking statements, as actual results may differ materially from those in any forward-looking statements. Any such forward-looking statements are based upon a number of assumptions and estimates that are inherently subject to uncertainties and contingencies, many of which are beyond the control of the Company and are subject to change based on many important factors. Such factors include, but are not limited to: (i) the level of investment in new technologies and products; (ii) subscriber renewal rates for the Company's journals; (iii) the financial stability and liquidity of journal subscription agents; (iv) the consolidation of book wholesalers and retail accounts; (v) the market position and financial stability of key online retailers; (vi) the seasonal nature of the Company's educational business and the impact of the used book market; (vii) worldwide economic and political conditions; (viii) the Company's ability to protect its copyrights and other intellectual property worldwide (ix) the ability of the Company to successfully integrate acquired operations and realize expected synergies and opportunities; (x) the ability to realize operating savings over time and in fiscal year 2027 in connection with our multiyear Global Restructuring Program and completed dispositions; (xi) cyber risk and the failure to maintain the integrity of our operational or security systems or infrastructure, or those of third parties with which we do business; (xii) as a result of acquisitions, we have and may record a significant amount of goodwill and other identifiable intangible assets and we may never realize the full carrying value of these assets; and (xiii) other factors detailed from time to time in the Company's filings with the Securities and Exchange Commission. The Company undertakes no obligation to update or revise forward-looking statements to reflect subsequent events.
+Category: Corporate News/ Earnings Releases
+JOHN WILEY & SONS, INC.
+SUPPLEMENTARY INFORMATION (1) (2)
+CONDENSED CONSOLIDATED STATEMENTS OF NET INCOME
+(in USD thousands, except per share information)
+(unaudited)
+Three Months Ended
+April 30, | Year Ended
+April 30,
+2026 | 2025 | 2026 | 2025
+Revenue, net | $ | 447,941 | $ | 442,579 | $ | 1,676,528 | $ | 1,677,609
+Costs and expenses:
+Cost of sales | 110,081 | 110,941 | 431,509 | 431,380
+Operating and administrative expenses | 211,393 | 229,767 | 895,907 | 947,437
+Restructuring and related charges | 3,076 | 12,490 | 19,203 | 25,561
+Amortization of intangible assets | 13,249 | 12,909 | 53,050 | 51,822
+Total costs and expenses | 337,799 | 366,107 | 1,399,669 | 1,456,200
+Operating income | 110,142 | 76,472 | 276,859 | 221,409
+As a % of revenue | 24.6 | % | 17.3 | % | 16.5 | % | 13.2 | %
+Interest expense | (9,646) | (11,270) | (43,848) | (52,547)
+Net foreign exchange transaction losses
+(1,362) | (826) | (6,564) | (8,142)
+Net loss on sale of businesses, assets, and impairment charges related to assets held-for-sale
+(1,242) | (13,580) | (4,828) | (23,340)
+Other (expense) income, net
+(2,919) | 1,469 | (6,533) | 5,498
+Income before taxes | 94,973 | 52,265 | 215,086 | 142,878
+(Benefit) provision for income taxes
+(40,374) | (15,828) | (6,531) | 58,717
+Effective tax rate | -42.5 | % | -30.3 | % | -3.0 | % | 41.1 | %
+Net income | $ | 135,347 | $ | 68,093 | $ | 221,617 | $ | 84,161
+As a % of revenue | 30.2 | % | 15.4 | % | 13.2 | % | 5.0 | %
+Earnings per share
+Basic | $ | 2.65 | $ | 1.27 | $ | 4.22 | $ | 1.56
+Diluted
+$ | 2.61 | $ | 1.25 | $ | 4.16 | $ | 1.53
+Weighted average number of common shares outstanding
+Basic | 51,109 | 53,683 | 52,466 | 54,054
+Diluted
+51,914 | 54,458 | 53,247 | 54,830
+Notes:
+(1) The supplementary information included in this press release for the three months and year ended April 30, 2026 is preliminary and subject to change prior to the filing of our upcoming Annual Report on Form 10-K with the Securities and Exchange Commission.
+(2) All amounts are approximate due to rounding.
+JOHN WILEY & SONS, INC.
+SUPPLEMENTARY INFORMATION (1) (2)
+RECONCILIATION OF US GAAP MEASURES to NON-GAAP MEASURES
+(in USD thousands, except per share information)
+(unaudited)
+Reconciliation of US GAAP Earnings per Share to Non-GAAP Adjusted EPS
+Three Months Ended
+April 30, | Year Ended
+April 30,
+2026 | 2025 | 2026 | 2025
+US GAAP Earnings Per Share - Diluted | $ | 2.61 | $ | 1.25 | $ | 4.16 | $ | 1.53
+Adjustments:
+Restructuring and related charges | 0.03 | 0.14 | 0.27 | 0.36
+Foreign exchange losses on intercompany transactions, including the write off of certain cumulative translation adjustments
+0.02 | (0.01) | 0.05 | 0.08
+Amortization of acquired intangible assets
+0.15 | 0.15 | 0.79 | 0.76
+Net loss on sale of businesses, assets, and impairment charges related to assets held-for-sale
+(0.01) | 0.18 | 0.08 | 0.38
+Held for Sale or Sold segment Adjusted Net Loss
+— | — | — | 0.05
+Income tax adjustments | (1.13) | (0.34) | (1.16) | 0.48
+Non-GAAP Adjusted Earnings Per Share - Diluted | $ | 1.67 | $ | 1.37 | $ | 4.19 | $ | 3.64
+Reconciliation of US GAAP Income Before Taxes to Non-GAAP Adjusted Income Before Taxes
+Three Months Ended
+April 30, | Year Ended
+April 30,
+2026 | 2025 | 2026 | 2025
+US GAAP Income Before Taxes | $ | 94,973 | $ | 52,265 | $ | 215,086 | $ | 142,878
+Pretax Impact of Adjustments:
+Restructuring and related charges | 3,076 | 12,490 | 19,203 | 25,561
+Foreign exchange losses on intercompany transactions, including the write off of certain cumulative translation adjustments
+1,001 | — | 2,881 | 5,590
+Amortization of acquired intangible assets
+13,249 | 12,908 | 53,050 | 51,864
+Net loss on sale of businesses, assets, and impairment charges related to assets held-for-sale
+1,242 | 13,580 | 4,828 | 23,340
+Held for Sale or Sold segment Adjusted Loss Before Taxes | — | — | — | 3,578
+Legal settlement
+— | — | 108 | —
+Non-GAAP Adjusted Income Before Taxes | $ | 113,541 | $ | 91,243 | $ | 295,156 | $ | 252,811
+Reconciliation of US GAAP Income Tax (Benefit) Provision to Non-GAAP Adjusted Income Tax Provision, including our US GAAP Effective Tax Rate and our Non-GAAP Adjusted Effective Tax Rate
+US GAAP Income Tax (Benefit) Provision
+$ | (40,374) | $ | (15,828) | $ | (6,531) | $ | 58,717
+Income Tax Impact of Adjustments (3)
+Restructuring and related charges | 1,444 | 4,633 | 4,682 | 5,947
+Foreign exchange losses on intercompany transactions, including the write off of certain cumulative translation adjustments
+118 | 571 | 464 | 1,170
+Amortization of acquired intangible assets
+5,313 | 4,720 | 11,298 | 10,231
+Net loss on sale of businesses, assets, and impairment charges related to assets held-for-sale
+1,684 | 3,715 | 480 | 2,368
+Held for Sale or Sold segment Adjusted Tax Benefit | — | — | — | 807
+Legal settlement
+— | — | — | —
+Income Tax Adjustments
+Impact of withholding tax on Sri Lanka distribution | 226 | — | (982) | —
+Impact of valuation allowance on the US GAAP effective tax rate
+57,990 | 18,776 | 58,324 | (26,008)
+Impact of change in Germany statutory tax rate on deferred tax balances | 418 | — | 4,286 | —
+Impact of change in certain US state tax rates in 2025 | — | (117) | — | (117)
+Non-GAAP Adjusted Income Tax Provision | $ | 26,819 | $ | 16,470 | $ | 72,021 | $ | 53,115
+US GAAP Effective Tax Rate | -42.5 | % | -30.3 | % | -3.0 | % | 41.1 | %
+Non-GAAP Adjusted Effective Tax Rate | 23.6 | % | 18.1 | % | 24.4 | % | 21.0 | %
+Notes:
+(1) All amounts are approximate due to rounding.
+(2) See Explanation of Usage of Non-GAAP Performance Measures included in this supplementary information for additional details on the reasons why management believes presentation of each non-GAAP performance measure provides useful information to investors.
+(3) For the three months and years ended April 30, 2026 and 2025, respectively, substantially all of the tax impact was from deferred taxes.
+JOHN WILEY & SONS, INC.
+SUPPLEMENTARY INFORMATION (1) (2)
+RECONCILIATION OF US GAAP NET INCOME TO NON-GAAP EBITDA AND ADJUSTED EBITDA
+(in USD thousands)
+(unaudited)
+Three Months Ended
+April 30, | Year Ended
+April 30,
+2026 | 2025 | 2026 | 2025
+Net Income | $ | 135,347 | $ | 68,093 | $ | 221,617 | $ | 84,161
+Interest expense | 9,646 | 11,270 | 43,848 | 52,547
+(Benefit) provision for income taxes | (40,374) | (15,828) | (6,531) | 58,717
+Depreciation and amortization | 35,510 | 36,681 | 143,477 | 147,126
+Non-GAAP EBITDA | 140,129 | 100,216 | 402,411 | 342,551
+Restructuring and related charges | 3,076 | 12,490 | 19,203 | 25,561
+Net foreign exchange transaction losses | 1,362 | 826 | 6,564 | 8,142
+Net loss on sale of businesses, assets, and impairment charges related to assets held-for-sale | 1,242 | 13,580 | 4,828 | 23,340
+Other expense (income), net | 2,919 | (1,469) | 6,533 | (5,498)
+Held for Sale or Sold segment Adjusted EBITDA
+— | — | — | 3,578
+Legal settlement | — | — | 108 | —
+Non-GAAP Adjusted EBITDA | $ | 148,728 | $ | 125,643 | $ | 439,647 | $ | 397,674
+Adjusted EBITDA Margin | 33.2 | % | 28.4 | % | 26.2 | % | 24.0 | %
+Notes:
+(1) All amounts are approximate due to rounding.
+(2) See Explanation of Usage of Non-GAAP Performance Measures included in this supplementary information for additional details on the reasons why management believes presentation of each non-GAAP performance measure provides useful information to investors.
+JOHN WILEY & SONS, INC.
+SUPPLEMENTARY INFORMATION (1) (2) (3)
+SEGMENT RESULTS
+(in USD thousands)
+(unaudited)
+% Change
+Three Months Ended
+April 30, | Favorable (Unfavorable)
+2026 | 2025 | Reported | Constant Currency
+Research:
+Revenue, net
+Research Publishing | $ | 259,123 | $ | 243,061 | 7 | % | 5 | %
+Research Solutions | 36,494 | 37,660 | -3 | % | -4 | %
+Total Revenue, net | $ | 295,617 | $ | 280,721 | 5 | % | 4 | %
+Non-GAAP Adjusted Operating Income | $ | 88,664 | $ | 75,168 | 18 | % | 17 | %
+Depreciation and amortization | 22,744 | 22,303 | -2 | % | 0 | %
+Non-GAAP Adjusted EBITDA | $ | 111,408 | $ | 97,471 | 14 | % | 13 | %
+Adjusted EBITDA margin | 37.7 | % | 34.7 | %
+Learning:
+Revenue, net
+Academic | $ | 96,147 | $ | 100,146 | -4 | % | -5 | %
+Professional | 56,177 | 61,712 | -9 | % | -10 | %
+Total Revenue, net | $ | 152,324 | $ | 161,858 | -6 | % | -7 | %
+Non-GAAP Adjusted Operating Income | $ | 59,705 | $ | 58,715 | 2 | % | 0 | %
+Depreciation and amortization | 10,445 | 10,948 | 5 | % | 6 | %
+Non-GAAP Adjusted EBITDA | $ | 70,150 | $ | 69,663 | 1 | % | -1 | %
+Adjusted EBITDA margin | 46.1 | % | 43.0 | %
+Corporate Expenses:
+Non-GAAP Adjusted Corporate Expenses | $ | (35,151) | $ | (44,921) | 22 | % | 23 | %
+Depreciation and amortization | 2,321 | 3,430 | 32 | % | 33 | %
+Non-GAAP Adjusted EBITDA | $ | (32,830) | $ | (41,491) | 21 | % | 22 | %
+Consolidated Results:
+Revenue, net | $ | 447,941 | $ | 442,579 | 1 | % | 0 | %
+Operating Income | $ | 110,142 | $ | 76,472 | 44 | % | 43 | %
+Adjustments:
+Restructuring charges | 3,076 | 12,490 | 75 | % | 75 | %
+Non-GAAP Adjusted Operating Income | $ | 113,218 | $ | 88,962 | 27 | % | 26 | %
+Adjusted Operating Income margin | 25.3 | % | 20.1 | %
+Depreciation and amortization | 35,510 | 36,681 | 3 | % | 5 | %
+Non-GAAP Adjusted EBITDA | $ | 148,728 | $ | 125,643 | 18 | % | 17 | %
+Adjusted EBITDA margin | 33.2 | % | 28.4 | %
+Notes:
+(1) The supplementary information included in this press release for the three months and year ended April 30, 2026 is preliminary and subject to change prior to the filing of our upcoming Annual Report on Form 10-K with the Securities and Exchange Commission.
+(2) All amounts are approximate due to rounding.
+(3) See Explanation of Usage of Non-GAAP Performance Measures included in this supplementary information for additional details on the reasons why management believes presentation of each non-GAAP performance measure provides useful information to investors.
+# Variance greater than 100%
+JOHN WILEY & SONS, INC.
+SUPPLEMENTARY INFORMATION (1) (2) (3)
+SEGMENT RESULTS
+(in USD thousands)
+(unaudited)
+% Change
+Year Ended
+April 30, | Favorable (Unfavorable)
+2026 | 2025 | Reported | Constant Currency
+Research:
+Revenue, net
+Research Publishing | $ | 965,767 | $ | 922,553 | 5 | % | 3 | %
+Research Solutions | 164,175 | 152,906 | 7 | % | 6 | %
+Total Revenue, net | $ | 1,129,942 | $ | 1,075,459 | 5 | % | 4 | %
+Non-GAAP Adjusted Operating Income | $ | 282,604 | $ | 255,580 | 11 | % | 10 | %
+Depreciation and amortization | 92,472 | 89,302 | -4 | % | -2 | %
+Non-GAAP Adjusted EBITDA | $ | 375,076 | $ | 344,882 | 9 | % | 8 | %
+Adjusted EBITDA margin | 33.2 | % | 32.1 | %
+Learning:
+Revenue, net
+Academic | $ | 318,757 | $ | 333,693 | -4 | % | -5 | %
+Professional | 227,829 | 251,075 | -9 | % | -10 | %
+Total Revenue, net | $ | 546,586 | $ | 584,768 | -7 | % | -7 | %
+Non-GAAP Adjusted Operating Income | $ | 166,385 | $ | 174,850 | -5 | % | -5 | %
+Depreciation and amortization | 41,148 | 43,900 | 6 | % | 7 | %
+Non-GAAP Adjusted EBITDA | $ | 207,533 | $ | 218,750 | -5 | % | -6 | %
+Adjusted EBITDA margin | 38.0 | % | 37.4 | %
+Held for Sale or Sold:
+Total Revenue, net | $ | — | $ | 17,382 | # | #
+Non-GAAP Adjusted Operating Loss
+$ | — | $ | (3,578) | # | #
+Depreciation and amortization | — | — | # | #
+Non-GAAP Adjusted EBITDA | $ | — | $ | (3,578) | # | #
+Adjusted EBITDA margin | 0.0 | % | -20.6 | %
+Corporate Expenses:
+Non-GAAP Adjusted Corporate Expenses | $ | (152,819) | $ | (179,882) | 15 | % | 16 | %
+Depreciation and amortization | 9,857 | 13,924 | 29 | % | 30 | %
+Non-GAAP Adjusted EBITDA | $ | (142,962) | $ | (165,958) | 14 | % | 15 | %
+Consolidated Results:
+Revenue, net | $ | 1,676,528 | $ | 1,677,609 | 0 | % | -1 | %
+Less: Held for Sale or Sold Segment | — | (17,382) | # | #
+Adjusted Revenue, net | $ | 1,676,528 | $ | 1,660,227 | 1 | % | 0 | %
+Operating Income
+$ | 276,859 | $ | 221,409 | 25 | % | 25 | %
+Adjustments:
+Restructuring charges | 19,203 | 25,561 | 25 | % | 25 | %
+Held for Sale or Sold Segment Adjusted Operating Loss
+— | 3,578 | # | #
+Legal settlement
+108 | — | # | #
+Non-GAAP Adjusted Operating Income | $ | 296,170 | $ | 250,548 | 18 | % | 18 | %
+Adjusted Operating Income margin | 17.7 | % | 15.1 | %
+Depreciation and amortization | 143,477 | 147,126 | 2 | % | 4 | %
+Less: Held for Sale or Sold depreciation and amortization
+— | — | # | #
+Non-GAAP Adjusted EBITDA | $ | 439,647 | $ | 397,674 | 11 | % | 10 | %
+Adjusted EBITDA margin | 26.2 | % | 24.0 | %
+# Variance greater than 100%
+JOHN WILEY & SONS, INC.
+SUPPLEMENTARY INFORMATION (1) (2)
+CONDENSED CONSOLIDATED STATEMENTS OF FINANCIAL POSITION
+(in USD thousands)
+(unaudited)
+April 30,
+2026 | April 30,
+2025
+Assets:
+Current assets
+Cash and cash equivalents | $ | 75,622 | $ | 85,882
+Accounts receivable, net | 244,164 | 228,410
+Inventories, net | 19,265 | 22,875
+Prepaid expenses and other current assets | 80,614 | 102,717
+Total current assets | 419,665 | 439,884
+Technology, property and equipment, net | 136,260 | 162,125
+Intangible assets, net | 578,959 | 595,044
+Goodwill | 1,132,392 | 1,121,505
+Operating lease right-of-use assets | 57,128 | 66,128
+Other non-current assets | 267,414 | 306,780
+Total assets | $ | 2,591,818 | $ | 2,691,466
+Liabilities and shareholders' equity:
+Current liabilities
+Accounts payable | $ | 67,199 | $ | 60,948
+Accrued royalties | 97,791 | 109,765
+Short-term portion of long-term debt | 12,500 | 10,000
+Contract liabilities | 451,423 | 462,693
+Accrued employment costs | 71,068 | 93,117
+Short-term portion of operating lease liabilities | 15,954 | 18,282
+Other accrued liabilities | 63,012 | 66,051
+Total current liabilities | 778,947 | 820,856
+Long-term debt | 670,897 | 789,435
+Accrued pension liability | 59,527 | 71,899
+Deferred income tax liabilities | 98,972 | 105,145
+Operating lease liabilities | 69,544 | 81,482
+Other long-term liabilities | 65,689 | 70,443
+Total liabilities | 1,743,576 | 1,939,260
+Shareholders' equity | 848,242 | 752,206
+Total liabilities and shareholders' equity | $ | 2,591,818 | $ | 2,691,466
+Notes:
+(1) The supplementary information included in this press release for April 30, 2026 is preliminary and subject to change prior to the filing of our upcoming Annual Report on Form 10-K with the Securities and Exchange Commission.
+(2) All amounts are approximate due to rounding.
+JOHN WILEY & SONS, INC.
+SUPPLEMENTARY INFORMATION (1) (2)
+CONDENSED CONSOLIDATED STATEMENTS OF CASH FLOWS
+(in USD thousands)
+(unaudited)
+Year Ended
+April 30,
+2026 | 2025
+Operating activities:
+Net income | $ | 221,617 | $ | 84,161
+Net loss on sale of businesses, assets, and impairment charges related to assets held-for-sale | 4,828 | 23,340
+Amortization of intangible assets | 53,050 | 51,822
+Amortization of product development assets | 16,058 | 16,610
+Amortization of cloud computing arrangements | 2,770 | 1,081
+Depreciation and amortization of technology, property, and equipment | 74,369 | 78,694
+Other noncash charges | 23,735 | 101,808
+Net change in operating assets and liabilities | (135,908) | (154,925)
+Net cash provided by operating activities | 260,519 | 202,591
+Investing activities:
+Additions to technology, property, and equipment | (51,166) | (61,473)
+Product development spending | (14,012) | (15,228)
+Businesses acquired in purchase transactions, net of cash acquired | (243) | (3,602)
+Net cash proceeds (transferred) related to the sale of businesses and assets | 112,194 | (7,642)
+Acquisitions of publication rights and other | (18,668) | (6,073)
+Net cash provided by (used in) investing activities | 28,105 | (94,018)
+Financing activities:
+Net debt (repayments) borrowings | (120,297) | 13,509
+Cash dividends | (74,358) | (76,101)
+Purchases of treasury shares | (100,082) | (60,421)
+Other | (3,566) | (2,317)
+Net cash used in financing activities | (298,303) | (125,330)
+Effects of exchange rate changes on cash, cash equivalents and restricted cash | (581) | 3,146
+Change in cash, cash equivalents and restricted cash for period | (10,260) | (13,611)
+Cash, cash equivalents and restricted cash - beginning | 85,932 | 99,543
+Cash, cash equivalents and restricted cash - ending | $ | 75,672 | $ | 85,932
+CALCULATION OF NON-GAAP FREE CASH FLOW LESS PRODUCT DEVELOPMENT SPENDING (3)
+Year Ended
+April 30,
+2026 | 2025
+Net cash provided by operating activities | $ | 260,519 | $ | 202,591
+Less: Additions to technology, property, and equipment | (51,166) | (61,473)
+Less: Product development spending | (14,012) | (15,228)
+Free cash flow less product development spending | $ | 195,341 | $ | 125,890
+Notes:
+(1) The supplementary information included in this press release for the year ended April 30, 2026 is preliminary and subject to change prior to the filing of our upcoming Annual Report on Form 10-K with the Securities and Exchange Commission.
+(2) All amounts are approximate due to rounding.
+(3) See Explanation of Usage of Non-GAAP Performance Measures included in this supplementary information for additional details on the reasons why management believes presentation of each non-GAAP performance measure provides useful information to investors.
+JOHN WILEY & SONS, INC.
+EXPLANATION OF USAGE OF NON-GAAP PERFORMANCE MEASURES
+In this earnings release and supplemental information, management may present the following non-GAAP performance measures:
+• Adjusted Earnings Per Share (Adjusted EPS);
+• Free Cash Flow less Product Development Spending;
+• Adjusted Revenue;
+• Adjusted Operating Income and margin;
+• Adjusted Income Before Taxes;
+• Adjusted Income Tax Provision;
+• Adjusted Effective Tax Rate;
+• EBITDA, Adjusted EBITDA and margin;
+• Organic revenue and growth; and
+• Results on a constant currency basis.
+Management uses these non-GAAP performance measures as supplemental indicators of our operating performance and financial position as well as for internal reporting and forecasting purposes, when publicly providing our outlook, to evaluate our performance and calculate incentive compensation.
+We present these non-GAAP performance measures in addition to US GAAP financial results because we believe that these non-GAAP performance measures provide useful information to certain investors and financial analysts for operational trends and comparisons over time. The use of these non-GAAP performance measures may also provide a consistent basis to evaluate operating profitability and performance trends by excluding items that we do not consider to be controllable activities for this purpose.
+The performance metric used by our chief operating decision maker to evaluate performance of our reportable segments is Adjusted Operating Income. We present both Adjusted Operating Income and Adjusted EBITDA for each of our reportable segments as we believe Adjusted EBITDA provides additional useful information to certain investors and financial analysts for operational trends and comparisons over time. It removes the impact of depreciation and amortization expense, as well as presents a consistent basis to evaluate operating profitability and compare our financial performance to that of our peer companies and competitors.
+For example:
+• Adjusted EPS, Adjusted Revenue, Adjusted Operating Income and margin, Adjusted Income Before Taxes, Adjusted Income Tax Provision, Adjusted Effective Tax Rate, EBITDA, Adjusted EBITDA and margin, and Organic revenue (excluding acquisitions) and growth provide a more comparable basis to analyze operating results and earnings and are measures commonly used by shareholders to measure our performance.
+• Free Cash Flow less Product Development Spending helps assess our ability, over the long term, to create value for our shareholders as it represents cash available to repay debt, pay common stock dividends, and fund share repurchases and acquisitions.
+• Results on a constant currency basis remove distortion from the effects of foreign currency movements to provide better comparability of our business trends from period to period. We measure our performance excluding the impact of foreign currency (or at constant currency), which means that we apply the same foreign currency exchange rates for the current and equivalent prior period.
+In addition, we have historically provided these or similar non-GAAP performance measures and understand that some investors and financial analysts find this information helpful in analyzing our operating margins and net income, and in comparing our financial performance to that of our peer companies and competitors. Based on interactions with investors, we also believe that our non-GAAP performance measures are regarded as useful to our investors as supplemental to our US GAAP financial results, and that there is no confusion regarding the adjustments or our operating performance to our investors due to the comprehensive nature of our disclosures.
+We have not provided our 2027 outlook for the most directly comparable US GAAP financial measures, as they are not available without unreasonable effort due to the high variability, complexity, and low visibility with respect to certain items, including restructuring charges and credits, gains and losses on foreign currency, and other gains and losses. These items are uncertain, depend on various factors, and could be material to our consolidated results computed in accordance with US GAAP.
+Non-GAAP performance measures do not have standardized meanings prescribed by US GAAP and therefore may not be comparable to the calculation of similar measures used by other companies and should not be viewed as alternatives to measures of financial results under US GAAP. The adjusted metrics have limitations as analytical tools, and should not be considered in isolation from, or as a substitute for, US GAAP information. It does not purport to represent any similarly titled US GAAP information and is not an indicator of our performance under US GAAP. Non-GAAP financial metrics that we present may not be comparable with similarly titled measures used by others. Investors are cautioned against placing undue reliance on these non-GAAP measures.

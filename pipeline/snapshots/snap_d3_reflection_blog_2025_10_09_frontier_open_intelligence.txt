@@ -1,0 +1,26 @@
+# SNAPSHOT · Reflection AI blog 2025-10-09 · Building Frontier Open Intelligence（官方 $2B 融资稿）
+# source: https://reflection.ai/blog/frontier-open-intelligence
+# fetched: 2026-09-20 15:03 · curl -sL -A "Anatole research e1728233@u.nus.edu" · HTML→文本（去 script/style，</p>→换行，</td>→" | "）
+
+Building Frontier Open Intelligence
+Reflection TeamOctober 9, 2025ProductNews
+Today we're sharing the next phase of Reflection.
+We're building frontier open intelligence accessible to all.
+We've assembled an extraordinary AI team, built a frontier LLM training stack, and raised $2 billion.
+Why Open Intelligence Matters
+Technological and scientific progress is driven by values of openness and collaboration.
+The internet, Linux, and the protocols and standards that underpin modern computing are all open. This isn't a coincidence. Open software is what gets forked, customized, and embedded into systems worldwide. It's what universities teach, what startups build on, what enterprises deploy.
+Open science enables others to learn from the results, be inspired by them, interrogate them, and build upon them in order to push the frontier of human knowledge and scientific advancement. AI got to where it is today through scaling ideas (e.g. self-attention, next token prediction, reinforcement learning) that were shared and published openly.
+Now AI is becoming the technology layer that everything else runs on top of. The systems that accelerate scientific research, enhance education, optimize energy usage, supercharge medical diagnoses, and run supply chains will all be built on AI infrastructure.
+But the frontier is currently concentrated in closed labs. If this continues, a handful of entities will control the capital, compute, and talent required to build AI, creating a runaway dynamic that locks everyone else out. There's a narrow window to change this trajectory. We need to build open models so capable that they become the obvious choice for users and developers worldwide, ensuring the foundation of intelligence remains open and accessible rather than controlled by a few.
+What We've Built
+Over the last year, we've been preparing for this mission.
+We’ve assembled a team who have pioneered breakthroughs including PaLM, Gemini, AlphaGo, AlphaCode, AlphaProof, and contributed to ChatGPT and Character AI, among many others.
+We built something once thought possible only inside the world’s top labs: a large-scale LLM and reinforcement learning platform capable of training massive Mixture-of-Experts (MoEs) models at frontier scale. We saw the effectiveness of our approach first-hand when we applied it to the critical domain of autonomous coding. With this milestone unlocked, we're now bringing these methods to general agentic reasoning.
+We've raised significant capital and identified a scalable commercial model that aligns with our open intelligence strategy, ensuring we can continue building and releasing frontier models sustainably. We are now scaling up to build open models that bring together large-scale pretraining and advanced reinforcement learning from the ground up.
+Safety and Responsibility
+Open intelligence also changes how we think about safety. It enables the broader community to participate in safety research and discourse, rather than leaving critical decisions to a few closed labs. Transparency allows independent researchers to identify risks, develop mitigations, and hold systems accountable in ways that closed development cannot.
+But openness also requires confronting the challenges of capable models being widely accessible. We're investing in evaluations to assess capabilities and risks before release, security research to protect against misuse, and responsible deployment standards. We believe the answer to AI safety is not “security through obscurity” but rigorous science conducted in the open, where the global research community can contribute to solutions rather than a handful of companies making decisions behind closed doors.
+Join Us
+There is a window of opportunity today to build frontier open intelligence, but it is closing and this may be the last. If this mission resonates, join us.
+We are thankful for the support of our investors including B Capital, Citi, CRV, Disruptive, DST, Eric Schmidt, Zoom Ventures, Lightspeed, NVIDIA, Sequoia, 1789 and others.

@@ -1,0 +1,158 @@
+# SNAPSHOT · Vistra Corp. Form 8-K (Item 7.01) dated 2026-01-09 · 20-year PPAs with Meta Platforms for 2,609 MW from PJM nuclear plants (Perry / Davis-Besse / Beaver Valley uprates)
+# source: https://www.sec.gov/Archives/edgar/data/1692819/000119312526008508/d20785d8k.htm
+# fetched: 2026-09-20 · curl -sL -A 'Anatole research e1728233@u.nus.edu' · SEC EDGAR HTML → text（accession 0001193125-26-008508）
+
+false 0001692819 0001692819 2026-01-09 2026-01-09 
+
+ UNITED STATES
+ SECURITIES AND EXCHANGE COMMISSION
+ Washington, D.C. 20549
+
+ FORM 8-K
+
+ CURRENT REPORT
+ Pursuant to Section 13 or 15(d)
+ of the Securities Exchange Act of 1934
+ Date of Report (Date of earliest event reported): January 9, 2026
+
+ VISTRA CORP. 
+ (Exact name of registrant as specified in its charter)
+
+Delaware | 
+ | 
+001-38086 | 
+ | 
+36-4833255 | 
+
+ (State or other jurisdiction of
+ incorporation or organization)
+ | 
+ | 
+ (Commission
+ File Number)
+ | 
+ | 
+ (I.R.S. Employer
+ Identification No.)
+ | 
+
+ 6555 Sierra Drive
+ Irving, TX
+ | 
+ | 
+75039 | 
+
+(Address of principal executive offices) | 
+ | 
+(Zip Code) | 
+ (214) 812-4600
+ (Registrant’s telephone number, including area code)
+ N/A
+ (Former name or former address, if changed since last report)
+
+ Check the appropriate box below if the Form 8-K filing is intended to simultaneously satisfy the filing obligation of the registrant under any of the following provisions:
+
+ | 
+☐ | 
+ Written communications pursuant to Rule 425 under the Securities Act (17 CFR 230.425)
+ | 
+
+ | 
+☐ | 
+ Soliciting material pursuant to Rule 14a-12 under the Exchange Act (17 CFR 240.l4a-12)
+ | 
+
+ | 
+☐ | 
+ Pre-commencement communications pursuant to Rule 14d-2(b) under the Exchange Act (17 CFR 240.14d-2(b))
+ | 
+
+ | 
+☐ | 
+ Pre-commencement communications pursuant to Rule 13e-4(c) under the Exchange Act (17 CFR 240.13e-4(c))
+ | 
+ Securities registered pursuant to Section 12(b) of the Act:
+
+ Title of Each Class
+ | 
+ | 
+ Trading
+ Symbol(s)
+ | 
+ | 
+ Name of Each Exchange
+ on Which Registered
+ | 
+
+Common stock, par value $0.01 per share | 
+ | 
+VST | 
+ | 
+New York Stock Exchange | 
+
+ | 
+
+ | 
+Indicate by check | 
+
+ | 
+
+ | 
+NYSE Texas | 
+ Indicate by check mark whether the registrant is an emerging growth company as defined in Rule 405 of the Securities Act of 1933 (§230.405 of this chapter) or Rule 12b-2 of the Securities Exchange Act of 1934 (§240.12b-2 of this chapter).
+ Emerging growth company ☐
+ If an emerging growth company, indicate by check mark if the registrant has elected not to use the extended transition period for complying with any new or revised financial accounting standards provided pursuant to Section 13(a) of the Exchange Act. ☐
+
+Item 7.01. | 
+ Regulation FD Disclosure. 
+ | 
+ In January 2026, Vistra Corp. (“Vistra” or the “Company”) announced that it has entered into 20-year power purchase agreements (“PPAs”) with Meta Platforms, Inc. (“Meta”), pursuant to which the Company has agreed to supply Meta with a total of 2,609 MW of carbon-free power and capacity from the Company’s PJM nuclear power plants as follows: 
+
+ | 
+• | 
+ | 
+ 1,268 MW of energy and capacity from the Company’s operating Perry Nuclear Power Plant (“Perry”) and 908 MW of energy and capacity from the Company’s operating Davis-Besse Nuclear Power Plant (“Davis-Besse”); and 
+ | 
+
+ | 
+• | 
+ | 
+ 213 MW of uprate energy and capacity from Perry, 80 MW of uprate energy and capacity from Davis-Besse, and 140 MW of uprate energy and capacity from the Company’s Beaver Valley Nuclear Power Plant. 
+ | 
+ Under the terms of the PPAs, the Company anticipates commencing delivery on a portion of the operating energy and capacity in late 2026 and full delivery of the operating energy and capacity by year end 2027. Additionally, the Company anticipates commencing delivery on a portion of the uprate energy and capacity by 2031 and full delivery of the uprate energy and capacity by year end 2034. To achieve the uprates, the Company expects to incur capital expenditures commencing in 2026 and extending through 2034, with less than 20% of the aggregate spend projected to occur by year end 2028. The precise timing and amount of the expenditures are in the process of being finalized and are subject to several contingencies and assumptions. Based on the expected payments to be received for the uprate energy and capacity and the expected after-tax spend profile for the uprates (including some lifecycle extension investments that the Company expected to otherwise make prior to seeking future license extensions), the Company expects these investments to meet or exceed its publicly communicated mid-teens levered return target. At full delivery of the PPAs and assuming Vistra’s 2026 Adjusted Free Cash Flow before Growth from Ongoing Operations guidance, Vistra expects incremental Adjusted Free Cash Flow before Growth accretion from the PPAs to be in the range of approximately 8%-10% related to operating energy and capacity and an additional approximately 5%-7% related to uprate energy and capacity. The Company expects to convert incremental Adjusted EBITDA to incremental Adjusted Free Cash Flow before Growth from the PPAs, which excludes capital expenditures associated with the uprates and tax impacts, at a weighted average ratio of approximately 80%. 
+ About Vistra
+ Vistra (NYSE: VST) is a leading Fortune 500 integrated retail electricity and power generation company based in Irving, Texas, that provides essential resources to customers, businesses, and communities from California to Maine. Vistra is a leader in transforming the energy landscape, with an unyielding focus on reliability, affordability, and sustainability. The company safely operates a reliable, efficient power generation fleet of natural gas, nuclear, coal, solar, and battery energy storage facilities while taking an innovative, customer-centric approach to its retail business. Learn more at vistracorp.com. 
+ Cautionary Note Regarding Forward-Looking Statements 
+ The information presented herein includes forward-looking statements within the meaning of the Private Securities Litigation Reform Act of 1995. These forward-looking statements, which are based on current expectations, estimates and projections about the industry and markets in which Vistra operates and beliefs of and assumptions made by the Company’s management, involve risks and uncertainties, which are difficult to predict and are not guarantees of future performance, that could significantly affect the financial results of Vistra. All statements, other than statements of historical facts, that are presented herein, or in response to questions or otherwise, that address activities, events or developments that may occur in the future, including such matters as activities related to our financial or operational projections including financial condition and cash flows, projected synergy, net debt targets, capital allocation, capital expenditures, liquidity, projected Adjusted EBITDA to free cash flow conversion rate, dividend policy, business strategy, competitive strengths, goals, future acquisitions or dispositions, development or operation of power generation assets, market and industry developments and the growth of our businesses and operations (often, but not always, through the use of words or phrases, or the negative variations of those words or other comparable words of a future or forward-looking nature, including, but not limited to: “intends,” “plans,” “will likely,” “unlikely,” “believe,” “confident,” “expect,” “seek,” “anticipate,” “estimate,” “continue,” “will,” “shall,” “should,” “could,” “may,” “might,” “predict,” “project,” “forecast,” “target,” “potential,” “goal,” “objective,” “guidance” and “outlook”), are forward-looking statements. Readers are cautioned not to place undue reliance on forward-looking statements. Although Vistra believes that in making any such forward-looking statement, the Company’s expectations are based on reasonable assumptions, any such forward-looking statement involves uncertainties and risks that could cause results to differ materially from those projected in or implied by any such forward-looking statement, including, but not limited to: (i) adverse changes in general economic or market conditions (including changes in interest rates) or changes in political conditions or federal or state laws and regulations; (ii) the ability of Vistra to execute upon its contemplated strategic, capital allocation, performance, and cost-saving initiatives and to successfully integrate acquired 
+
+businesses, including Vistra’s ability to complete the uprates on the terms and schedule contemplated in the PPAs, which will be subject to various conditions, milestones, and termination rights in certain circumstances; (iii) actions by credit ratings agencies; (iv) the severity, magnitude and duration of extreme weather events, contingencies and uncertainties relating thereto, most of which are difficult to predict and many of which are beyond our control, and the resulting effects on our results of operations, financial condition and cash flows; and (v) those additional risks and factors discussed in reports filed with the Securities and Exchange Commission by Vistra from time to time, including the uncertainties and risks discussed in the sections entitled “Risk Factors” and “Forward-Looking Statements” in the Company’s annual report on Form 10-K for the year ended December 31, 2024, and subsequently filed quarterly reports on Form 10-Q. 
+ Any forward-looking statement speaks only at the date on which it is made, and except as may be required by law, the Company will not undertake any obligation to update any forward-looking statement to reflect events or circumstances after the date on which it is made or to reflect the occurrence of unanticipated events. New factors emerge from time to time, and it is not possible to predict all of them; nor can the Company assess the impact of each such factor or the extent to which any factor, or combination of factors, may cause results to differ materially from those contained in any forward-looking statement. 
+
+ SIGNATURES 
+ Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. 
+
+ | 
+
+ | 
+Vistra Corp. | 
+
+Dated: January 9, 2026 | 
+ | 
+
+ | 
+ /s/ Kristopher E. Moldovan
+ | 
+
+ | 
+
+ | 
+Name: | 
+ | 
+Kristopher E. Moldovan | 
+
+ | 
+
+ | 
+Title: | 
+ | 
+Executive Vice President and Chief Financial Officer |

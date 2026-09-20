@@ -1,0 +1,1331 @@
+# SNAPSHOT · SuperX AI Technology 6-K Ex.99.1 · FY2026 H1 results (six months ended 2025-12-31, furnished 2026-06-22)
+# source: https://www.sec.gov/Archives/edgar/data/1897087/000121390026070389/ea029316901ex99-1.htm
+# fetched: 2026-09-20 · curl -A Anatole UA · text extracted from HTML (tables flattened with ' | ')
+
+Exhibit 99.1
+SuperX AI Technology Limited Announces Financial
+Results for the First Half of Fiscal Year 2026
+SuperX AI Technology Limited (formerly known as
+Super X AI Technology Limited and Junee Limited) (the “Company”) (Nasdaq: SUPX) is a limited liability company established
+under the laws of the British Virgin Islands (“BVI”) on August 25, 2021. The Company changed its name from Super X AI
+Technology Limited to SuperX AI Technology Limited on October 10, 2025. The Company together with its subsidiaries is referred to as the
+“Group”.
+The Group is currently in a critical strategic
+transition period shifting its core business from legacy Hong Kong interior fit-out services provider to full-stack global AI infrastructure
+solutions provider, maintaining dual-business structure on an interim basis while phasing out its legacy interior design business.
+1. Core
+Future Business of the Group: Full-stack Global AI Infrastructure Solutions
+The Group is a global AI infrastructure
+solutions provider, serving global government and enterprise customers, research institutions, cloud service providers, and edge
+computing project developers. The Group offers comprehensive solutions consisting of hardware, advanced software, and end-to-end
+services for AI data centers. The services include advanced solution design and planning, cost-effective infrastructure product
+integration, end-to-end operations and maintenance as well as turnkey solution of Modular AI Factory ranging from 2.5MW to 80MW with
+an expected construction cycle of 9 to 12 months. Its core products include high-performance AI servers containing RTX PRO6000 and
+B300 GPUs, rack-scale GB300 NVL72 systems, 800 Volts Direct Current (800VDC) solutions, 800G/1.6T high-speed optical interconnect
+components, as well as AI cloud and AI agents. The Group has established its first SuperX Global Supply Center in Tsu City, Mie
+Prefecture, Japan with an annual designed capacity of up to 20,000 AI servers, which commenced production in January 2026 and phased
+delivery during the six months ended June 30, 2026, and maintains NVIDIA-certified engineering teams plus localized service networks
+across 12 countries in Asia and North America. No revenue was generated from the AI infrastructure segment during the reporting
+period for the six months ended December 31, 2025 amid capacity building and customer development.
+2. Legacy Business: Hong Kong Interior Design
+and Fit-out Services (disposed in May, 2026)
+The interior design service, our legacy business,
+involves preliminary consulting services, conceptualizing clients’ design ideas with layout plans, and producing detailed design
+drawings. The business has been divested through the full disposal of OPS Interior Design Consultant Limited on May 7, 2026.
+3. Global footprint of the New Business
+Headquartered in Singapore, the Group coordinates
+worldwide AI business expansion via three regional hubs in Singapore, Japan and the United States. The Group continues to allocate capital,
+management and industrial resources toward AI computing infrastructure. Following the completion of legacy business divestment, the Group
+will fully concentrate its entire business on the AI infrastructure sector.
+4. Unaudited Financial Results for the Six
+Months Ended December 31, 2025
+The Company today announced its unaudited financial
+results for the six months ended December 31, 2025 (the “First Half of Fiscal Year 2026”). The first half of Fiscal Year 2026
+represents a pivotal investment and transition period for the Group. During this period, the Group accelerated its transformation from
+a legacy interior design and fit-out service provider to a global AI infrastructure solutions platform. While the financial results reflect
+significant upfront investments and non-cash charges associated with strategic initiatives, management believes these actions position
+the Group to advance commercialization of its AI infrastructure business. The Group grew its production capacity, strengthened its balance
+sheet and cash reserves, and advanced strategic collaborations globally, which the Company believes lays the operational foundation for
+scalable long-term growth.
+As our transformation continues, revenue from
+the AI business following the transformation is expected to be gradually realized in the calendar year 2026. During the reporting period
+for the six months ended December 31, 2025, our revenue was still derived from the Legacy Business.
+First Half of Fiscal Year 2026 Financial Results
+For the Six Months Ended December 31,
+Selected Unaudited Interim Condensed
+Consolidated Statements of Income Data:
+2025
+USD
+2024
+USD
+2023
+USD
+Revenue
+2,832,267
+737,981
+1,662,285
+Cost of revenue
+(2,437,770
+)
+(691,406
+)
+(1,255,208
+)
+Gross profit
+394,497
+46,575
+407,077
+Operating expenses
+(49,570,441
+)
+(6,321,395
+)
+(721,070
+)
+Total other (expense) income, net
+(26,947,024
+)
+138,362
+86,889
+Loss before provision for income taxes
+(76,122,968
+)
+(6,136,458
+)
+(227,104
+)
+Income tax benefit (expense)
+(1,589
+)
+26,850
+(3,288
+)
+Net loss
+(76,124,557
+)
+(6,109,608
+)
+(230,392
+)
+Net loss attributable to noncontrolling interests
+367,273
+—
+—
+Net loss attributable to SuperX AI Technology Limited
+(75,757,284
+)
+(6,109,608
+)
+(230,392
+)
+Accretion of redeemable noncontrolling interests
+—
+—
+—
+Net loss attributable to ordinary shareholders
+(75,757,284
+)
+(6,109,608
+)
+(230,392
+)
+Net loss per share – basic and diluted
+(2.430
+)
+(0.470
+)
+(0.022
+)
+Revenue
+During the reporting period, the Group’s
+revenue was still generated from its legacy design and fit-out business. Revenue increased by $2,094,286, or 283.8%, from $737,981 for
+the six months ended December 31, 2024 to $2,832,267 for the six months ended December 31, 2025. The increase was primarily attributable
+to higher demand for the Group’s legacy design and fit-out services in Hong Kong, supported by the recovery of the local economy
+and real estate market.
+The Group targets to be a global leading AI infrastructure
+solutions provider. The Group commenced production at its Japan Global Supply Center in January 2026 and advanced strategic collaborations
+as described under “Significant Events” and “Subsequent Events.” Management believes these developments have laid
+an important foundation for the Group’s future growth in the AI infrastructure sector.
+Cost of revenue
+Cost of revenue, all of which was attributable
+to the Group’s legacy design and fit-out business, increased by $1,746,364, or 252.6%, from $691,406 for the six months ended December
+31, 2024 to $2,437,770 for the six months ended December 31, 2025, generally in line with the increase in revenue from the same business.
+2
+Gross profit
+Gross profit increased by $347,922, or 747.0%,
+from $46,575 for the six months ended December 31, 2024 to $394,497 for the six months ended December 31, 2025. Gross profit margin increased
+from 6.3% for the six months ended December 31, 2024 to 13.9% for the six months ended December 31, 2025. The increases in gross profit
+and gross profit margin primarily reflected the expansion in revenue scale and changes in project mix during the reporting period.
+Operating expenses
+Total operating expenses increased by $43,249,046,
+or 684.2%, from $6,321,395 for the six months ended December 31, 2024 to $49,570,441 for the six months ended December 31, 2025. The increase
+was primarily attributable to:
+(i) Share-based compensation increased
+by approximately $28.3 million, from approximately $3.1 million for the six months ended December 31, 2024 to approximately $31.4 million
+for the six months ended December 31, 2025. The increase was mainly attributable to a higher number of awards granted under the 2024
+and 2025 Equity Incentive Plans to incentivize newly joined management and teams in connection with the Group’s business transformation,
+together with higher grant-date fair values and the recognition of expenses for awards vested during the period.
+(ii) an increase in staff costs of approximately
+$9.1 million, mainly due to the expansion of headcount in connection with the Group’s business transformation and the build-out
+of management and operating teams for its new business; and
+(iii) an increase of approximately $5.9
+million in professional fees and other operating expenses incurred in connection with the Group’s strategic transition and public
+company infrastructure.
+Management views the current period as an infrastructure
+build-out phase. The increase in operating expenses primarily reflects deliberate investments in talent acquisition, production capacity
+expansion, public company compliance infrastructure and equity-based incentives designed to support long-term scalability in the AI infrastructure
+sector.
+Other (expense) income
+The Group recorded other expense, net of $26.9
+million for the six months ended December 31, 2025, compared to other income, net of $0.1 million for the six months ended December 31,
+2024. The change was primarily driven by a $29.3 million non-cash loss from fair value changes of contingent consideration payable, partially
+offset by net interest income of $1.2 million and realized and unrealized gains from investments in equity securities of $1.2 million.
+For the six months ended December 31, 2024, other income, net primarily consisted of net interest income of $0.1 million. The increase
+in net interest income was mainly attributable to higher average balances of cash and loans receivable during the six months ended December
+31, 2025.
+The contingent consideration payable arose from
+the Company’s phased acquisition of 100% equity interest in SuperX Industries Pte. Ltd. (“SuperX Industries”), formerly
+known as MindEnergy AI Technology Pte. Ltd., from the seller. The acquisition was part of the Group’s strategic transition into
+AI-driven technology solutions and was expected to strengthen the Group’s position in the AI infrastructure sector. As disclosed
+in the Company’s Forms 6-K filed on March 12, 2025 and April 30, 2025, the Company first acquired 51% of SuperX Industries and subsequently
+acquired the remaining 49% equity interest. The consideration for both transactions was payable in newly issued ordinary shares of the
+Company.
+3
+Under the acquisition arrangements, additional
+ordinary shares may be issued to the seller as certain loans receivable owed by the seller to SuperX Industries are collected within 365
+days following the relevant acquisition dates. Prior to the acquisition, SuperX Industries had extended an unsecured loan of $19.0 million
+to the seller, bearing interest at 7.5% per annum and maturing in March 2026. During the six months ended December 31, 2025, SuperX Industries
+collected $5.3 million of the outstanding loan. Accordingly, the Company issued additional ordinary shares to the seller and settled a
+portion of the contingent consideration payable. As of December 31, 2025, the remaining contingent consideration payable was valued at
+a fair value of $29.2 million.
+On March 10, 2026, the parties entered into an
+extension agreement with respect to the remaining unsettled balance of $6.7 million. Subsequent to December 31, 2025, $7.0 million of
+the loans receivable had been settled. The extension was mutually agreed by the parties in light of commercial and operational timelines and was intended to facilitate the orderly
+realization of the remaining balance. Based on the contractual structure, the economic incentives for repayment and the subsequent collections
+received, management continues to believe that the remaining loans receivable are recoverable, and will continue to reassess their recoverability
+on an ongoing basis.
+For accounting purposes, the obligation to issue
+additional ordinary shares as the loans receivable are collected was recorded as contingent consideration payable and included as part
+of the consideration transferred. The obligation was measured at acquisition-date fair value, including $19.1 million for the 51% acquisition
+and $10.1 million for the remaining 49% acquisition, using a multiple-scenario model. Because the obligation is settled by issuing a variable
+number of the Company’s ordinary shares with a fixed monetary value, it was classified as a liability under ASC 480-10-25-14. Accordingly,
+the liability is remeasured at fair value at each reporting date and upon settlement, with changes in fair value recognized in earnings
+in accordance with ASC 805-30-35-1.
+For the year ended June 30, 2025, the Company
+recognized a fair value loss of $0.5 million, and the liability balance was $29.6 million as of June 30, 2025. During the six months ended
+December 31, 2025, the Company recognized an additional fair value loss of $29.3 million. This loss was non-cash in nature and primarily
+reflected changes in the fair value of the underlying share-settled obligation, including the impact of changes in the Company’s
+share price and other valuation inputs. The consideration payable balance was valued at a fair value of $29.2 million as of December 31,
+2025 after reflecting the partial settlement described above.
+Income tax expense (benefit)
+The Group recorded income tax expense of $1,589
+for the six months ended December 31, 2025, while the Group recorded income tax benefit of $26,850 for the six months ended December 31,
+2024 as the operating subsidiaries did not generate any assessable profits during the six months ended December 31, 2024.
+Net loss
+The net loss increased by $70,014,949, or 1,146.0%,
+from $6,109,608 for the six months ended December 31, 2024 to $76,124,557 for the six months ended December 31, 2025. Such change
+was the result of the combination of the changes as discussed above. The management believes that the current period reflects a strategic
+repositioning phase intended to support future revenue generation from AI infrastructure solutions.
+Cash Flow
+Net cash used in operating activities amounted
+to $36.8 million for the six months ended December 31, 2025. This was mainly attributable to (i) net loss of $76,124,557 for the six months
+ended December 31, 2025, and (ii) an increase in inventories of $14,576,567, as the Group purchased AI servers and related IT equipment
+for upcoming sales orders during the period. These cash outflows were partially offset by $60.6 million of non-cash items, mainly including
+share-based compensation and losses from fair value changes of contingent consideration payable. Management believes these operating cash
+outflows reflected the Group’s continued investment in establishing the operational capabilities necessary to support the commercialization
+of its AI infrastructure business.
+4
+Net cash provided by investing activities amounted
+to $6.3 million for the six months ended December 31, 2025, mainly representing (i) repayment of loans receivable of $6.2 million, and
+(ii) net cash inflow from acquisition of a subsidiary of $4.1 million, partially offset by purchases of property and equipment and investments.
+Net cash provided by financing activities
+amounted to $201.4 million for the six months ended December 31, 2025, mainly from (i) private placements of $187.7 million, (ii)
+warrant exercises of $12.4 million, and (iii) share option exercises of $1.4 million. These financing activities significantly
+strengthened the Group’s balance sheet. The Company believes these financing activities will provide financial flexibility to
+support business expansion, infrastructure investments and strategic growth opportunities.
+Significant Events
+During the six months ended December 31, 2025,
+the Group executed a series of significant strategic initiatives.
+1) Acquisition of MicroInference
+In October 2025, the Group made a strategic investment
+in MicroInference Pte. Ltd. (“MicroInference”), a Singapore-based Solution Provider for Compute and Networking in the NVIDIA
+Partner Network (NPN), and obtained a majority shareholding in MicroInference, which was subsequently renamed to SuperX MicroInference
+Pte. Ltd.
+The investment represents a key step in the long-term
+strategy to build a high-performance AI infrastructure ecosystem and strengthen its supply chain for advanced NVIDIA servers and networking
+equipment. It is intended to accelerate the deployment of AI capabilities and Modular AI Factories across Asia Pacific by improving access
+to scalable computing power, specialized technical expertise and solutions within the NVIDIA ecosystem.
+The collaboration also provides the Group with
+a more streamlined channel to specialized technical training, advanced certifications and priority support, further strengthening its
+market position and its ability to deliver full-stack AI data center solutions, from individual servers to turnkey AI factories.
+2) Joint Venture Investments
+In September 2025, the SuperX AI Solution Limited
+entered into a joint venture arrangement with Enervell Power Pte. Ltd., a Singapore subsidiary of Hangzhou Zhonhen Electric Co., Ltd.,
+and certain affiliates to establish SuperX Digital Power Pte. Ltd. In October 2025, SuperX Digital Power launched its first two flagship
+800VDC power products, the SuperX Panama-800VDC end-to-end solution for new-build AI data centers and the SuperX Aurora-800VDC retrofit
+solution for existing and new data centers. The initiative is intended to advance high-voltage direct current power infrastructure for
+AI data centers and address data center power bottlenecks.
+In October 2025, the SuperX AI Solution Limited
+entered into a joint venture arrangement with a Hong Kong subsidiary of Shenzhen Chengtian Weiye Technology Co., Ltd., and certain affiliates
+to establish SuperX Cooltech Pte. Ltd. SuperX Cooltech is intended to provide liquid cooling products and infrastructure solutions to
+the global market, excluding mainland China, Hong Kong SAR and Macau SAR, and to support the Group’s AI liquid cooling capabilities,
+including cooling distribution units (CDU), high-performance micro-channel liquid cold plates (“MCLP”) and integrated thermal
+management systems.
+5
+In October 2025, the Company and Beijing Teamsun
+Technology Co., Ltd. announced the formation of SuperX Global Service Pte. Ltd., a Singapore joint venture in which SuperX AI Solution
+holds a 51% equity interest. SuperX Global Service is intended to serve as a service provider for the Group’s global AI Factory
+projects by providing global end-to-end professional services to customers of SuperX products and AIDC solutions, as well as technical
+support for customers’ third-party AI products. Its services are expected to include multi-channel service access, unified service
+management, deployment, maintenance and managed services.
+Subsequent Events
+On January 30, 2026, the Company announced the
+commencement of production at its first SuperX Global Supply Center, located in Tsu City, Mie Prefecture, Japan, with an annual production
+capacity of up to 20,000 AI servers. On February 4, 2026, SuperX Industries Co., Ltd., the Company’s Japanese subsidiary, entered
+into a memorandum of understanding with Digital Dynamic Inc., eole Inc. and Woodman Inc. to establish a framework for the co-development
+of large-scale AI data centers across Japan, including a pilot project in Mie Prefecture, Japan with an initial facility capacity of up
+to 4MW and potential future expansion of up to 300MW in total capacity, subject to feasibility assessments, site conditions, regulatory
+approvals and the execution of definitive agreements. On March 24, 2026, the Group completed the first batch delivery of high-performance
+AI servers from its Japan Global Supply Center to Digital Dynamic Inc., marking the operational launch of its localized production and
+delivery capabilities in Japan. The initial shipment consisted of SuperX XI6150 servers configured for the Japanese market and included
+related installation and maintenance services. Additional batches of the same server model commenced delivery and installation from late
+April 2026 and are expected to be completed by the end of August 2026. The facility continues to operate with an annual production capacity
+of up to 20,000 AI servers and is supported by a local service team.
+In January 2026, the Company entered into a memorandum
+of understanding with ST Telemedia Global Data Centres (“STT GDC”) to collaborate on AI infrastructure initiatives in Singapore.
+On April 15, 2026, the parties announced the launch of an AI Innovation Centre hosted at the STT Singapore 5 facility in Tai Seng. The
+center integrates STT GDC’s data center infrastructure with the Group’s AI hardware and orchestration capabilities to provide
+enterprises with access to high-performance GPU compute resources for pilot projects, proof-of-concept deployments and model benchmarking.
+The facility offers enterprise-grade infrastructure, localized data processing in Singapore, and flexible deployment options intended
+to support customers in progressing from experimentation to production-ready AI workloads.
+On February 11, 2026, SuperX AI Solution Limited
+entered into a joint venture agreement (the “JV Agreement”) with Tianfu International Investment Pte. Ltd., a Singapore subsidiary
+of Suzhou TFC Optical Communication Co., Ltd. (SZSE: 300394) (“TFC”), and certain affiliates, related parties and designees
+of TFC (together, the “TFC Partners”), to establish a joint venture through a new entity incorporated in Singapore, SuperX
+Optical Communications Pte. Ltd. (the “JV”). The total initial paid-up share capital of the JV is SGD 2,000,000. Pursuant
+to the JV Agreement, SuperX AI Solution Limited will subscribe for SGD 900,000 (approximately US$712,000) in cash, representing a 45%
+equity interest in the JV, TFC will subscribe for SGD 700,000 (approximately US$554,000) in cash, representing a 35% equity interest,
+and the remaining 20% equity interest will be subscribed for by the other TFC Partners.
+During the period from January 1, 2026 to the
+date of the report, the Company repurchased an aggregate of 2,051,899 ordinary shares under the share repurchase program.
+On May 4, 2026, the Company entered into a sale
+and purchase agreement (the “Agreement”) with (i) Mr. Yip Sai Kit, Dicky, Mr. Chan Yuk Ki Francis, and Ms. So Siu Lai (collectively,
+the “Purchasers”) and (ii) OPS Interior Design Consultant Limited (“OPS HK”), a Hong Kong incorporated wholly
+owned subsidiary of the Company and its legacy business, pursuant to which the Company agreed to sell, and the Purchasers agreed to purchase,
+100% of the issued share capital of OPS HK. The disposal was completed on May 7, 2026.
+6
+On June 4, 2026, the Company announced the launch
+of first U.S. AI Inference Cloud Hub (the “Denver Hub”) in Denver, Colorado, marking the Group’s first operational cloud
+deployment in North America and an important milestone in its international growth strategy. Powered by NVIDIA AI accelerator technologies,
+the Denver Hub is intended to deliver high-performance, low-latency, and reliable AI inference services for enterprise customers. Built
+on SuperX’s capabilities in GPU resource orchestration, elastic cloud infrastructure, system-level optimization, and rapid deployment,
+the platform supports a wide range of AI workloads while remaining compatible with current and future NVIDIA computing platforms. As organizations
+expand their AI initiatives, the Denver Hub is expected to provide a scalable and resilient foundation for the deployment and operation
+of AI services.
+About SuperX AI Technology Limited
+SuperX AI Technology Limited is a global AI infrastructure
+solutions provider, offering a comprehensive portfolio of proprietary hardware, advanced software, and end-to-end services for AI data
+centers. The Company’s services include advanced solution design and planning, cost-effective infrastructure product integration,
+and end-to-end operations and maintenance. Its core products include high-performance AI servers, 800 Volts Direct Current (800VDC) solutions,
+high-density liquid cooling solutions, as well as AI cloud and AI agents. Headquartered in Singapore, the Group serves institutional
+clients globally, including enterprises, research institutions, and cloud and edge computing deployments. For more information, please
+visit www.superx.sg
+Forward-Looking Statements
+This announcement contains forward-looking
+statements within the meaning of Section 21E of the Securities Exchange Act of 1934, as amended, and as defined in the U.S. Private Securities
+Litigation Reform Act of 1995. All statements other than statements of historical fact contained in this announcement are forward-looking
+statements, including, but not limited to, statements regarding: the Company’s strategic transition from its legacy interior design
+and fit-out business to a global AI infrastructure business; the timing, amount and sources of future revenue, including the expectation
+that revenue from the new business will be gradually realized in 2026; the commercialization, production ramp-up, capacity, delivery and
+service capabilities of the Company’s SuperX Global Supply Center in Japan and its other facilities; the conversion of memoranda
+of understanding, letters of intent and other non-binding arrangements into binding purchase orders or definitive agreements, and the
+realization of any estimated order quantities or values; the completion, funding, integration and anticipated benefits of the Company’s
+announced acquisitions, joint ventures and strategic collaborations, many of which remain subject to feasibility assessments, site conditions,
+regulatory approvals and the execution of definitive agreements; the Company’s products, technology roadmap and market position;
+and the Company’s business strategy, financial condition, results of operations and capital needs.
+Forward-looking statements reflect the Company’s
+current expectations and projections about future events and are based on information currently available to the Company. Investors can
+identify these forward-looking statements by words or phrases such as “approximate,” “believe,” “hope,”
+“expect,” “anticipate,” “aim,” “estimate,” “project,” “intend,”
+“plan,” “will,” “would,” “should,” “could,” “may,” “potential,”
+“continue,” “target,” “is/are likely to,” or other similar expressions. Forward-looking statements
+involve inherent known and unknown risks, uncertainties and other factors, many of which are beyond the Company’s control, and no
+forward-looking statement can be guaranteed. Actual results may differ materially from those expressed or implied by any forward-looking
+statement as a result of various factors, including, but not limited to: the Company’s ability to execute its business transformation;
+its ability to generate revenue from, and to achieve commercial-scale production and deliveries in, its AI infrastructure business on
+the anticipated timeline or at all; the non-binding nature of memoranda of understanding and letters of intent, such that estimated order
+quantities and values may not result in binding orders or in recognized revenue, and actual delivery schedules and the value of AI servers
+delivered may vary based on customer data center readiness and supply chain conditions; the completion, funding and integration of acquisitions
+and joint ventures, including obtaining required regulatory approvals and executing definitive agreements; the Company’s dependence
+on third-party suppliers and the availability of advanced GPUs and other components; competition, rapid technological change and evolving
+customer demand; the Company’s ability to raise additional capital on acceptable terms; macroeconomic, geopolitical, trade, tariff,
+export-control and other regulatory conditions in the markets in which the Company operates; and the other risks and uncertainties described
+under “Risk Factors” in the Company’s annual report on Form 20-F for the year ended June 30, 2025 filed with the U.S.
+Securities and Exchange Commission (the “SEC”) on October 31, 2025, and in the Company’s other filings with and submissions
+to the SEC.
+All forward-looking statements in this announcement
+were made only as of the date of this announcement, and the reader is cautioned not to place undue reliance on them. Except as required
+by law, the Company undertakes no obligation to update or revise any forward-looking statement, whether written or oral and whether as
+a result of new information, future developments or otherwise.
+For more information, please contact:
+SuperX AI Technology Limited
+Investor Relations
+E: ir@superx.sg
+7
+SuperX AI Technology Limited (formerly known
+as Super X AI Technology Limited
+and Junee Limited) and Subsidiaries
+Unaudited Condensed Consolidated Balance Sheets
+As of December 31, 2025 and June 30, 2025
+(Expressed in U.S. Dollars, except for the number of shares)
+As
+of
+December
+31,
+2025
+June
+30,
+2025
+Assets
+Current assets
+Cash
+and cash equivalents
+$ | 188,054,737
+$ | 17,206,993
+Accounts
+receivable, net
+615,687
+185,054
+Contract
+assets
+643,408
+34,084
+Contract
+costs
+—
+20,431
+Inventories
+14,576,567
+—
+Income
+tax receivable
+3,614
+—
+Amounts
+due from related parties
+70,903
+70,674
+Loans
+receivable, net, current
+22,640,182
+20,397,475
+Rental
+deposits – related parties, current
+—
+21,783
+Prepayments – related
+parties
+7,326
+7,261
+Prepayments,
+deposits and other receivables, current
+4,343,913
+1,085,462
+Total
+current assets
+230,956,337
+39,029,217
+Non-current
+assets
+Property
+and equipment, net
+3,615,573
+246,371
+Intangible
+assets
+2,889,035
+—
+Operating
+lease right-of-use assets, net
+2,378,168
+1,001,610
+Investments
+in equity securities
+567,455
+966,829
+Investments
+in equity method investees
+1,883,467
+—
+Loans
+receivable, net, non-current
+1,078,000
+9,740,817
+Rental
+deposits – related parties, non-current
+21,979
+—
+Prepayments
+and deposits, non-current
+1,866,140
+1,022,554
+Deferred
+tax assets, net
+42,550
+43,749
+Total
+assets
+$ | 245,298,704
+$ | 52,051,147
+Liabilities
+and Shareholders’ Equity
+Current
+liabilities
+Accounts
+payable
+$ | 883,706
+$ | 416,105
+Accrued
+expenses and other payables
+1,677,286
+300,611
+Amounts
+due to related parties
+1,111,920
+173,885
+Contract
+liabilities
+588,816
+49,989
+Contingent
+consideration payable
+29,189,460
+29,633,064
+Bank
+and other borrowings, current
+285,607
+453,070
+Income
+tax payable
+—
+64,180
+Operating
+lease liabilities - related parties, current
+85,007
+7,239
+Operating
+lease liabilities, current
+1,253,632
+739,105
+Total
+current liabilities
+35,075,434
+31,837,248
+Non-current
+liabilities
+Bank
+and other borrowings, non-current
+114,781
+122,891
+Operating
+lease liabilities - related parties, non-current
+50,776
+—
+Operating
+lease liabilities, non-current
+1,029,044
+262,612
+Total
+liabilities
+36,270,035
+32,222,751
+Mezzanine
+equity
+Redeemable
+noncontrolling interests
+2,512,190
+—
+Shareholders’ equity
+Ordinary shares, no par value, unlimited number of ordinary shares authorized, 43,216,535 and 22,169,854 ordinary shares issued and outstanding as of December 31, 2025 and June 30, 2025, respectively*
+244,920,720
+33,104,858
+Additional
+paid-in capital
+59,608,946
+8,973,101
+Accumulated
+other comprehensive income
+60,774
+67,114
+Accumulated
+deficit
+( 98,073,961 | )
+( 22,316,677 | )
+Total
+equity
+206,516,479
+19,828,396
+Total
+liabilities, mezzanine equity and equity
+$ | 245,298,704
+$ | 52,051,147
+* | Shares
+and per share data are presented on a retroactive basis to reflect the nominal share issuance and share split.
+8
+SuperX AI Technology Limited (formerly known
+as Super X AI Technology Limited
+and Junee Limited) and Subsidiaries
+Unaudited Condensed Consolidated Statements of Operations and Comprehensive Loss
+For the Six Months Ended December 31, 2025, 2024 and 2023
+(Expressed in U.S. Dollars, except for the number of shares)
+For the Six Months Ended
+December 31,
+2025
+2024
+2023
+Revenue
+$ | 2,832,267
+$ | 737,981
+$ | 1,662,285
+Cost of revenue
+2,437,770
+691,406
+1,255,208
+Gross profit
+394,497
+46,575
+407,077
+Operating expenses
+Selling and marketing expenses
+42,975
+3,092
+3,439
+General and administrative expenses
+49,527,466
+6,318,303
+717,631
+Total operating expenses
+49,570,441
+6,321,395
+721,070
+Loss from operations
+( 49,175,944 | )
+( 6,274,820 | )
+( 313,993 | )
+Other income (expense)
+Interest income (expense), net
+1,173,858
+115,897
+( 5,183 | )
+Other income
+61,182
+—
+—
+Other income – related party
+—
+—
+92,072
+Realized gains from disposal of investments in equity securities
+1,131,921
+—
+—
+Unrealized gains from fair value changes of investments in equity securities
+76,051
+—
+—
+Losses from fair value changes of contingent consideration payable
+( 29,324,471 | )
+—
+—
+Loss on disposal of a subsidiary
+( 6,688 | )
+—
+—
+Share of results of equity method investees
+( 60,015 | )
+—
+—
+Gain on termination of lease
+15,392
+—
+—
+(Loss) gain on disposal of property and equipment
+( 14,254 | )
+22,465
+—
+Total other (expense) income, net
+( 26,947,024 | )
+138,362
+86,889
+Loss before provision for income taxes
+( 76,122,968 | )
+( 6,136,458 | )
+( 227,104 | )
+Income tax benefit (expense)
+( 1,589 | )
+26,850
+( 3,288 | )
+Net loss
+$ | ( 76,124,557 | )
+$ | ( 6,109,608 | )
+$ | ( 230,392 | )
+Net loss attributable to noncontrolling interests
+367,273
+—
+—
+Net loss attributable to SuperX AI Technology Limited
+$ | ( 75,757,284 | )
+$ | ( 6,109,608 | )
+$ | ( 230,392 | )
+Accretion of redeemable noncontrolling interests
+—
+—
+—
+Net loss attributable to ordinary shareholders
+$ | ( 75,757,284 | )
+$ | ( 6,109,608 | )
+$ | ( 230,392 | )
+Net loss
+$ | ( 76,124,557 | )
+$ | ( 6,109,608 | )
+$ | ( 230,392 | )
+Other comprehensive income
+Foreign currency translation adjustments
+( 9,229 | )
+67,760
+2,502
+Total comprehensive loss
+$ | ( 76,133,786 | )
+$ | ( 6,041,848 | )
+$ | ( 227,890 | )
+Total comprehensive loss attributable to noncontrolling interests
+370,162
+—
+—
+Total comprehensive loss attributable to ordinary shareholders
+$ | ( 75,763,624 | )
+$ | ( 6,041,848 | )
+$ | ( 227,890 | )
+Loss per share
+Basic and diluted *
+$ | ( 2.430 | )
+$ | ( 0.470 | )
+$ | ( 0.022 | )
+Weighted average shares outstanding
+Basic and diluted *
+31,179,382
+12,993,984
+10,714,286
+* | Shares
+and per share data are presented on a retroactive basis to reflect the nominal share issuance and share split.
+9
+SuperX AI Technology Limited (formerly known
+as Super X AI Technology Limited
+and Junee Limited) and Subsidiaries
+Unaudited Condensed Consolidated Statements of Changes in Shareholders’ Equity
+For the Six Months Ended December 31, 2025, 2024 and 2023
+(Expressed in U.S. Dollars, except for the number of shares)
+For the Six Months Ended December 31, 2023
+Ordinary Shares
+Additional
+Paid-in
+Accumulated
+Other
+Comprehensive
+Accumulated
+Total
+Shares*
+Amount
+Capital
+(Loss) Income
+Deficit
+Equity
+Balance as of June 30, 2023
+10,714,286
+$ | 1,000
+$ | 1,339,286
+$ | ( 329 | )
+$ | ( 247,290 | )
+$ | 1,092,667
+Net loss for the period
+—
+—
+—
+—
+( 230,392 | )
+( 230,392 | )
+Foreign currency translation adjustments
+—
+—
+—
+2,502
+—
+2,502
+Balance as of December 31, 2023
+10,714,286
+$ | 1,000
+$ | 1,339,286
+$ | 2,173
+$ | ( 477,682 | )
+$ | 864,777
+For the Six Months Ended December 31, 2024
+Ordinary Shares
+Additional
+Paid-in
+Accumulated
+Other
+Comprehensive
+Accumulated
+Total
+Shares*
+Amount
+Capital
+Income
+Deficit
+Equity
+Balance as of June 30, 2024
+12,977,354
+$ | 6,710,390
+$ | 1,339,286
+$ | 17,529
+$ | ( 1,102,217 | )
+$ | 6,964,988
+Net loss for the period
+—
+—
+—
+—
+( 6,109,608 | )
+( 6,109,608 | )
+Issuance of ordinary shares under 2024 equity incentive plan
+50,000
+225,000
+—
+—
+—
+225,000
+Share-based compensation
+—
+—
+2,887,926
+—
+—
+2,887,926
+Foreign currency translation adjustments
+—
+—
+—
+67,760
+—
+67,760
+Balance as of December 31, 2024
+13,027,354
+$ | 6,935,390
+$ | 4,227,212
+$ | 85,289
+$ | ( 7,211,825 | )
+$ | 4,036,066
+For the Six Months Ended December 31, 2025
+Ordinary Shares
+Additional
+Paid-in
+Accumulated Other Comprehensive
+Accumulated
+Total
+Shares*
+Amount
+Capital
+Income
+Deficit
+Equity
+Balance as of June 30, 2025
+22,169,854
+$ | 33,104,858
+$ | 8,973,101
+$ | 67,114
+$ | ( 22,316,677 | )
+$ | 19,828,396
+Net loss for the period
+—
+—
+—
+—
+( 75,757,284 | )
+( 75,757,284 | )
+Issuance of ordinary shares under 2024 equity incentive plan and 2025 equity incentive plan
+139,308
+2,997,861
+—
+—
+—
+2,997,861
+Share-based compensation
+—
+—
+28,161,850
+—
+—
+28,161,850
+Issuance of ordinary shares under private placements
+16,600,000
+157,582,617
+—
+—
+—
+157,582,617
+Issuance of warrants under private placements
+—
+—
+30,159,183
+—
+—
+30,159,183
+Exercise of warrants
+3,009,998
+19,072,632
+( 6,665,511 | )
+—
+—
+12,407,121
+Exercise of share options
+297,000
+2,394,677
+( 1,019,677 | )
+—
+—
+1,375,000
+Issuance of ordinary shares upon settlement of contingent consideration payable
+1,000,375
+29,768,075
+—
+—
+—
+29,768,075
+Foreign currency translation adjustments
+—
+—
+—
+( 6,340 | )
+—
+( 6,340 | )
+Balance as of December 31, 2025
+43,216,535
+$ | 244,920,720
+$ | 59,608,946
+$ | 60,774
+$ | ( 98,073,961 | )
+$ | 206,516,479
+* | Shares and per share data are presented on a retroactive basis to reflect the nominal share issuance and share split.
+10
+SuperX AI Technology Limited (formerly known
+as Super X AI Technology Limited
+and Junee Limited) and Subsidiaries
+Unaudited Condensed Consolidated Statements of Cash Flows
+For the Six Months Ended December 31, 2025, 2024 and 2023
+(Expressed in U.S. Dollars)
+For the Six Months Ended
+December 31,
+2025
+2024
+2023
+Cash flows from operating activities:
+Net loss
+$ | ( 76,124,557 | )
+$ | ( 6,109,608 | )
+$ | ( 230,392 | )
+Adjustments to reconcile net loss to net cash (used in) provided by operating activities:
+Depreciation of property and equipment
+130,455
+39,482
+5,060
+Amortization of operating lease right-of-use assets and interest of lease liabilities
+840,520
+290,277
+44,544
+Provision for (reversal of) allowance for current expected credit losses
+170
+4,551
+( 4,188 | )
+Realized gains from disposal of investments in equity securities
+( 1,131,921 | )
+—
+—
+Unrealized gains from fair value changes of investments in equity securities
+( 76,051 | )
+—
+—
+Losses from fair value changes of contingent consideration payable
+29,324,471
+—
+—
+(Loss) gain on disposal of property and equipment
+14,254
+( 22,465 | )
+—
+Loss on disposal of a subsidiary
+6,688
+—
+—
+Share of results of equity method investees
+60,015
+—
+—
+Gain on termination of lease
+( 15,392 | )
+—
+—
+Share-based compensation
+31,426,378
+3,111,726
+—
+Dividend income
+( 13,088 | )
+—
+—
+Deferred tax expense (benefit)
+1,589
+( 26,850 | )
+737
+Changes in operating assets and liabilities:
+Accounts receivable
+( 430,258 | )
+172,491
+386,829
+Contract assets
+( 609,324 | )
+213,942
+( 220,120 | )
+Contract costs
+20,431
+( 10,620 | )
+( 16,447 | )
+Prepayments, deposits and other receivables
+( 3,194,586 | )
+( 743,413 | )
+( 7,245 | )
+Inventories
+( 14,576,567 | )
+—
+—
+Accounts payable
+467,601
+29,135
+( 120,952 | )
+Contract liabilities
+538,827
+247,305
+236,466
+Income taxes payable
+( 67,794 | )
+—
+2,551
+Operating lease liabilities, related parties
+( 43,846 | )
+( 43,902 | )
+( 43,734 | )
+Operating lease liabilities
+( 580,623 | )
+( 240,930 | )
+—
+Accrued expenses and other payables
+( 2,789,776 | )
+192,265
+30,699
+Net cash (used in) provided by operating activities
+( 36,822,384 | )
+( 2,896,614 | )
+63,808
+Cash flows from investing activities:
+Purchases of property and equipment
+( 3,511,920 | )
+( 258,860 | )
+( 6,535 | )
+Prepayments for the acquisition of property and equipment and right-of-use assets
+( 913,046 | )
+—
+—
+Deposits paid for investments
+—
+( 443,646 | )
+—
+Decrease (increase) in loans receivable
+6,233,423
+( 179,951 | )
+—
+Acquisition of a subsidiary
+4,059,629
+—
+—
+Disposal of a subsidiary
+480,000
+—
+—
+Acquisition of equity method investees
+( 1,161,142 | )
+—
+—
+Investments in equity securities
+( 1,133,536 | )
+( 478,768 | )
+—
+Proceeds from disposal of investments in equity securities
+2,265,457
+—
+—
+Proceeds from disposal of property and equipment
+—
+22,465
+—
+Dividend income received
+13,088
+—
+—
+Net cash provided by (used in) investing activities
+6,331,953
+( 1,338,760 | )
+( 6,535 | )
+Cash flows from financing activities:
+Payments of offering costs related to IPO
+—
+—
+( 108,470 | )
+Proceeds from bank and other borrowings
+—
+128,370
+—
+Repayments of bank and other borrowings
+( 148,910 | )
+( 85,628 | )
+( 75,115 | )
+Proceeds from the issuance of ordinary shares under private placements
+187,741,800
+—
+—
+Proceeds from the exercise of warrants
+12,407,121
+—
+—
+Proceeds from the exercise of share options
+1,375,000
+—
+—
+Repayments to related parties
+—
+—
+( 60,741 | )
+Advances from related parties
+751
+113,070
+—
+Net cash provided by (used in) financing activities
+201,375,762
+155,812
+( 244,326 | )
+Effect of exchange rate changes on cash
+( 37,587 | )
+67,621
+1,190
+Net increase (decrease) in cash
+170,847,744
+( 4,011,941 | )
+( 185,863 | )
+Cash, beginning of period
+17,206,993
+7,244,941
+558,386
+Cash, end of period
+$ | 188,054,737
+$ | 3,233,000
+$ | 372,523
+Supplemental disclosure information:
+Cash paid for interest
+$ | 13,607
+$ | 4,517
+$ | 6,464
+Supplemental non-cash in investing and financing activities:
+Operating lease right-of-use assets, obtained in exchange for operating lease obligations, related parties
+$ | 170,021
+$ | —
+$ | 168,500
+Operating lease right-of-use assets, obtained in exchange for operating lease obligations
+$ | 2,296,396
+$ | 976,769
+$ | —
+11
+Unlimited
+Unlimited
+0001897087
+false
+2025-12-31
+2026
+Q2
+--06-30
+0001897087
+2025-07-01
+2025-12-31
+0001897087
+2025-12-31
+0001897087
+2025-06-30
+0001897087
+us-gaap:RelatedPartyMember
+2025-12-31
+0001897087
+us-gaap:RelatedPartyMember
+2025-06-30
+0001897087
+2025-12-31
+2025-12-31
+0001897087
+2025-06-30
+2025-06-30
+0001897087
+2024-07-01
+2024-12-31
+0001897087
+2023-07-01
+2023-12-31
+0001897087
+us-gaap:RelatedPartyMember
+2025-07-01
+2025-12-31
+0001897087
+us-gaap:RelatedPartyMember
+2024-07-01
+2024-12-31
+0001897087
+us-gaap:RelatedPartyMember
+2023-07-01
+2023-12-31
+0001897087
+us-gaap:CommonStockMember
+2023-06-30
+0001897087
+us-gaap:AdditionalPaidInCapitalMember
+2023-06-30
+0001897087
+us-gaap:AccumulatedOtherComprehensiveIncomeMember
+2023-06-30
+0001897087
+us-gaap:RetainedEarningsMember
+2023-06-30
+0001897087
+2023-06-30
+0001897087
+us-gaap:CommonStockMember
+2023-07-01
+2023-12-31
+0001897087
+us-gaap:AdditionalPaidInCapitalMember
+2023-07-01
+2023-12-31
+0001897087
+us-gaap:AccumulatedOtherComprehensiveIncomeMember
+2023-07-01
+2023-12-31
+0001897087
+us-gaap:RetainedEarningsMember
+2023-07-01
+2023-12-31
+0001897087
+us-gaap:CommonStockMember
+2023-12-31
+0001897087
+us-gaap:AdditionalPaidInCapitalMember
+2023-12-31
+0001897087
+us-gaap:AccumulatedOtherComprehensiveIncomeMember
+2023-12-31
+0001897087
+us-gaap:RetainedEarningsMember
+2023-12-31
+0001897087
+2023-12-31
+0001897087
+us-gaap:CommonStockMember
+2024-06-30
+0001897087
+us-gaap:AdditionalPaidInCapitalMember
+2024-06-30
+0001897087
+us-gaap:AccumulatedOtherComprehensiveIncomeMember
+2024-06-30
+0001897087
+us-gaap:RetainedEarningsMember
+2024-06-30
+0001897087
+2024-06-30
+0001897087
+us-gaap:CommonStockMember
+2024-07-01
+2024-12-31
+0001897087
+us-gaap:AdditionalPaidInCapitalMember
+2024-07-01
+2024-12-31
+0001897087
+us-gaap:AccumulatedOtherComprehensiveIncomeMember
+2024-07-01
+2024-12-31
+0001897087
+us-gaap:RetainedEarningsMember
+2024-07-01
+2024-12-31
+0001897087
+us-gaap:CommonStockMember
+2024-12-31
+0001897087
+us-gaap:AdditionalPaidInCapitalMember
+2024-12-31
+0001897087
+us-gaap:AccumulatedOtherComprehensiveIncomeMember
+2024-12-31
+0001897087
+us-gaap:RetainedEarningsMember
+2024-12-31
+0001897087
+2024-12-31
+0001897087
+us-gaap:CommonStockMember
+2025-06-30
+0001897087
+us-gaap:AdditionalPaidInCapitalMember
+2025-06-30
+0001897087
+us-gaap:AccumulatedOtherComprehensiveIncomeMember
+2025-06-30
+0001897087
+us-gaap:RetainedEarningsMember
+2025-06-30
+0001897087
+us-gaap:CommonStockMember
+2025-07-01
+2025-12-31
+0001897087
+us-gaap:AdditionalPaidInCapitalMember
+2025-07-01
+2025-12-31
+0001897087
+us-gaap:AccumulatedOtherComprehensiveIncomeMember
+2025-07-01
+2025-12-31
+0001897087
+us-gaap:RetainedEarningsMember
+2025-07-01
+2025-12-31
+0001897087
+us-gaap:CommonStockMember
+2025-12-31
+0001897087
+us-gaap:AdditionalPaidInCapitalMember
+2025-12-31
+0001897087
+us-gaap:AccumulatedOtherComprehensiveIncomeMember
+2025-12-31
+0001897087
+us-gaap:RetainedEarningsMember
+2025-12-31
+iso4217:USD
+iso4217:USD
+xbrli:shares
+xbrli:shares

@@ -1,0 +1,135 @@
+# SNAPSHOT · Crunchbase News 2026-07 · Global Startup Investment Hit Record $510B In H1 2026 As AI Boom Accelerates Funding And Exits
+# source: https://news.crunchbase.com/venture/global-startup-exits-ipo-ma-soar-ai-q2-h1-2026/
+# fetched: 2026-09-20 15:03 · curl -sL（浏览器 UA；研究 UA 被 403） · HTML→文本（去 script/style，</p>→换行，</td>→" | "）
+
+Global venture funding reached a record $510 billion in the first half of 2026, surpassing the $440 billion invested in all of 2025 and setting a new high for startup investment in any half-year period on record, Crunchbase data shows.
+The data also illustrates how capital is concentrating into a handful of companies at unprecedented scale while IPOs and acquisitions have returned in force, with the second quarter notching one of the strongest periods for venture-backed exits in years.
+OpenAI and Anthropic alone accounted for $217 billion — 43% of all startup funding in H1 — underscoring how a small handful of frontier AI companies is reshaping venture markets. At the same time, other massive funding deals across industries including AI infrastructure, defense, robotics and healthcare — combined with record IPO and M&A activity — signal that the AI investment boom has grown well beyond a select few top foundation labs.
+Q2 2026 was the second-largest quarter on record for global venture investment, following on the heels of the largest quarter in Q1. All told, investors poured $205 billion into more than 5,000 startups in Q2, following $305 billion invested in Q1.
+Table of contents
+Exits peak in Q2
+Capital concentration
+Beyond Anthropic
+Late-stage funding
+Early-stage funding
+Seed
+Record exits market returns
+A new venture cycle takes shape
+Methodology
+Glossary of funding terms
+Exits peak in Q2
+Record funding defined the first half of the year as the period topped the previous half-year peak, reached in H2 2021, of $375 billion.
+The second quarter also marked a turning point for liquidity. IPOs and startup acquisitions accelerated alongside venture investment, producing the strongest exit market since the 2021 boom, Crunchbase data shows.
+The largest IPO ever for a venture-backed company and the largest startup acquisition ever both took place in Q2. Both deals involved SpaceX, as it went public at a value of $1.77 trillion, raising $75 billion, and less than a week later confirmed its intent to acquire Anysphere, maker of the AI coding tool Cursor, for $60 billion.
+Capital concentration
+Despite the resurgence in exits, the defining characteristic of venture investment in the AI boom remains its extraordinary concentration in terms of companies, industries and geography.
+Close to a third of Q2 global venture funding went to just one company: Anthropic. The now-leading foundation lab raised $65 billion last quarter and became the most valuable private company on The Crunchbase Unicorn Board as SpaceX exited and Anthropic surpassed OpenAI on the leaderboard.
+The U.S. also again dominated global funding. Two-thirds of startup capital in Q2 went to U.S.-based companies, down from 83% in Q1 and in line with proportions in Q2 2025.
+And more than 70% of global startup capital in Q2 was invested in AI-focused companies, up from just under 50% a year earlier.
+Beyond Anthropic
+Anthropic accounted for a significant share of global funding, but the quarter also produced a sizable cohort of other megarounds. A total of 16 companies raised billion-dollar rounds in the quarter, totaling $108.6 billion, or 53% of second-quarter funding, Crunchbase data shows.
+Seven of those billion-dollar fundraisers are frontier labs. They include the China-based foundation companies DeepSeek, StepFun and Moonshot AI, U.K.-based Ineffable Intelligence, and the U.S.-based labs Prometheus and Isomorphic Labs.
+Eight of the companies in the cohort in Q2 are U.S.-based, while Asia and Europe each have four.
+Alongside foundation model companies, large funding rounds were raised by startups working on defense, AI infrastructure, robotics and healthcare.
+Late-stage funding
+Late-stage venture funding totaled $134 billion in Q2, down from Q1 but up 141% from Q2 2025, Crunchbase data shows.
+Early-stage funding
+Early-stage funding totaled $589 billion in Q2, up more than 100% from a year earlier. The number of companies raising Series A and B rounds at $100 million have picked up in the past two quarters, with 91 companies on a global basis raising large rounds in Q2.
+Seed
+Seed investment likewise remained elevated, although the market continued to show a widening gap between a handful of exceptionally large financings and the broader population of traditional seed rounds.
+All told, global seed funding totaled $12 billion in Q2, Crunchbase data shows. Of that, $2.8 billion went to seed rounds of $100 million and over, with $5 billion in seed rounds at $10 million and under.
+Record exits market returns
+Q2 exit amounts were the highest on record for venture-backed companies for both acquisitions and IPOs, Crunchbase data shows.
+A total of 32 companies went public at values above $1 billion in Q2. After SpaceX, the next two largest listings were inference chipmaker Cerebras Systems and quantum company Quantinuum.
+Twenty-four companies were also acquired at prices at or above $1 billion in Q2, totaling $113 billion in value — the highest quarter on record — per Crunchbase data.
+A new venture cycle takes shape
+H1 2026 established a new benchmark for global venture investment, but the record comes with an important caveat: an unprecedented share of capital flowed to just two companies. OpenAI and Anthropic together attracted more than 40% of all venture funding during the first half, highlighting the extent to which the current market is centered on the biggest players in the frontier AI race.
+Even so, the broader venture ecosystem is showing signs of strength. Startup funding increased across every investment stage, the public markets have reopened, and billion-dollar financings expanded beyond foundation model developers into adjacent sectors such as AI infrastructure, defense, robotics and healthcare.
+Perhaps the biggest shift is the return of liquidity, via both IPOs and M&A. If those trends continue, 2026 may be remembered not only as the year venture funding reached a new high, but as the beginning of a cycle in which record private investment and a functioning exit market reinforce one another.
+Related Crunchbase queries:
+Global Venture Funding In 2026
+Global Venture Funding To AI Startups In 2026
+Global IPOs For Venture-Backed Companies In 2026
+Global M&A In 2026 For Venture-Backed Companies
+Related reading:
+Crunchbase Data: Q2 Brought The Most Billion-Dollar Startup Exits Since 2021
+Cursor Deal Puts US On Track For Record Startup M&A Year
+Methodology
+The data contained in this report comes directly from Crunchbase, and is based on reported data. Data is as of July 1, 2026.
+Note that data lags are most pronounced at the earliest stages of venture activity, with seed funding amounts increasing significantly after the end of a quarter/year.
+Please note that all funding values are given in U.S. dollars unless otherwise noted. Crunchbase converts foreign currencies to U.S. dollars at the prevailing spot rate from the date funding rounds, acquisitions, IPOs and other financial events are reported. Even if those events were added to Crunchbase long after the event was announced, foreign currency transactions are converted at the historic spot price.
+Glossary of funding terms
+Seed and angel consists of seed, pre-seed and angel rounds. Crunchbase also includes venture rounds of unknown series, equity crowdfunding and convertible notes at $3 million (USD or as-converted USD equivalent) or less.
+Early-stage consists of Series A and Series B rounds, as well as other round types. Crunchbase includes venture rounds of unknown series, corporate venture and other rounds above $3 million, and those less than or equal to $15 million.
+Late-stage consists of Series C, Series D, Series E and later-lettered venture rounds following the “Series [Letter]” naming convention. Also included are venture rounds of unknown series, corporate venture and other rounds above $15 million. Corporate rounds are only included if a company has raised an equity funding at seed through a venture series funding round.
+Technology growth is a private-equity round raised by a company that has previously raised a “venture” round. (So basically, any round from the previously defined stages.)
+Illustration: Dom Guzman
+ Tagsunicorn 
+ Stay up to date with recent funding rounds, acquisitions, and more with the
+ Crunchbase Daily.
+ You may also like
+ Artificial intelligence • Clean tech and energy • Health, Wellness & Biotech • Startups • Venture
+ The Week’s 10 Biggest Funding Rounds: Large Rounds For AI Infrastructure, Space Tech And Investment Management Lead
+ Joanna Glasner
+September 18, 2026
+ After a week of multiple billion-dollar-plus rounds, startup investors have reduced the number of zeroes on their funding checks. This past week, the...
+ Artificial intelligence • E-commerce • Fintech • Sales & Marketing • Seed funding • Startups • Venture
+ What 25,000 Startup Applications Reveal About The New Rules Of Seed-Stage Startups
+ Guest Author
+September 18, 2026
+ The most-fundable startups prioritize a clear go-to-market strategy and test distinctive marketing channels early, treating distribution and...
+ Fintech • Startups • Venture
+ Exclusive: Fintech Offers Startups Alternative To Venture Debt With A New Model To Finance Customer Acquisition Costs
+ Mary Ann Azevedo
+September 17, 2026
+ Newly launched Skalar provides startups with capital to fund sales and marketing initiatives in a fairly straightforward, though somewhat unusual...
+ Agriculture & foodtech • Clean tech and energy • Real estate & property tech • Robotics • Startups • Venture
+ 5 Interesting Startup Deals You May Have Missed: Floating Nuclear Power, Robot Report Cards And Voice AI For Farmers
+ Marlize van Romburgh
+September 17, 2026
+ From putting nuclear reactors on barges to grading how well AI models can control robots, this month’s crop of interesting startup deals takes AI and...
+ Featured
+ Artificial intelligence • Crypto • M&A • Regional • Seed funding • Startups • Venture
+ Q1 Global Startup Funding Posts Strongest Quarter Since Q2 2022 With A Third Going To Massive OpenAI Deal 
+ April 3, 2025
+7 Min Read
+ 67.1K Followers 
+ Follow us on Facebook
+ 33.4K
+ Followers
+ Follow us on Twitter
+ 29K
+ Followers
+ Follow us on LinkedIn
+ 4.7K
+ Followers
+CTA
+Discover and act on private market opportunities with predictive company intelligence.
+GET STARTED
+ Editorial Partners: Verizon Media Tech
+About Crunchbase News
+Crunchbase News Data Methodology
+Privacy Policy
+Terms of Service
+Cookie Settings
+Do Not Sell or Share My Personal Info
+CA Privacy Notice
+ Company 
+Careers
+Partners
+Blog
+Contact Us
+ Crunchbase Pro
+Crunchbase Enterprise
+Crunchbase for Applications
+Customer Stories
+Pricing
+ Featured Searches And Lists
+Knowledge Center
+Create A Profile
+Sales Intelligence
+Sales Prospecting Guide
+Sales Prospecting Tools
+ © 2026 Crunchbase Inc. All Rights Reserved.
+ Copy link
+ CopyCopied

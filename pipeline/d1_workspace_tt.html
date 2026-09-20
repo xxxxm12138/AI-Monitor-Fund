@@ -1,0 +1,125 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>D1 维工作台</title>
+<style>
+:root{--bg:#f4f5f7;--card:#fff;--ink:#1f2329;--mut:#8a9099;--line:#e6e8eb;--line2:#eff1f3;--accent:#3b5bdb;--accent-soft:#eef1fb;
+ --up:#1a7f45;--up-bg:#e3f4e9;--up-bg2:#c8ecd4;--dn:#b3271e;--dn-bg:#fbe6e4;--dn-bg2:#f6cfcb;--cn:#c2334d}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:13px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+.app{display:grid;grid-template-columns:300px 1fr;gap:12px;max-width:1340px;margin:0 auto;padding:14px 12px;height:100vh}
+.side{display:flex;flex-direction:column;gap:10px;min-height:0}
+.box{background:var(--card);border:1px solid var(--line);border-radius:6px}
+.hd{padding:9px 13px;border-bottom:1px solid var(--line);font-size:11px;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.04em}
+.hd .n{color:var(--ink);margin-left:4px}
+.legrow{display:flex;align-items:center;gap:10px;padding:8px 13px;border-bottom:1px solid var(--line2)}
+.legrow:last-child{border-bottom:0}
+.legrow .bar{width:3px;height:15px;border-radius:2px;flex:none}
+.legrow .nm{flex:1;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.legrow .cn{color:var(--cn);font-size:10px;font-weight:600;margin-left:4px}
+.legrow .x{color:#c4c9cf;cursor:pointer;font-size:14px;padding:0 2px}.legrow .x:hover{color:var(--dn)}
+.srch{padding:9px 11px;border-bottom:1px solid var(--line2)}
+.srch input{width:100%;border:1px solid var(--line);border-radius:5px;padding:6px 9px;font-size:12px;color:var(--ink)}
+.tree{flex:1;overflow:auto}
+.grp{border-bottom:1px solid var(--line2)}
+.grph{display:flex;align-items:center;gap:9px;padding:9px 13px;cursor:pointer;font-size:12.5px;font-weight:600}
+.grph:hover{background:#fafbfc}.chev{color:#b9bfc6;font-size:9px;transition:transform .12s;width:8px;flex:none}.grp.open .chev{transform:rotate(90deg)}
+.grph .cnt{margin-left:auto;color:var(--mut);font-size:11px;font-variant-numeric:tabular-nums}
+.kids{display:none;padding:0 13px 9px 30px;flex-wrap:wrap;gap:6px}.grp.open .kids{display:flex}
+.opt{border:1px solid var(--line);border-radius:5px;padding:4px 9px;font-size:11.5px;cursor:pointer;color:#454b52}
+.opt:hover{border-color:#b9c2e6}.opt.sel{background:var(--accent-soft);border-color:#b9c2e6;color:var(--accent)}
+.opt .cn{color:var(--cn);font-size:9px;margin-left:3px;font-weight:600}
+.main{background:var(--card);border:1px solid var(--line);border-radius:6px;display:flex;flex-direction:column;min-width:0;overflow:hidden}
+.ctrl{display:flex;align-items:center;gap:8px;padding:10px 13px;border-bottom:1px solid var(--line2);flex-wrap:wrap}
+.seg{display:flex;border:1px solid var(--line);border-radius:5px;overflow:hidden;font-size:12px}
+.seg span{padding:5px 12px;border-right:1px solid var(--line);color:var(--mut)}.seg span:last-child{border-right:0}.seg span.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.fld{display:flex;flex-direction:column;font-size:12px}.fld .l{font-size:10px;color:var(--mut)}.fld .v{border:1px solid var(--line);border-radius:5px;padding:4px 10px}
+.btn{border:1px solid var(--line);border-radius:5px;padding:6px 12px;font-size:12px;color:var(--ink);cursor:default}
+.btn.p{background:var(--accent);color:#fff;border-color:var(--accent)}
+.togg{display:flex;align-items:center;gap:16px;padding:8px 13px;border-bottom:1px solid var(--line2);font-size:12px;color:var(--mut)}
+.togg label{display:inline-flex;align-items:center;gap:5px;cursor:default}.togg label.on{color:var(--ink)}.togg input{accent-color:var(--accent)}
+.hmh{display:flex;align-items:baseline;gap:10px;padding:10px 13px 5px}.hmh .t{font-weight:600}.hmh .s{color:var(--mut);font-size:11px}
+.hmh .lg{margin-left:auto;font-size:10.5px;color:var(--mut);display:flex;gap:12px}.hmh .lg i{width:9px;height:9px;display:inline-block;margin-right:4px;vertical-align:middle;border-radius:1px}
+.tw{overflow:auto;flex:1}
+table{border-collapse:collapse;font-size:11.5px;min-width:100%}
+th{position:sticky;top:0;background:#fff;text-align:right;color:var(--mut);font-weight:600;padding:8px 13px;border-bottom:1px solid var(--line);font-size:10.5px;white-space:nowrap;font-variant-numeric:tabular-nums}
+th.term{text-align:left;left:0;z-index:2;min-width:200px}
+td{padding:6px 13px;border-bottom:1px solid var(--line2);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+td.term{text-align:left;position:sticky;left:0;background:#fff;font-weight:600;z-index:1;line-height:1.35}
+td.term .u{color:var(--mut);font-weight:400;font-size:10.5px}
+td.term .tk{color:var(--up);font-weight:600;font-size:10px;margin-left:6px}
+.hc{border-radius:4px;padding:4px 9px;display:inline-block;min-width:58px;text-align:center;line-height:1.25}
+.hc .v{font-weight:700}.hc .p{font-size:9.5px;opacity:.8}
+.g2{background:var(--up-bg2)}.g1{background:var(--up-bg)}.z{background:#f3f4f6;color:var(--mut)}.r1{background:var(--dn-bg)}.r2{background:var(--dn-bg2)}
+.g1 .v,.g2 .v{color:var(--up)}.r1 .v,.r2 .v{color:var(--dn)}
+.pag{display:flex;align-items:center;justify-content:flex-end;gap:14px;padding:8px 13px;border-top:1px solid var(--line);color:var(--mut);font-size:11px}
+</style></head><body>
+<div class="app">
+ <div class="side">
+  <div class="box">
+   <div class="hd">已选<span class="n" id="legn">3</span></div>
+   <div id="legrows"></div>
+  </div>
+  <div class="box" style="flex:1;display:flex;flex-direction:column;min-height:0">
+   <div class="srch"><input placeholder="搜索信号"></div>
+   <div class="tree" id="tree"></div>
+  </div>
+ </div>
+ <div class="main">
+  <div class="ctrl">
+   <div class="seg"><span class="on">多序列</span><span>单序列</span></div>
+   <div class="fld"><span class="l">周期</span><span class="v">近 5 季</span></div>
+   <div class="fld"><span class="l">口径</span><span class="v">YoY</span></div>
+   <div class="fld"><span class="l">粒度</span><span class="v">季</span></div>
+   <div style="margin-left:auto;display:flex;gap:8px"><span class="btn">隐藏表格</span><span class="btn p">刷新数据</span></div>
+  </div>
+  <div class="togg"><label class="on"><input type="checkbox" checked>值</label><label class="on"><input type="checkbox" checked>YoY</label><label><input type="checkbox">环比</label><label class="on"><input type="checkbox" checked>映射票</label><label><input type="checkbox">指引对比</label><label><input type="checkbox">证据级</label></div>
+  <div class="hmh"><span class="t">时序热力图</span><span class="s" id="hs"></span><span class="lg"><span><i style="background:var(--dn-bg2)"></i>下降</span><span><i style="background:var(--up-bg2)"></i>增长</span></span></div>
+  <div class="tw"><table id="tbl"></table></div>
+  <div class="pag"><span>每页 15</span><span id="pagc"></span><span>|‹ ‹ › ›|</span></div>
+ </div>
+</div>
+<script>
+const PERIODS=['25Q2','25Q3','25Q4','26Q1','26Q2'];
+const SIG={
+ optics_zte:{g:'光互连',nm:'中际旭创 海外营收',u:'¥亿',tk:'NBIS',cn:1,color:'#c2334d',s:[[92,60],[130,110],[210,150],[194.96,192],[417.78,182]]},
+ optics_eop:{g:'光互连',nm:'新易盛 营收',u:'¥亿',tk:'NBIS',cn:1,color:'#d94a63',s:[[52,120],[70,140],[110,160],[120,175],[248,187]]},
+ g800:{g:'光互连',nm:'800G+ 全球出货',u:'M只',tk:'CIEN·POET',cn:1,color:'#e0748a',s:[[14,80],[18,110],[22,130],[24,150],[63,163]]},
+ gpu:{g:'芯片 / 加速器',nm:'GPU 出货（NVDA DC 代理）',u:'$B',tk:'AMD·MRVL',color:'#2f4bb3',s:[[41,90],[47,95],[57,105],[75,112],[89,117]]},
+ hbm:{g:'芯片 / 加速器',nm:'HBM 代际 / CoWoS 产能',u:'紧度',tk:'MU·SNDK',color:'#4361c9',txt:['偏松','偏紧','紧','很紧','极紧'],lvl:[0,1,1,2,2]},
+ rent:{g:'芯片 / 加速器',nm:'GPU 租赁价',u:'$/hr',tk:'NBIS',color:'#6a82d6',s:[[4.10,-5],[3.95,-8],[3.90,-6],[3.88,-4],[3.85,-3]]},
+ power:{g:'数据中心',nm:'NBIS 合同电力 / 上电',u:'GW',tk:'NBIS',color:'#1a7f45',txt:['2.5','3.0','3.5','>3.5','5.0'],lvl:[0,1,1,2,2]},
+ backlog:{g:'数据中心',nm:'NBIS 客户承诺 / backlog',u:'$B',tk:'NBIS',color:'#2f9c5a',txt:['8','14','22','30','>40'],lvl:[0,1,1,2,2]},
+ dcpwr:{g:'数据中心',nm:'全球数据中心用电',u:'TWh',tk:'NBIS·FCEL',color:'#43b06f',s:[[360,8],[375,9],[390,10],[402,11],[415,12]]},
+ capex:{g:'云 capex',nm:'hyperscaler capex 四家合计',u:'$B/季',tk:'NBIS',color:'#6b4bc4',s:[[120,40],[135,45],[150,52],[160,58],[166,60]]},
+};
+const GROUPS=['芯片 / 加速器','光互连','数据中心','云 capex'];
+let sel=['optics_zte','gpu','power'];
+function heatPct(p){if(p==null)return 'z';if(p>=100)return 'g2';if(p>0)return 'g1';if(p<=-5)return 'r2';return 'r1'}
+function heatLvl(l){return l>=2?'g2':l>=1?'g1':'z'}
+function renderLeg(){
+ document.getElementById('legn').textContent=sel.length;
+ document.getElementById('legrows').innerHTML=sel.map(k=>{const s=SIG[k];
+  return `<div class="legrow"><span class="bar" style="background:${s.color}"></span><span class="nm">${s.nm}${s.cn?'<span class="cn">CN</span>':''}</span><span class="x" data-k="${k}">×</span></div>`}).join('');
+ document.querySelectorAll('.legrow .x').forEach(e=>e.onclick=()=>{sel=sel.filter(x=>x!==e.dataset.k);render()});
+}
+function renderTree(){
+ const byg={};Object.entries(SIG).forEach(([k,s])=>{(byg[s.g]=byg[s.g]||[]).push(k)});
+ document.getElementById('tree').innerHTML=GROUPS.map(g=>{const ks=byg[g]||[];
+  return `<div class="grp open"><div class="grph"><span class="chev">▶</span>${g}<span class="cnt">${ks.length}</span></div><div class="kids">${
+   ks.map(k=>{const s=SIG[k];return `<span class="opt ${sel.includes(k)?'sel':''}" data-k="${k}">${s.nm.split('（')[0].slice(0,11)}${s.cn?'<span class="cn">CN</span>':''}</span>`}).join('')
+  }</div></div>`}).join('');
+ document.querySelectorAll('.grph').forEach(e=>e.onclick=()=>e.parentElement.classList.toggle('open'));
+ document.querySelectorAll('.opt').forEach(e=>e.onclick=()=>{const k=e.dataset.k;sel=sel.includes(k)?sel.filter(x=>x!==k):[...sel,k];render()});
+}
+function renderTbl(){
+ document.getElementById('hs').textContent=`${sel.length} 序列 × ${PERIODS.length} 期`;
+ document.getElementById('pagc').textContent=`1–${sel.length} / ${sel.length}`;
+ let h='<thead><tr><th class="term">信号 / 口径</th>'+PERIODS.map(p=>`<th>${p}</th>`).join('')+'</tr></thead><tbody>';
+ h+=sel.map(k=>{const s=SIG[k];
+  const cells=PERIODS.map((_,i)=>{
+   if(s.txt){return `<td><span class="hc ${heatLvl(s.lvl[i])}"><span class="v">${s.txt[i]}</span></span></td>`}
+   const c=s.s[i];return `<td><span class="hc ${heatPct(c[1])}"><span class="v">${c[0]}</span><br><span class="p">${c[1]>0?'+':''}${c[1]}%</span></span></td>`}).join('');
+  return `<tr><td class="term">${s.nm}<span class="u"> ${s.u}</span><span class="tk">→ ${s.tk}</span></td>${cells}</tr>`}).join('');
+ document.getElementById('tbl').innerHTML=h+'</tbody>';
+}
+function render(){renderLeg();renderTree();renderTbl()}
+render();
+</script></body></html>

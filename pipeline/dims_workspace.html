@@ -1,0 +1,193 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>D1–D7 维工作台</title>
+<style>
+:root{--bg:#f4f5f7;--card:#fff;--ink:#1f2329;--mut:#8a9099;--line:#e6e8eb;--line2:#eff1f3;--accent:#3b5bdb;--accent-soft:#eef1fb;
+ --up:#1a7f45;--up-bg:#e3f4e9;--up-bg2:#c8ecd4;--dn:#b3271e;--dn-bg:#fbe6e4;--dn-bg2:#f6cfcb;--shock:#b5730c;--cn:#c2334d}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:13px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+.top{max-width:1340px;margin:0 auto;padding:12px 12px 0;display:flex;align-items:center;gap:12px}
+.top .ti{font-size:14px;font-weight:700}
+.dims{display:flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;font-size:12px;background:var(--card)}
+.dims span{padding:6px 12px;border-right:1px solid var(--line);cursor:pointer;color:var(--mut);white-space:nowrap}.dims span:last-child{border-right:0}
+.dims span.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.app{display:grid;grid-template-columns:300px 1fr;gap:12px;max-width:1340px;margin:0 auto;padding:10px 12px;height:calc(100vh - 48px)}
+.side{display:flex;flex-direction:column;gap:10px;min-height:0}
+.box{background:var(--card);border:1px solid var(--line);border-radius:6px}
+.hd{padding:9px 13px;border-bottom:1px solid var(--line);font-size:11px;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.04em}.hd .n{color:var(--ink);margin-left:4px}
+.legrow{display:flex;align-items:center;gap:10px;padding:8px 13px;border-bottom:1px solid var(--line2)}.legrow:last-child{border-bottom:0}
+.legrow .bar{width:3px;height:15px;border-radius:2px;flex:none}.legrow .nm{flex:1;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.legrow .cn{color:var(--cn);font-size:10px;font-weight:600;margin-left:4px}.legrow .x{color:#c4c9cf;cursor:pointer;font-size:14px;padding:0 2px}.legrow .x:hover{color:var(--dn)}
+.srch{padding:9px 11px;border-bottom:1px solid var(--line2)}.srch input{width:100%;border:1px solid var(--line);border-radius:5px;padding:6px 9px;font-size:12px}
+.tree{flex:1;overflow:auto}.grp{border-bottom:1px solid var(--line2)}
+.grph{display:flex;align-items:center;gap:9px;padding:9px 13px;cursor:pointer;font-size:12.5px;font-weight:600}.grph:hover{background:#fafbfc}
+.chev{color:#b9bfc6;font-size:9px;transition:transform .12s;width:8px;flex:none}.grp.open .chev{transform:rotate(90deg)}
+.grph .cnt{margin-left:auto;color:var(--mut);font-size:11px}
+.kids{display:none;padding:0 13px 9px 30px;flex-wrap:wrap;gap:6px}.grp.open .kids{display:flex}
+.opt{border:1px solid var(--line);border-radius:5px;padding:4px 9px;font-size:11.5px;cursor:pointer;color:#454b52}.opt:hover{border-color:#b9c2e6}
+.opt.sel{background:var(--accent-soft);border-color:#b9c2e6;color:var(--accent)}.opt .cn{color:var(--cn);font-size:9px;margin-left:3px;font-weight:600}
+.main{background:var(--card);border:1px solid var(--line);border-radius:6px;display:flex;flex-direction:column;min-width:0;overflow:hidden}
+.ctrl{display:flex;align-items:center;gap:8px;padding:10px 13px;border-bottom:1px solid var(--line2);flex-wrap:wrap}
+.seg{display:flex;border:1px solid var(--line);border-radius:5px;overflow:hidden;font-size:12px}.seg span{padding:5px 12px;border-right:1px solid var(--line);color:var(--mut)}.seg span:last-child{border-right:0}.seg span.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.fld{display:flex;flex-direction:column;font-size:12px}.fld .l{font-size:10px;color:var(--mut)}.fld .v{border:1px solid var(--line);border-radius:5px;padding:4px 10px}
+.btn{border:1px solid var(--line);border-radius:5px;padding:6px 12px;font-size:12px;cursor:default}.btn.p{background:var(--accent);color:#fff;border-color:var(--accent)}
+.catbar{display:flex;align-items:center;gap:7px;padding:9px 13px;border-bottom:1px solid var(--line2);flex-wrap:wrap}
+.cchip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:6px;padding:5px 10px;font-size:12px;cursor:pointer;color:#454b52}
+.cchip:hover{border-color:#b9c2e6}.cchip.on{background:var(--accent-soft);border-color:#b9c2e6;color:var(--accent);font-weight:600}
+.cchip .cn{background:#eef0f3;color:var(--mut);border-radius:999px;padding:0 7px;font-size:10.5px;font-weight:600}.cchip.on .cn{background:#dfe4fb;color:var(--accent)}
+.togg{display:flex;align-items:center;gap:16px;padding:8px 13px;border-bottom:1px solid var(--line2);font-size:12px;color:var(--mut)}.togg label{display:inline-flex;align-items:center;gap:5px}.togg label.on{color:var(--ink)}.togg input{accent-color:var(--accent)}
+.hmh{display:flex;align-items:baseline;gap:10px;padding:10px 13px 5px}.hmh .t{font-weight:600}.hmh .s{color:var(--mut);font-size:11px}.hmh .lg{margin-left:auto;font-size:10.5px;color:var(--mut);display:flex;gap:12px}.hmh .lg i{width:9px;height:9px;display:inline-block;margin-right:4px;vertical-align:middle;border-radius:1px}
+.tw{overflow:auto;flex:1}table{border-collapse:collapse;font-size:11.5px;min-width:100%}
+th{position:sticky;top:0;background:#fff;text-align:right;color:var(--mut);font-weight:600;padding:8px 13px;border-bottom:1px solid var(--line);font-size:10.5px;white-space:nowrap}
+th.l{text-align:left}th.term{left:0;z-index:2;min-width:200px}
+td{padding:7px 13px;border-bottom:1px solid var(--line2);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+td.l{text-align:left}td.term{position:sticky;left:0;background:#fff;font-weight:600;z-index:1;line-height:1.35;min-width:200px}
+td.term .u{color:var(--mut);font-weight:400;font-size:10.5px}td.term .tk{color:var(--up);font-weight:600;font-size:10px;margin-left:6px}
+.hc{border-radius:4px;padding:4px 9px;display:inline-block;min-width:56px;text-align:center;line-height:1.25}.hc .v{font-weight:700}.hc .p{font-size:9.5px;opacity:.8}
+.g2{background:var(--up-bg2)}.g1{background:var(--up-bg)}.z{background:#f3f4f6;color:var(--mut)}.r1{background:var(--dn-bg)}.r2{background:var(--dn-bg2)}.g1 .v,.g2 .v{color:var(--up)}.r1 .v,.r2 .v{color:var(--dn)}
+.dir{font-weight:700}.dir.u{color:var(--up)}.dir.d{color:var(--dn)}.dir.s{color:var(--shock)}.dir.f{color:var(--mut)}
+.pl{display:inline-block;padding:0 6px;border-radius:4px;font-size:10px;font-weight:600;border:1px solid var(--line);color:var(--mut)}
+.imp{padding:1px 7px;border-radius:4px;font-size:10.5px;font-weight:600}.imp-高{background:var(--up-bg);color:var(--up)}.imp-中{background:#f3f4f6;color:var(--mut)}.imp-低{background:#f3f4f6;color:#aeb4bd}
+.ta{padding:0 6px;border-radius:4px;font-size:10px;font-weight:700;border:1px solid var(--line);color:var(--mut)}
+.ok{color:var(--up)}.warn{color:var(--shock)}.no{color:var(--mut)}
+.spill .tk{color:var(--up);font-weight:600}.wl{color:var(--mut)}
+.pag{display:flex;align-items:center;justify-content:flex-end;gap:14px;padding:8px 13px;border-top:1px solid var(--line);color:var(--mut);font-size:11px}
+.gapnote{padding:9px 13px;background:#fdf6ec;border-top:1px solid #f0dcc0;color:#8a5a1a;font-size:11px}
+</style></head><body>
+<div class="top"><span class="ti">维工作台</span>
+ <div class="dims" id="dims"></div>
+ <span style="color:var(--mut);font-size:11.5px" id="kindnote"></span>
+</div>
+<div class="app">
+ <div class="side">
+  <div class="box"><div class="hd">已选<span class="n" id="legn"></span></div><div id="legrows"></div></div>
+  <div class="box" style="flex:1;display:flex;flex-direction:column;min-height:0"><div class="srch"><input placeholder="搜索信号"></div><div class="tree" id="tree"></div></div>
+ </div>
+ <div class="main">
+  <div class="ctrl" id="ctrl"></div>
+  <div class="catbar" id="catbar"></div>
+  <div class="togg" id="togg"></div>
+  <div class="hmh"><span class="t" id="mt"></span><span class="s" id="hs"></span><span class="lg" id="lg"></span></div>
+  <div class="tw"><table id="tbl"></table></div>
+  <div id="gap"></div>
+  <div class="pag"><span>每页 15</span><span id="pagc"></span><span>|‹ ‹ › ›|</span></div>
+ </div>
+</div>
+<script>
+const PER=['25Q2','25Q3','25Q4','26Q1','26Q2'];
+// kind: quant 量价热力 | event 事件表 | radar 前沿两道闸
+const DIMS={
+ D1:{label:'D1 算力',kind:'quant',note:'类1 量价 · 时序热力图',
+  I:{
+   zte:{g:'光互连',nm:'中际旭创 海外营收',u:'¥亿',tk:'NBIS',cn:1,c:'#c2334d',s:[[92,60],[130,110],[210,150],[195,192],[418,182]]},
+   eop:{g:'光互连',nm:'新易盛 营收',u:'¥亿',tk:'NBIS',cn:1,c:'#d94a63',s:[[52,120],[70,140],[110,160],[120,175],[248,187]]},
+   g800:{g:'光互连',nm:'800G+ 全球出货',u:'M只',tk:'CIEN·POET',cn:1,c:'#e0748a',s:[[14,80],[18,110],[22,130],[24,150],[63,163]]},
+   gpu:{g:'芯片 / 加速器',nm:'GPU 出货（NVDA DC 代理）',u:'$B',tk:'AMD·MRVL',c:'#2f4bb3',s:[[41,90],[47,95],[57,105],[75,112],[89,117]]},
+   hbm:{g:'芯片 / 加速器',nm:'HBM / CoWoS 产能紧度',u:'',tk:'MU·SNDK',c:'#4361c9',txt:['偏松','偏紧','紧','很紧','极紧'],lvl:[0,1,1,2,2]},
+   power:{g:'数据中心',nm:'NBIS 合同电力 / 上电',u:'GW',tk:'NBIS',c:'#1a7f45',txt:['2.5','3.0','3.5','>3.5','5.0'],lvl:[0,1,1,2,2]},
+   backlog:{g:'数据中心',nm:'NBIS 客户承诺 / backlog',u:'$B',tk:'NBIS',c:'#2f9c5a',txt:['8','14','22','30','>40'],lvl:[0,1,1,2,2]},
+   capex:{g:'云 capex',nm:'hyperscaler capex 四家',u:'$B/季',tk:'NBIS',c:'#6b4bc4',s:[[120,40],[135,45],[150,52],[160,58],[166,60]]},
+  },sel:['zte','gpu','power']},
+ D2:{label:'D2 数据',kind:'radar',note:'类4前沿 + 类2事件 · 两道闸',
+  I:{
+   wall:{g:'数据稀缺',nm:'数据枯竭 / data wall',inst:'Epoch·CMU',ty:'前沿',tier:'T_a',gate:'✓ 中立·可复现',gk:'ok',imp:'高',spill:'D5 训练'},
+   synth:{g:'数据稀缺',nm:'合成数据突破',inst:'arXiv',ty:'前沿',tier:'T_b',gate:'△ 待第三方证',gk:'warn',imp:'中',spill:''},
+   nyt:{g:'版权 / 合规',nm:'NYT × OpenAI 版权诉讼',inst:'法院',ty:'事件',tier:'T_a',gate:'✓ 一手',gk:'ok',imp:'中',spill:'RBRK'},
+   scale:{g:'标注 / 支出',nm:'Scale/Surge 标注定价',inst:'招聘·定价',ty:'量价',tier:'T_c',gate:'△ 分散',gk:'warn',imp:'中',spill:''},
+  },sel:['wall','nyt']},
+ D3:{label:'D3 资本',kind:'event',note:'类2 事件 · 事件表',
+  I:{
+   refl:{g:'一级融资',nm:'Reflection ↔ Nebius 算力合同',date:'2026-07-14',size:'$1B+',dir:'u',p:'P1',tk:'NBIS'},
+   reflr:{g:'一级融资',nm:'Reflection 一级新一轮',date:'2026-04',size:'~$20–27B 在谈',dir:'u',p:'P2',tk:'NBIS'},
+   oai:{g:'一级融资',nm:'OpenAI 融资',date:'2026',size:'$122B @ $852B',dir:'u',p:'P1',tk:'赛道'},
+   nvda:{g:'战略 / 循环',nm:'Nvidia 系战略投资 / 循环融资',date:'2026-08',size:'$13.1B',dir:'s',p:'P1',tk:'NBIS'},
+   ts:{g:'战略 / 循环',nm:'TypeSafe 种子 · DCVC 领投',date:'2026-09',size:'$40M @ ~$2B',dir:'u',p:'P1',tk:'—'},
+   coh:{g:'估值轮动',nm:'Cohere ARR / 估值',date:'2026',size:'$240M / ~$20B',dir:'f',p:'P3',tk:'—'},
+  },sel:['refl','nvda','reflr']},
+ D4:{label:'D4 人才',kind:'event',note:'类2 事件 · 合规受限,现薄',
+  I:{
+   almeida:{g:'研究员流向',nm:'Diogo Almeida（InstructGPT）→ 决策模型',date:'2024–26',size:'动向',dir:'u',p:'P3',tk:'主题'},
+   spinout:{g:'团队 spin-out',nm:'（待补:明星团队 spin-out）',date:'—',size:'—',dir:'f',p:'—',tk:'—'},
+  },sel:['almeida'],gap:'人才维合规受限（领英 ToS）：标半自动 + 人工，owner C/D，现仅 1 条实测。诚实留空，不装满。'},
+ D5:{label:'D5 能力前沿',kind:'radar',note:'类4 前沿 · 前沿雷达两道闸',
+  I:{
+   compute:{g:'主题斜率',nm:'训练算力年增速',inst:'Epoch',ty:'基准',tier:'T_a',gate:'✓ 中立·第三方验证',gk:'ok',imp:'高',spill:'NBIS'},
+   oc:{g:'主题斜率',nm:'开源 vs 闭源差距',inst:'Artificial Analysis',ty:'基准',tier:'T_a',gate:'✓ 中立·第三方验证',gk:'ok',imp:'高',spill:'NBIS'},
+   pp:{g:'主题斜率',nm:'推理性价比',inst:'Artificial Analysis',ty:'基准',tier:'T_a',gate:'✓ 第三方验证',gk:'ok',imp:'高',spill:'降本'},
+   swe:{g:'benchmark',nm:'SWE-bench 榜首',inst:'SWE-bench',ty:'基准',tier:'T_a',gate:'✓ 中立·第三方验证',gk:'ok',imp:'中',spill:''},
+   ssm:{g:'方法 / 架构',nm:'新架构 DeepSeek / SSM',inst:'arXiv',ty:'论文',tier:'T_b',gate:'✓ 可复现',gk:'ok',imp:'高',spill:'推理成本'},
+   jev:{g:'方法 / 架构',nm:'Jev「Decisions, not strings」',inst:'TypeSafe',ty:'论文',tier:'T_b',gate:'✗ 厂商发布·claimed_only',gk:'no',imp:'高',spill:''},
+   lc:{g:'方法 / 架构',nm:'LangChain:harness with Jev',inst:'langchain.com',ty:'博客/采用',tier:'T_b',gate:'△ 可复现·有立场',gk:'warn',imp:'中',spill:''},
+   cosmos:{g:'开源 / 生态',nm:'世界模型 Cosmos',inst:'NVIDIA',ty:'demo',tier:'T_b',gate:'✗ 厂商PR·claimed_only',gk:'no',imp:'中',spill:''},
+  },sel:['compute','oc','ssm']},
+ D6:{label:'D6 token经济',kind:'quant',note:'类1 量价 · 时序热力图',
+  I:{
+   tok:{g:'用量',nm:'推理 token 用量（OpenRouter）',u:'指数',tk:'NBIS',c:'#2f4bb3',s:[[100,60],[130,70],[165,80],[210,95],[260,110]]},
+   cost:{g:'成本曲线',nm:'cost / token（前沿档）',u:'$/1M',tk:'NBIS',c:'#6a82d6',s:[[3.0,-20],[2.6,-30],[2.2,-35],[2.0,-33],[1.6,-40]]},
+   arr:{g:'企业 adoption',nm:'RBRK Sub-ARR',u:'$B',tk:'RBRK',c:'#1a7f45',s:[[1.10,45],[1.25,42],[1.40,38],[1.52,35],[1.66,33]]},
+   ret:{g:'应用留存',nm:'AI 应用留存 / 渗透',u:'指数',tk:'—',c:'#43b06f',s:[[100,20],[108,22],[115,24],[122,25],[130,26]]},
+  },sel:['tok','cost','arr']},
+ D7:{label:'D7 政策·能源',kind:'event',note:'类2 事件 · regime · 事件表',
+  I:{
+   bis:{g:'出口管制',nm:'BIS 对华算力许可政策修订',date:'2026-01-15',size:'91 FR 1684',dir:'s',p:'P1',tk:'NBIS'},
+   uae:{g:'出口管制',nm:'BIS UAE 增强优待规则',date:'2026-07-14',size:'91 FR 43034',dir:'s',p:'P1',tk:'NBIS'},
+   tar:{g:'出口管制',nm:'232 关税（对相关芯片）',date:'2026-01',size:'25% 从价',dir:'s',p:'P1',tk:'NBIS'},
+   iea:{g:'能源 / 电网',nm:'全球数据中心用电（IEA）',date:'2026',size:'415 TWh',dir:'u',p:'P1',tk:'NBIS·FCEL'},
+   euai:{g:'监管 / 安全',nm:'EU AI Act 落地',date:'2026',size:'合规窗口',dir:'f',p:'P2',tk:'RBRK'},
+  },sel:['bis','uae','iea']},
+};
+let cur='D1',catSel=null;   // catSel: null=全部(已选) / 组名=看该类全部(图1 单选聚焦)
+const DIRT={u:'↑',d:'↓',s:'!',f:'→'};
+function heatPct(p){if(p==null)return 'z';if(p>=100)return 'g2';if(p>0)return 'g1';if(p<=-30)return 'r2';if(p<0)return 'r1';return 'z'}
+function heatLvl(l){return l>=2?'g2':l>=1?'g1':'z'}
+function renderDims(){document.getElementById('dims').innerHTML=Object.keys(DIMS).map(d=>`<span class="${d===cur?'on':''}" data-d="${d}">${DIMS[d].label}</span>`).join('');
+ document.querySelectorAll('.dims span').forEach(e=>e.onclick=()=>{cur=e.dataset.d;catSel=null;render()});}
+function renderCatbar(){const d=D();const byg={};Object.entries(d.I).forEach(([k,s])=>{(byg[s.g]=byg[s.g]||[]).push(k)});
+ const chips=[`<span class="cchip ${catSel===null?'on':''}" data-c="__all">全部<span class="cn">${d.sel.length}</span></span>`]
+  .concat(Object.keys(byg).map(g=>`<span class="cchip ${catSel===g?'on':''}" data-c="${g}">${g}<span class="cn">${byg[g].length}</span></span>`));
+ document.getElementById('catbar').innerHTML=chips.join('');
+ document.querySelectorAll('.catbar .cchip').forEach(e=>e.onclick=()=>{catSel=e.dataset.c==='__all'?null:e.dataset.c;render()});}
+function D(){return DIMS[cur]}
+function renderLeg(){const d=D();document.getElementById('legn').textContent=d.sel.length;
+ document.getElementById('legrows').innerHTML=d.sel.map(k=>{const s=d.I[k];const c=s.c||'#8a9099';
+  return `<div class="legrow"><span class="bar" style="background:${c}"></span><span class="nm">${s.nm}${s.cn?'<span class="cn">CN</span>':''}</span><span class="x" data-k="${k}">×</span></div>`}).join('');
+ document.querySelectorAll('.legrow .x').forEach(e=>e.onclick=()=>{d.sel=d.sel.filter(x=>x!==e.dataset.k);render()});}
+function renderTree(){const d=D();const byg={};Object.entries(d.I).forEach(([k,s])=>{(byg[s.g]=byg[s.g]||[]).push(k)});
+ document.getElementById('tree').innerHTML=Object.keys(byg).map(g=>`<div class="grp open"><div class="grph"><span class="chev">▶</span>${g}<span class="cnt">${byg[g].length}</span></div><div class="kids">${
+   byg[g].map(k=>{const s=d.I[k];return `<span class="opt ${d.sel.includes(k)?'sel':''}" data-k="${k}">${(s.nm.split('（')[0]).slice(0,12)}${s.cn?'<span class="cn">CN</span>':''}</span>`}).join('')}</div></div>`).join('');
+ document.querySelectorAll('.grph').forEach(e=>e.onclick=()=>e.parentElement.classList.toggle('open'));
+ document.querySelectorAll('.opt').forEach(e=>e.onclick=()=>{const k=e.dataset.k;d.sel=d.sel.includes(k)?d.sel.filter(x=>x!==k):[...d.sel,k];render()});}
+function renderMain(){const d=D();document.getElementById('kindnote').textContent='· '+d.note;
+ const ctrl=document.getElementById('ctrl'),togg=document.getElementById('togg'),lg=document.getElementById('lg'),mt=document.getElementById('mt');
+ if(d.kind==='quant'){
+  ctrl.innerHTML='<div class="seg"><span class="on">多序列</span><span>单序列</span></div><div class="fld"><span class="l">周期</span><span class="v">近 5 季</span></div><div class="fld"><span class="l">口径</span><span class="v">YoY</span></div><div class="fld"><span class="l">粒度</span><span class="v">季</span></div><div style="margin-left:auto;display:flex;gap:8px"><span class="btn">隐藏表格</span><span class="btn p">刷新数据</span></div>';
+  togg.innerHTML='<label class="on"><input type="checkbox" checked>值</label><label class="on"><input type="checkbox" checked>YoY</label><label><input type="checkbox">环比</label><label class="on"><input type="checkbox" checked>映射票</label><label><input type="checkbox">指引对比</label>';
+  mt.textContent='时序热力图';lg.innerHTML='<span><i style="background:var(--dn-bg2)"></i>下降</span><span><i style="background:var(--up-bg2)"></i>增长</span>';
+ }else if(d.kind==='event'){
+  ctrl.innerHTML='<div class="seg"><span class="on">全部</span><span>已发生</span><span>未来排期</span></div><div class="fld"><span class="l">区间</span><span class="v">近 12 月</span></div><div class="fld"><span class="l">排序</span><span class="v">日期</span></div><div style="margin-left:auto;display:flex;gap:8px"><span class="btn">导出</span><span class="btn p">刷新数据</span></div>';
+  togg.innerHTML='<label class="on"><input type="checkbox" checked>方向</label><label class="on"><input type="checkbox" checked>证据级</label><label class="on"><input type="checkbox" checked>映射票</label><label><input type="checkbox">简报</label>';
+  mt.textContent='事件流';lg.innerHTML='<span class="dir u">↑增强</span><span class="dir d">↓削弱</span><span class="dir s">!冲击</span>';
+ }else{
+  ctrl.innerHTML='<div class="seg"><span class="on">三子流</span><span>只看外溢</span><span>只看第三方验证</span></div><div class="fld"><span class="l">窗口</span><span class="v">近 30 日</span></div><div class="fld"><span class="l">排序</span><span class="v">影响力</span></div><div style="margin-left:auto;display:flex;gap:8px"><span class="btn">导出</span><span class="btn p">刷新数据</span></div>';
+  togg.innerHTML='<label class="on"><input type="checkbox" checked>源档</label><label class="on"><input type="checkbox" checked>证伪闸</label><label class="on"><input type="checkbox" checked>影响力</label><label class="on"><input type="checkbox" checked>外溢</label>';
+  mt.textContent='前沿雷达';lg.innerHTML='<span class="imp imp-高" style="padding:0 6px">高</span>过闸外溢 · <span class="wl">watchlist</span>不外溢';
+ }
+ const tb=document.getElementById('tbl');
+ const list=catSel===null ? d.sel.map(k=>d.I[k]) : Object.values(d.I).filter(s=>s.g===catSel);   // 全部=已选 · 选类别=看该类全部(图1)
+ document.getElementById('hs').textContent=catSel===null?`已选 ${list.length} 项`:`${catSel} · ${list.length} 项`;document.getElementById('pagc').textContent=`1–${list.length} / ${list.length}`;
+ if(d.kind==='quant'){
+  let h='<thead><tr><th class="l term">信号 / 口径</th>'+PER.map(p=>`<th>${p}</th>`).join('')+'</tr></thead><tbody>';
+  h+=list.map(s=>`<tr><td class="l term">${s.nm}<span class="u"> ${s.u}</span>${s.tk!=='—'?`<span class="tk">→ ${s.tk}</span>`:''}</td>`+PER.map((_,i)=>{
+    if(s.txt)return `<td><span class="hc ${heatLvl(s.lvl[i])}"><span class="v">${s.txt[i]}</span></span></td>`;
+    const c=s.s[i];return `<td><span class="hc ${heatPct(c[1])}"><span class="v">${c[0]}</span><br><span class="p">${c[1]>0?'+':''}${c[1]}%</span></span></td>`}).join('')+'</tr>').join('');
+  tb.innerHTML=h+'</tbody>';
+ }else if(d.kind==='event'){
+  tb.innerHTML='<thead><tr><th class="l term">事件</th><th class="l">分组</th><th class="l">日期</th><th class="l">规模</th><th>方向</th><th>证据</th><th class="l">映射票</th></tr></thead><tbody>'+
+   list.map(s=>`<tr><td class="l term">${s.nm}</td><td class="l" style="color:var(--mut)">${s.g}</td><td class="l">${s.date}</td><td class="l">${s.size}</td><td><span class="dir ${s.dir}">${DIRT[s.dir]}</span></td><td><span class="pl">${s.p}</span></td><td class="l">${s.tk!=='—'?`<span class="spill"><span class="tk">→ ${s.tk}</span></span>`:'<span class="wl">—</span>'}</td></tr>`).join('')+'</tbody>';
+ }else{
+  tb.innerHTML='<thead><tr><th class="l term">信号 / 机构</th><th class="l">类型</th><th class="l">源档</th><th class="l">证伪闸</th><th class="l">影响力</th><th class="l">外溢</th></tr></thead><tbody>'+
+   list.map(s=>`<tr><td class="l term">${s.nm}<span class="u"> ${s.inst}</span></td><td class="l"><span class="ta">${s.ty}</span></td><td class="l"><span class="ta">${s.tier}</span></td><td class="l ${s.gk}">${s.gate}</td><td class="l"><span class="imp imp-${s.imp}">${s.imp}</span></td><td class="l">${s.spill?`<span class="spill"><span class="tk">→ ${s.spill}</span></span>`:'<span class="wl">watchlist</span>'}</td></tr>`).join('')+'</tbody>';
+ }
+ document.getElementById('gap').innerHTML=d.gap?`<div class="gapnote">诚实缺口：${d.gap}</div>`:'';
+}
+function render(){renderDims();renderLeg();renderTree();renderCatbar();renderMain()}
+render();
+</script></body></html>

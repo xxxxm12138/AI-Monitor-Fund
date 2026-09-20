@@ -1,0 +1,188 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anatole 面板组件规格板</title>
+<style>
+:root{
+ --bg:#f6f7f9;--card:#fff;--ink:#1a1d24;--mut:#7a828f;--line:#e7e9ee;--line2:#eef0f3;
+ --accent:#4f46e5;--accent-soft:#eef0ff;
+ --up-bg:#e7f6ec;--up:#16a34a;--dn-bg:#fdeaea;--dn:#dc2626;--shock-bg:#fdf1e3;--shock:#c2740c;--flat:#9aa2ad;
+ --t1:#0e7490;--t2:#7c3aed;--t3:#9aa2ad;--chn:#e11d48;
+}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);
+ font:13px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:22px 20px 60px}
+h1{font-size:19px;margin:0 0 2px}.lead{color:var(--mut);font-size:13px;margin:0 0 20px}
+h2{font-size:13px;letter-spacing:.02em;margin:26px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--line);color:var(--ink)}
+h2 span{color:var(--mut);font-weight:400;font-size:12px}
+.grid{display:grid;gap:14px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr 1fr 1fr}
+.comp{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.comp .cap{margin-top:10px;padding-top:9px;border-top:1px dashed var(--line);color:var(--mut);font-size:11.5px;line-height:1.55}
+.comp .cap b{color:var(--ink);font-weight:600}
+.name{font-size:12px;font-weight:650;margin-bottom:9px;color:var(--ink)}.name em{color:var(--mut);font-weight:400;font-style:normal;margin-left:6px}
+/* atoms */
+.badge{display:inline-flex;align-items:center;gap:5px;padding:2px 9px;border-radius:999px;font-size:11.5px;font-weight:600;border:1px solid}
+.b-t1{color:var(--t1);border-color:#0e749033;background:#0e74900d}.b-t2{color:var(--t2);border-color:#7c3aed33;background:#7c3aed0d}.b-t3{color:#6b7280;border-color:var(--line);background:#0000}
+.corr{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:8px;font-size:11.5px;font-weight:600;background:var(--up-bg);color:var(--up)}
+.corr.neg{background:var(--dn-bg);color:var(--dn)}
+.cell{display:inline-block;padding:5px 12px;border-radius:6px;font-weight:600;font-size:12px;text-align:center;min-width:60px}
+.c-up{background:var(--up-bg);color:var(--up)}.c-dn{background:var(--dn-bg);color:var(--dn)}.c-flat{background:#f1f3f5;color:var(--mut)}
+.p{display:inline-block;padding:1px 7px;border-radius:5px;font-size:11px;font-weight:600;border:1px solid}
+.p1{background:#0e749012;color:var(--t1);border-color:#0e749033}.p3{background:#0000;color:var(--mut);border-color:var(--line)}
+.dir{font-weight:700}.dir.up{color:var(--up)}.dir.dn{color:var(--dn)}.dir.sh{color:var(--shock)}
+.quad{display:grid;grid-template-columns:56px 1fr 1fr;border:1px solid var(--line);border-radius:8px;overflow:hidden;font-size:11px}
+.quad>div{padding:7px 9px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.quad .h{background:#fafbfc;font-weight:600;color:var(--mut);border-top:0}.quad .rh{background:#fafbfc;font-weight:600;color:var(--mut);display:flex;align-items:center}
+.q b{font-size:15px;margin-right:4px}.qa{background:#e7f6ec66}.qa b{color:var(--up)}.qw{background:#fdf1e366}.qw b{color:var(--shock)}.qp{background:#f1f3f566}.qp b{color:var(--mut)}.qi b{color:#c4c9d0}
+.legend{display:flex;flex-direction:column;gap:7px;font-size:11.5px;color:var(--mut)}
+.sw{display:inline-block;width:26px;height:0;vertical-align:middle;margin-right:7px;border-top-width:3px}
+/* strip / rail / cards */
+.flow{display:flex;align-items:stretch;gap:0;background:#fafbfc;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.flow .st{flex:1;padding:9px 12px;border-right:1px solid var(--line);position:relative}
+.flow .st:last-child{border-right:0}.flow .st.on{background:var(--accent-soft)}
+.flow .st .k{font-size:12px;font-weight:700;color:var(--accent)}.flow .st.off .k{color:var(--mut)}
+.flow .st .d{font-size:10.5px;color:var(--mut);margin-top:1px}
+.rail{border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:12px}
+.rail .grp{padding:7px 11px;background:#fafbfc;font-weight:700;font-size:11px;color:var(--mut);border-top:1px solid var(--line2)}
+.rail .it{display:flex;justify-content:space-between;align-items:center;padding:7px 11px;border-top:1px solid var(--line2)}
+.rail .it.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.rail .n{background:#eef0f3;border-radius:999px;padding:0 7px;font-size:10.5px;color:var(--mut)}
+.cardhead{display:flex;align-items:baseline;gap:8px;margin-bottom:3px}.cardhead .t{font-size:13.5px;font-weight:700}
+.tag{font-size:10.5px;color:var(--mut);background:#f1f3f5;border-radius:5px;padding:1px 7px}
+.k{color:var(--mut);font-size:10.5px;font-weight:600;letter-spacing:.03em;margin-top:11px;text-transform:uppercase}
+.v{font-size:12.5px;margin-top:2px}
+.chainflow{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-top:4px}
+.node{border:1px solid var(--line);border-radius:7px;padding:4px 9px;font-size:11.5px;background:#fbfbfd}
+.node.src{border-color:var(--accent);color:var(--accent);font-weight:600}.node.mech{background:#f6f4fb;border-color:#e6e0f5;color:#6d5aa8}
+.node.dst{border-color:var(--shock);color:#a35a08;font-weight:700;background:#fdf7ee}
+.ar{color:var(--mut);font-size:11px}
+.pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11.5px;border:1px solid var(--line);margin:2px 4px 2px 0;background:#fafbfc}
+.pill.up{color:var(--up);border-color:#16a34a44}.pill.dn{color:var(--dn);border-color:#dc262644}.pill.sh{color:var(--shock);border-color:#c2740c44}
+.seg{border-top:1px solid var(--line);margin-top:12px;padding-top:9px}.seg .lab{font-size:11px;font-weight:700;color:var(--ink);margin-bottom:5px}
+.fold{margin-top:11px;font-size:11px;color:var(--mut);background:#fafbfc;border:1px dashed var(--line);border-radius:7px;padding:6px 9px}
+.row{display:flex;align-items:center;gap:8px}
+.kpi{border:1px solid var(--line);border-radius:10px;padding:11px 12px;background:var(--card)}
+.kpi .top{display:flex;justify-content:space-between;align-items:center}.kpi .lab{font-size:11.5px;color:var(--mut)}
+.kpi .big{font-size:20px;font-weight:700;margin:2px 0}
+.wire{border:1px dashed var(--mut);border-radius:8px;color:var(--mut);font-size:11px;display:flex;align-items:center;justify-content:center;text-align:center;padding:6px}
+.wirebox{display:grid;gap:8px;grid-template-columns:150px 1fr 300px;grid-template-rows:auto 240px auto;height:340px}
+</style></head><body><div class="wrap">
+<h1>Anatole 面板组件规格板 <span style="font-size:12px;color:var(--mut);font-weight:400">v0 · 借 TickerTrends 视觉语言 · 骨架仍是「事件→传播图→卡」</span></h1>
+<p class="lead">每个子组件:草图 + <b>怎么做 / 数据来源 / 交互</b>。视觉借 TickerTrends(浅底卡片 / 热力格 / 徽章 / sparkline / 顶部流程条 / 左栏分组);信息架构是我们自己的(事件为主,不做 per-ticker 页)。</p>
+
+<h2>§0 设计 tokens <span>· 全站统一,深色另配</span></h2>
+<div class="comp">
+ <div class="name">配色 / 语义色</div>
+ <div class="row" style="flex-wrap:wrap;gap:14px">
+  <span><span class="cell c-up">+YoY 绿</span></span><span><span class="cell c-dn">−YoY 红</span></span>
+  <span><span class="badge b-t1">T1</span> <span class="badge b-t2">T2</span> <span class="badge b-t3">T3</span> 确定性档</span>
+  <span><span class="dir up">↑</span> <span class="dir dn">↓</span> <span class="dir sh">!</span> <span style="color:var(--mut)">→</span> 方向</span>
+  <span><span class="p p1">P1</span> <span class="p p3">P3</span> 证据级</span>
+  <span style="color:var(--chn)">● 中国侧独家</span>
+ </div>
+ <div class="cap"><b>做法</b>:CSS 变量 :root 定义,深色在 @media(prefers-color-scheme) 覆盖。语义色只承载"方向/确定性/证据",不乱用。字体系统默认无衬线;数字用等宽感对齐。卡片 = 白底 + 1px 浅边 + 圆角 12 + 大留白(抄 TickerTrends 的干净)。</div>
+</div>
+
+<h2>§1 原子组件 <span>· 可复用最小件</span></h2>
+<div class="grid g3">
+ <div class="comp"><div class="name">① 确定性/权重徽章 <em>仿 "Revenue corr."</em></div>
+  <div class="row" style="gap:8px;flex-wrap:wrap"><span class="corr">T1 · 可交易 0.39</span><span class="corr neg">T2 · 预警 0.26</span><span class="badge b-t3">T3 · 只给方向</span></div>
+  <div class="cap"><b>数据</b> v_edge_calc.tier + tradable_calc/warning_calc · dominant。<b>做法</b> 每条边/路径卡右上角一枚,一眼"这条链信几分"。这是最该抄 TickerTrends 的件——把"信号和票的关系强度"量化上脸。</div></div>
+ <div class="comp"><div class="name">② 方向×YoY 热力格</div>
+  <div class="row" style="gap:6px;flex-wrap:wrap"><span class="cell c-up">+19.9%</span><span class="cell c-dn">−32.9%</span><span class="cell c-up">+5.6%</span><span class="cell c-flat">—</span></div>
+  <div class="cap"><b>数据</b> observation_direction.direction + fct YoY/qoq。<b>做法</b> 绿红深浅按幅度;表格/记分卡里成排用,极易扫(抄 TickerTrends 热力表)。</div></div>
+ <div class="comp"><div class="name">③ 证据级 chip <em>P1–P5</em></div>
+  <div class="row" style="gap:6px"><span class="p p1">P1 一手</span><span class="p p3">P3 二手</span></div>
+  <div class="cap"><b>数据</b> fct_*.provenance + source_master。<b>做法</b> P1 实心/P3 描边;点开弹源链接+快照(抄 Daloopa 的 provenance 硬)。</div></div>
+ <div class="comp"><div class="name">④ Sparkline <em>≥3 点才画</em></div>
+  <svg width="120" height="30" viewBox="0 0 120 30"><polyline points="0,24 20,20 40,22 60,12 80,14 100,6 120,8" fill="none" stroke="var(--accent)" stroke-width="2"/></svg>
+  <div class="cap"><b>数据</b> 某指标 fct 时序(knowledge_date 排序)。<b>做法</b> 内联 SVG,无库;类1量价 ≥3 点给,否则不画(不伪造)。</div></div>
+ <div class="comp"><div class="name">⑤ 2×2 象限格 <em>领先期×证据</em></div>
+  <div class="quad"><div class="h"></div><div class="h">证据硬</div><div class="h">证据软</div>
+   <div class="rh">领先长</div><div class="q qa"><b>10</b>现在动</div><div class="q qw"><b>7</b>观察</div>
+   <div class="rh">领先短</div><div class="q qp"><b>2</b>已priced</div><div class="q qi"><b>0</b>忽略</div></div>
+  <div class="cap"><b>数据</b> 领先期=metric_factor.l · 证据=cert_tier。<b>做法</b> 顶部常驻,把当前视图路径分格 → 直接指导 act/watch/ignore(开枪 vs 瞄准)。</div></div>
+ <div class="comp"><div class="name">⑥ 边图例</div>
+  <div class="legend"><span><span class="sw" style="border-top-color:var(--up)"></span>↑增强 <span class="sw" style="border-top-color:var(--dn)"></span>↓削弱 <span class="sw" style="border-top-color:var(--shock)"></span>!冲击</span>
+   <span><span class="sw" style="border-top-style:solid;border-top-color:var(--mut)"></span>T1 <span class="sw" style="border-top-style:dashed;border-top-color:var(--mut)"></span>T2 <span class="sw" style="border-top-style:dotted;border-top-color:var(--mut)"></span>T3 · 边宽=权重</span></div>
+  <div class="cap"><b>做法</b> 传播图里:颜色=方向,线型=tier,宽度=tradable/warning。图例固定在图角。</div></div>
+</div>
+
+<h2>§2 顶部四算子流程条 <span>· 仿 Awareness→Consideration→Action→Forecast,换成我们的思想门面</span></h2>
+<div class="comp">
+ <div class="flow">
+  <div class="st on"><div class="k">① REPRESENT</div><div class="d">新内容 → 分维/机制 + 两道闸</div></div>
+  <div class="st off"><div class="k">② PROPOSE</div><div class="d">扇出可能空间(可达哪些票)</div></div>
+  <div class="st off"><div class="k">③ PREDICT</div><div class="d">每路径方向 × 领先期</div></div>
+  <div class="st off"><div class="k">④ SELECT</div><div class="d">打分排序 → 导向 ticker</div></div>
+ </div>
+ <div class="cap"><b>数据</b> propagate.py 四段输出。<b>做法</b> 常驻顶部;当前在哪一算子高亮(如刚输入事件 = REPRESENT 亮)。<b>交互</b> 点某段 = 只看该段结果。这是把 JEV 思想直接可视化的门面,面试点睛。</div>
+</div>
+
+<h2>§3 左栏 D1–D7 维选择器 <span>· 仿 TickerTrends 左栏分组(Data Source KPIs / Income Statement…)</span></h2>
+<div class="grid" style="grid-template-columns:280px 1fr">
+ <div class="comp" style="padding:0"><div class="rail">
+  <div class="grp">投入要素</div>
+  <div class="it on">D1 算力供给 <span class="row" style="gap:5px"><span style="color:var(--chn)">●</span><span class="n">9</span></span></div>
+  <div class="it">D2 数据供给 <span class="n">3</span></div><div class="it">D3 资本 <span class="n">7</span></div><div class="it">D4 人才 <span class="n">1</span></div>
+  <div class="grp">能力 / 变现 / regime</div>
+  <div class="it">D5 能力前沿 <span class="n">7</span></div><div class="it">D6 token 经济 <span class="n">4</span></div><div class="it">D7 政策·能源 <span class="n">5</span></div>
+ </div></div>
+ <div class="comp"><div class="name">怎么做</div>
+  <div class="cap" style="border:0;padding:0;margin:0;color:var(--ink)"><b>数据</b> metric_registry 按 dim 分组计数;<b>●</b>=该维有中国侧独家节点。<b>交互</b> 选一个维 → 图/记分卡/事件流都过滤到该维。四族(投入/能力/变现/regime)分组标题。基金视角默认排序 D1&gt;D7&gt;D3&gt;D6&gt;D5&gt;D2&gt;D4(doc24v2)。<br><br><b>为什么这样</b>:TickerTrends 左栏是"按财务科目选指标";我们换成"按 AI 发展维度选",让入口是 AI 发展本身,不是公司。</div></div>
+</div>
+
+<h2>§4 三张卡 <span>· 跟着"选中什么"切换:信号 / 路径 / 节点</span></h2>
+<div class="grid g3">
+ <div class="comp"><div class="name">信号卡 <em>选中一条 fct 记录</em></div>
+  <div class="cardhead"><span class="t">Reflection↔Nebius $1B 算力合同</span></div><span class="tag">D3 · 事件 · 2026-07-14</span>
+  <div class="k">何时可知 / 证据</div><div class="v"><span class="p p1">P1</span> 2026-07-14 · TechCrunch</div>
+  <div class="k">方向</div><div class="v"><span class="pill up">↑ 增强 thesis</span></div>
+  <div class="k">点燃哪些路径</div><div class="v">lab 采购力 → NBIS(预警 0.26)</div>
+  <div class="k">so-what</div><div class="v">需求真实性 +1;NBIS 头号风险边被证一次</div>
+  <div class="fold">原文长描述 / anchor 折叠</div>
+  <div class="cap"><b>数据</b> stg_observation + fct + observation_direction + edge。<b>交互</b> 点"点燃的路径"→跳路径卡。</div></div>
+ <div class="comp" style="outline:2px solid var(--accent-soft)"><div class="name">路径卡 <em>选中一条边/链 · 核心</em></div>
+  <div class="cardhead"><span class="t">中际旭创营收 → NBIS</span><span class="corr" style="margin-left:auto">T1 · 0.32</span></div><span class="tag">E2 供应链 · 3 跳</span>
+  <div class="k">拆解链</div><div class="chainflow"><span class="node src">旭创营收</span><span class="ar">→</span><span class="node mech">全球AI在建强度</span><span class="ar">→</span><span class="node mech">neocloud扩张</span><span class="ar">→</span><span class="node dst">NBIS</span></div>
+  <div class="k">领先期 / 确定性</div><div class="v"><span class="pill">18d 领先</span><span class="pill">T1 可回测</span></div>
+  <div class="k">方向 × 权重</div><div class="v"><span class="pill up">↑</span><span class="pill">可交易 0.32</span><span class="pill">预警 0.36</span></div>
+  <div class="k">可测量检查点</div><div class="v">旭创半年报(下次)· ¥417.78亿</div>
+  <div class="k">2×2 定位</div><div class="v"><span class="pill sh" style="font-weight:600">现在动 · 早且可信</span></div>
+  <div class="cap"><b>数据</b> edge_registry + v_edge_calc + graph_data 链;中间节点点开=它代表什么。<b>这是 extra value 主件。</b></div></div>
+ <div class="comp"><div class="name">节点档案 <em>选中 entity/metric · 双分区</em></div>
+  <div class="cardhead"><span class="t">◆ NBIS</span><span class="tag" style="margin-left:auto">L2 · 持仓 51%</span></div>
+  <div class="seg"><div class="lab">入边(什么在推动它)</div>
+   <div class="v"><span class="cell c-up" style="min-width:0;padding:2px 7px">光模块 ↑</span> <span class="cell c-up" style="min-width:0;padding:2px 7px">lab融资 ↑</span> <span class="cell c-dn" style="min-width:0;padding:2px 7px">出口管制 !</span></div></div>
+  <div class="seg"><div class="lab">出信号(它发出什么)</div><div class="v">Q2 收入 $582.3M(+454%)· 5GW 上电</div></div>
+  <div class="k">regime / falsifier</div><div class="v">信念;并网&lt;800MW 则转观察</div>
+  <div class="fold">本体读数(营收/PE/一致预期)默认折叠 — 基金已有</div>
+  <div class="cap"><b>数据</b> 入边=edge WHERE to=本节点;出信号=fct+edge WHERE from=本节点。解决"既是事件又是影响"。</div></div>
+</div>
+
+<h2>§5 潜在标的条 + §6 AI 发展记分卡 <span>· 仓外落点 / 监测对象侧(仿 KPI 卡 + corr 徽章)</span></h2>
+<div class="grid g2">
+ <div class="comp"><div class="name">⑤ 潜在标的条 <em>仓外被照亮 · 证据够硬</em></div>
+  <div class="row" style="justify-content:space-between;border:1px solid var(--line);border-radius:8px;padding:8px 11px">
+   <div><b>CRWV</b> <span class="tag">仓外 · neocloud 同业</span></div>
+   <div class="row" style="gap:6px"><span class="p p1">P1</span><span class="badge b-t1">T1</span><span class="dir up">↑</span></div></div>
+  <div class="cap"><b>数据</b> entity in_book=FALSE 被 ≥T2/P2 的边打到(C22 阈值)。<b>交互</b> 进 candidate_pool → D 决定是否纳入 watchlist。这是别人没有的"idea generation"侧。</div></div>
+ <div class="comp"><div class="name">⑥ AI 发展记分卡 KPI 卡 <em>仿 TickerTrends KPI 卡</em></div>
+  <div class="kpi"><div class="top"><span class="lab">D1 · 中际旭创海外营收</span><span class="corr">→NBIS T1</span></div>
+   <div class="big">¥417.78亿 <span class="cell c-up" style="font-size:12px">+182%</span></div>
+   <svg width="100%" height="26" viewBox="0 0 200 26" preserveAspectRatio="none"><polyline points="0,22 40,20 80,16 120,10 160,7 200,4" fill="none" stroke="var(--up)" stroke-width="2"/></svg>
+   <div style="font-size:10.5px;color:var(--mut);margin-top:4px"><span class="p p1">P1</span> 深交所 · 2026 半年报</div></div>
+  <div class="cap"><b>数据</b> v_metric_latest(每维 headline 读数)。<b>做法</b> 抄 TickerTrends KPI 卡,但角标 "Revenue corr." 换成 <b>→票 + tier</b>(这条读数打到哪只票、信几分)。七维各 2–3 张 = "AI 发展 as-of 记分卡",补题面第一义。</div></div>
+</div>
+
+<h2>§7 整体布局骨架 <span>· 四算子条 / 左栏维 / 中图 / 右卡 / 底潜在标的</span></h2>
+<div class="comp">
+ <div class="wirebox">
+  <div class="wire" style="grid-column:1/4">顶部:搜索(输入 AI 事件) + 四算子流程条 + 2×2 抬头</div>
+  <div class="wire">左栏<br>D1–D7 维<br>+ 事件流</div>
+  <div class="wire">中央:传播图(Cytoscape)<br>事件 → 机制 → ticker · 边宽=权重/色=方向/线型=tier</div>
+  <div class="wire">右栏:三张卡<br>(信号/路径/节点<br>按选中切换)</div>
+  <div class="wire" style="grid-column:1/4">底部:潜在标的条 + 折叠的本体读数</div>
+ </div>
+ <div class="cap"><b>两视图切换</b>:主=传播图(映射侧);副=AI 发展记分卡(监测对象侧,§6 KPI 卡铺满七维)。日历降为左栏"最近活跃事件源"入口。<b>主入口永远是事件,不是 ticker。</b></div>
+</div>
+
+</div></body></html>

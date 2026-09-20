@@ -1,0 +1,126 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>前沿雷达 · 左切换右显示</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1a1d24;--mut:#7a828f;--line:#e7e9ee;--line2:#eef0f3;--accent:#4f46e5;--accent-soft:#eef0ff;
+ --up:#16a34a;--up-bg:#e7f6ec;--dn:#dc2626;--shock:#c2740c;--t1:#0e7490;--pass:#16a34a;--hold:#9aa2ad;
+ --paper:#7c3aed;--blog:#0891b2;--adopt:#0d9488;--fund:#d97706;--talent:#db2777;--bench:#4f46e5}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:13px/1.5 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+.app{display:grid;grid-template-columns:320px 1fr;gap:14px;max-width:1240px;margin:0 auto;padding:18px 16px;height:100vh}
+.side{background:var(--card);border:1px solid var(--line);border-radius:13px;overflow:auto;padding:0}
+.sh{padding:13px 15px;border-bottom:1px solid var(--line);font-weight:700}.sh .c{color:var(--mut);font-weight:400;font-size:11px;margin-left:6px}
+.tabs{display:flex;gap:6px;padding:10px 12px;border-bottom:1px solid var(--line2)}
+.tab{flex:1;text-align:center;padding:6px 0;border:1px solid var(--line);border-radius:8px;font-size:11.5px;color:var(--mut);cursor:pointer;background:#fbfbfd}
+.tab.on{background:var(--accent-soft);border-color:#c7ccf5;color:var(--accent);font-weight:600}
+.grp{border-bottom:1px solid var(--line2)}
+.grph{display:flex;align-items:center;gap:8px;padding:10px 14px;cursor:pointer;font-size:12px;font-weight:700}
+.grph:hover{background:#fafbfc}.grph.on{background:var(--accent-soft);color:var(--accent)}
+.chev{color:var(--mut);transition:transform .15s;font-size:10px;width:10px}.grph.open .chev{transform:rotate(90deg)}
+.dot{width:8px;height:8px;border-radius:2px}.grph .cnt{margin-left:auto;background:#eef0f3;border-radius:999px;padding:0 8px;font-size:10.5px;color:var(--mut);font-weight:400}
+.kids{display:none}.grp.open .kids{display:block}
+.kid{display:flex;align-items:center;gap:9px;padding:7px 14px 7px 34px;cursor:pointer;font-size:12px;color:#3a4048}
+.kid:hover{background:#fafbfc}.kid.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.kid .typ{width:9px;height:9px;border-radius:3px}.kid .cnt{margin-left:auto;color:var(--mut);font-size:10.5px}
+/* main */
+.main{background:var(--card);border:1px solid var(--line);border-radius:13px;overflow:auto;display:flex;flex-direction:column}
+.mh{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid var(--line)}
+.mh .t{font-size:14px;font-weight:700}.mh .sub{color:var(--mut);font-size:11.5px}
+.mh .right{margin-left:auto;display:flex;gap:8px;align-items:center;font-size:11.5px;color:var(--mut)}
+.leg{display:inline-flex;align-items:center;gap:4px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+thead th{position:sticky;top:0;background:#fafbfc;text-align:left;color:var(--mut);font-weight:600;font-size:10.5px;text-transform:uppercase;letter-spacing:.02em;padding:9px 15px;border-bottom:1px solid var(--line)}
+td{padding:10px 15px;border-bottom:1px solid var(--line2);vertical-align:top}
+tbody tr:hover{background:#fafbff}
+.typ{display:inline-block;padding:0 7px;border-radius:5px;font-size:10px;font-weight:700;color:#fff;white-space:nowrap}
+.t-bench{background:var(--bench)}.t-paper{background:var(--paper)}.t-blog{background:var(--blog)}.t-adopt{background:var(--adopt)}.t-fund{background:var(--fund)}.t-talent{background:var(--talent)}
+.nm{font-weight:600}.inst{color:var(--mut);font-size:10.5px;margin-left:4px}
+.ta{display:inline-block;padding:0 6px;border-radius:5px;font-size:10px;font-weight:700;border:1px solid}
+.taa{background:#0e749012;color:var(--t1);border-color:#0e749033}.tab2{color:#7c3aed;border-color:#7c3aed44}.tac{color:var(--mut);border-color:var(--line)}
+.gate{font-size:11.5px;white-space:nowrap}.ok{color:var(--pass)}.warnv{color:var(--shock)}.no{color:var(--hold)}
+.imp{padding:1px 8px;border-radius:5px;font-size:10.5px;font-weight:600}.imp-h{background:var(--up-bg);color:var(--up)}.imp-m{background:#f1f3f5;color:var(--mut)}.imp-l{background:#f1f3f5;color:#aeb4bd}
+.spill .tk{border:1px solid #16a34a55;background:#e7f6ec66;border-radius:6px;padding:0 6px;color:#146c43;font-weight:600;font-size:11px}
+.wl{color:var(--hold);font-size:11px}
+.empty{padding:40px;text-align:center;color:var(--mut)}
+.foot{padding:10px 16px;border-top:1px solid var(--line);color:var(--mut);font-size:11px;background:#fafbfc}
+</style></head><body>
+<div class="app">
+ <div class="side">
+  <div class="sh">前沿雷达<span class="c" id="totc"></span><span class="c" style="float:right">topic-driven · 不挂票</span></div>
+  <div class="tabs" id="tabs"></div>
+  <div id="tree"></div>
+ </div>
+ <div class="main">
+  <div class="mh"><div><div class="t" id="mt">全部前沿信号</div><div class="sub" id="ms"></div></div>
+   <div class="right"><span class="leg"><span class="imp imp-h" style="padding:0 6px">高</span>过闸外溢</span><span class="leg"><span class="wl">watchlist</span>不外溢</span><span>· 字段可调</span></div></div>
+  <table><thead><tr>
+    <th style="width:26%">信号 / 机构</th><th>类型</th><th>读数</th><th>源档</th><th>证伪闸(立场·可验证)</th><th>影响力</th><th>外溢?</th>
+  </tr></thead><tbody id="rows"></tbody></table>
+  <div class="foot" id="foot"></div>
+ </div>
+</div>
+<script>
+const TYPE={bench:['t-bench','benchmark'],paper:['t-paper','思想/论文'],blog:['t-blog','博客/采用'],adopt:['t-adopt','采用'],fund:['t-fund','融资/背书'],talent:['t-talent','人才']};
+const TIER={a:['taa','T_a'],b:['tab2','T_b'],c:['tac','T_c']};
+// stream: A研究前沿 B创业一级 C人才
+const S=[
+ {st:'A',ty:'bench',nm:'训练算力年增速',inst:'Epoch(赛道)',rd:'5×/年',tier:'a',gate:'✓ 中立·第三方验证',gk:'ok',imp:'h',spill:'NBIS',sn:'方向'},
+ {st:'A',ty:'bench',nm:'开源 vs 闭源差距',inst:'Artificial Analysis',rd:'53 vs 45',tier:'a',gate:'✓ 中立·第三方验证',gk:'ok',imp:'h',spill:'NBIS',sn:'需求结构'},
+ {st:'A',ty:'bench',nm:'推理性价比',inst:'Artificial Analysis',rd:'7.63 USD/指数',tier:'a',gate:'✓ 中立·第三方验证',gk:'ok',imp:'h',spill:'降本',sn:''},
+ {st:'A',ty:'bench',nm:'SWE-bench 榜首',inst:'SWE-bench',rd:'79.2%',tier:'a',gate:'✓ 中立·第三方验证',gk:'ok',imp:'m',spill:null,sn:'能力方向'},
+ {st:'A',ty:'paper',nm:'数据枯竭 / 合成数据',inst:'CMU',rd:'3.4–5.2×',tier:'a',gate:'✓ 中立·可复现',gk:'ok',imp:'h',spill:'D2 数据墙',sn:''},
+ {st:'A',ty:'paper',nm:'新架构 DeepSeek / SSM',inst:'arXiv',rd:'份额↑',tier:'b',gate:'✓ 中立·可复现',gk:'ok',imp:'h',spill:'推理成本',sn:''},
+ {st:'A',ty:'paper',nm:'Jev「Decisions, not strings」',inst:'TypeSafe',rd:'范式',tier:'b',gate:'✗ 厂商发布·claimed_only',gk:'no',imp:'h',spill:null,sn:'范式源头'},
+ {st:'A',ty:'blog',nm:'LangChain:harness with Jev',inst:'langchain.com',rd:'采用 demo',tier:'b',gate:'△ 可复现·有生态立场',gk:'warnv',imp:'m',spill:null,sn:'采用+1'},
+ {st:'A',ty:'adopt',nm:'Browser Use:jev-ultrafast',inst:'GitHub',rd:'工程化',tier:'b',gate:'✓ 开源可复跑',gk:'ok',imp:'m',spill:null,sn:'采用+1'},
+ {st:'A',ty:'blog',nm:'世界模型 Cosmos',inst:'NVIDIA',rd:'demo',tier:'b',gate:'✗ 厂商PR·claimed_only',gk:'no',imp:'m',spill:null,sn:'待第三方证'},
+ {st:'A',ty:'blog',nm:'具身 VLA Gemini R',inst:'DeepMind',rd:'demo',tier:'b',gate:'✗ 厂商PR·claimed_only',gk:'no',imp:'m',spill:null,sn:''},
+ {st:'B',ty:'fund',nm:'Reflection ↔ Nebius 算力合同',inst:'TechCrunch',rd:'$1B+',tier:'a',gate:'✓ 多源 confirm',gk:'ok',imp:'h',spill:'NBIS',sn:'需求证一次'},
+ {st:'B',ty:'fund',nm:'Nvidia 系战略投资 / 循环融资',inst:'10-Q',rd:'$13.1B',tier:'a',gate:'✓ 10-Q 附注',gk:'ok',imp:'h',spill:'NBIS',sn:'regime 风险'},
+ {st:'B',ty:'fund',nm:'Reflection 一级新一轮',inst:'CNBC',rd:'~$20–27B 在谈',tier:'b',gate:'△ CEO 口径·待一手',gk:'warnv',imp:'h',spill:'NBIS',sn:'需求持续'},
+ {st:'B',ty:'fund',nm:'TypeSafe $40M 种子 · DCVC',inst:'Forbes',rd:'估值 ~$2B',tier:'a',gate:'✓ 多源',gk:'ok',imp:'m',spill:null,sn:'资本背书决策范式'},
+ {st:'B',ty:'fund',nm:'Cohere ARR / 估值',inst:'Sacra',rd:'$240M / ~$20B',tier:'c',gate:'△ 时效敏感',gk:'warnv',imp:'m',spill:null,sn:'需求扩散'},
+ {st:'C',ty:'talent',nm:'Diogo Almeida → 做决策模型',inst:'领英/署名',rd:'动向',tier:'c',gate:'△ 单点·合规半人工',gk:'no',imp:'m',spill:null,sn:'最早信号'},
+];
+const GROUPS=[
+ {k:'A',label:'子流A · 研究前沿',color:'#4f46e5',types:['bench','paper','blog','adopt']},
+ {k:'B',label:'子流B · 创业一级',color:'#d97706',types:['fund']},
+ {k:'C',label:'子流C · 人才',color:'#db2777',types:['talent']},
+];
+let sel={st:null,ty:null};
+const cnt=(f)=>S.filter(f).length;
+document.getElementById('totc').textContent='· '+S.length;
+// tabs = 视图切换(占位)
+document.getElementById('tabs').innerHTML=['🔍 三子流','↗ 只看外溢','✓ 只看第三方验证'].map((t,i)=>`<div class="tab ${i==0?'on':''}" data-tab="${i}">${t}</div>`).join('');
+// tree
+function tree(){
+ const el=document.getElementById('tree');
+ el.innerHTML=GROUPS.map(g=>{
+  const gc=cnt(x=>x.st===g.k);
+  const kids=g.types.map(ty=>{const c=cnt(x=>x.st===g.k&&x.ty===ty);if(!c)return '';return `<div class="kid ${sel.st===g.k&&sel.ty===ty?'on':''}" data-st="${g.k}" data-ty="${ty}"><span class="typ" style="background:var(--${ty==='bench'?'bench':ty==='paper'?'paper':ty==='blog'?'blog':ty==='adopt'?'adopt':ty==='fund'?'fund':'talent'})"></span>${TYPE[ty][1]}<span class="cnt">${c}</span></div>`}).join('');
+  return `<div class="grp open"><div class="grph open ${sel.st===g.k&&!sel.ty?'on':''}" data-st="${g.k}"><span class="chev">▶</span><span class="dot" style="background:${g.color}"></span>${g.label}<span class="cnt">${gc}</span></div><div class="kids">${kids}</div></div>`;
+ }).join('');
+ el.querySelectorAll('.grph').forEach(e=>e.onclick=()=>{const st=e.dataset.st; if(sel.st===st&&!sel.ty){sel={st:null,ty:null}}else{sel={st,ty:null}} render()});
+ el.querySelectorAll('.kid').forEach(e=>e.onclick=(ev)=>{ev.stopPropagation();sel={st:e.dataset.st,ty:e.dataset.ty};render()});
+}
+function rows(){
+ const list=S.filter(x=>(!sel.st||x.st===sel.st)&&(!sel.ty||x.ty===sel.ty));
+ const g=GROUPS.find(x=>x.k===sel.st);
+ document.getElementById('mt').textContent=sel.ty?TYPE[sel.ty][1]:(g?g.label:'全部前沿信号');
+ const nsp=list.filter(x=>x.spill).length;
+ document.getElementById('ms').textContent=`${list.length} 项 · ${nsp} 条过闸外溢 · 其余 watchlist`;
+ const tb=document.getElementById('rows');
+ if(!list.length){tb.innerHTML='<tr><td colspan="7" class="empty">无</td></tr>';return}
+ tb.innerHTML=list.map(x=>{
+  const spill=x.spill?`<span class="spill">→ <span class="tk">${x.spill}</span>${x.sn?' <span class="wl" style="color:var(--mut)">('+x.sn+')</span>':''}</span>`:`<span class="wl">watchlist${x.sn?' · '+x.sn:''}</span>`;
+  return `<tr>
+   <td class="nm">${x.nm}<span class="inst">${x.inst}</span></td>
+   <td><span class="typ ${TYPE[x.ty][0]}">${TYPE[x.ty][1]}</span></td>
+   <td>${x.rd}</td>
+   <td><span class="ta ${TIER[x.tier][0]}">${TIER[x.tier][1]}</span></td>
+   <td class="gate ${x.gk}">${x.gate}</td>
+   <td><span class="imp imp-${x.imp}">${x.imp==='h'?'高':x.imp==='m'?'中':'低'}</span></td>
+   <td>${spill}</td></tr>`}).join('');
+ document.getElementById('foot').textContent=`左栏点子流/类型 → 右表筛选。单条无值,监测的是主题斜率;过双闸(高含金量×高产业影响)才外溢到票,其余留 watchlist。数据:fct_frontier + D3 fct_event + 两道闸(d_falsify_gate/d_impact_gate)。`;
+}
+function render(){tree();rows()}
+render();
+</script></body></html>

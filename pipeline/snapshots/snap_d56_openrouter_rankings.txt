@@ -1,0 +1,260 @@
+# SNAPSHOT · OpenRouter · LLM Rankings (token usage share)
+# source: https://openrouter.ai/rankings
+# fetched: 2026-09-20 14:59 · curl -sL -A "Anatole research e1728233@u.nus.edu" · HTTP 200 · HTML→text（去 script/style，</p>→换行，</td>→ | ）
+
+LLM Rankings | OpenRouter 
+ Skip to content Search ⌘ K 
+ Models Benchmarks Chat Rankings Apps Ori Pricing Docs 
+ Models 
+ Rankings 
+ Ori 
+ Benchmarks Chat Pricing Docs 
+ Sign Up 
+ Sign Up 
+ Top Models Leaderboard Top models by task Cost per session Market Share Benchmarks Fastest models Languages Programming Context Length Tool Calls Images Top Apps 
+ Top Models 
+ Rankings data by OpenRouter is licensed under CC BY 4.0 . Reuse and republish it with attribution. The Data API docs cover the citation format and JSON access to these datasets.
+ © 2026 OpenRouter, Inc
+ Product
+ Chat 
+ Rankings 
+ Benchmarks 
+ Apps 
+ Discover 
+ Models 
+ Collections 
+ Providers 
+ Pricing 
+ Business 
+ Enterprise 
+ Labs 
+ Company
+ About 
+ Blog 
+ Careers Hiring
+ Privacy 
+ Terms of Service 
+ Trust Center 
+ Support 
+ Works With OR 
+ Data 
+ Brand 
+ Developer
+ Documentation 
+ API Reference 
+ Developer Platform 
+ Status 
+ Connect
+ Discord 
+ GitHub 
+ LinkedIn 
+ X 
+ YouTube 
+ Top Models Leaderboard Top models by task Cost per session Market Share Benchmarks Fastest models Languages Programming Context Length Tool Calls Images Top Apps 
+ Top Models 
+ AI Model Rankings
+ Live LLM rankings by real-world usage. Models are ranked by tokens processed through the OpenRouter API by millions of developers. View all text models 
+ Usage data through Sep 19, 2026 
+ Top Models 
+ Weekly usage of models across OpenRouter
+ Top models by task 
+ Each task’s leading models, ranked by share of spend on OpenRouter 
+ Share of spend 
+ Cost per session 
+ What one coding-agent session typically costs (paid usage), by session length 
+ Benchmarks 
+ Top models on OpenRouter by Artificial Analysis Intelligence Index 
+ View all benchmarks 
+ Weighted Avg Input Price Intelligence Index Score 
+ Show Pareto 
+ TOP 20 PLOTTED SEARCH TO PIN UP TO 5 Find a model… 
+ 1 .
+ Claude Fable 5.1 (Adaptive Reasoning, Max Effort, Default Fallback) by anthropic 
+ 53.4
+ 2 .
+ Qwen3.8 Max by qwen 
+ 53.4
+ 3 .
+ GPT-6 Astra (max) by openai 
+ 52.7
+ 4 .
+ Claude Opus 5 (Adaptive Reasoning, Max Effort) by anthropic 
+ 50.8
+ 5 .
+ Claude Fable 5 (Adaptive Reasoning, Max Effort, Opus 4.8 Fallback) by anthropic 
+ 49.6
+ 6 .
+ GPT-5.6 Sol (max) by openai 
+ 47.0
+ 7 .
+ Qwen3.8 Max (0902) by qwen 
+ 45.4
+ 8 .
+ GLM-5.3 (max) by z-ai 
+ 44.8
+ 9 .
+ Grok 4.6 (high) by x-ai 
+ 44.3
+ 10 .
+ Kimi K3 (max) by moonshotai 
+ 43.6
+ Show more 
+ Top Apps 
+ Explore apps and agents opting into usage tracking by category
+ Today 
+ Browse the new Apps & Agents directory to explore by category, discover trending tools, and see detailed usage stats.
+ Browse apps 
+ 1 .
+ Hermes Agent Hermes Agent is an open-source, self-improving AI agent by Nous Research that runs persistently with memory across sessions, and builds reusable skills from experience. It comes with 40+ built-in tools, including web search, browser automation, and vision, plus scheduled automations and subagents. 
+ 1.49T tokens 
+ 2 .
+ Claude Code Claude Code is Anthropic's agentic coding tool that reads your entire codebase, plans and executes changes across files, runs tests, and iterates on failures, all from natural language prompts. 
+ 917B tokens 
+ 3 .
+ Kilo Code Kilo Code is an open-source AI coding agent that works across VS Code, JetBrains, and CLI to help developers ship code faster with agentic workflows. 
+ 568B tokens 
+ 4 .
+ Cline Cline is an open-source AI coding agent that lives inside your IDE, autonomously exploring your codebase, editing files, running terminal commands, and using browser automation. 
+ 395B tokens 
+ 5 .
+ pi There are many coding agents, but this one is yours. 
+ 299B tokens 
+ 6 .
+ omp new 
+ 200B tokens 
+ 7 .
+ OpenClaw OpenClaw is an open-source AI agent that connects to your messaging apps and takes real actions on your behalf, from running commands and browsing the web to managing files and sending emails. 
+ 163B tokens 
+ 8 .
+ DeepSeek Harness new 
+ 150B tokens 
+ 9 .
+ Codex A coding agent that helps you build and ship with AI 
+ 128B tokens 
+ 10 .
+ ISEKAI ZERO AI adventures. Travel with your favorite characters 
+ 65.7B tokens 
+ How these rankings are measured
+ What is measured
+ Each model is ranked by the number of tokens it processed through the OpenRouter API, counting both prompt and completion tokens. Usage is aggregated into daily buckets in UTC and totalled per model variant, so variants of the same model, such as a free variant, are ranked separately. Requests that a user or app keeps private are excluded before aggregation.
+ Selection period
+ Today, This Week, and This Month each cover a trailing window of one day, seven days, and thirty days, ending with the most recent complete daily bucket. Trending compares the trailing seven days with the seven days before it and ranks models by the percentage change in tokens, including only models with at least one million tokens in the current window so that a small base cannot produce a large percentage. New models with no prior week are listed first, up to five of them.
+ Freshness
+ The date above the rankings is the newest usage bucket the leaderboard is computed from, not the time the page was rendered or deployed, so it advances only when new usage data is aggregated.
+ What these rankings do not establish
+ These rankings measure adoption, not quality. They do not rank models by accuracy, reasoning ability, or benchmark performance, which are reported separately in the Benchmarks section of this page. They describe traffic routed through OpenRouter, not the whole market and not usage on a model provider's own API. Token volume is also not a count of requests, users, or spend, and models differ in verbosity and tokenization, so a higher token total does not by itself mean a model is preferred for a given task. The Top Models chart groups models outside the top ten into an Others series, and the Market Share chart does the same with model authors rather than individual models.
+ Rankings data by OpenRouter is licensed under CC BY 4.0 . Reuse and republish it with attribution. The Data API docs cover the citation format and JSON access to these datasets.
+ Model rankings by tokens processed Rank | Model | tokens processed | 
+ 1 . | 
+ DeepSeek V4.1 Flash by deepseek 
+ | 14.6T tokens
+ 300% 
+ | 
+ 2 . | 
+ GLM 5.3 Flash by z-ai 
+ | 13T tokens
+ 8% 
+ | 
+ 3 . | 
+ GPT-5.6 Luna by openai 
+ | 12.4T tokens
+ 24% 
+ | 
+ 4 . | 
+ Hy4 preview by tencent 
+ | 11.9T tokens
+ 31% 
+ | 
+ 5 . | 
+ DeepSeek V4 Flash 0731 by deepseek 
+ | 9.77T tokens
+ 16% 
+ | 
+ Model rankings by tokens processed Rank | Model | tokens processed | 
+ 6 . | 
+ MiMo-V2.5 by xiaomi 
+ | 7.17T tokens
+ 4% 
+ | 
+ 7 . | 
+ Hy3 by tencent 
+ | 4.75T tokens
+ 30% 
+ | 
+ 8 . | 
+ Nemotron 3 Ultra (free) by nvidia 
+ | 4.19T tokens
+ 16% 
+ | 
+ 9 . | 
+ DeepSeek V4 Flash 0423 by deepseek 
+ | 3.87T tokens
+ 13% 
+ | 
+ 10 . | 
+ GLM 5.3 by z-ai 
+ | 2.97T tokens
+ 12% 
+ | 
+ Show more 
+ Top models today, as text
+ Text summary of the Today tab of the leaderboard above. Models are ranked by tokens processed on OpenRouter over the most recent complete day, with the change measured against the day before it.
+ Models ranked by tokens processed on OpenRouter over the most recent complete day Rank | Model | Author | Tokens | Change | 
+ 1 | DeepSeek V4.1 Flash | deepseek | 3.07T | +17% | 
+ 2 | GLM 5.3 Flash | z-ai | 2.69T | +38% | 
+ 3 | Hy4 preview | tencent | 1.41T | -30% | 
+ 4 | DeepSeek V4 Flash 0731 | deepseek | 1.21T | +2% | 
+ 5 | GPT-5.6 Luna | openai | 1.12T | -6% | 
+ 6 | MiMo-V2.5 | xiaomi | 841B | -11% | 
+ 7 | Nemotron 3 Ultra (free) | nvidia | 796B | -1% | 
+ 8 | Hy3 | tencent | 484B | -34% | 
+ 9 | DeepSeek V4 Flash 0423 | deepseek | 427B | -13% | 
+ 10 | GLM 5.3 | z-ai | 371B | -37% | 
+ Top models this month, as text
+ Text summary of the This Month tab of the leaderboard above. Models are ranked by tokens processed on OpenRouter over the trailing thirty days, with the change measured against the thirty days before them.
+ Models ranked by tokens processed on OpenRouter over the trailing thirty days Rank | Model | Author | Tokens | Change | 
+ 1 | DeepSeek V4 Flash 0731 | deepseek | 49.2T | +74% | 
+ 2 | GPT-5.6 Luna | openai | 48.8T | +215% | 
+ 3 | Hy4 preview | tencent | 45.1T | new | 
+ 4 | GLM 5.3 Flash | z-ai | 42T | new | 
+ 5 | MiMo-V2.5 | xiaomi | 30T | +5% | 
+ 6 | Ox Alpha | stealth | 27.2T | >999% | 
+ 7 | Hy3 | tencent | 21.3T | -33% | 
+ 8 | DeepSeek V4 Flash 0423 | deepseek | 20.4T | -21% | 
+ 9 | Nemotron 3 Ultra (free) | nvidia | 18.5T | +63% | 
+ 10 | DeepSeek V4.1 Flash | deepseek | 18.2T | new | 
+ New and trending models this week, as text
+ Text summary of the New & Trending tab of the leaderboard above. Models are ranked by the percentage change in tokens processed over the trailing seven days against the seven days before, among models with at least one million tokens in the current week. A model with no prior week is marked new.
+ Models with the largest week-over-week change in tokens processed on OpenRouter Rank | Model | Author | Tokens | Change | 
+ 1 | DeepSeek V4 Flash 0731 (free) | deepseek | 1.08T | new | 
+ 2 | Union Alpha | stealth | 977B | new | 
+ 3 | Jev 1.13 | typesafe | 245B | new | 
+ 4 | GLM 5.3 FlashX | z-ai | 15.3B | new | 
+ 5 | Qwen3.8 27B (free) | qwen | 6.96B | new | 
+ 6 | GLM 5.2 (batch) | z-ai | 30.7M | >999% | 
+ 7 | Mistral Small 4 (batch) | mistralai | 40M | >999% | 
+ 8 | Text Embedding 3 Large | openai | 1.06M | >999% | 
+ 9 | DeepSeek V4 Flash Vision Exp (batch) | deepseek | 3.01M | >999% | 
+ 10 | Fugu Max | sakana | 8.52B | >999% | 
+ Market Share 
+ Absolute Percentage 
+ Compare text request share by model author on OpenRouter.
+ Market share by model author, as text
+ Text summary of the Market Share chart above. Share of text requests made on OpenRouter in the week beginning Sep 7, 2026, with the change in each author's requests against the week before it. openai leads at 23.6% of the week's requests. Authors the chart groups as others are listed last, so the rows match the series the chart plots.
+ Model authors ranked by their share of text requests on OpenRouter in the most recent complete week Rank | Author | Share of requests | Change in requests | 
+ 1 | openai | 23.6% | +28% | 
+ 2 | deepseek | 22.6% | +3% | 
+ 3 | google | 18.6% | +2% | 
+ 4 | tencent | 7.2% | +105% | 
+ 5 | z-ai | 7.0% | -22% | 
+ 6 | qwen | 5.2% | +1% | 
+ 7 | anthropic | 2.5% | -5% | 
+ 8 | mistralai | 2.3% | | 
+ 9 | meta-llama | 2.2% | +6% | 
+ | All other authors | 8.8% | -2% | 
+ Tool Calls 
+ Absolute Percentage 
+ Tool usage across models on OpenRouter
+ Images 
+ Absolute Percentage 
+ Total images processed on OpenRouter

@@ -1,0 +1,8 @@
+# SNAPSHOT · xAI 官方 news 2026-02-02 · xAI joins SpaceX
+# source: https://x.ai/news/xai-joins-spacex
+# fetched: 2026-09-20 15:03 · curl -sL（浏览器 UA；研究 UA 被 403） · HTML→文本（去 script/style，</p>→换行，</td>→" | "）
+
+Back to newsFeb 2, 2026
+xAI joins SpaceX
+SpaceX announced today that it has acquired xAI.
+Read the full update here.

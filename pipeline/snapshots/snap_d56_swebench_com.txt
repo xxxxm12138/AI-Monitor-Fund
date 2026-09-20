@@ -1,0 +1,252 @@
+# SNAPSHOT · SWE-bench · swebench.com leaderboard page
+# source: https://www.swebench.com/
+# fetched: 2026-09-20 14:56 · curl -sL -A "Anatole research e1728233@u.nus.edu" · HTTP 200 · HTML→text（去 script/style，</p>→换行，</td>→ | ）
+
+SWE-bench Leaderboards 
+ SWE-bench 
+ SWE-bench 
+ Leaderboards 
+ Benchmarks
+ SWE-bench 
+ SWE-bench Verified 
+ SWE-bench Multilingual 
+ SWE-bench Multimodal 
+ SWE-bench Lite 
+ About
+ Paper 
+ Docs 
+ Blog 
+ Contact 
+ Citations 
+ Press 
+ Submit 
+ SWE-bench Family
+ CodeClash 
+ mini-SWE-agent 
+ ProgramBench 
+ SWE-agent (legacy) 
+ SWE-bench CLI 
+ SWE-ReX 
+ SWE-smith 
+ Official Leaderboards
+ Verified 
+ Multimodal 
+ Multilingual 
+ Lite 
+ Full 
+ Compare results 
+ Bash Only 
+ Compare results
+ Resolved (bar chart) 
+ Resolved by repository 
+ Resolved by language 
+ Resolved instances matrix 
+ Resolved vs cost (scatter plot) 
+ Resolved vs model release date 
+ Resolved vs average cost 
+ Resolved vs cost limit 
+ Resolved vs step limit 
+ Cumulative cost distribution 
+ Cumulative cost distribution (resolved only) 
+ Cumulative step distribution 
+ Cumulative step distribution (resolved only) 
+ Light
+ Selection
+ JSON
+ PNG
+ Copy Link
+ Instances 1-100 
+ Instances 101-200 
+ Instances 201-300 
+ Instances 301-400 
+ Instances 401-500 
+ Select models via the checkboxes, then click Compare results .
+ No models selected
+ Select at least one model using the checkboxes in the first columns, or click one of the following buttons for a pre-defined selection.
+ Quick select:
+ Select top 10 
+ Select top 20 
+ Select all 
+ Select all (open weights) 
+ Each entry reports % Resolved , the percentage of task instances solved.
+ Open-weights model
+ Run performed or directly checked by the SWE-bench team
+ SWE-bench
+ 2294 instances 
+ The original benchmark: real GitHub issues from 12 Python repositories.
+ Read the post 
+ Bash Only
+ 500 instances 
+ The default Verified view: every model in the same mini-SWE-agent environment.
+ Read the post 
+ Lite
+ 300 instances 
+ A subset curated for less costly evaluation.
+ Read the post 
+ Verified
+ 500 instances 
+ A human-filtered subset of SWE-bench.
+ Read the post 
+ Multilingual
+ 300 instances 
+ Tasks from 42 repositories across 9 programming languages.
+ Read the post 
+ Multimodal
+ 480 instances 
+ Issues described with visual elements.
+ Read the post 
+ Analyze results in detail 
+ News
+ May 2026 
+ We released ProgramBench to benchmark whether models can code meaningful software artifacts from scratch.
+ Link 
+ Nov 2025 
+ Introducing CodeClash , our new eval of LMs as goal (not task) oriented developers.
+ Link 
+ Jul 2025 
+ mini-SWE-agent scores 65% on SWE-bench Verified in 100 lines of Python.
+ Link 
+ May 2025 
+ SWE-smith is out! Train your own models for software engineering agents.
+ Link 
+ Mar 2025 
+ SWE-agent 1.0 is the open source SOTA on SWE-bench Lite.
+ Link 
+ Oct 2024 
+ Introducing SWE-bench Multimodal .
+ Link 
+ Aug 2024 
+ SWE-bench x OpenAI = SWE-bench Verified .
+ Report 
+ Jun 2024 
+ Docker -ized SWE-bench for easier evaluation.
+ Report 
+ Mar 2024 
+ Check out SWE-agent (12.47% on SWE-bench).
+ Link 
+ Mar 2024 
+ Released SWE-bench Lite .
+ Report 
+ Acknowledgements
+ We thank the following institutions for their generous support:
+ Open Philanthropy, AWS, Modal, Andreessen Horowitz, OpenAI, and Anthropic.
+ © 2026 SWE-bench Team. All rights reserved.
+ GitHub 
+ HuggingFace 
+ Paper
+
+# ---- extract of embedded <script id="leaderboard-data"> JSON (per_instance_details omitted) ----
+## Multilingual · 13 entries · latest submission date 2026-02-20
+72.7 | Gemini 3 Flash | agent=mini-SWE-agent | model=Gemini 3 Flash | date=2026-02-13 | checked=True | os_model=False | cost=105.55067604999999 | tags=['Model: gemini-3-flash', 'Org: Google DeepMind', 'System: Attempts - 1', 'Mini: 2.0.0a0']
+72.0 | Claude 4.6 Opus | agent=mini-SWE-agent | model=Claude 4.6 Opus | date=2026-02-13 | checked=True | os_model=False | cost=198.892073 | tags=['Model: claude-opus-4-6', 'Org: Anthropic', 'System: Attempts - 1', 'Mini: 2.0.0a0']
+70.7 | Claude 4.5 Opus | agent=mini-SWE-agent | model=Claude 4.5 Opus | date=2026-02-13 | checked=True | os_model=False | cost=250.06589275 | tags=['Model: claude-opus-4-5-20251101', 'Org: Anthropic', 'System: Attempts - 1', 'Mini: 2.0.0a0']
+69.7 | GLM 5 | agent=mini-SWE-agent | model=GLM 5 | date=2026-02-13 | checked=True | os_model=True | cost=192.74231006 | tags=['Model: glm-5', 'Org: Z.ai', 'System: Attempts - 1', 'Mini: 2.0.0a0']
+68.7 | Gemini 3 Pro | agent=mini-SWE-agent | model=Gemini 3 Pro | date=2026-02-13 | checked=True | os_model=False | cost=306.3256754 | tags=['Model: gemini-3-pro', 'Org: Google DeepMind', 'System: Attempts - 1', 'Mini: 2.0.0a0']
+68.3 | MiniMax M2.5 | agent=mini-SWE-agent | model=MiniMax M2.5 | date=2026-02-16 | checked=True | os_model=True | cost=30.05951837 | tags=['Model: minimax-2.5', 'Org: Minimax', 'System: Attempts - 1', 'Mini: 2.0.0a0']
+67.3 | Kimi K2.5 | agent=mini-SWE-agent | model=Kimi K2.5 | date=2026-02-13 | checked=True | os_model=True | cost=207.85105504 | tags=['Model: kimi-k2.5', 'Org: Moonshot AI', 'System: Attempts - 1', 'Mini: 2.0.0a0']
+67.0 | Claude 4.5 Sonnet | agent=mini-SWE-agent | model=Claude 4.5 Sonnet | date=2026-02-13 | checked=True | os_model=False | cost=200.8596708 | tags=['Model: claude-sonnet-4-5-20250929', 'Org: Anthropic', 'System: Attempts - 1', 'Mini: 2.0.0a0']
+66.7 | GPT 5.2 (high) | agent=mini-SWE-agent | model=GPT 5.2 | date=2026-02-13 | checked=True | os_model=False | cost=160.92329715 | tags=['Model: gpt-5.2-2025-12-11', 'Org: OpenAI', 'System: Attempts - 1', 'Mini: 2.0.0a0']
+66.3 | GPT 5.2 Codex | agent=mini-SWE-agent | model=GPT 5.2 Codex | date=2026-02-20 | checked=None | os_model=False | cost=198.65146735 | tags=['Model: gpt-5-2-codex', 'Org: OpenAI', 'System: Attempts - 1', 'Mini: 2.0.0']
+64.7 | Claude 4.5 Haiku | agent=mini-SWE-agent | model=Claude 4.5 Haiku | date=2026-02-13 | checked=True | os_model=False | cost=113.8470847 | tags=['Model: claude-haiku-4-5-20251001', 'Org: Anthropic', 'System: Attempts - 1', 'Mini: 2.0.0a0']
+59.0 | DeepSeek V3.2 | agent=mini-SWE-agent | model=DeepSeek V3.2 | date=2026-02-13 | checked=True | os_model=True | cost=115.14765747 | tags=['Model: deepseek-v3.2', 'Org: DeepSeek', 'System: Attempts - 1', 'Mini: 2.0.0a0']
+39.7 | GPT 5 mini | agent=mini-SWE-agent | model=GPT 5 mini | date=2026-02-13 | checked=True | os_model=False | cost=15.489864099999998 | tags=['Model: gpt-5-mini-2025-08-07', 'Org: OpenAI', 'System: Attempts - 1', 'Mini: 2.0.0a0']
+## Test · 24 entries · latest submission date 2025-12-19
+52.62 | Sonar Foundation Agent + Claude 4.5 Opus | agent=Sonar Foundation Agent | model=Claude 4.5 Opus | date=2025-12-19 | checked=False | os_model=False | cost=None | tags=['Model: claude-opus-4-5', 'Org: Sonar', 'System: Attempts - 1']
+44.25 | Salesforce AI Research SAGE (bash-only) | agent=Salesforce AI Research SAGE | model=Multiple | date=2025-10-27 | checked=False | os_model=False | cost=None | tags=['Model: claude-sonnet-4.5', 'Model: gpt-5', 'Org: Salesforce AI Research', 'System: Attempts - 2+']
+41.98 | Atlassian Rovo Dev (2025-06-05) | agent=Atlassian Rovo Dev | model=Undisclosed | date=2025-06-05 | checked=False | os_model=False | cost=None | tags=['Org: Atlassian', 'System: Attempts - 1']
+37.1 | Amazon Q Developer Agent (v20250405-dev) | agent=Amazon Q Developer Agent | model=Undisclosed | date=2025-05-22 | checked=False | os_model=False | cost=None | tags=['Org: AWS', 'System: Attempts - 2+']
+33.83 | SWE-agent 1.0 (Claude 3.7 Sonnet) | agent=SWE-agent 1.0 | model=Claude 3.7 Sonnet | date=2025-02-27 | checked=True | os_model=False | cost=None | tags=['Model: claude-3-7-sonnet-20250219', 'Org: SWE-agent', 'System: Attempts - 1']
+29.99 | Amazon Q Developer Agent (v20241202-dev) | agent=Amazon Q Developer Agent | model=Undisclosed | date=2025-01-31 | checked=False | os_model=False | cost=None | tags=['Org: AWS', 'System: Attempts - 1']
+29.38 | OpenHands + CodeAct v2.1 (claude-3-5-sonnet-20241022) | agent=OpenHands | model=CodeAct v2.1 (claude-3-5-sonnet-20241022) | date=2024-11-03 | checked=True | os_model=False | cost=None | tags=['Org: OpenHands', 'System: Attempts - 1']
+24.89 | AutoCodeRover-v2.0 (Claude-3.5-Sonnet-20241022) | agent=AutoCodeRover-v2.0 | model=Claude 3.5-Sonnet-20241022 | date=2024-11-21 | checked=False | os_model=False | cost=None | tags=['Model: claude-3-5-sonnet-20241022', 'System: Attempts - 1']
+22.06 | Honeycomb | agent=Honeycomb | model=Undisclosed | date=2024-08-20 | checked=False | os_model=False | cost=None | tags=['System: Attempts - 1']
+19.75 | Amazon Q Developer Agent (v20240719-dev) | agent=Amazon Q Developer Agent | model=Undisclosed | date=2024-07-21 | checked=False | os_model=False | cost=None | tags=['Org: AWS', 'System: Attempts - 1']
+19.27 | Factory Code Droid | agent=Factory Code Droid | model=Undisclosed | date=2024-06-17 | checked=False | os_model=False | cost=None | tags=['System: Attempts - 1']
+18.83 | AutoCodeRover (v20240620) + GPT 4o (2024-05-13) | agent=AutoCodeRover | model=GPT-4o | date=2024-06-28 | checked=False | os_model=False | cost=None | tags=['Model: gpt-4o-2024-05-13', 'System: Attempts - 1']
+18.13 | SWE-agent + Claude 3.5 Sonnet | agent=SWE-agent | model=Claude 3.5 Sonnet | date=2024-06-20 | checked=True | os_model=False | cost=None | tags=['Model: claude-3-5-sonnet-20241022', 'Org: SWE-agent', 'System: Attempts - 1']
+14.6 | AppMap Navie + GPT 4o (2024-05-13) | agent=AppMap Navie | model=GPT-4o | date=2024-06-15 | checked=True | os_model=True | cost=None | tags=['Model: gpt-4o-2024-05-13', 'System: Attempts - 1']
+13.82 | Amazon Q Developer Agent (v20240430-dev) | agent=Amazon Q Developer Agent | model=Undisclosed | date=2024-05-09 | checked=False | os_model=False | cost=None | tags=['Org: AWS', 'System: Attempts - 1']
+12.47 | SWE-agent + GPT 4 (1106) | agent=SWE-agent | model=GPT-4 (1106) | date=2024-04-02 | checked=True | os_model=False | cost=None | tags=['Model: gpt-4-1106-preview', 'Org: SWE-agent', 'System: Attempts - 1']
+11.99 | SWE-agent + GPT 4o (2024-05-13) | agent=SWE-agent | model=GPT-4o | date=2024-07-28 | checked=True | os_model=False | cost=None | tags=['Model: gpt-4o-2024-05-13', 'Org: SWE-agent', 'System: Attempts - 1']
+10.51 | SWE-agent + Claude 3 Opus | agent=SWE-agent | model=Claude 3 Opus | date=2024-04-02 | checked=True | os_model=False | cost=None | tags=['Model: claude-3-opus-20240229', 'Org: SWE-agent', 'System: Attempts - 1']
+3.79 | RAG + Claude 3 Opus | agent=RAG baseline | model=Claude 3 Opus | date=2024-04-02 | checked=True | os_model=False | cost=None | tags=['Model: claude-3-opus-20240229', 'System: Attempts - 1']
+1.96 | RAG + Claude 2 | agent=RAG baseline | model=Claude 2 | date=2023-10-10 | checked=True | os_model=False | cost=None | tags=['Model: claude-2', 'System: Attempts - 1']
+1.31 | RAG + GPT 4 (1106) | agent=RAG baseline | model=GPT-4 (1106) | date=2024-04-02 | checked=True | os_model=False | cost=None | tags=['Model: gpt-4-1106-preview', 'System: Attempts - 1']
+0.7 | RAG + SWE-Llama 13B | agent=RAG baseline | model=SWE-Llama 13B | date=2023-10-10 | checked=True | os_model=False | cost=None | tags=['Org: SWE-agent', 'System: Attempts - 1']
+0.7 | RAG + SWE-Llama 7B | agent=RAG baseline | model=SWE-Llama 7B | date=2023-10-10 | checked=True | os_model=False | cost=None | tags=['Model: SWE-Llama', 'Org: SWE-agent', 'System: Attempts - 1']
+0.17 | RAG + ChatGPT 3.5 | agent=RAG baseline | model=GPT-3.5 | date=2023-10-10 | checked=True | os_model=False | cost=None | tags=['Org: SWE-agent', 'System: Attempts - 1']
+## Verified · 180 entries · latest submission date 2026-02-26
+79.2 | Sonar Foundation Agent + Claude 4.5 Opus | agent=Sonar Foundation Agent | model=Claude 4.5 Opus | date=2025-12-05 | checked=False | os_model=False | cost=None | tags=['Model: claude-opus-4-5', 'Org: Sonar', 'System: Attempts - 1']
+79.2 | live-SWE-agent + Claude 4.5 Opus medium (20251101) | agent=live-SWE-agent | model=Claude 4.5 Opus | date=2025-12-15 | checked=False | os_model=False | cost=None | tags=['Model: claude-opus-4-5-20251101', 'Org: UIUC', 'System: Attempts - 1']
+78.8 | TRAE + Doubao-Seed-Code | agent=TRAE | model=Doubao-Seed-Code | date=2025-09-28 | checked=False | os_model=False | cost=None | tags=['Model: Doubao-Seed-Code', 'Model: Doubao-Seed-1.6', 'Org: ByteDance', 'System: Attempts - 2+']
+77.4 | live-SWE-agent + Gemini 3 Pro Preview (2025-11-18) | agent=live-SWE-agent | model=Gemini 3 Pro Preview | date=2025-11-20 | checked=false (See README.md for info on how to get your results verified) | os_model=False | cost=None | tags=['Model: gemini-3-pro-preview', 'Org: UIUC', 'System: Attempts - 1']
+76.8 | EPAM AI/Run Developer Agent v20250719 + Claude 4 Sonnet | agent=EPAM AI/Run Developer Agent | model=Claude 4 Sonnet | date=2025-08-04 | checked=False | os_model=False | cost=None | tags=['Model: claude-sonnet-4-20250514', 'Org: EPAM Systems, Inc.', 'System: Attempts - 2+']
+76.8 | Atlassian Rovo Dev (2025-09-02) | agent=Atlassian Rovo Dev | model=Multiple | date=2025-09-02 | checked=False | os_model=False | cost=None | tags=['Model: claude-sonnet-4-20250514', 'Model: gpt-5', 'Org: Atlassian', 'System: Attempts - 2']
+76.8 | Claude 4.5 Opus (high) | agent=mini-SWE-agent | model=Claude 4.5 Opus | date=2026-02-17 | checked=None | os_model=False | cost=376.9539985 | tags=['Model: claude-4-5-opus', 'Org: Anthropic', 'System: Attempts - 1', 'Mini: 2.0.0']
+76.4 | ACoder | agent=ACoder | model=Multiple | date=2025-08-19 | checked=False | os_model=False | cost=None | tags=['Model: claude-4-sonnet', 'Model: claude-4.1-opus', 'Model: gpt-5-0807-global', 'Model: gemini-2.5-pro-06-17', 'Org: ACoder', 'System: Attempts - 2+']
+75.8 | Gemini 3 Flash (high) | agent=mini-SWE-agent | model=Gemini 3 Flash | date=2026-02-17 | checked=None | os_model=False | cost=177.98206539999998 | tags=['Model: gemini-3-flash-preview', 'Org: Google DeepMind', 'System: Attempts - 1', 'Mini: 2.0.0']
+75.8 | MiniMax M2.5 (high) | agent=mini-SWE-agent | model=MiniMax M2.5 | date=2026-02-17 | checked=None | os_model=True | cost=36.644993922 | tags=['Model: minimax-m2.5', 'Org: Minimax', 'System: Attempts - 1', 'Mini: 2.0.0']
+75.6 | Warp | agent=Warp | model=Multiple | date=2025-09-01 | checked=False | os_model=False | cost=None | tags=['Model: gpt-5', 'Model: claude-sonnet-4-20250514', 'Org: Warp', 'System: Attempts - 2+']
+75.6 | Claude 4.6 Opus | agent=mini-SWE-agent | model=Claude 4.6 Opus | date=2026-02-17 | checked=None | os_model=False | cost=275.76132225 | tags=['Model: claude-opus-4-6', 'Org: Anthropic', 'System: Attempts - 1', 'Mini: 2.0.0']
+75.2 | TRAE + Claude Sonnet 4 + Opus 4 + Sonnet 3.7 + Gemini 2.5 Pro | agent=TRAE | model=Multiple | date=2025-06-12 | checked=False | os_model=False | cost=None | tags=['Model: claude-4-sonnet-20250522', 'Model: claude-4-opus-20250522', 'Model: claude-3-7-sonnet-20250219', 'Model: gemini-2.5-pro-preview-06-05', 'Org: TRAE', 'System: Attempts - 2+']
+74.8 | Harness AI | agent=Harness AI | model=Claude Sonnet 4 | date=2025-07-31 | checked=False | os_model=False | cost=None | tags=['Model: claude-sonnet-4-20250514', 'Org: Harness', 'System: Attempts - 1']
+74.8 | Sonar Foundation Agent + Claude 4.5 Sonnet | agent=Sonar Foundation Agent | model=Claude 4.5 Sonnet | date=2025-11-03 | checked=False | os_model=False | cost=None | tags=['Model: claude-sonnet-4-5', 'Org: Sonar', 'System: Attempts - 1']
+74.6 | Lingxi-v1.5_claude-4-sonnet-20250514 | agent=Lingxi-v1.5 | model=Claude 4 Sonnet | date=2025-07-20 | checked=False | os_model=False | cost=None | tags=['Model: claude-4-sonnet-20250514', 'Org: Lingxi', 'System: Attempts - 1']
+74.6 | JoyCode + Claude 4 Sonnet + GPT-4.1 | agent=JoyCode | model=Multiple | date=2025-09-15 | checked=False | os_model=False | cost=None | tags=['Model: claude-4-sonnet', 'Model: gpt-4.1', 'Org: JoyCode', 'System: Attempts - 1']
+74.4 | Refact.ai Agent + Claude 4 Sonnet + o4-mini | agent=Refact.ai Agent | model=Multiple | date=2025-06-03 | checked=False | os_model=False | cost=None | tags=['Model: claude-4-sonnet', 'Model: o4-mini', 'Org: Refact.ai', 'System: Attempts - 1']
+74.4 | Prometheus-v1.2.1 + GPT-5 | agent=Prometheus-v1.2.1 | model=GPT-5 | date=2025-10-15 | checked=False | os_model=False | cost=None | tags=['Model: gpt-5-2025-08-07', 'Org: EuniAI', 'Org: Delysium', 'System: Attempts - 2+']
+74.4 | Claude 4.5 Opus (20251101) (medium) | agent=mini-SWE-agent | model=Claude 4.5 Opus | date=2025-11-24 | checked=True | os_model=False | cost=360.6224985 | tags=['Model: claude-opus-4-5-20251101', 'Org: Anthropic', 'System: Attempts - 1', 'Mini: 1.16.0']
+74.2 | Gemini 3 Pro Preview (2025-11-18) | agent=mini-SWE-agent | model=Gemini 3 Pro Preview | date=2025-11-18 | checked=True | os_model=False | cost=229.978759475 | tags=['Model: gemini-3-pro-preview', 'Org: Google DeepMind', 'System: Attempts - 1', 'Mini: 1.15.0']
+73.8 | Salesforce AI Research SAGE (OpenHands) | agent=Salesforce AI Research SAGE | model=Multiple | date=2025-11-03 | checked=False | os_model=False | cost=None | tags=['Model: claude-sonnet-4.5', 'Model: gpt-5', 'Org: Salesforce AI Research', 'System: Attempts - 2+']
+73.2 | Tools + Claude 4 Opus (2025-05-22) | agent=Tools | model=Claude 4 Opus | date=2025-05-22 | checked=False | os_model=False | cost=None | tags=['Model: claude-4-opus-20250514', 'System: Attempts - 1']
+73.0 | Salesforce AI Research SAGE (bash-only) | agent=Salesforce AI Research SAGE | model=Multiple | date=2025-10-21 | checked=False | os_model=False | cost=None | tags=['Model: claude-sonnet-4.5', 'Model: gpt-5', 'Org: Salesforce AI Research', 'System: Attempts - 2+']
+72.8 | GLM 5 (high) | agent=mini-SWE-agent | model=GLM 5 | date=2026-02-17 | checked=None | os_model=True | cost=267.19456811 | tags=['Model: glm-5', 'Org: Z-AI', 'System: Attempts - 1', 'Mini: 2.0.0']
+## Lite · 84 entries · latest submission date 2025-09-11
+60.33 | ExpeRepair-v1.0 + Claude 4 Sonnet | agent=ExpeRepair-v1.0 | model=Claude 4 Sonnet | date=2025-06-25 | checked=False | os_model=False | cost=None | tags=['Model: claude-4-sonnet-20250514', 'Model: o3-mini', 'Model: o4-mini', 'System: Attempts - 2+']
+60.0 | Refact.ai Agent | agent=Refact.ai Agent | model=Multiple | date=2025-04-25 | checked=False | os_model=False | cost=None | tags=['Model: claude-3-7-sonnet-20250219', 'Model: o4-mini', 'Org: Refact.ai', 'System: Attempts - 1']
+58.33 | KGCompass + Claude 4 Sonnet (20250514) | agent=KGCompass | model=Claude 4 Sonnet | date=2025-09-06 | checked=False | os_model=False | cost=None | tags=['Model: claude-4-sonnet-20250514', 'Org: GLEAM-Lab', 'System: Attempts - 2+']
+56.67 | SWE-agent + Claude 4 Sonnet | agent=SWE-agent | model=Claude 4 Sonnet | date=2025-05-26 | checked=True | os_model=False | cost=None | tags=['Model: claude-4-sonnet-20250514', 'Org: SWE-agent', 'System: Attempts - 1']
+55.0 | Isoform | agent=Isoform | model=Undisclosed | date=2025-01-14 | checked=False | os_model=False | cost=None | tags=['System: Attempts - 2+']
+51.67 | SemAgent_Multi-v1.0 | agent=SemAgent_Multi-v1.0 | model=Multiple | date=2025-06-25 | checked=False | os_model=False | cost=None | tags=['Model: claude-3-7-sonnet-20250219', 'Model: gemini-2.5-pro-preview-05-06', 'Org: Columbia', 'Org: SemAgent', 'System: Attempts - 2+']
+51.33 | Isea | agent=Isea | model=Claude 3.5 Sonnet | date=2025-09-11 | checked=False | os_model=False | cost=None | tags=['Model: claude-3.5-sonnet-20241022', 'System: Attempts - 2+']
+49.67 | EntroPO + R2E + Qwen3-Coder-30B-A3B-Instruct | agent=EntroPO + R2E | model=Qwen3-Coder-30B-A3B-Instruct | date=2025-09-01 | checked=false (See README.md for info on how to get your results verified) | os_model=True | cost=None | tags=['Model: Qwen3-Coder-30B-A3B-Instruct', 'Org: 42-b3yond-6ug', 'System: Attempts - 2+']
+49.0 | Blackbox AI Agent | agent=Blackbox AI Agent | model=Undisclosed | date=2024-12-20 | checked=False | os_model=False | cost=None | tags=[]
+49.0 | Codev | agent=Codev | model=Multiple | date=2025-05-28 | checked=False | os_model=False | cost=None | tags=['Model: claude-3-7-sonnet-20250219', 'Model: claude-3-5-haiku-20241022', 'Model: gemini-2.5-pro-preview-05-06', 'Model: gemini-2.5-flash-preview-04-17', 'Model: o4-mini-2025-04-16', 'Model: gpt-4o-mini', 'Model: text-embedding-3-small', 'Org: co-dev.ai', 'System: Attempts - 1']
+48.67 | Gru(2024-12-08) | agent=Gru | model=Undisclosed | date=2024-12-08 | checked=False | os_model=False | cost=None | tags=[]
+48.33 | Globant Code Fixer Agent | agent=Globant Code Fixer Agent | model=Undisclosed | date=2024-11-27 | checked=False | os_model=False | cost=None | tags=[]
+48.33 | ExpeRepair-v1.0 | agent=ExpeRepair-v1.0 | model=Multiple | date=2025-06-13 | checked=False | os_model=False | cost=None | tags=['Model: claude-3.5-sonnet-20241022', 'Model: o3-mini', 'Model: o4-mini', 'System: Attempts - 2+']
+48.0 | SWE-agent + Claude 3.7 Sonnet | agent=SWE-agent | model=Claude 3.7 Sonnet | date=2025-02-26 | checked=True | os_model=False | cost=None | tags=['Model: claude-3-7-sonnet-20250219', 'Org: SWE-agent', 'System: Attempts - 1']
+47.33 | devlo | agent=devlo | model=Claude 3.5 Sonnet | date=2024-11-22 | checked=False | os_model=False | cost=None | tags=['Model: claude-3-5-sonnet-20241022']
+47.0 | DARS Agent | agent=DARS Agent | model=Multiple | date=2025-02-05 | checked=False | os_model=False | cost=None | tags=['Model: claude-3-5-sonnet-20241022', 'Model: deepseek-reasoner']
+46.0 | KGCompass + Claude 3.5 Sonnet (20241022) | agent=KGCompass | model=Claude 3.5 Sonnet | date=2025-06-19 | checked=False | os_model=False | cost=None | tags=['Model: claude-3-5-sonnet-20241022', 'Org: GLEAM-Lab', 'System: Attempts - 2+']
+45.0 | EntroPO + R2E + Qwen3-Coder-30B-A3B-Instruct | agent=EntroPO + R2E | model=Qwen3-Coder-30B-A3B-Instruct | date=2025-09-01 | checked=false (See README.md for info on how to get your results verified) | os_model=True | cost=None | tags=['Model: Qwen3-Coder-30B-A3B-Instruct', 'Org: 42-b3yond-6ug', 'System: Attempts - 1']
+44.67 | Kodu-v1 + Claude-3.5 Sonnet (20241022) | agent=Kodu-v1 | model=Claude 3.5 Sonnet | date=2024-12-07 | checked=False | os_model=False | cost=None | tags=['Model: claude-3-5-sonnet-20241022']
+44.0 | CodeFuse-CGM | agent=CodeFuse-CGM | model=Undisclosed | date=2025-03-10 | checked=True | os_model=True | cost=None | tags=['Org: Ant Group', 'System: Attempts - 2+']
+43.0 | CodeStory Aide + Mixed Models | agent=CodeStory Aide | model=Mixed Models | date=2024-07-02 | checked=False | os_model=False | cost=None | tags=[]
+42.67 | Lingxi | agent=Lingxi | model=Claude 3.5 Sonnet | date=2025-05-09 | checked=False | os_model=False | cost=None | tags=['Model: claude-3-5-sonnet-20241022']
+41.67 | OpenHands + CodeAct v2.1 (claude-3-5-sonnet-20241022) | agent=OpenHands | model=CodeAct v2.1 (claude-3-5-sonnet-20241022) | date=2024-10-25 | checked=True | os_model=False | cost=None | tags=['Model: claude-3-5-sonnet-20241022', 'Org: OpenHands']
+41.67 | Codart AI | agent=Codart AI | model=Multiple | date=2025-05-15 | checked=False | os_model=False | cost=None | tags=['Model: claude-3-5-haiku-latest', 'Model: claude-3.5-sonnet-latest', 'Org: Codart AI', 'System: Attempts - 1']
+41.33 | PatchKitty-0.9 + Claude-3.5 Sonnet (20241022) | agent=PatchKitty-0.9 | model=Claude 3.5 Sonnet | date=2024-12-20 | checked=False | os_model=False | cost=None | tags=['Model: claude-3-5-sonnet-20241022']
+## Multimodal · 22 entries · latest submission date 2025-11-17
+35.98 | GUIRepair + o3 (2025-04-16) | agent=GUIRepair | model=o3 | date=2025-07-01 | checked=True | os_model=False | cost=None | tags=['Model: o3-2025-04-16', 'Org: GUIRepair', 'System: Attempts - 1']
+35.98 | Codefuse_Pycfuse_SVR | agent=Codefuse_Pycfuse_SVR | model=o3 | date=2025-11-17 | checked=True | os_model=False | cost=None | tags=['Model: o3-2025-04-16', 'Org: Codefuse', 'System: Attempts - 1']
+35.59 | Refact.ai Agent | agent=Refact.ai Agent | model=Claude 4 Sonnet | date=2025-06-11 | checked=False | os_model=False | cost=None | tags=['Model: claude-4-sonnet', 'Org: Refact.ai', 'System: Attempts - 1']
+34.43 | OpenHands-Versa (Claude-Sonnet 4) | agent=OpenHands-Versa | model=Claude Sonnet 4 | date=2025-05-28 | checked=True | os_model=False | cost=None | tags=['Model: claude-4-sonnet-20250514', 'Org: OpenHands', 'System: Attempts - 1']
+33.85 | GUIRepair + o4-mini (2025-04-16) | agent=GUIRepair | model=o4-mini | date=2025-05-31 | checked=True | os_model=False | cost=None | tags=['Model: o4-mini-2025-04-16', 'Org: GUIRepair', 'System: Attempts - 1']
+31.33 | OpenHands-Versa (Claude-3.7 Sonnet) | agent=OpenHands-Versa | model=Claude 3.7 Sonnet | date=2025-05-09 | checked=True | os_model=False | cost=None | tags=['Model: claude-3-7-sonnet-20250219', 'Org: OpenHands', 'System: Attempts - 1']
+31.14 | GUIRepair + GPT 4.1 (2025-04-14) | agent=GUIRepair | model=GPT-4.1 | date=2025-05-31 | checked=True | os_model=False | cost=None | tags=['Model: gpt-4.1-2025-04-14', 'Org: GUIRepair', 'System: Attempts - 1']
+30.56 | Zencoder (2025-04-01) | agent=Zencoder | model=Claude 3.7 Sonnet | date=2025-04-01 | checked=True | os_model=False | cost=None | tags=['Model: claude-3-7-sonnet-20250219', 'System: Attempts - 1']
+30.37 | GUIRepair + GPT 4o (2024-08-06) | agent=GUIRepair | model=GPT-4o | date=2025-05-31 | checked=True | os_model=False | cost=None | tags=['Model: gpt-4o-2024-08-06', 'Org: GUIRepair', 'System: Attempts - 1']
+29.59 | Globant Code Fixer Agent | agent=Globant Code Fixer Agent | model=Undisclosed | date=2025-03-25 | checked=True | os_model=False | cost=None | tags=['System: Attempts - 1']
+27.08 | Zencoder (2025-03-10) | agent=Zencoder | model=Undisclosed | date=2025-03-11 | checked=True | os_model=False | cost=None | tags=['System: Attempts - 1']
+25.34 | Agentless Lite + Claude-3.5 Sonnet | agent=Agentless Lite | model=Claude 3.5 Sonnet | date=2025-02-26 | checked=True | os_model=False | cost=None | tags=['Model: claude-3-5-sonnet-20241022', 'Org: Agentless', 'System: Attempts - 1']
+12.19 | SWE-agent Multimodal + GPT 4o (2024-08-06) | agent=SWE-agent Multimodal | model=GPT-4o | date=2024-10-06 | checked=True | os_model=False | cost=None | tags=['Org: SWE-agent', 'System: Attempts - 1']
+12.19 | SWE-agent + Claude Sonnet 3.5 | agent=SWE-agent | model=Claude Sonnet 3.5 | date=2024-10-06 | checked=True | os_model=False | cost=None | tags=['Org: SWE-agent', 'System: Attempts - 1']
+11.99 | SWE-agent JavaScript + Claude Sonnet 3.5 | agent=SWE-agent JavaScript | model=Claude Sonnet 3.5 | date=2024-10-06 | checked=True | os_model=False | cost=None | tags=['Org: SWE-agent', 'System: Attempts - 1']
+11.99 | SWE-agent + GPT 4o (2024-08-06) | agent=SWE-agent | model=GPT-4o | date=2024-10-06 | checked=True | os_model=False | cost=None | tags=['Org: SWE-agent', 'System: Attempts - 1']
+11.41 | SWE-agent Multimodal + Claude 3.5 Sonnet | agent=SWE-agent Multimodal | model=Claude 3.5 Sonnet | date=2024-10-06 | checked=True | os_model=False | cost=None | tags=['Model: claude-3-5-sonnet-20241022', 'Org: SWE-agent', 'System: Attempts - 1']
+9.28 | SWE-agent JavaScript + GPT 4o (2024-08-06) | agent=SWE-agent JavaScript | model=GPT-4o | date=2024-10-06 | checked=True | os_model=False | cost=None | tags=['Org: SWE-agent', 'System: Attempts - 1']
+6.19 | Agentless + Claude 3.5 Sonnet | agent=Agentless | model=Claude 3.5 Sonnet | date=2024-10-06 | checked=True | os_model=False | cost=None | tags=['Model: claude-3-5-sonnet-20241022', 'Org: Agentless', 'System: Attempts - 1']
+6.0 | RAG + GPT 4o (2024-08-06) | agent=RAG | model=GPT-4o | date=2024-10-06 | checked=True | os_model=False | cost=None | tags=['Model: gpt-4o-2024-08-06', 'System: Attempts - 1']
+5.03 | RAG + Claude 3.5 Sonnet | agent=RAG | model=Claude 3.5 Sonnet | date=2024-10-06 | checked=True | os_model=False | cost=None | tags=['Model: claude-3-5-sonnet-20241022', 'System: Attempts - 1']
+3.09 | Agentless + GPT 4o (2024-08-06) | agent=Agentless | model=GPT-4o | date=2024-10-06 | checked=True | os_model=False | cost=None | tags=['Model: gpt-4o-2024-08-06', 'Org: Agentless', 'System: Attempts - 1']

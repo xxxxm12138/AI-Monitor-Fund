@@ -1,0 +1,21 @@
+# SNAPSHOT · Nebius newsroom 2026-03-11 · NVIDIA and Nebius Partner to Scale Full-Stack AI Cloud（NVIDIA 投资 $2B）
+# source: https://nebius.com/newsroom/nvidia-and-nebius-partner-to-scale-full-stack-ai-cloud
+# fetched: 2026-09-20 15:03 · curl -sL -A "Anatole research e1728233@u.nus.edu" · HTML→文本（去 script/style，</p>→换行，</td>→" | "）
+
+March 11, 2026
+Deep engineering collaboration on AI factories, powering inference and agentic AI
+Enables Nebius to deploy more than 5 gigawatts of NVIDIA systems by end of 2030
+Santa Clara, Calif., and Amsterdam — March 11, 2026 — NVIDIA and Nebius Group N.V. (NASDAQ: NBIS) today announced a strategic partnership to develop and deploy the next generation of hyperscale cloud for the AI market, from AI natives to enterprises.
+NVIDIA will invest $2 billion in Nebius, reflecting NVIDIA’s confidence in Nebius’s business and unique depth of engineering expertise across the full AI technology stack.
+To help meet rapidly growing global demand for high-performance compute, the partnership deepens Nebius and NVIDIA’s relationship across the full AI technology stack, from AI factory architecture to production software, enabling Nebius to accelerate the buildout of its industry-leading, full-stack AI cloud platform.
+This partnership builds upon Nebius’s ongoing deployment of NVIDIA infrastructure across its global platform, including multiple gigawatt-scale AI factories in the U.S. To enable Nebius to deploy more than 5 gigawatts of capacity by end of 2030, NVIDIA will support Nebius’s early adoption of the latest generation of NVIDIA’s accelerated computing platform.
+Under the terms of the partnership, the companies will collaborate on:
+AI factory design and support: Including access to partner design material, design review processes and acceptance, early samples and system software support, bring-up support, and regular system partner business and technical reviews.
+Inference: Creating a best-in-class inference and agentic AI stack for developers and enterprises with NVIDIA’s latest software technologies, optimized models and libraries.
+AI infrastructure deployment: Deploying multiple generations of NVIDIA infrastructure across Nebius’s platform through early adoption of NVIDIA computing architectures, including the NVIDIA Rubin platform, NVIDIA Vera CPUs and NVIDIA BlueField® storage systems.
+Fleet management: Optimizing Nebius’s holistic fleet health by deploying NVIDIA’s latest GPU health monitoring and software recommendations.
+“AI is at another inflection point — agentic AI, driving incredible compute demand and accelerating infrastructure buildout, ” said Jensen Huang, founder and CEO of NVIDIA. “Nebius is building an AI cloud designed for the agentic era, fully integrated from silicon to software and powered by NVIDIA’s next-generation accelerated compute. Together, we are scaling the cloud to meet the surging global demand for intelligence.”
+“Nebius has been built for AI since day one — not adapted from a general-purpose cloud, but designed for what developers actually need, ” said Arkady Volozh, CEO of Nebius. “Now with NVIDIA, we are extending that throughout the stack — from gigawatt-scale AI factories to inference and software — as we build one of the first and largest clouds for all AI builders everywhere.”
+About NVIDIAAbout NVIDIA
+NVIDIA (NASDAQ: NVDA) is the world leader in AI and accelerated computing.
+NVIDIA Forward-Looking StatementsNVIDIA Forward-Looking Statements

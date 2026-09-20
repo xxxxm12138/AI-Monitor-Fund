@@ -1,0 +1,328 @@
+# SNAPSHOT · Epoch AI · Trends (training compute of frontier models)
+# source: https://epoch.ai/trends
+# fetched: 2026-09-20 14:57 · curl -sL -A "Anatole research e1728233@u.nus.edu" · HTTP 200 · HTML→text（去 script/style，</p>→换行，</td>→ | ）
+
+Trends in Artificial Intelligence | Epoch AI 
+ Latest Our work Featured
+ Trends & statistics 
+ Data explorers 
+ Capabilities & Benchmarking 
+ Publications
+ Papers & reports 
+ Data Insights 
+ Newsletter 
+ Podcast 
+ All Publications 
+ Data explorers
+ Capabilities 
+ Models 
+ Data centers 
+ Chip owners 
+ Companies 
+ Polling on AI use 
+ All Data Explorers 
+ Our benchmarks
+ Epoch Capabilities Index 
+ MirrorCode 
+ FrontierMath: Open problems 
+ EBR-bench 
+ Topics AI progress
+ Scaling 
+ Software progress 
+ Open models 
+ Capabilities & benchmarks 
+ Math 
+ Industry
+ Leading companies 
+ Finances 
+ Geopolitics 
+ Infrastructure
+ Chips 
+ Data centers 
+ Energy 
+ Impacts
+ Adoption & use 
+ Economic impact 
+ Future of AI 
+ About Who we are
+ About 
+ Team 
+ Transparency 
+ Engage with us
+ Careers 
+ Press 
+ Consultations 
+ Donate 
+ Contact 
+ Latest 
+ Our work Featured
+ Trends & statistics Data explorers Capabilities & Benchmarking 
+ Publications
+ Papers & reports
+ Data Insights
+ Newsletter
+ Podcast
+ All Publications
+ Data explorers
+ Capabilities
+ Models
+ Data centers
+ Chip owners
+ Companies
+ Polling on AI use
+ All Data Explorers
+ Our benchmarks
+ Epoch Capabilities Index
+ MirrorCode
+ FrontierMath: Open problems
+ EBR-bench
+ Navigate by topic AI progress
+ Scaling
+ Software progress
+ Open models
+ Capabilities & benchmarks
+ Math
+ Industry
+ Leading companies
+ Finances
+ Geopolitics
+ Infrastructure
+ Chips
+ Data centers
+ Energy
+ Impacts
+ Adoption & use
+ Economic impact
+ Future of AI
+ About Who we are
+ About
+ Team
+ Transparency
+ Engage with us
+ Careers
+ Press
+ Consultations
+ Donate
+ Contact 
+ Updated Feb. 5, 2026 
+ Trends in Artificial Intelligence
+ Frontier AI systems are advancing rapidly from increases in compute, hardware performance, software efficiency, and investment. This dashboard explores those dynamics.
+ Show growth values in 
+ Increase/year 
+ Doubling time 
+ OOM/year 
+ Model capabilities
+ 14 ECI/year 
+ The ECI frontier has advanced by 14 points per year since the introduction of reasoning models.
+ Model Performance 
+ 90% CI +12 to +17 ECI 
+ Compute stock growth
+ 3.4 ×/year 
+ 6.8 months 
+ 0.53 OOM/year 
+ The total computing power of the stock of AI chips is growing at a rate of 3.4×/year.
+ The total computing power of the stock of AI chips is doubling every 6.8 months.
+ The total computing power of the stock of AI chips is growing by 0.53 OOMs per year.
+ AI Companies 
+ 90% CI 3.2× to 3.7× 6.4 to 7.2 months 0.51 to 0.57 OOM 
+ Training compute
+ 5 ×/year 
+ 5.2 months 
+ 0.7 OOM/year 
+ Training compute for frontier language models has been growing at 5× per year since 2020.
+ Training compute for frontier language models has been doubling every 5.2 months since 2020.
+ Training compute for frontier language models has been growing at 0.7 OOMs per year since 2020.
+ Training Runs 
+ 90% CI 4× to 6× 4.6 to 6.0 months 0.6 to 0.8 OOM 
+ Build time
+ 2.1 years 
+ Gigawatt-scale data centers can be built in about 2 years.
+ Data Centers 
+ 90% CI 1 to 3.6 years 
+ Largest AI data center
+ 1,100,000 H100e 
+ The largest known AI data center has a computing capacity equivalent to 1.1 million NVIDIA H100 chips.
+ Data Centers 
+ Chip performance per dollar
+ 1.49 ×/year 
+ 1.7 years 
+ 0.17 OOM/year 
+ AI chip performance per dollar has grown by 49% per year since 2023.
+ AI chip performance per dollar has doubled every 1.7 years since 2023.
+ AI chip performance per dollar has grown by 0.17 OOMs per year since 2023.
+ Hardware 
+ 90% CI 1.36× to 1.66× 1.4 to 2.3 years 0.13 to 0.22 OOM 
+ What drives AI progress? The story is dominated by scale. Training AI systems with more compute, power and data has consistently led to better performance. Since 2010, the compute used to train notable AI models has increased 4.5× per year. Meanwhile, researchers have made the underlying algorithms far more efficient — each year, the same performance can be achieved with 3× less compute.
+ This massive scale-up in training compute comes from three sources: deploying more chips in parallel, running training for longer, and leveraging increasingly powerful AI processors. The consequences are striking. Training costs are climbing by 3.5× annually, while power requirements double each year. Today’s cutting-edge AI training runs consume tens to hundreds of megawatts — comparable to a medium-sized power plant. These trends appear set to continue through 2030 .
+ Model Performance AI Companies Training Runs Data Centers Hardware 
+ Model Performance 
+ The ECI frontier has advanced by 14 points per year since the introduction of reasoning models.
+ The ECI frontier has advanced by 14 points per year since the introduction of reasoning models.
+ Following the introduction of the first reasoning models (OpenAI’s o1-mini and o1-preview) in September 2024, the Epoch Capabilities Index (ECI) frontier has advanced linearly by 14 points per year, compared with 6 points per year for non-reasoning models.
+ Learn more 
+ SOTA vs. consumer hardware models
+ 8 months 
+ Frontier AI performance becomes accessible on consumer hardware within a year.
+ Model Performance 
+ LLM context windows
+ 30 ×/year 
+ 2.4 months 
+ 1.5 OOM/year 
+ LLM context windows have grown by 30× per year since 2023.
+ LLM context windows have been doubling every 2.4 months since 2023.
+ LLM context windows have grown by 1.5 OOMs per year since 2023.
+ Model Performance 
+ 90% CI 10× to 50× 2.1 to 3.6 months 1.0 to 1.7 OOM 
+ Data on AI
+ Benchmarking
+ Track and compare frontier model performance across 40+ evaluations
+ AI Companies 
+ The total computing power of the stock of AI chips is growing at a rate of 3.4×/year.
+ The total computing power of the stock of AI chips is growing at a rate of 3.4×/year.
+ The computing power of the total stock of AI chips has grown at 3.4x per year, doubling every 7 months since 2022, based on revenue data, other financial disclosures, and analyst reports.
+ Learn more 
+ OpenAI revenue growth
+ 3.2 ×/year 
+ 7.2 months 
+ 0.51 OOM/year 
+ OpenAI's annualized revenue has grown by 3.2×/year since 2024.
+ OpenAI's annualized revenue has been doubling every 7.2 months since 2024.
+ OpenAI's annualized revenue has grown by 0.51 OOMs per year since 2024.
+ AI Companies 
+ 90% CI 3.0× to 3.4× 6.8 to 7.6 months 0.48 to 0.53 OOM 
+ Frontier inference compute
+ 30 % 
+ Only 30% of OpenAI's compute spending in 2024 was used on inference.
+ AI Companies 
+ Frontier AI investment
+ $370 billion 
+ Frontier AI labs have raised more than $370 billion.
+ AI Companies 
+ Data on AI
+ Companies
+ Data on key organizations and labs driving AI development worldwide.
+ Training Runs 
+ Training compute for frontier language models has been growing at 5× per year since 2020.
+ Training compute for frontier language models has been growing at 5× per year since 2020.
+ The amount of compute used to train frontier language models has grown exponentially. Since 2020, the trend among top-5 models has grown by a factor of ~10,000.
+ Learn more 
+ Software progress
+ ÷ 3.0 ×/year 
+ 7.6 months 
+ 0.5 OOM/year 
+ Pre-training compute efficiency is improving at roughly 3.0× per year.
+ Pre-training compute efficiency is doubling roughly every 7.6 months.
+ Pre-training compute efficiency is improving by roughly 0.5 OOMs per year.
+ Training Runs 
+ 90% CI 2.8× to 4.4× 5.6 to 8.1 months 0.4 to 0.6 OOM 
+ Training cost
+ 3.5 ×/year 
+ 7 months 
+ 0.5 OOM/year 
+ The cost to train frontier language models has increased by 3.5×/year since 2020.
+ The cost to train frontier language models has been doubling every 7 months since 2020.
+ The cost to train frontier language models has increased by 0.5 OOMs per year since 2020.
+ Training Runs 
+ 90% CI 2.8× to 4.4× 6 to 8 months 0.4 to 0.6 OOM 
+ Report
+ Training Compute
+ Training compute of frontier AI models grows by 4-5× per year.
+ Data on AI
+ Models
+ Database of AI systems tracked by training compute, org, and release date.
+ Data Centers 
+ The largest known AI data center has a computing capacity equivalent to 1.1 million NVIDIA H100 chips.
+ The largest known AI data center has a computing capacity equivalent to 1.1 million NVIDIA H100 chips.
+ SpaceXAI’s Colossus 2 in Memphis, Tennessee has an estimated computing capacity of 1.1 million H100-equivalents, making it the largest known AI data center. Meta Hyperion is expected to have over 3x more computing capacity, at 3.7M H100-equivalents by January 2028.
+ Learn more 
+ Build time
+ 2.1 years 
+ Gigawatt-scale data centers can be built in about 2 years.
+ Data Centers 
+ 90% CI 1 to 3.6 years 
+ Cost per gigawatt
+ $38 billion 
+ A typical AI data center with 1 gigawatt of IT power costs roughly $38 billion in up-front capital expenditure.
+ Data Centers 
+ Hyperscaler compute share
+ 71 % 
+ Five hyperscalers own over two-thirds of global AI compute.
+ Data Centers 
+ Data on AI
+ AI Data Centers
+ AI data centers tracked via satellite imagery and permit data.
+ Hardware 
+ AI chip performance per dollar has grown by 49% per year since 2023.
+ AI chip performance per dollar has grown by 49% per year since 2023.
+ Since 2023, the average dollar spent on AI chips each quarter has bought about 49% more performance each year, in constant 2025 dollars. Gains have come in spurts as spending shifts to each new chip generation — price-performance was nearly flat through mid-2024, then roughly doubled as Blackwell chips grew to a majority of new spending.
+ Learn more 
+ Memory bandwidth
+ 1.28 ×/year 
+ 2.8 years 
+ 0.11 OOM/year 
+ Memory bandwidth of GPUs has been growing by 28% per year since 2008.
+ Memory bandwidth of GPUs has been doubling every 2.8 years since 2008.
+ Memory bandwidth of GPUs has been growing by 0.11 OOMs per year since 2008.
+ Hardware 
+ 90% CI 1.24× to 1.33× 2.4 to 3.2 years 0.09 to 0.12 OOM 
+ Adoption of numerical formats
+ 3-4 years 
+ Widespread adoption of new numeric formats took 3-4 years in past cycles.
+ Hardware 
+ FLOP/s per watt
+ 1.34 ×/year 
+ 2.4 years 
+ 0.13 OOM/year 
+ GPUs have become 34% more energy efficient per year since 2008.
+ GPUs energy efficiency has doubled every 2.4 years on average since 2008.
+ GPUs have become 0.13 OOMs more energy efficient per year since 2008.
+ Hardware 
+ 90% CI 1.29× to 1.39× 2.1 to 2.7 years 0.11 to 0.14 OOM 
+ Report
+ Trends in hardware
+ FLOP/s performance in 47 ML hardware accelerators doubled every 2.3 years.
+ Data on AI
+ ML Hardware
+ Key data on AI accelerators, such as GPUs and TPUs.
+ Trusted by leaders at OpenAI, DeepMind, and governments worldwide
+ Need deeper insights? Our team offers custom research and advisory services.
+ Book a consultation 
+ Investigating the trajectory of AI for the benefit of society
+ Get the latest from Epoch AI in your inbox
+ Subscribe 
+ Our Work
+ Latest 
+ AI Trends & Statistics 
+ Publications 
+ Data Insights 
+ Newsletter: Gradient Updates 
+ Podcast 
+ Data on AI
+ Models 
+ AI Data Centers 
+ Hardware 
+ Companies 
+ Chip Sales 
+ Polling 
+ Benchmarking
+ Capabilities & Benchmarking 
+ FrontierMath 
+ Company
+ About 
+ Team 
+ Consultations 
+ Transparency 
+ Donate 
+ Careers 
+ © 2026 Epoch AI
+ Privacy Policy Cookie Policy Designed by And—Now 
+ Feedback 
+ Feedback
+ Have a question? Noticed something wrong? Let us know.
+ Message
+ If you would like a reply, please include your name and email address.
+ Name
+ Email address
+ Cancel Submit 
+ Trends in Artificial Intelligence
+ Frontier AI systems are advancing rapidly from increases in compute, hardware performance, software efficiency, and investment. This dashboard explores those dynamics.

@@ -1,0 +1,93 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>D1 维工作台 — 算力层全部 AI 动态</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1a1d24;--mut:#7a828f;--line:#e7e9ee;--line2:#eef0f3;--accent:#4f46e5;--accent-soft:#eef0ff;
+ --up-bg:#e7f6ec;--up:#16a34a;--dn-bg:#fdeaea;--dn:#dc2626;--shock:#c2740c;--t1:#0e7490;--chn:#e11d48}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:13px/1.5 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:20px 18px 50px}
+h1{font-size:18px;margin:0 0 2px}.lead{color:var(--mut);margin:0 0 4px;font-size:12.5px}
+.bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:12px 0 6px}
+.spine{font-size:11.5px;color:var(--mut);background:#fafbfc;border:1px solid var(--line2);border-radius:7px;padding:5px 10px}
+.seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;font-size:11.5px}
+.seg span{padding:5px 11px;border-right:1px solid var(--line);cursor:default}.seg span:last-child{border-right:0}.seg span.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.filt{margin-left:auto;font-size:11.5px;color:var(--mut)}.filt b{color:var(--chn)}
+.block{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-top:12px;overflow:hidden}
+.bh{display:flex;align-items:center;gap:8px;padding:9px 13px;background:#fafbfc;border-bottom:1px solid var(--line);font-weight:700;font-size:12.5px}
+.bh .sub{color:var(--mut);font-weight:400;font-size:11px}.bh .cnt{margin-left:auto;color:var(--mut);font-size:11px;font-weight:400}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;color:var(--mut);font-weight:600;font-size:10.5px;text-transform:uppercase;letter-spacing:.02em;padding:7px 13px;border-bottom:1px solid var(--line2)}
+td{padding:8px 13px;border-bottom:1px solid var(--line2);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+tr.chn td:first-child{box-shadow:inset 3px 0 0 var(--chn)}
+.nm{font-weight:600}.nm .cn{color:var(--chn);font-size:10px;margin-left:5px}
+.val{font-weight:700;font-variant-numeric:tabular-nums}.unit{color:var(--mut);font-size:10.5px;font-weight:400;margin-left:3px}
+.cell{padding:2px 8px;border-radius:5px;font-weight:600;font-size:11.5px;font-variant-numeric:tabular-nums}
+.c-up{background:var(--up-bg);color:var(--up)}.c-dn{background:var(--dn-bg);color:var(--dn)}.c-flat{background:#f1f3f5;color:var(--mut)}
+.dir{font-weight:700}.dir.up{color:var(--up)}.dir.dn{color:var(--dn)}.dir.sh{color:var(--shock)}.dir.flat{color:var(--mut)}
+.p{display:inline-block;padding:0 6px;border-radius:5px;font-size:10.5px;font-weight:600;border:1px solid}
+.p1{background:#0e749012;color:var(--t1);border-color:#0e749033}.p2{background:#0000;color:#7c3aed;border-color:#7c3aed44}.p3{background:#0000;color:var(--mut);border-color:var(--line)}
+.src{color:var(--mut);font-size:10.5px}
+.tk{display:inline-block;border:1px solid var(--line);border-radius:6px;padding:0 6px;font-size:10.5px;margin-right:3px;background:#fbfbfd}
+.tk.hot{border-color:#16a34a55;background:#e7f6ec66;font-weight:600}
+.fold{padding:8px 13px;color:var(--mut);font-size:11px;background:#fafbfc;border-top:1px solid var(--line2)}
+.note{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:13px;margin-top:16px;font-size:12.5px}
+.note b{color:var(--accent)}
+</style></head><body><div class="wrap">
+<h1>D1 维工作台 — 算力层全部 AI 发展动态 <span style="font-size:12px;color:var(--mut);font-weight:400">（监测侧深页 · source 有机整合）</span></h1>
+<p class="lead">从左栏 D1 →「看全部动态」进,或记分卡切到 D1。所有 D1 源按 <b>拆解主轴</b> 组织,一眼看整个算力层在发生什么、每条打到哪只票。lead 动态(会动的读数),13F 仓位等静态本体折叠。</p>
+<div class="bar">
+ <span class="spine">拆解主轴:硅 → 封装 → 互连 → 整机 → 数据中心 → 分发</span>
+ <div class="seg"><span class="on">按主轴</span><span>按源层(科研/商业/终端)</span><span>按参与者</span></div>
+ <span class="filt"><b>●</b> 中国侧独家 6 · 仅看中国侧 ▢</span>
+</div>
+
+<div class="block">
+ <div class="bh">① 芯片 / 加速器 <span class="sub">硅——最底瓶颈</span><span class="cnt">3 动态 · 8 本体</span></div>
+ <table><thead><tr><th style="width:30%">信号</th><th>最新值</th><th>YoY</th><th>方向</th><th>证据·源</th><th>→打到票</th><th>趋势</th></tr></thead><tbody>
+  <tr><td class="nm">GPU / 加速器出货（NVDA DC 代理）</td><td class="val">89.0<span class="unit">USD B</span></td><td><span class="cell c-up">+117%</span></td><td class="dir up">↑</td><td><span class="p p1">P1</span> <span class="src">NVDA 财报</span></td><td><span class="tk hot">AMD</span><span class="tk">INTC</span><span class="tk">MRVL</span><span class="tk">+2</span></td><td><svg width="70" height="20" viewBox="0 0 70 20"><polyline points="0,17 20,14 40,9 55,5 70,3" fill="none" stroke="var(--up)" stroke-width="1.6"/></svg></td></tr>
+  <tr><td class="nm">HBM 代际 / CoWoS 产能</td><td class="val">HBM4<span class="unit">量产爬坡</span></td><td><span class="cell c-up">紧</span></td><td class="dir up">↑</td><td><span class="p p3">P3</span> <span class="src">TrendForce</span></td><td><span class="tk">MU</span><span class="tk">SNDK</span></td><td><svg width="70" height="20" viewBox="0 0 70 20"><polyline points="0,15 20,13 40,11 55,8 70,7" fill="none" stroke="var(--up)" stroke-width="1.6"/></svg></td></tr>
+  <tr><td class="nm">GPU 租赁价 / 交货周期</td><td class="val">3.85<span class="unit">USD/GPU-hr</span></td><td><span class="cell c-flat">—</span></td><td class="dir flat">→</td><td><span class="p p1">P1</span> <span class="src">云价格页</span></td><td><span class="tk">NBIS</span></td><td><svg width="70" height="20" viewBox="0 0 70 20"><polyline points="0,10 20,11 40,9 55,10 70,10" fill="none" stroke="var(--mut)" stroke-width="1.6"/></svg></td></tr>
+ </tbody></table>
+ <div class="fold">▸ 折叠:AMD / INTC / MRVL / MU / 闪迪 等 8 条 13F 仓位(静态本体,非动态)</div>
+</div>
+
+<div class="block">
+ <div class="bh">② 光互连 <span class="sub">互连——中国侧最领先读数</span><span class="cnt">3 动态 ●中国</span></div>
+ <table><thead><tr><th style="width:30%">信号</th><th>最新值</th><th>YoY</th><th>方向</th><th>证据·源</th><th>→打到票</th><th>趋势</th></tr></thead><tbody>
+  <tr class="chn"><td class="nm">中际旭创 半年营收<span class="cn">●中国</span></td><td class="val">417.78<span class="unit">¥亿</span></td><td><span class="cell c-up">+182%</span></td><td class="dir up">↑</td><td><span class="p p1">P1</span> <span class="src">深交所</span></td><td><span class="tk hot">NBIS</span></td><td><svg width="70" height="20" viewBox="0 0 70 20"><polyline points="0,18 20,15 40,10 55,5 70,2" fill="none" stroke="var(--up)" stroke-width="1.6"/></svg></td></tr>
+  <tr class="chn"><td class="nm">新易盛 年营收<span class="cn">●中国</span></td><td class="val">248<span class="unit">¥亿</span></td><td><span class="cell c-up">+187%</span></td><td class="dir up">↑</td><td><span class="p p3">P3</span> <span class="src">semisino 待回原文</span></td><td><span class="tk hot">NBIS</span></td><td><svg width="70" height="20" viewBox="0 0 70 20"><polyline points="0,17 20,14 40,11 55,6 70,3" fill="none" stroke="var(--up)" stroke-width="1.6"/></svg></td></tr>
+  <tr class="chn"><td class="nm">800G+ 全球出货<span class="cn">●中国</span></td><td class="val">63<span class="unit">M 只(预测)</span></td><td><span class="cell c-up">+163%</span></td><td class="dir up">↑</td><td><span class="p p3">P3/P4</span> <span class="src">semisino</span></td><td><span class="tk">CIEN</span><span class="tk">POET</span></td><td><svg width="70" height="20" viewBox="0 0 70 20"><polyline points="0,16 20,13 40,10 55,7 70,4" fill="none" stroke="var(--up)" stroke-width="1.6"/></svg></td></tr>
+ </tbody></table>
+</div>
+
+<div class="block">
+ <div class="bh">③ 数据中心:容量 · 电力 <span class="sub">分发——NBIS 本体所在</span><span class="cnt">4 动态</span></div>
+ <table><thead><tr><th style="width:30%">信号</th><th>最新值</th><th>YoY</th><th>方向</th><th>证据·源</th><th>→打到票</th><th>趋势</th></tr></thead><tbody>
+  <tr><td class="nm">NBIS 合同电力 / 上电 ★</td><td class="val">>3.5<span class="unit">GW(年底目标 5)</span></td><td><span class="cell c-up">连升</span></td><td class="dir up">↑</td><td><span class="p p1">P1</span> <span class="src">股东信</span></td><td><span class="tk hot">NBIS</span></td><td><svg width="70" height="20" viewBox="0 0 70 20"><polyline points="0,17 18,14 36,11 54,6 70,4" fill="none" stroke="var(--up)" stroke-width="1.6"/></svg></td></tr>
+  <tr><td class="nm">NBIS 客户承诺 / backlog</td><td class="val">>40<span class="unit">USD B</span></td><td><span class="cell c-up">+大</span></td><td class="dir up">↑</td><td><span class="p p1">P1</span> <span class="src">股东信</span></td><td><span class="tk hot">NBIS</span></td><td><svg width="70" height="20" viewBox="0 0 70 20"><polyline points="0,16 20,13 40,9 55,5 70,3" fill="none" stroke="var(--up)" stroke-width="1.6"/></svg></td></tr>
+  <tr class="chn"><td class="nm">全球数据中心用电<span class="cn">D1/D7 交点</span></td><td class="val">415<span class="unit">TWh</span></td><td><span class="cell c-up">+12%</span></td><td class="dir up">↑</td><td><span class="p p1">P1</span> <span class="src">IEA</span></td><td><span class="tk">NBIS</span><span class="tk">FCEL</span></td><td><svg width="70" height="20" viewBox="0 0 70 20"><polyline points="0,15 20,13 40,11 55,9 70,7" fill="none" stroke="var(--up)" stroke-width="1.6"/></svg></td></tr>
+  <tr><td class="nm">FuelCell 现场供电 backlog</td><td class="val">1.296<span class="unit">USD B</span></td><td><span class="cell c-flat">签约</span></td><td class="dir up">↑</td><td><span class="p p1">P1</span> <span class="src">EDGAR</span></td><td><span class="tk">FCEL</span></td><td><svg width="70" height="20" viewBox="0 0 70 20"><polyline points="0,12 20,11 40,12 55,9 70,8" fill="none" stroke="var(--up)" stroke-width="1.6"/></svg></td></tr>
+ </tbody></table>
+</div>
+
+<div class="block">
+ <div class="bh">④ 云 capex（分发 / 需求母节点） <span class="sub">在建强度代理</span><span class="cnt">5 动态</span></div>
+ <table><thead><tr><th style="width:30%">信号</th><th>最新值</th><th>YoY</th><th>方向</th><th>证据·源</th><th>→打到票</th><th>趋势</th></tr></thead><tbody>
+  <tr><td class="nm">hyperscaler capex 四家合计</td><td class="val">~166<span class="unit">USD B/季</span></td><td><span class="cell c-up">+高</span></td><td class="dir up">↑</td><td><span class="p p1">P1</span> <span class="src">四家财报</span></td><td><span class="tk hot">NBIS</span><span class="tk src">经在建强度</span></td><td><svg width="70" height="20" viewBox="0 0 70 20"><polyline points="0,16 20,13 40,10 55,6 70,4" fill="none" stroke="var(--up)" stroke-width="1.6"/></svg></td></tr>
+  <tr><td class="nm">AMZN / GOOGL / MSFT / META（分项）</td><td class="val">54/45/36/31<span class="unit">USD B</span></td><td><span class="cell c-up">+均涨</span></td><td class="dir up">↑</td><td><span class="p p1">P1</span> <span class="src">EDGAR 10-Q</span></td><td><span class="tk src">代理,不直连票</span></td><td><svg width="70" height="20" viewBox="0 0 70 20"><polyline points="0,15 20,12 40,10 55,7 70,5" fill="none" stroke="var(--up)" stroke-width="1.6"/></svg></td></tr>
+ </tbody></table>
+ <div class="fold">▸ 折叠:SuperX(中国 AI 服务器)整机链、英特尔代工 等本体仓位</div>
+</div>
+
+<div class="note"><b style="color:var(--ink)">回答:D1 全部动态在「维工作台」看,它是 source 的有机整合。</b>
+ <ul style="margin:6px 0 0">
+  <li><b>怎么组织</b>:按 doc24v2 的 <b>拆解主轴</b> 分块(芯片/光互连/数据中心/云capex…),保证"算力层查全"——新信号自然落到某块,无处安放=主轴漏了要补。</li>
+  <li><b>每行统一格式</b>:信号 · 值 · YoY 热力格 · 方向 · <b>P 级+源</b>(诚实标定)· <b>→打到哪票</b>(接回映射侧)· sparkline。</li>
+  <li><b>lead 动态、折叠本体</b>:会动的读数(出货/营收/上电/capex)在上;13F 仓位等静态本体折叠——extra value 判据。</li>
+  <li><b>中国侧独家高亮</b>(旭创/新易盛/800G):这维的差异化读数。</li>
+  <li><b>三种视图切换</b>:按主轴(默认)/ 按源层(科研给方向·商业给量级·终端给验证)/ 按参与者。</li>
+  <li><b>点任一行 → 信号卡</b>;点 →票 → 跳该票节点档案(工作台 ↔ 传播图双向联动)。</li>
+ </ul>
+ 数据:metric_registry(dim/track/data_class)· v_metric_latest(读数)· v_signal_latest(方向)· source_master(源/P级)· edge_registry(→票)。
+</div>
+</div></body></html>

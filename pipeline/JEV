@@ -1,0 +1,232 @@
+一个“不说话”的AI刷屏，Jev真是新范式吗？
+图片
+TypeSafe AI创始人Diogo Almeida。 图片由AI生成
+
+文｜晓静
+
+编辑｜徐青阳
+
+9月15日前后，一个名叫Jev的新模型突然在硅谷AI开发者社区刷屏。
+
+它颠覆了大家对当下大模型的认知，不会写代码、写文章甚至是聊天，主动砍掉了过去几年大模型最重要的一项能力——生成文字，只保留“判断”。TypeSafe给它的定义是：“Decisions, not strings”——要决策，不要文本。
+
+给它一段信息和几个提前定义好的问题，它可以直接返回选择、评分以及相应概率。例如收到一封客服邮件，Jev可以同时判断应该分给哪个部门、紧急程度、退款风险以及是否需要人工介入。
+
+这个看起来更像“高级分类器”的模型很快获得关注。Latent Space在9月16日的AI News中称，TypeSafe发布当天长时间位于Hacker News前列，创始人Diogo Almeida的发布帖当时已有约420万次浏览、近2万次点赞。
+
+TypeSafe公布的性能数字也很夸张：在特定工作流评测中，Jev最高比对照大模型快193.6倍、便宜444.6倍，端到端延迟70—500毫秒，输入价格每百万Token 0.042美元，输出不按Token收费。
+
+Jev背后的团队同样也是自带流量。它来自刚刚走出隐身模式的旧金山创业公司TypeSafe AI，由Diogo Almeida、Erik Gafni和Sasha Sheng共同创立，刚完成DCVC领投的4000万美元种子轮融资，Forbes援引知情人士称估值约2亿美元。
+
+Almeida曾是OpenAI研究员，也是2022年InstructGPT论文的主要作者之一，参与建立了后来广泛采用的RLHF训练流程。OpenAI在GPT-4贡献名单中也将他列入“Foundational RLHF and InstructGPT work”。
+
+离开OpenAI后，Almeida称自己花了两年时间思考一个问题：如果大模型已经这么聪明，为什么世界上的大多数工作还没有被自动化？
+
+Jev可以看作他给出的第一个答案。
+
+01
+
+Agent真的需要每一步都“说话”吗？
+
+今天的大语言模型，本质上仍然是一台极其强大的Token生成机器。以一个电商Agent为例，它打开网页后需要判断下一步点击哪个按钮。常见做法是把网页状态交给GPT、Claude或Gemini，模型理解页面后，以自回归方式一个Token接一个Token生成答案，比如“根据当前页面，我应该点击右下角的Checkout按钮”。软件随后再从这段文字中提取Checkout，调用浏览器工具完成点击。
+
+但从软件系统的角度看，它真正需要的信息可能只是“第三个按钮”。
+
+类似的情况大量存在于Agent内部：这个工单应该交给销售还是售后，这笔交易风险高不高，搜索出来的十条结果哪个最相关。这些任务都需要模型具备语义理解和判断能力，却没有多少开放式文本生成的必要。
+
+Jev的目标就是这一部分工作。TypeSafe把它定义为“System One Model”，名字来自丹尼尔·卡尼曼《思考，快与慢》中的System 1——快速、直觉式判断。
+
+Jev这个名字则来自经济学家William Stanley Jevons以及“杰文斯悖论”：一种资源的使用效率提高、成本下降之后，最终需求可能反而增加。TypeSafe希望同样的事情发生在AI上，让“智能判断”足够便宜后被大规模嵌入软件。
+
+Jev目前公开的基本输出主要包括Choice、Score和Noul。
+
+Choice负责在预定义选项中选择，Score给出等级或连续评分，Noul处理yes/no判断，同时输出相应概率。例如一个风控系统可以让Jev判断某个用户退款风险为低、中还是高，模型最终返回“高风险75%”。软件拿到这个结果后，可以通过普通代码直接决定是否进入人工审核。
+
+从这个角度看，Jev很像一个拥有通用语义理解能力的“智能if语句”。这也是它与传统分类器最重要的差别。
+
+传统分类器当然也可以判断垃圾邮件、欺诈风险或者图片类别，但每增加一种任务，往往需要重新定义数据、训练或者微调模型。Jev希望把大模型已经获得的通用知识和零样本泛化能力保留下来，同时把输出压缩成软件真正需要的选择和概率。
+
+这个需求在Agent时代明显放大。一个复杂Agent任务内部可能发生几十次甚至数百次模型调用，其中很多都属于routing、classification、verification和状态判断。如果这些步骤全部交给完整的生成式大模型，模型不仅要理解问题，还要花时间生成一段最后不会被人阅读的文字。这部分额外成本看起来确实没必要。
+
+图片
+图：TypeSafe演示显示，Jev直接返回多项结构化判断，而传统LLM仍在逐步生成文本。官方示例中，前者耗时0.114秒，后者为8.566秒。
+
+02
+
+新分类器？
+
+这也是判断Jev技术含量最关键的问题。
+
+GPT、Claude、Gemini等大语言模型采用自回归生成。模型先处理输入，再根据此前所有Token预测下一个Token，一个句子因此必须按照顺序不断Decode。这样的机制给予模型巨大的输出自由度，它可以写文章、生成代码、解释原因，也可以进行复杂推理，但代价是生成过程具有顺序性，输出越长，需要执行的Decode步骤通常越多。
+
+Jev主动限制了输出空间。开发者提前规定可能的答案，例如refund_risk={low, medium, high}，模型只需要判断三个结果的概率，无需再生成“我认为这个用户具有较高退款风险”这样的自然语言。TypeSafe还宣称Jev采用新的parallel sampler，可以在一次查询中同时回答多个相互独立的问题。例如处理一张发票时，同时判断发票类型、异常风险、审批级别和是否需要人工复核。
+
+这也是理解Jev效率数字的关键。
+
+它和最近越来越受重视的Flash路线因此存在明显区别。Google Gemini Flash、DeepSeek V4.1 Flash等模型依然属于生成式LLM，通过架构、激活参数、KV Cache和推理系统等方式降低每个Token的计算成本，解决“怎样更快地生成Token”。
+
+Jev是直接减少token。如果一个Agent完成任务需要100次模型调用，其中10次需要复杂规划和自然语言生成，剩余90次只是工具选择、结果排序、风险判断和任务状态检查，那么全部调用同一种大型生成模型显然存在优化空间。
+
+未来更现实的Agent系统可能采用多层模型结构：复杂任务交给Frontier Model，普通推理交给Flash，路由、分类、验证等高频判断交给Decision Model，确定性的部分继续由传统代码处理，Harness负责在这些能力之间调度。
+
+这也是Jev最值得关注的产业意义，并不是“一切需要智能的地方都需要调用生成式LLM”。
+
+图片
+图：TypeSafe称，Jev会为每次判断返回经过校准的概率，软件可以据此设置自动执行阈值：高置信度任务直接处理，低置信度任务转交人工复核。
+
+03
+
+零幻觉？
+
+TypeSafe官网对Jev最醒目的宣传之一是“Zero Hallucinations”。这句话容易让人误以为Jev解决了大模型长期存在的幻觉问题，但它只是能保证输出不会超出预定义类型。
+
+图片
+图：TypeSafe公布的官方评测显示，Jev在其工作流测试中以更低成本获得接近前沿模型的准确率；右图显示，Jev的工具调用类型错误率为0%
+
+例如，开发者规定模型只能在“猫、狗、鸟”三个选项中选择，Jev不会返回“大象”，也不会生成一段软件无法解析的文字。
+
+TypeSafe因此强调其type error可以做到0%。这对生产系统确实重要，尤其是在Agent自动调用API、修改数据库和执行工作流时，结构化输出越稳定，系统越容易接入后续操作。
+
+但类型正确不等于判断正确。如果输入明明是一只猫，模型却返回“狗：97%”，它依然没有发生type error，业务结果却完全错误。因此，“Zero Hallucinations”更准确地说，是对输出格式和类型的约束，目前没有证据表明Jev消除了事实和判断层面的错误。
+
+Jev更值得关注的部分，其实是TypeSafe提出的RLCD——Reinforcement Learning for Calibrated Decisions，即面向校准决策的强化学习。按照团队的解释，RLHF主要优化人类偏好，RLVR依赖可验证奖励提升数学、代码等任务能力，RLCD重点解决“模型说自己有多大把握，这个概率到底靠不靠谱”。
+
+这对Agent进入生产环境尤其关键。假设一个模型实际判断正确率只有80%，却经常给出99%的置信度，那么这个数字几乎无法用于自动化决策。理想情况下，当模型对一批任务都给出90%的置信度时，其中大约90%应该判断正确。只有做到这一点，企业才能建立稳定的分流机制：高置信度任务直接执行，中等置信度交给更强模型复核，低置信度再转给人工。
+
+如果RLCD最终能够被独立验证，它的实际意义很重要。一个校准良好的Decision Model，本身就可以充当Agent系统里的路由器。
+
+不过，TypeSafe目前尚未公开完整论文，也没有披露参数规模、网络结构、训练数据和足够的消融实验。外界因此还无法判断RLCD究竟代表一种明显不同的训练范式，还是对强化学习、概率校准等已有方法的工程化组合。同样，TypeSafe宣称的parallel sampler和System One Model目前也缺少足够细节，很难据此认定Jev已经完成了类似Transformer、Attention或MoE级别的基础架构突破。
+
+04
+
+“193倍快、444倍便宜”？
+
+Jev传播过程中吸引眼球的还有一组性能数字。TypeSafe公布的production-style workflow评测显示，Jev在其设计的四类工作流上平均得分约67.8%，部分前沿模型大约在68%—74%区间；与此同时，Jev单个case的成本可以压到约0.0004美元，响应时间约0.4秒。公司据此给出了最高193.6倍速度提升和444.6倍成本下降的数据。
+
+这些数字完全不能简单理解为“Jev拥有接近GPT的智能，同时快了193倍”。
+
+首先，这些任务本身就是Jev最擅长的System One型任务，即分类、选择、评分和判断。让一个专门为结构化决策设计的模型与通用生成模型比赛这类任务，本身就会放大Jev的优势。其次，目前最完整的评测主要由TypeSafe自己完成，公司也承认测试任务由自己的model capabilities团队设计，可能存在偏差；部分参考答案还来自强模型生成，而非全部使用人工标注的ground truth。
+
+“193.6倍”和“444.6倍”也是特定任务、特定模型比较中的最大差距，并不代表Jev处理任何任务都能获得这样的提升。
+
+它更能够证明一个常识：如果任务最终只需要一个选择或概率，那么专门为判断设计的模型确实有机会比完整的生成式LLM便宜很多。
+
+更重要的是，Jev真正应该比较的对手也不只是GPT、Claude等昂贵前沿模型。今天的Flash小模型已经可以配合JSON Schema、Structured Output、Function Calling和Constrained Decoding返回结构化答案。传统classifier以及embedding+classifier的成本还可能更低。
+
+因此，一套真正有说服力的独立测试，应该把Jev、Flash模型+Constrained Decoding、传统分类器和Embedding分类器放进同一批真实生产任务，统一比较Accuracy（准确度）、Calibration（置信度校准）、Latency（延迟）、Cost（成本））、OOD Robustness（分布外鲁棒性）和Batch Scaling（批处理扩展能力）。目前看来，还没有这类测试。
+
+噱头大于实质，还是真的创新？社区已经吵成一锅粥。
+
+图片
+图：一位Reddit用户调侃“行业又重新发现了分类模型”，另一位认为，Jev更像是加入了LLM级语义理解能力的通用分类器，如果成本和速度数据成立，意义并不小。
+
+Jev确实提出了一个基于Agent范式的痛点：AI的“智能”是否一定要通过高资源消耗的语言生成来完成。还有没有更好、更靠谱、更高效的方式？
+
+
+
+
+JEV火了，但真正重要的不是JEV
+最近几个月，我一直在关注模型加速。我觉得在非coding场景，模型的速度是制约adoption单一最大瓶颈。
+TileRT 在 runtime 层动刀，DFlash 在 speculative decoding 上动刀，DiffusionGemma 则直接动了生成范式本身。三个层次完全不同，但默认前提其实一样：我们最终还是要做 Generation，只是想办法把它做得更快。
+所以这几天 Jev 火起来时，我一开始也把它放在这条线上看。但研究了一圈以后，我发现它问的是另一个问题：如果我根本不需要 Generation 呢？
+Jev 来自 TypeSafe AI。创始人 Diogo Almeida 很有意思，他曾经是 OpenAI 早期 RLHF、InstructGPT 那批工作的参与者之一——某种意义上，参与把模型变得更会“说话”的人，现在做了一个几乎不会说话的模型。
+我自己做投资研究时，经常会遇到一种情况。
+Founder 给了我一套很完整的技术解释：为什么他们选择这条 architecture，为什么这个方法比行业主流更优，为什么某个 benchmark 足以证明他们的判断。
+但我继续往下查论文、代码和竞争对手，发现外部信息和 founder 的说法几乎南辕北辙。
+这时候，我真正需要 AI 帮我做的下一步，未必是再写一篇 3000 字的分析。更可能只是判断：现在最合理的动作，是继续查证，直接追问 founder，找一个外部专家交叉验证，还是认为这个矛盾已经足够严重，降低项目优先级？
+输入其实很复杂。模型需要理解 founder 的技术主张、我找到的反证、来源的可信度，两边到底是不是在讨论同一件事，甚至这个矛盾有没有可能只是定义不同。但最后的软件动作，可能只有四个。
+今天最自然的办法，是把这些材料全部交给一个大语言模型，让它先分析一遍，再一个 token 一个 token 地生成：
+{"next_action":"ask_founder"}
+然后软件再把这句话映射给一个 action。
+这里真正让我觉得有点奇怪的地方是：为了完成一个判断，我们启动了一台最擅长开放式生成的机器，让它先“说一句话”，再把这句话重新翻译回软件世界。
+不过必须承认，这种判断我一周也做不了多少次。一次快 10 倍还是 100 倍，对我本人的体验未必有那么大差别。但是它前面那一层其实更重要。
+为了最后能做出一次投资判断，系统内部其实要先完成大量更小的判断：这篇刚出来的 arXiv 论文值不值得看作者；这个新冒出来的 GitHub repo 是个玩具，还是背后已经有了创业意图；某个人 LinkedIn 的变化是不是一个值得跟进的信号；朋友转过来的 deck 应该忽略、放进 watchlist、标给同事看一眼，还是立刻起一个 deep dive。
+一年真正“开枪”可能只有个位数次，但为了这几次出手，中间可能要做几万次“这件事值不值得再多看一眼”。
+这时候，一次判断是 500 毫秒还是 50 毫秒，一次花一分钱还是万分之一分钱，就开始变成完全不同的系统经济学。开枪是低频的，瞄准是高频的。真正需要大量消费 intelligence 的，往往不是最后那几个重大决定，而是它之前无数次微小的筛选、路由和注意力分配。
+Jev 的做法简单得多：给它当前状态和几个候选，它直接返回候选上的概率。TypeSafe 把它定义成 “unstructured state in, typed probabilistic decisions out”，并强调它不是普通 autoregressive string generation，而是针对 decision 设计的模型和 sampler。
+这件事真正让我感兴趣的，不是 Jev 会不会成为一家大公司，而是它把一个我们已经习惯到不再怀疑的前提暴露了出来：
+Universal Interface，不等于 Universal Computation。
+
+我们也许把一种统一接口，误当成了统一计算
+Foundation Model 过去几年最大的成功之一，是找到了一个惊人的统一接口：Token。
+以前区别很大的任务，现在都可以改写成生成问题。分类可以生成 "spam"，模型路由可以生成 "use Claude"，数学推理可以生成一串 Chain of Thought。一个 Transformer、一套 next-token prediction，覆盖了过去几十年大量彼此分裂的 AI 问题。
+粗略来说，就是 Anything → Tokens。
+这种统一极其重要。没有它，也不会有今天所谓的 Foundation Model。但一种任务可以通过同一个接口表达，不代表它最适合通过同一种计算方式完成。
+还是刚才那个投资研究的例子。真正的问题并不是“请再写一篇更长的研究报告”，而是面对一组已经相当复杂的 evidence，下一步最值得把时间花在哪里。普通 LLM 即使用 constrained decoding 保证 JSON 永远合法，底层仍然沿着 autoregressive path 往前走，后面的 token 要等前面的 token。原生的 decision model 则可以更接近直接评价几个候选然后结束。
+最后两边都可能得到 "ask_founder"，但背后的 compute graph 可以完全不同。这并不是少写几个括号的问题。计算图决定 serial depth、并行度、memory access、latency 和最终成本。如果一个判断一次或少数几次前向就能完成，就没有必要为了拿到同一个结果，先把它模拟成一小段语言。
+TypeSafe 给出的数字因此很抓眼球：Jev 的端到端 latency 大约在 70–500ms，官方特定 workflow 上报告了几十倍到接近 200 倍的速度提升，input token 每百万 0.042 美元，output 免费。
+不过，只看速度和成本会把它说得太漂亮。在 TypeSafe 自己的四个 workflow benchmark 上，Jev 平均准确率是67.8%，和 GPT-5.6 Terra 的67.9%基本持平，但低于 GPT-5.6 Sol 的74.1%和 Claude Opus 5 的73.1%。换句话说，它更像是把“中档 frontier model 已经够用的一部分判断能力”压到了很低的 latency 和成本，而不是重新推高 intelligence frontier。
+这组 benchmark 本身也要谨慎看。TypeSafe 的 workflow eval 没有人工 ground truth，而是用更强模型的结果做 reference；另一个 Wikiracing demo 为了控制 latency，大部分对比 LLM 还用了 non-reasoning mode，Astra 只开最低 reasoning，而官方自己也承认 reasoning 打开以后这些 LLM 会明显更强。
+所以 Jev 真正有意思的地方，不是“同样聪明但快 200 倍”。更准确的说法是：对于一类本来就窄、高频、候选有限的判断任务，我们可能一直在支付过高的通用生成器税。
+当然，如果从数学上抬杠，这个区分没有那么干净。LLM 每生成一个 token，本身也是在整个词表里做 selection；classification 也完全可以通过 Generation 完成。但“能够互相模拟”和“应该走同一种计算路径”是两回事。数据库、视频解码和矩阵乘法都能在通用计算机上运行，我们仍然会为它们设计不同的数据流，甚至专用硬件。
+值得讨论的不是“能不能算”，而是哪一种 decomposition 能形成更好的 omputation topology。
+SELECT 可能比我们想象得更大
+顺着 Jev 往下看，会发现今天叫 reranking、model routing、verification、reward model 的很多东西，名字不同，计算形态却很接近：给定当前状态和一组候选，判断哪个更好。
+我暂时把这个动作叫SELECT，选择。Reranker 在文档中选择更相关的结果，Router 在模型中选择更合适的一个，Verifier 的候选甚至只有“对”和“错”。更抽象一点，它们都像是在学习一个 U(state, candidate)：当前状态下，一个候选到底有多好。
+Jev 有意思的地方，是试图把 LLM 的 programmability 和 classifier 的 execution form 拼起来。传统分类器很快，但类别往往在训练阶段就固定了；LLM 可以临时改变问题和候选，但判断仍然借助 Generation 实现。
+TypeSafe 还特别强调 Jev “不会 hallucinate”，这句话最好拆开理解。它的候选空间提前定义，因此确实不可能突然返回 schema 之外的第四种答案；官方所谓 0% hallucination 也不是 empirical result，而是因为 schema matching 在结构上保证，所以直接记作 0%。
+但 type safety 不等于 correctness。候选只有 A、B、C，模型不会输出 D，却完全可以很有信心地选错 A。前面的准确率已经说明语义错误当然大量存在，而且 constrained decoding 本来也能给普通 LLM 相当程度的 schema guarantee。Jev 真正改变的是 failure mode：一部分开放式生成错误，被变成了更容易测量、校准和处理的 classification error。
+SELECT 本身也有一个很重要的边界。Jev 的 Choice 最多支持 255 个候选；更高 cardinality 时，TypeSafe 自己需要先独立 scoring，再做显式 choice，整个过程又变成两阶段。
+这暴露了 SELECT 的一个隐含前提：选择之所以便宜，是因为候选空间已经被压得足够小。
+可复杂问题的另一半，恰恰经常是在扩大候选空间。回到投资研究，如果外部信息和 founder 的说法发生冲突，真正困难的往往不是在“追问 founder / 找专家 / 继续研究”三个按钮里做选择，而是系统能不能先提出正确的解释：是 founder 错了，还是外部资料已经过时？是 benchmark 不可比，还是双方用了不同定义？这些可能性如果从来没有进入候选空间，再强的 selector 也无从选择。
+这个动作，与其统一叫 Generation，我更愿意叫PROPOSE，提出候选。
+PROPOSE 把空间打开，SELECT 再把空间压回来。只会提出候选，搜索空间会爆炸；只会选择，又永远只能在别人已经准备好的答案里打转。真正高效的 reasoning system，很可能一直在做 expand、prune，再 expand、再 prune。
+AlphaEvolve 就很像这样。Generator 提出程序，Evaluator 运行并筛选，evolutionary search 决定哪些候选值得进入下一轮。能力不是某一次 Generation 单独产生的，而来自 Proposal 和 Selection 的循环。
+再补上两个动作，这幅图会更完整。系统首先要把现实世界转换成可以计算的内部状态，这是REPRESENT，表征；如果准备行动，还经常需要回答“这样做以后会发生什么”，这是PREDICT，预测。
+其实刚才的投资例子已经包含了这四件事。先把 founder 的说法、论文、代码、竞争对手和时间线压成一个可以比较的 state，是 REPRESENT；提出几种可能解释，是 PROPOSE；判断哪种解释更可信、下一步该花时间在哪里，是 SELECT；而“如果这个技术判断是错的，会怎样影响产品、成本和竞争格局”，已经开始进入 PREDICT。
+我并不是说智能真的只有四个动词。更实际的理解是：这些操作的计算要求可能足够不同，值得分别优化；创造、推理、规划也未必只是一个模型里神秘的“能力值”，它们可能是不同基础操作组成的 compute graph。
+SELECT 被优化以后，瓶颈去了哪里？
+这里正好有一个现实实验，让这套 decomposition 不那么像纸上谈兵。
+Aaron Levin 最近做了一个 Jev 的 macOS computer-use agent。单看 Jev 自己做 decision，一步只需要大约0.13–0.38 秒；Claude Opus 5 大约5.2 秒，模型层面是 14–40 倍的速度差距。但完整 Agent 的一步不是 0.2 秒，而是大约1.5 秒。
+那多出来的一秒多去哪了？
+系统需要截图、OCR，把文字整理成 block，读取 accessibility state，找到 focused field，拿到当前 app 和 URL，再把日期这种容易出错的信息预处理成 deterministic state。所有这些工作完成以后，Jev 才开始判断下一步。
+这件事真正说明的不是一句平淡的“system overhead 很大”，而是：SELECT 被优化以后，成本没有消失，它移动到了 REPRESENT。原来 frontier model 一次 screenshot-in/action-out，隐含做掉了 perception、state abstraction 和一部分 candidate construction；现在 SELECT 变便宜以后，这些工作重新显露出来，成为下一段 latency 和工程复杂度。
+图片
+这也是我现在更感兴趣的一个投资问题：如果 REPRESENT 成为下一个瓶颈，谁会把它吃掉？今天屏幕和网页的语义化还散落在 accessibility tree、DOM extraction、OCR + layout、各种 browser harness 和每支 Agent 团队自己的 state normalization 代码里；把混乱的世界压成稳定 deterministic state，以及把无限 action space 压成 high-recall 的 candidate set，目前也没有真正标准化的组件。
+它最后会不会成为一个独立的大市场，我不确定。可能 browser、OS 和 Agent runtime 最终把它标准化掉，也可能出现一层新的“Agent perception / state infrastructure”：统一页面和桌面语义、做 candidate construction、维护 state freshness，让上面的 Decision Model 不必每支团队重新造一遍。这是我觉得接下来非常值得盯的一层。
+Browser Use 最近的jev-ultrafast已经在往这个方向做工程化：它通过 Browser Harness 一次读取动态 DOM state，让 Jev 在一个请求里同时选择 operation 和 target；只有需要 TYPE_TEXT 时，才调用一个小生成模型写具体文字。Google Flights 的 demo 从自然语言 goal 到结果页面大约 7 秒，但 README 也明确列出了 shadow DOM、frames、canvas、nested scrolling 等仍未解决的长尾。
+这和 RAG 很像：reranker 再强，也排不出 retriever 没召回的文档。SELECT 可以很聪明，但如果 REPRESENT 和 candidate construction 没把正确 action 暴露出来，它根本没有机会选对。
+因此 Harness 不是单纯的 plumbing。它负责把一个连续、开放、混乱的世界，切成这些 primitive 可以处理的问题；Runtime 再决定什么时候应该调用什么计算。现实系统更可能是确定性代码、便宜的专用判断、小型生成模型、frontier reasoning model 和 human 组成的 cascade，而不是 Jev 简单替代 Claude。
+模型越 specialized，Harness 往往越需要聪明。
+但这些专用能力，会不会最后又被大模型吃回去？
+
+AI 历史上，专用结构输给通用方法的次数太多了。Richard Sutton 的《The Bitter Lesson》讲得很残酷：长期真正赢下来的，往往是那些可以持续利用更多 compute 和 learning 的 general methods，而不是研究者为每个问题精心写进去的大量 hand-crafted knowledge。
+Jev 会不会只是另一轮 specialization？
+今天的普通 LLM 本来就在每一个 token position 计算 vocabulary 上的 logits。候选足够简单时，可以直接读取候选 token 的概率，而不是真的等模型生成完整 JSON。新的独立模型也意味着新的部署、evaluation、calibration 和版本管理成本。
+工业界甚至早就有成熟的专用 SELECT：reranker 已经存在很多年。它确实比拿大型生成模型逐篇读搜索结果高效得多，却从来没有把 generator 挤出 RAG，因为它擅长回答“已有候选里哪个更好”，解决不了“新的候选从哪里来”。
+所以我并不确定 Jev 最终会不会以独立模型品类长期存在。它完全可能被 Foundation Model 厂商重新吸收，变成 native decision head、一种 inference mode，或者同一套 backbone 中不走普通 autoregressive decoding 的另一条 execution path。
+这反而把整篇文章的判断变得更精确：真正值得下注的不是 Model Specialization，而是 Computation Specialization。
+REPRESENT、PROPOSE、PREDICT、SELECT 可以是四个模型，也可以共享一个 backbone，甚至藏在同一个 Foundation Model 里。关键不在 checkpoint 有没有分家，而在不同 cognitive operation 是否开始使用不同的 training objective、dataflow 和 inference path。Bitter Lesson 也许会吃掉很多独立小模型，却不意味着所有 cognitive operation 最终都必须重新变成同一种 autoregressive generation。
+即使几年以后 Jev 消失了，只要 Agent 内部开始针对不同操作走不同 compute path，变化仍然发生了。模型可能重新统一，计算不会。
+从 Model 到 Intelligence Graph
+这种“共享 representation、分化 execution”的想法其实并不陌生。CNN 时代就有 shared backbone + specialized heads；区别只是当年的 heads 大多在训练时固定，而 Agent 时代的操作、候选和执行路径可以在 runtime 动态变化。
+过去几年的一些工作，又从不同方向把这种分化往前推了一步。Berkeley 的 Compound AI Systems 强调，AI 产品的能力越来越来自 model、retrieval、tools 和程序组成的 system；AlphaEvolve 显式拆开 Generator 和 Evaluator；JEPA 和 world model 尝试直接预测 latent future state；Jev 则把 Decision 从 Generation 中单独拿出来。
+这些工作并不是同一条研究路线，但都在削弱一个默认假设：一个越来越大的 generator，不一定是所有智能计算最终都应该采用的形态。
+这也会改变我们评价 AI 产品的方法。今天大家经常问：“你们底层用 GPT 还是 Claude？”以后更值得问的可能是：“你们完成一次任务的 Intelligence Graph 长什么样？”
+同样用最先进的 Foundation Model，一个 coding agent 可以先生成多个 patch，用便宜 verifier 砍掉大部分候选，只让少数路径进入昂贵 reasoning；另一家公司也许每一步都直接调用最贵模型。底层模型相同，成本、latency 和可靠性仍然可能拉开很大差距。
+真正 proprietary 的东西也会从 prompt 向下移动：候选空间怎么构造，什么时候扩大和剪枝，state 保留什么，什么置信度可以自动执行，什么时候升级 frontier reasoning，failure 怎么 recovery，trajectory 如何进入下一轮 learning。这些今天看起来很“脏”的 Harness 工作，很可能逐渐构成一个 Agent 最重要的 intelligence architecture。
+如果这个判断成立，接下来应该看到什么？
+我觉得未来几年至少应该看到六个变化。前三个已经比较接近行业共识。
+第一，AI API 不会永远只是/chat/completions。Judge、Verify、Route、Predict、Search 会越来越成为 first-class capability，即使它们仍然共享一个 backbone。
+第二，Reasoning 不会永远等于更长的 Chain of Thought。更多推理会变成 candidate generation、verification、branching、backtracking 和 search，甚至发生在 latent space。
+第三，Frontier Model portfolio 会越来越异构。Generator、Verifier、Decision Model、World Model、Policy Model 这些逻辑角色会越来越清楚。这里我更确定的是 operation 会分化，而不是模型一定会分家。
+后面三条，我觉得没有共识。
+第四，Agent 的竞争会从 Context Engineering 进一步走向 Intelligence Orchestration。
+真正重要的问题会变成：
+有限的 compute，应该在哪一步、以什么形式、调用哪种 intelligence？
+
+谁来构建 candidate space，什么时候值得 PROPOSE 更多方案，什么时候直接 SELECT，什么时候做 world simulation，什么时候把问题留给 deterministic code，什么时候升级 frontier model，这些选择会直接决定成本、速度和成功率。
+第五，Token 会逐渐失去作为 AI 经济学统一单位的地位。
+Token 是 Generation 很自然的计量单位，却不是 Intelligence 的天然单位。有意思的是，Jev 今天自己仍然按照 input token 收费，每百万 token 0.042 美元，output 免费。新的 compute primitive 已经出现，商业计量方式却仍属于 Generation 时代。
+如果 SELECT 真正形成巨大的 workload，更自然的指标可能是 decisions / second / dollar；World Model 也许更关心 simulated world seconds / dollar；Search 最终可能直接关心 solved tasks / dollar。如果这些认知操作真的走向 specialized computation，AI inference economics 也会从统一的 token economics 慢慢走向 operation-specific economics。
+第六，长期最深的分化会进入 architecture，最后才进入 hardware。
+这是六条里我最不确定、但也最有意思的一条。演化路径很可能不是今天出现 Jev、明天就有人做 SELECT chip，而是：
+图片
+这条链值得注意，因为每往后一步，都需要前一种 workload 先达到足够大的规模。今天用 prompt 区分 Judge 和 Generator 几乎没有固定成本；单独训练一个模型就贵得多；为了某种 operation 重新设计 architecture 更贵；到了 silicon，只有调用量真的巨大、compute pattern 又足够稳定，经济账才算得过来。
+所以我不会预测“未来会有一颗 SELECT 芯片”。真正应该盯的是前一层：SELECT、Verifier、World Model 这些 workload 有没有形成自己稳定而巨大的 compute profile。如果它们真的来到 trillion-call level，而且 memory pattern、parallelism、latency requirement 和 autoregressive generation 明显不同，那么 specialization 继续往 silicon 穿透几乎是自然结果。
+这也提供了一个很清楚的证伪标准。如果几年以后，Decision、World Model、Verifier 最终仍然只是同一个 autoregressive Transformer 换几个 API 名字，training objective、execution path、cost structure 都没有实质分叉，那所谓 Native Cognitive Primitive 很可能只是一层新包装。
+反过来，如果 specialization 沿着这条链不断往下走，那么 Jev 这几天的热度本身并不重要。它只是比较早地暴露了一个更大的变化。
+Foundation Model 已经证明，几乎所有智能都可以通过 Generation 来表达。能通过 Generation 表达，并不意味着应该通过 Generation 计算。
+Generation，只是智能的一种算子。
+
+

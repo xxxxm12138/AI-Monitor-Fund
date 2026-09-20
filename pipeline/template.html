@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 发展监测日历</title>
+<meta name="description" content="Anatole AI 发展追踪体系 · 日历式看板：时间轴 × 实测/预期/上期 × 持仓与七维两棵树，每个数带来源与可信度分级。">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#ffffff; --surface:#ffffff; --surface-2:#f8f8f9; --line:#e6e6e8; --line-strong:#d6d6da;
+  --ink:#131722; --ink-2:#434651; --ink-3:#787b86;
+  --accent:#2962ff; --accent-soft:#e3effd;
+  --good:#089981; --warn:#ff9800; --serious:#f7525f; --critical:#f23645;
+  --cn:#f23645; --us:#2962ff; --eu:#673ab7; --hk:#ff9800; --gl:#787b86;
+  --p1:#089981; --p2:#ff9800; --p3:#787b86; --p4:#f7525f; --p5:#673ab7;
+  --shadow:0 2px 4px rgba(0,0,0,.2);
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --side:360px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#141415; --surface:#141415; --surface-2:#1e1e20; --line:#2a2a2d; --line-strong:#3a3a3f;
+    --ink:#d1d4dc; --ink-2:#b2b5be; --ink-3:#787b86;
+    --accent:#2962ff; --accent-soft:#142e61;
+    --cn:#f7525f; --us:#5b8def; --eu:#9575cd; --hk:#ffb74d; --gl:#787b86;
+    --p2:#ffb74d; --p3:#787b86; --p5:#9575cd;
+    --shadow:0 2px 4px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#141415; --surface:#141415; --surface-2:#1e1e20; --line:#2a2a2d; --line-strong:#3a3a3f;
+  --ink:#d1d4dc; --ink-2:#b2b5be; --ink-3:#787b86;
+  --accent:#2962ff; --accent-soft:#142e61;
+  --cn:#f7525f; --us:#5b8def; --eu:#9575cd; --hk:#ffb74d; --gl:#787b86;
+  --p2:#ffb74d; --p3:#787b86; --p5:#9575cd;
+  --shadow:0 2px 4px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Trebuchet MS","PingFang SC","Helvetica Neue","Noto Sans SC",Arial,sans-serif}
+.shell{display:grid;grid-template-columns:minmax(0,1fr) var(--side);min-height:100vh}
+.left{min-width:0}
+@media (max-width:1024px){.shell{grid-template-columns:minmax(0,1fr)}}
+a{color:var(--accent)}
+button{font:inherit;color:var(--ink);background:var(--surface-2);border:1px solid transparent;border-radius:20px;padding:6px 12px;cursor:pointer}
+button:hover{background:var(--line)}
+button[aria-pressed="true"],.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.chip{border-radius:20px;padding:5px 12px;font-size:13px}
+:root[data-theme="dark"] button[aria-pressed="true"],:root:not([data-theme="light"]) button[aria-pressed="true"]{}
+header{position:sticky;top:0;z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+h1{font-size:20px;font-weight:600}
+.hwrap{max-width:none;margin:0;padding:10px 20px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+h1{font-size:18px;margin:0;font-weight:650;letter-spacing:.2px}
+.asof{color:var(--ink-2);font-size:12px}
+.spacer{flex:1}
+.toolbar{max-width:none;margin:0;padding:8px 20px 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.toolbar .grp{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:0 8px 0 0;border:0;border-right:1px solid var(--line);background:transparent}
+.toolbar .grp:last-child{border-right:0}
+.toolbar .filt{position:relative}.toolbar details summary{list-style:none;cursor:pointer}.toolbar details summary::-webkit-details-marker{display:none}.fpanel{position:absolute;z-index:6;top:38px;left:0;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:10px 12px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px;min-width:320px;font-size:12.5px}.fpanel label{margin-right:10px;white-space:nowrap}.toolbar .search input{font:inherit;border:0;border-radius:20px;padding:7px 14px;background:var(--surface-2);color:var(--ink);min-width:240px}.achip{display:inline-block;font-size:12px;padding:3px 10px;border-radius:20px;background:var(--surface-2);color:var(--ink);margin-left:4px}
+.toolbar .lbl{font-size:11px;color:var(--ink-3);margin-right:2px;text-transform:uppercase;letter-spacing:.4px}
+main{max-width:none;margin:0;padding:0 0 32px;display:block}
+
+.card{background:var(--surface);border:0;border-radius:0;overflow:visible}
+table{width:100%;border-collapse:collapse;table-layout:fixed}
+thead th{position:sticky;top:0;background:var(--surface);font-weight:500;font-size:12px;color:var(--ink-3);text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+thead th:first-child,tbody td:first-child{padding-left:20px}
+tbody td{padding:12px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr.day th{background:var(--surface-2);text-align:left;padding:10px 20px;font-weight:600;font-size:16px;color:var(--ink-2);letter-spacing:.1px;border-bottom:1px solid var(--line)}
+tr.day th .basis{font-weight:400;font-size:11px;vertical-align:middle}
+tr.day.today th{border-left:3px solid var(--accent);color:var(--ink)}
+tr.row{cursor:pointer}
+tr.row:hover td{background:var(--surface-2)}
+tr.row.future td{color:var(--ink-2)}
+tr.ev td{padding:8px 10px 2px;border-bottom:0;background:var(--surface)}
+tr.ev + tr.row td{border-top:0}
+tr.ev ~ tr.row .name{font-weight:500}
+.name{font-weight:600;color:var(--ink);font-size:14px}
+.sub{font-size:11.5px;color:var(--ink-3);margin-top:2px}
+.num{font-variant-numeric:tabular-nums;white-space:normal;word-break:break-word;font-size:13px}
+.reg{display:inline-block;min-width:26px;text-align:center;font-size:10.5px;font-weight:700;padding:2px 5px;border-radius:4px;background:var(--surface-2);color:var(--ink-2)}
+.reg.CN{color:var(--cn)}
+.imp{display:inline-flex;gap:2px;align-items:flex-end;height:14px}
+.imp i{display:block;width:4px;background:var(--line-strong);border-radius:2px}
+.imp i:nth-child(1){height:6px}.imp i:nth-child(2){height:10px}.imp i:nth-child(3){height:14px}
+.imp[data-n="1"] i:nth-child(1),.imp[data-n="2"] i:nth-child(-n+2),.imp[data-n="3"] i{background:var(--ink)}
+.badge{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 6px;border-radius:5px;border:1px solid var(--line-strong);color:var(--ink-2);white-space:nowrap}
+.badge.P1{border-color:var(--p1);color:var(--p1)} .badge.P2{border-color:var(--p2);color:var(--p2)} .badge.P3{border-color:var(--p3);color:var(--p3)} .badge.P4{border-color:var(--p4);color:var(--p4)} .badge.P5{border-color:var(--p5);color:var(--p5)}
+.own{display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;border-radius:6px;font-size:11px;font-weight:700;background:var(--surface-2);border:1px solid var(--line-strong)}
+.own.A{background:var(--surface-2);border-color:transparent}
+.own.D{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.ic{display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:700;padding:1px 6px;border-radius:5px;border:1px solid var(--line-strong);margin:1px 2px 1px 0;white-space:nowrap}.ic small{font-weight:500;color:var(--ink-3)}.ic.t{border-color:var(--good)}.ic.w{border-color:var(--serious)}
+.state{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;color:var(--ink-2)}
+.state b{width:9px;height:9px;border-radius:50%;background:var(--line-strong);display:inline-block}
+.state.up b{background:var(--good)} .state.down b{background:var(--critical)} .state.warn b{background:var(--warn)}
+.role{display:inline-block;font-size:10px;font-weight:700;padding:0 5px;border-radius:4px;border:1px solid var(--line-strong);color:var(--ink-2);margin-right:2px}.role.r-A{border-color:var(--accent);color:var(--accent)}.role.r-B{border-color:var(--serious);color:var(--serious)}.role.r-C{border-color:var(--p5);color:var(--p5)}.role.r-T{border-color:var(--ink);color:var(--ink)}
+.basis{display:inline-block;font-size:10.5px;padding:1px 6px;border-radius:4px;background:var(--surface-2);color:var(--ink-2);border:1px dashed var(--line-strong);margin-left:6px}
+.basis.p1{border-style:solid}
+.avail{font-size:12px}
+.empty{padding:30px;text-align:center;color:var(--ink-3)}
+/* sidebar */
+aside.right{position:sticky;top:0;align-self:start;height:100vh;display:flex;flex-direction:column;gap:0;border-left:1px solid var(--line);background:var(--surface)}
+@media (max-width:1024px){aside.right{position:static;height:auto;border-left:0;border-top:1px solid var(--line)}}
+.wlcard{flex:0 0 auto;display:flex;flex-direction:column;height:44vh;min-height:120px;border:0;border-radius:0}
+.splitter{flex:0 0 7px;cursor:row-resize;background:var(--surface-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative}
+.splitter::after{content:'';position:absolute;left:50%;top:2px;width:36px;height:3px;margin-left:-18px;border-radius:2px;background:var(--line-strong)}
+.pnhead{position:sticky;top:0;z-index:2;background:var(--surface);border-bottom:1px solid var(--line);padding:10px 14px 8px}
+.pnbody{padding:0 14px 16px}
+.pn-sec{padding:12px 0;border-bottom:1px solid var(--line)}.pn-sec:last-child{border-bottom:0}
+.pn-sec h4{font-size:13px;font-weight:600;margin:0 0 8px;display:flex;align-items:center;gap:8px}.pn-sec h4 .sub{font-weight:400;margin-left:auto}
+.pnmenu{position:relative}.pnmenu .menu{position:absolute;right:0;top:30px;z-index:5;background:var(--surface);border:1px solid var(--line);border-radius:6px;box-shadow:var(--shadow);padding:6px 4px;min-width:180px}.pnmenu .menu label{display:flex;gap:8px;align-items:center;padding:6px 10px;font-size:13px;cursor:pointer;border-radius:4px}.pnmenu .menu label:hover{background:var(--surface-2)}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.tile{border-radius:6px;padding:8px 6px;text-align:center;background:var(--surface-2)}.tile b{display:block;font-size:14px}.tile .sub{font-size:10.5px}.tile.up{background:rgba(8,153,129,.14)}.tile.dn{background:rgba(242,54,69,.14)}.tile.ex{background:rgba(255,152,0,.16)}
+.kvt{width:100%;border-collapse:collapse;font-size:12.5px}.kvt td{padding:5px 0;border-bottom:1px solid var(--line);vertical-align:top}.kvt td:last-child{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}.kvt tr:last-child td{border-bottom:0}.kvt .dt{color:var(--ink-3);font-size:11px}
+.lad{list-style:none;margin:0;padding:0 0 0 14px;border-left:2px solid var(--line)}.lad li{position:relative;padding:0 0 10px 12px}.lad li::before{content:'';position:absolute;left:-19px;top:5px;width:8px;height:8px;border-radius:50%;background:var(--line-strong)}.lad li.c1::before{background:var(--ink)}.lad li.c2::before{background:var(--ink-3)}.lad li.c3::before{background:var(--surface);border:2px solid var(--ink-3);width:6px;height:6px}.lad li.cur::before{background:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}.lad .lt{font-size:12.5px;font-weight:600;display:flex;gap:6px;align-items:center;flex-wrap:wrap}.lad .lt .conf{font-size:10.5px;font-weight:500;color:var(--ink-3)}.lad .lp{font-size:11.5px;color:var(--ink-2);margin-top:2px}.lad .lp .k{color:var(--ink-3)}
+.lad li.grey .lt,.lad li.grey .lp{opacity:.75}
+.gauge{display:block;margin:0 auto;max-width:200px}.gauge .g-dn{stroke:rgba(242,54,69,.35)}.gauge .g-md{stroke:var(--line)}.gauge .g-up{stroke:rgba(8,153,129,.35)}
+.donut{display:flex;gap:12px;align-items:center}.donut svg{flex:0 0 96px}.donut .lg{font-size:11.5px;color:var(--ink-2);display:grid;grid-template-columns:1fr auto;gap:2px 10px}.donut .lg i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.segbar{display:flex;height:8px;border-radius:4px;overflow:hidden;margin:6px 0 4px}.segbar span{display:block;height:100%}
+.strip{display:block;width:100%;height:auto}.strip text{font-size:10px;fill:var(--ink-2)}.strip .ax{stroke:var(--line-strong)}.strip .dot{fill:var(--ink)}.strip .dot.est{fill:var(--surface);stroke:var(--ink-3);stroke-width:1.5}.strip .today{stroke:var(--accent);stroke-dasharray:3 3}
+.risk{list-style:none;padding:0;margin:0;font-size:12px}.risk li{padding:4px 0 4px 14px;position:relative;color:var(--ink-2)}.risk li::before{content:'!';position:absolute;left:0;color:var(--serious);font-weight:700}
+.pnfoot{display:flex;gap:8px;align-items:center;margin-top:12px}.pnfoot .sub{margin-left:auto}
+.fals{font-size:12px;color:var(--ink-2);border-left:2px solid var(--serious);padding-left:8px}
+.wlhead{display:flex;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--line);min-height:52px}.wlhead b{font-size:15px;font-weight:600}.wlhead .sub{flex:1}.wlhead .chip{padding:1px 8px}
+.wlLegend[hidden]{display:none}
+.wlLegend{padding:8px 10px;border-bottom:1px solid var(--line);font-size:11.5px;color:var(--ink-2);display:flex;flex-direction:column;gap:4px}
+.wlscroll{overflow:auto;flex:1 1 auto}
+.ctxcard{flex:1 1 auto;overflow:auto;min-height:120px;border:0;border-radius:0;display:block}
+
+.side-h{display:flex;gap:6px;padding:10px;border-bottom:1px solid var(--line)}
+.side-h button{flex:1}
+.wl{list-style:none;margin:0;padding:0}
+.wl li{display:grid;grid-template-columns:64px 1fr auto;gap:8px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--line);cursor:pointer}
+.wl li.gh{grid-template-columns:1fr auto;background:var(--surface-2);cursor:pointer;font-size:11.5px;color:var(--ink-2);padding:6px 12px}
+.wl .sig{font-variant-numeric:tabular-nums;font-size:12px;white-space:nowrap}
+.wl .sig b{color:var(--ink)}
+.wl .sig .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--good);vertical-align:middle;margin-right:4px}
+.wl .nxt{font-size:11.5px;color:var(--ink-3);grid-column:2/-1}
+.wl li:hover{background:var(--surface-2)}
+.wl .t{font-weight:700;font-family:var(--mono);font-size:13px;border-bottom:1px solid var(--line-strong);cursor:pointer}
+.wl .w{font-size:11px;color:var(--ink-3)}
+.wl .k{font-size:12px;color:var(--ink-2);grid-column:1/-1}
+.tree details{border-bottom:1px solid var(--line)}
+.tree summary{padding:9px 12px;cursor:pointer;display:flex;gap:8px;align-items:center;font-weight:600}
+.tree summary .cnt{margin-left:auto;font-size:11px;color:var(--ink-3);font-weight:500}
+.tree ul{list-style:none;margin:0;padding:0 0 6px}
+.tree li{padding:6px 12px 6px 28px;cursor:pointer;font-size:13px;display:flex;gap:8px;align-items:center}
+.tree li:hover{background:var(--surface-2)}
+.tree li .fs{margin-left:auto;font-size:10.5px;color:var(--ink-3);white-space:nowrap}
+.legend{padding:10px 12px;font-size:11.5px;color:var(--ink-2);display:flex;flex-wrap:wrap;gap:8px 14px}
+/* drawer */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);display:none;z-index:20}
+.overlay.on{display:block}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(560px,100%);background:var(--surface);box-shadow:var(--shadow);z-index:21;transform:translateX(100%);transition:transform .2s;overflow:auto;padding:18px 20px 40px}
+.drawer.on{transform:none}
+.drawer h2{font-size:17px;margin:0 0 4px}
+.drawer .id{font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+.drawer .close{position:absolute;top:12px;right:12px}
+.kv{display:grid;grid-template-columns:96px 1fr;gap:6px 10px;margin:14px 0;font-size:13px}
+.kv dt{color:var(--ink-3)} .kv dd{margin:0;word-break:break-word}
+.rt{font-size:12px}.rt th{font-size:10.5px;color:var(--ink-3);text-align:left;padding:4px 6px;border-bottom:1px solid var(--line)}.rt td{padding:6px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+.drawer h3{font-size:12px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.4px;margin:18px 0 6px}
+.edge{border:1px solid var(--line);border-radius:4px;padding:8px 10px;margin-bottom:8px;font-size:12.5px}
+.edge .t{font-weight:700;font-family:var(--mono)}
+.edge.T1{border-left:3px solid var(--ink)} .edge.T2{border-left:3px dashed var(--ink)} .edge.T3{border-left:3px dotted var(--ink)}
+.edge.compete{outline:1px solid var(--critical)}
+.hero{font-size:22px;font-weight:650;margin:6px 0;line-height:1.3;word-break:break-word}
+
+/* map view */
+.viewbar{display:flex;gap:6px;padding:10px 20px;border-bottom:1px solid var(--line);align-items:center}
+.viewbar .hint{margin-left:auto;font-size:11.5px;color:var(--ink-3)}
+#mapView{padding:6px 20px 14px}
+.bow{margin:6px 0 18px;border:1px solid var(--line);border-radius:4px;background:var(--surface);overflow:hidden}
+.bow h3{font-size:13px;margin:0;padding:10px 12px;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.bow h3 .w{color:var(--ink-3);font-weight:500;font-size:12px}
+.bow svg{width:100%;height:auto;display:block}
+.bow .nd{cursor:pointer}
+.bow .nd rect{fill:var(--surface);stroke:var(--line-strong)}
+.bow .nd:hover rect{stroke:var(--ink)}
+.bow .nd.hl rect{stroke:var(--ink);stroke-width:2}
+.bow .mid rect{fill:var(--surface-2);stroke:var(--line)}
+.bow text{font-family:inherit;fill:var(--ink)}
+.bow .t1{font-size:12px;font-weight:600}
+.bow .t2{font-size:11px;fill:var(--ink-2)}
+.bow .t3{font-size:10px;fill:var(--ink-3)}
+.bow .ctr rect{fill:var(--ink);stroke:var(--ink)}
+.bow .ctr text{fill:var(--bg)}
+.bow .lbl{font-size:10px;fill:var(--ink-3)}
+.bow .band rect{fill:var(--surface-2);stroke:var(--line)}
+.bow .pill rect{fill:var(--surface);stroke:var(--line-strong)}
+.bow .pill{cursor:pointer}
+.bow .comp rect{stroke:var(--critical)}
+.bow .edge{fill:none;stroke-width:2}
+.bow .dim{opacity:.18}
+.bow.hidden{display:none}
+.crumb{padding:8px 12px;font-size:12.5px;background:var(--surface-2);border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.crumb button{margin-left:auto}
+.bow .edge.T1{stroke-dasharray:none}.bow .edge.T2{stroke-dasharray:8 5}.bow .edge.T3{stroke-dasharray:2 4}
+.bow .edge.trad{stroke:var(--good)}.bow .edge.warn{stroke:var(--serious)}.bow .edge.na{stroke:var(--line-strong)}
+.bow .axis{font-size:10.5px;fill:var(--ink-3)}
+.maplegend{display:flex;flex-wrap:wrap;gap:8px 16px;padding:8px 12px;font-size:11.5px;color:var(--ink-2)}
+.maplegend i{display:inline-block;width:22px;height:0;border-top:2px solid var(--ink);vertical-align:middle;margin-right:4px}
+.maplegend i.d{border-top-style:dashed}.maplegend i.o{border-top-style:dotted}
+.maplegend i.g{border-color:var(--good)}.maplegend i.s{border-color:var(--serious)}
+
+.libgrid{display:grid;grid-template-columns:260px minmax(0,1fr);gap:0}@media (max-width:900px){.libgrid{grid-template-columns:1fr}}
+.lib{font-size:12px;table-layout:auto !important;min-width:1080px}.lib th{cursor:pointer;user-select:none;white-space:nowrap}.lib th[data-dir="asc"]::after{content:' ▲'}.lib th[data-dir="desc"]::after{content:' ▼'}.lib td{padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}.lib tr{cursor:pointer}.lib tr:hover td{background:var(--surface-2)}.lib td.ov{color:var(--critical);font-weight:600}
+.kf{padding:0}
+.kf .kh{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}.kf .kh b{font-size:13px}.kf .kh .sub{margin-left:auto}
+.kf .brief{font-size:12.5px;line-height:1.55;margin:8px 0;color:var(--ink)}
+.kf .watch{font-size:12px;color:var(--ink-2);border-left:2px solid var(--line-strong);padding-left:8px;margin:6px 0}
+.kf .stats{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font-size:12px;margin-top:8px}.kf .stats dt{color:var(--ink-3)}.kf .stats dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}
+.kf .open{margin-top:10px}
+tr.row.sel td{background:var(--accent-soft)}
+tr.row.sel td:first-child{box-shadow:inset 3px 0 0 var(--accent)}
+.name a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line-strong)}.name a:hover{border-bottom-color:var(--ink)}
+.sub a{color:var(--accent);text-decoration:none}
+/* page */
+#pageView{padding:0 0 20px}
+.pg-crumb{font-size:12px;color:var(--ink-3);padding:12px 20px 0}.pg-crumb a{color:var(--ink-3)}
+.pg-head{padding:8px 20px 14px;border-bottom:1px solid var(--line)}
+.pg-head h2{margin:2px 0 4px;font-size:20px}
+.pg-head .hero{font-size:22px;margin:4px 0}
+.pg-tabs{display:flex;gap:4px;padding:8px 20px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.pg-tabs button{border-radius:8px;padding:5px 10px;font-size:12.5px}
+.pg-sec{padding:12px 20px;border-bottom:1px solid var(--line)}
+.pg-main{padding:6px 20px 4px;border-bottom:1px solid var(--line)}
+.pg-sub{padding:8px 0}.pg-sub h4{font-size:12.5px;margin:10px 0 6px;font-weight:650}
+.pg-head .brief{font-size:13px;line-height:1.6;margin:8px 0 2px}.pg-head .watch{font-size:12px;color:var(--ink-2);border-left:2px solid var(--line-strong);padding-left:8px;margin:6px 0 2px}
+.c3s{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:6px 0}@media (max-width:720px){.c3s{grid-template-columns:1fr}}
+.c3{border:1px solid var(--line);border-radius:4px;padding:8px 10px}.c3 .cv{font-size:16px;font-weight:650;margin:2px 0;word-break:break-word}
+.warnline{font-size:12px;color:var(--serious);border-left:2px solid var(--serious);padding-left:8px;margin-top:6px}
+.stream{list-style:none;padding:0;margin:0}.stream li{padding:6px 0;border-bottom:1px solid var(--line);font-size:12.5px}
+.gates{display:grid;grid-template-columns:1fr;gap:6px;font-size:12px;margin-top:8px}.gates div{border:1px dashed var(--line-strong);border-radius:6px;padding:6px 8px}
+.pg-sec h3{font-size:12px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.4px;margin:0 0 8px}
+.pg-sec[hidden]{display:none}
+.tl{width:100%;height:auto;display:block}
+.tl text{font-size:10.5px;fill:var(--ink-2)}.tl .ax{stroke:var(--line-strong)}.tl .pt{cursor:pointer}
+.tl .actual{fill:var(--accent)}.tl .event{fill:var(--serious)}.tl .guidance{fill:none;stroke:var(--accent);stroke-width:2}.tl .target{fill:none;stroke:var(--serious);stroke-width:2}.tl .state{fill:var(--line-strong)}.tl .position{fill:var(--ink)}.tl .prior{fill:var(--accent);opacity:.45}.tl .computed{fill:var(--p5)}
+.tl .ln{fill:none;stroke:var(--accent);stroke-width:2}
+.parties{display:flex;flex-wrap:wrap;gap:6px}.parties span{font-size:12px;padding:3px 8px;border:1px solid var(--line-strong);border-radius:6px}
+.mlist{list-style:none;padding:0;margin:0}.mlist li{display:grid;grid-template-columns:1fr auto;gap:8px;padding:6px 0;border-bottom:1px solid var(--line);font-size:12.5px}.mlist li a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line-strong)}
+.sig{width:100%;border-collapse:collapse;font-size:12px}
+.sig th{font-size:11px;color:var(--ink-3);text-align:left;padding:8px 6px 6px;font-weight:500;border-bottom:1px solid var(--line);font-weight:600;white-space:nowrap}
+.sig th .sub{font-weight:500;letter-spacing:2px}
+.sig td{padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:middle;white-space:nowrap}
+.sig tr.r{cursor:pointer}.sig tr.r:hover td{background:var(--surface-2)}.sig tr.r.sel td{background:var(--accent-soft)}.sig tr.r.sel td:first-child{box-shadow:inset 3px 0 0 var(--accent)}
+.sig tr.r.hit td{background:var(--surface-2)}
+.sig tr.g td{background:var(--surface-2);font-size:11px;color:var(--ink-2);cursor:pointer;padding:5px 8px}
+.sig .t{font-family:var(--mono);font-weight:700;border-bottom:1px solid var(--line-strong);cursor:pointer}
+.sig .w{color:var(--ink-3);font-size:10px;display:block;line-height:1.1}
+.sig td:first-child{min-width:80px;white-space:normal;padding-left:14px}
+.sig th:first-child{padding-left:14px}
+.sig .v{display:block;font-size:10.5px;color:var(--ink-3);margin-top:2px;white-space:normal;max-width:140px;line-height:1.3}
+.d{display:inline-block;min-width:16px;text-align:center;font-weight:700}
+.d.up{color:var(--good)}.d.dn{color:var(--critical)}.d.ex{color:var(--serious)}.d.na{color:var(--line-strong)}
+.sig td.sub{white-space:normal;font-size:11px;line-height:1.3}
+.sig .wn{display:inline-block;min-width:18px;text-align:center;border-radius:9px;padding:0 5px;font-weight:700;background:var(--surface-2)}
+.sig .wn.on{background:var(--serious);color:#fff}
+.sig .mv{font-size:11.5px}.sig .ld{font-size:11px;white-space:normal;line-height:1.25;max-width:76px}.sig .ld small{color:var(--ink-3)}
+footer{max-width:none;margin:0;padding:12px 20px 40px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-2)}
+footer p{margin:6px 0}
+kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--line-strong);border-radius:4px;padding:0 4px}
+.mobile-only{display:none}
+@media (max-width:720px){
+  table{table-layout:fixed}
+  thead th:nth-child(2){width:44px}
+  thead th:nth-child(4){width:auto}
+  thead th:nth-child(5){width:38%}
+  .viewbar{gap:4px}.viewbar button{white-space:nowrap;font-size:12px;padding:6px 8px}.viewbar .hint{display:none}
+  .toolbar .search input{min-width:0;width:100%}
+  .num{font-size:12.5px}
+  thead th:nth-child(4){width:auto}
+  .hide-m{display:none}
+  .mobile-only{display:initial}
+  tbody td{padding:8px 6px}
+  .num{max-width:none}
+}
+</style>
+</head>
+<body>
+<div class="shell"><div class="left">
+<header>
+  <div class="hwrap">
+    <h1>AI 发展监测日历</h1>
+    <span class="asof">数据 as-of <b>__AS_OF__</b> · 13F 2026Q2 · 每个数带来源与 P 级</span>
+    <span class="spacer"></span>
+    <button id="btnTheme" title="切换深浅色">◐ 主题</button>
+  </div>
+</header>
+
+<div class="toolbar" id="toolbar">
+  <div class="grp"><span class="lbl">范围</span>
+    <button class="chip rng" data-r="all" aria-pressed="true">全部</button>
+    <button class="chip rng" data-r="past">已发生</button>
+    <button class="chip rng" data-r="future">未来排期</button>
+    <button class="chip rng" data-r="undated">事件驱动</button>
+  </div>
+  <div class="grp"><span class="lbl">预设</span>
+    <button class="chip preset" data-p="week">本周</button>
+    <button class="chip preset" data-p="book">持仓链</button>
+    <button class="chip preset" data-p="frontier">前沿</button>
+  </div>
+  <div class="grp filt">
+    <details id="filt"><summary class="chip">筛选 ▾ <span id="filtCount"></span></summary>
+      <div class="fpanel">
+        <div><span class="lbl">入口</span> <label><input type="checkbox" class="ent" data-e="持仓" checked> 持仓（需求侧）</label> <label><input type="checkbox" class="ent" data-e="AI" checked> AI 七维（供给侧）</label></div>
+        <div id="dims"><span class="lbl">维度</span></div>
+        <div><span class="lbl">数据类</span> <label><input type="checkbox" class="cls" data-c="1" checked> 1 量价</label> <label><input type="checkbox" class="cls" data-c="2" checked> 2 事件</label> <label><input type="checkbox" class="cls" data-c="3" checked> 3 观点</label> <label><input type="checkbox" class="cls" data-c="4" checked> 4 前沿</label></div>
+        <div><span class="lbl">地区</span> <label><input type="checkbox" id="cnOnly"> 只看中国侧（CN）</label></div>
+        <div><button id="filtReset" class="chip">重置</button></div>
+      </div>
+    </details>
+    <span id="activeChips"></span>
+  </div>
+  <div class="grp search"><input id="q" type="search" placeholder="搜索 票 / 指标 / 事件（/）" autocomplete="off"></div>
+</div>
+
+<main>
+  <section class="card">
+    <div class="viewbar">
+      <button id="vCal" aria-pressed="true">日历 · 什么时候来</button>
+      <button id="vMap" aria-pressed="false">映射图 · 打到谁</button>
+      <button id="vLib" aria-pressed="false">指标库 · 筛选与覆盖</button>
+      <span class="hint" id="mapHint">点行 = 关键事实（右栏）· 点事件名 = 整页下钻</span>
+    </div>
+    <div id="calView">
+    <table id="cal" aria-label="监测日历">
+      <thead><tr>
+        <th style="width:56px" class="hide-m">时间</th>
+        <th style="width:40px">地区</th>
+        <th style="width:44px" class="hide-m" title="重要性只做 H/M/L 排序，不显示数字（假设台账 A1/A2）">重要</th>
+        <th style="width:30%">事件 / 指标</th>
+        <th style="width:20%" title="值前符号 = 该指标最新观测相对持仓 thesis 的方向（↑ 增强 ↓ 削弱 → 中性 ! 冲击）">实测 Actual · 方向</th>
+        <th class="hide-m" style="width:15%">预期基准 Forecast</th>
+        <th class="hide-m" style="width:11%">上期 Prior</th>
+        <th style="width:150px" class="hide-m">影响持仓</th>
+        <th style="width:44px" class="hide-m" title="来源可信度：一手 / 电话会 / 二手 / 估算">来源</th>
+        <th style="width:36px" class="hide-m" title="人机分工 A–D">分工</th>
+        <th style="width:30px" class="hide-m" title="🟢一手公开 🟡待钉一手 🔵付费 ⚪未标定/合规">可得</th>
+      </tr></thead>
+      <tbody id="calBody"></tbody>
+    </table>
+    <div class="empty" id="empty" hidden>当前筛选下没有条目。</div>
+    </div>
+    <div id="pageView" hidden></div>
+    <div id="libView" hidden>
+      <div class="sub" style="padding:10px 20px">75 个指标 · 点列头排序 · 点行开影响卡 · 左侧树 = 按维覆盖（已填 / 过期）</div>
+      <div class="libgrid"><div id="sideA" class="tree"></div><div style="overflow:auto"><table id="libTable" class="lib"><thead></thead><tbody></tbody></table></div></div>
+    </div>
+    <div id="mapView" hidden>
+      <div class="maplegend"><span><i class="g"></i>可交易 ≥ 预警（定仓位）</span><span><i class="s"></i>预警 &gt; 可交易（watchlist）</span><span><i></i>T1 可回测</span><span><i class="d"></i>T2 结构对账</span><span><i class="o"></i>T3 只给方向</span><span>红框 = 竞对 / 做空侧</span><span>顶带 = 政策 regime（横切）</span><span>节点第 3 行 = 下次数据点</span></div>
+      <div id="bows"></div>
+    </div>
+  </section>
+
+
+</main>
+
+<footer>
+  <p><b>诚实说明</b> · 所有值来自 <code>13-观测记录.csv</code>（一行一个事实，173 条）；指标定义来自 <code>13-指标总表.csv</code>（registry，不存值）；边来自 <code>13-边总表.csv</code>；排期来自 <code>13-日历排期.csv</code>。表内「实测 / 预期 / 上期」均由记录在构建时推导，静态内嵌，无实时管线。未来行的日期标注依据类型：<span class="basis p1">公司公告</span> <span class="basis">规则推定</span> <span class="basis">估计</span> <span class="basis">待定</span>；「估计」来自聚合站（P3），公司公告一出即替换。</p>
+  <p>预期基准（Forecast）只放公司指引或公开一致预期，不放自造预测；三态点只在实测与预期均为可比数值时着色，否则灰。重要性条形只表示 H/M/L 排序，所有打分系数登记在假设台账（doc 30 / 15-假设台账增补），未验证的 🟠 类不用于仓位与告警阈值。</p>
+  <p>付费源（🔵）与合规受限（⚪）在表中可见但无值；被拦截的源在来源总账留痕并换源。时间序列迷你图待 fct_quant 历史点 ≥ 3 时启用，现阶段不画。快捷键：<kbd>Esc</kbd> 关闭抽屉。</p>
+</footer>
+</div><!-- /.left -->
+<aside class="right">
+    <div class="card wlcard" id="wlcard">
+      <div class="wlhead"><b>Watchlist</b><span class="sub">对象 × 信号</span><button class="chip" id="wlHelp" title="图例">?</button></div>
+      <div id="wlLegend" class="wlLegend" hidden>
+        <div><b>上游供给 / 下游需求 / 政策环境</b>：近 60 天该侧关键上游观测的方向合成。<span class="d up">↑</span> 加强 <span class="d dn">↓</span> 削弱 → 持平 <span class="d ex">!</span> 有变化待判断 <span class="d na">—</span> 无新观测</div>
+        <div><b>本周</b>：7 天内最新一条有方向的观测（侧 + 方向）</div>
+        <div><b>风险</b>：60 天内风险提示条数（含口径警示）</div>
+        <div><b>领先指标</b>：只用可回测 / 结构成立的领先边</div>
+        <div><b>上游可交易 · 未持仓</b>：在映射图上、本身可交易、书里没有；列为 节点方向 → 喂给谁</div>
+        <div class="sub">方向为分析判断（B 初稿 D 复核），只用于显示与排序，不进阈值。点行 = 主板过滤到该票的链 + 下方面板；点票名 = 票页。</div>
+      </div>
+      <div class="wlscroll">
+      <table class="sig" aria-label="Watchlist">
+        <thead><tr><th>对象</th><th title="上游供给 · 下游需求 · 政策环境">供给 需求 政策</th><th>本周</th><th>风险</th><th>领先指标</th></tr></thead>
+        <tbody id="sigBody"></tbody>
+      </table>
+      </div>
+    </div>
+    <div class="splitter" id="splitter" title="拖动调整高度"></div>
+    <div class="card ctxcard" id="ctxcard">
+      <div class="pnhead" id="pnHead"></div>
+      <div class="pnbody" id="kfCard"></div>
+    </div>
+  </aside>
+</div><!-- /.shell -->
+
+<div class="overlay" id="overlay"></div>
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle">
+  <button class="close" id="dClose">✕</button>
+  <div id="dBody"></div>
+</div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+(function(){
+  const DATA = JSON.parse(document.getElementById('data').textContent);
+  const M = Object.fromEntries(DATA.metrics.map(m=>[m.metric_id,m]));
+  const AS_OF = DATA.as_of;
+  const DIMS = ['D1','D2','D3','D4','D5','D6','D7'];
+  const DIM_NAME = {D1:'算力供给',D2:'数据供给',D3:'资本',D4:'人才',D5:'算法与能力前沿',D6:'商用落地 / token',D7:'政策·能源·安全'};
+  const state = {range:'all', entries:new Set(['持仓','AI']), dims:new Set(DIMS), cls:new Set(['1','2','3','4']), cnOnly:false, preset:'', q:'', chain:'', hits:[]};
+  const TICK_CHAIN={}; DATA.watch.forEach(w=>{ const set=new Set(); DATA.metrics.forEach(m=>{ if(m.ticker_or_entity===w.ticker) set.add(m.metric_id); }); DATA.edges.forEach(e=>{ if(e.to_ticker===w.ticker) set.add(e.from_metric); }); TICK_CHAIN[w.ticker]=set; });
+  const BOOK_REL=new Set(); DATA.edges.forEach(e=>BOOK_REL.add(e.from_metric)); DATA.metrics.forEach(m=>{ if(m.entry==='持仓') BOOK_REL.add(m.metric_id); });
+
+  // ---------- helpers ----------
+  const esc = s => String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const linkify = s => esc(s).replace(/(https?:\/\/[^\s）;；,，]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>');
+  const provClass = p => { const m=/P([1-5])/.exec(p||''); return m?('P'+m[1]):''; };
+  const provShort = p => { const all=[...(p||'').matchAll(/P[1-5]/g)].map(x=>x[0]); return all.length?[...new Set(all)].join('/'):'—'; };
+  const availIcon = a => a||'—';
+  const dimOf = m => (m.dim||'').split('/')[0].trim();
+  const metricDims = m => (m.dim||'').split('/').map(x=>x.trim()).filter(x=>DIMS.includes(x));
+  const clsOf = m => (m.data_class||'').split('/').map(x=>x.trim());
+  const num = s => { if(!s) return null; const t=String(s).replace(/,/g,''); const m=/(-?\d+(?:\.\d+)?)/.exec(t); return m?parseFloat(m[1]):null; };
+  function triState(m){
+    // 三态只在「同一期间的实测 vs 预期基准」都存在时才判方向。现阶段 CSV 里的预期基准是下期/全年指引，与本期实测不同期，
+    // 所以除人工裁量的对账节点（P5）外一律灰——不编假信号。
+    if(m.metric_id==='m_reconcile_nbis') return {c:'up',t:'信念'};
+    return {c:'',t:'—'};
+  }
+  function basisTag(b){ const k=(b||'').split('（')[0]; const p1=/公司公告|已发生/.test(k); return `<span class="basis ${p1?'p1':''}">${esc(k||'待定')}</span>`; }
+  function passes(m){
+    if(!state.entries.has(m.entry)) return false;
+    if(m.entry==='AI'){ const ds=metricDims(m); if(ds.length && !ds.some(d=>state.dims.has(d))) return false; }
+    if(m.entry==='持仓' && metricDims(m).length && !metricDims(m).some(d=>state.dims.has(d)) && !state.dims.size===0) return false;
+    const cs=clsOf(m); if(cs.length && !cs.some(c=>state.cls.has(c)) && cs[0]!=='—') return false;
+    if(state.cnOnly && m.region!=='CN') return false;
+    if(state.preset==='book' && !BOOK_REL.has(m.metric_id)) return false;
+    if(state.chain && !(TICK_CHAIN[state.chain]||new Set()).has(m.metric_id)) return false;
+    if(state.preset==='frontier' && !['D5','D2','D4'].includes(dimOf(m))) return false;
+    if(state.q && !(m.name+' '+m.ticker_or_entity+' '+m.metric_id).toLowerCase().includes(state.q)) return false;
+    return true;
+  }
+
+  // ---------- calendar ----------
+  function impactChips(m){ const im=(m.impacts||[]); if(!im.length){ if(m.entry==='持仓'&&(m.upstream||[]).length) return `<span class="sub">本体 · ${m.upstream.length} 条上游边</span>`; return '<span class="sub">—</span>'; }
+    const by={}; im.forEach(i=>{ (by[i.ticker]=by[i.ticker]||[]).push(i); });
+    return Object.entries(by).map(([t,list])=>{ const key=list.some(i=>i.is_key.includes('★★★')); const dom=list.map(i=>i.dominant); const d=dom.includes('预警')&&!dom.includes('可交易')?'预警':dom.includes('可交易')?'可交易':'待定'; return `<span class="ic ${d==='预警'?'w':d==='可交易'?'t':''}" title="${esc(list.map(i=>i.side+' '+i.hops+'跳 '+i.tier).join(' / '))}">${esc(t)}<small>${esc(list[0].weight)}</small>${key?'★':''}</span>`; }).join(' '); }
+  function rowHTML(r, m, isFuture, grouped){
+    const ts = triState(m);
+    const imp = m.importance;
+    const cd = r.dated ? r.date : ''; const dayR=(m.records||[]).filter(x=>(x.knowledge_time.slice(0,10)===cd||x.period.slice(0,10)===cd)); const dr = dayR.find(x=>x.direction&&x.direction!=='—') || (m.records||[]).find(x=>x.direction&&x.direction!=='—');
+    const dayTxt = dayR.length ? (dayR[0].entity+' · '+dayR[0].value+(dayR[0].unit&&dayR[0].unit!=='—'&&/^[\d≈~>+\-−.]/.test(dayR[0].value)?' '+dayR[0].unit:'')) : m.value_latest;
+    const actual = isFuture ? '<span style="color:var(--ink-3)">— 待发布</span>' : (dr?`<span class="d ${dcls(dr.direction)}" title="方向（B 级判断 A11）：${esc(dr.direction_note||dr.note||'')}">${esc(dr.direction)}</span> `:'')+shortVal(dayTxt, 64);
+    const prov = provShort(m.provenance);
+    return `<tr class="row ${isFuture?'future':''}" data-m="${esc(m.metric_id)}">
+      <td class="sub hide-m">${esc((r.date_precision||'').replace(/（.*$/,''))}</td>
+      <td><span class="reg ${m.region}">${m.region}</span></td>
+      <td class="hide-m"><span class="imp" data-n="${imp}" title="重要性 ${['','L','M','H'][imp]}"><i></i><i></i><i></i></span></td>
+      <td><div class="name"><a href="#" class="nm" data-cal="${esc(r.cal_id)}" data-m="${esc(m.metric_id)}">${esc(grouped?m.name:(r.event||m.name))}</a></div><div class="sub"><span class="role r-${esc(m.tpl)}">${esc(ROLE_UI[m.role]||m.role)}</span> ${grouped?'':esc(m.name)+' · '}${esc(m.ticker_or_entity)} · ${esc(dimOf(m)||m.entry)}${(isFuture&&!grouped)?basisTag(r.basis):''}<span class="mobile-only"> · ${esc(prov)} · 重要 ${['','L','M','H'][imp]}</span></div></td>
+      <td class="num">${actual}</td>
+      <td class="num hide-m">${shortVal(m.expectation_base, 48)}</td>
+      <td class="num hide-m">${shortVal(m.prior_or_yoy, 40)}</td>
+      <td class="hide-m">${impactChips(m)}</td>
+      <td class="hide-m"><span class="badge ${provClass(m.provenance)}">${esc(prov)}</span></td>
+      <td class="hide-m"><span class="own ${esc((m.owner||'').charAt(0))}">${esc((m.owner||'—').charAt(0))}</span></td>
+      <td class="hide-m avail">${availIcon(m.availability)}</td>
+    </tr>`;
+  }
+  function shortVal(s, n){ if(!s) return '—'; let t=String(s).replace(/（原文：[^）]*）/g,'').replace(/\(原文：[^)]*\)/g,'').split(/；|;/)[0].trim(); n=n||56; if(t.length>n) t=t.slice(0,n-1)+'…'; return esc(t); }
+  function linkifyShort(s){ return esc(s); }
+
+  function render(){
+    const body=document.getElementById('calBody'); const groups=[]; let count=0;
+    const cal=[...DATA.calendar];
+    const byKey={};
+    for(const r of cal){
+      const isPast=r.is_past, isFuture=r.dated && !r.is_past, undated=!r.dated;
+      if(state.range==='past'&&!isPast) continue;
+      if(state.range==='future'&&!isFuture) continue;
+      if(state.range==='undated'&&!undated) continue;
+      if(state.preset==='week'){ if(!r.dated) continue; const dd=(new Date(r.date)-new Date(AS_OF))/86400000; if(dd<-7||dd>7) continue; }
+      if(state.q && r.dated && !(r.event||'').toLowerCase().includes(state.q) && !r.metrics.some(id=>((M[id]||{}).name+' '+(M[id]||{}).ticker_or_entity).toLowerCase().includes(state.q))) { /* row-level search: keep if any metric matches */ }
+      const ms=r.metrics.map(id=>M[id]).filter(m=>m&&passes(m));
+      if(!ms.length) continue;
+      const key=r.dated?r.date:('~'+r.date);
+      (byKey[key]=byKey[key]||{r,ms:[],future:isFuture,undated}).ms.push(...ms.map(m=>({r,m})));
+    }
+    const keys=Object.keys(byKey).sort((a,b)=>{const ua=a.startsWith('~'),ub=b.startsWith('~'); if(ua!==ub) return ua?1:-1; return a<b?-1:a>b?1:0;});
+    let html=''; let todayDrawn=false;
+    for(const k of keys){
+      const g=byKey[k];
+      if(!todayDrawn && !k.startsWith('~') && k>AS_OF){ html+=`<tr class="day today"><th colspan="11">今天 · ${AS_OF} · 以下为未来排期（实测留空）</th></tr>`; todayDrawn=true; }
+      const label = k.startsWith('~') ? (g.r.date==='weekly'?'周期性（周更）':'事件驱动 · 无排期') : fmtDate(k);
+      html+=`<tr class="day"><th colspan="11">${esc(label)}${g.future&&!k.startsWith('~')?basisTag(g.r.basis):''}</th></tr>`;
+      const byEv={}; for(const x of g.ms){ (byEv[x.r.event]=byEv[x.r.event]||{r:x.r,ms:[]}).ms.push(x.m); }
+      for(const ev of Object.values(byEv)){
+        const uniq=[...new Map(ev.ms.map(m=>[m.metric_id,m])).values()];
+        if(uniq.length>1){ html+=`<tr class="ev"><td colspan="11"><span class="name"><a href="#" class="nm" data-cal="${esc(ev.r.cal_id)}">${esc(ev.r.event)}</a></span>${g.future?basisTag(ev.r.basis):''}<span class="sub" style="display:inline;margin-left:8px">${esc(ev.r.entity_or_ticker)} · ${uniq.length} 个指标</span></td></tr>`; }
+        for(const m of uniq){ html+=rowHTML(ev.r,m,g.future,uniq.length>1); count++; }
+      }
+    }
+    if(!todayDrawn && state.range==='all'){ /* 没有未来行也画一条今天线 */ }
+    body.innerHTML=html; document.getElementById('empty').hidden=count>0;
+    body.querySelectorAll('tr.row').forEach(tr=>tr.addEventListener('click',(ev)=>{ if(ev.target.closest('a.nm')) return; body.querySelectorAll('tr.row.sel').forEach(x=>x.classList.remove('sel')); tr.classList.add('sel'); const cal=DATA.calendar.find(c=>c.cal_id===tr.querySelector('a.nm')?.dataset.cal); const m=M[tr.dataset.m]; state.hits=[...new Set((m.impacts||[]).map(i=>i.ticker).concat(m.entry==='持仓'?[m.ticker_or_entity]:[]))]; markHits(); selectKF(cal?{type:'event',cal,mid:tr.dataset.m}:{type:'metric',mid:tr.dataset.m}); }));
+    body.querySelectorAll('a.nm').forEach(a=>a.addEventListener('click',(ev)=>{ ev.preventDefault(); const cal=DATA.calendar.find(c=>c.cal_id===a.dataset.cal); if(cal) openPage({type:'event',cal,mid:a.dataset.m}); else openPage({type:'metric',mid:a.dataset.m}); }));
+  }
+  function fmtDate(d){ const [y,mo,da]=d.split('-').map(Number); const wd='日一二三四五六'[new Date(y,mo-1,da).getDay()]; return `${y}-${String(mo).padStart(2,'0')}-${String(da).padStart(2,'0')} 周${wd}`; }
+
+  // ---------- sidebar ----------
+  const TICKERS=[['NBIS','51.22%','m_nbis_rev'],['RBRK','29.80%','m_rbrk_rev'],['STAA','8.03%','m_staa_sales'],['FCEL','7.12%','m_fcel_rev'],['SUPX','1.30%','m_tail_supx'],['SNDK','0.83%','m_tail_sndk'],['SLMT','0.42%','m_slmt'],['MU','0.37%','m_tail_mu'],['INTC','0.24%','m_tail_intc'],['CIEN','0.23%','m_tail_cien'],['MRVL','0.15%','m_tail_mrvl'],['POET','0.15%','m_tail_poet'],['AMD','0.13%','m_tail_amd'],['组合','13F','m_13f_book'],['0679.HK','DI','m_hkex_0679']];
+  function dcls(x){ return x.includes('↓')?'dn':x.includes('!')&&!x.includes('↑')?'ex':x.includes('↑')?'up':x==='—'?'na':''; }
+  function dchip(x){ return `<span class="d ${dcls(x)}">${esc(x)}</span>`; }
+  function renderWatch(){
+    const tb=document.getElementById('sigBody'); const W=DATA.watch; const st=renderWatch.state||(renderWatch.state={core:true,tail:false,pot:true,nonai:false});
+    const row=w=>`<tr class="r ${state.chain===w.ticker?'sel':''}" data-t="${esc(w.ticker)}" data-m="${esc(w.main)}" title="${esc(w.ticker)} ${esc(w.weight)}${w.verify?` · 验证点 ${w.verify.d} 天：${esc(w.verify.ev)}`:''}"><td><span class="t">${esc(w.ticker)}</span><span class="w">${esc(w.weight)}</span></td><td>${dchip(w.st['供'])}${dchip(w.st['需'])}${dchip(w.st['政'])}</td><td class="mv" title="${esc(w.moved)} · ${esc(w.moved_note)}">${w.moved==='—'?'<span class="d na">—</span>':dchip(w.moved.slice(0,2).replace('本体','本'))}</td><td><span class="wn ${w.warn?'on':''}" title="${esc(w.warn_note)}">${w.warn||'0'}</span></td><td class="ld">${esc(w.lead)}${w.lead_tier?` <small>${esc(w.lead_tier)}</small>`:''}</td></tr>`;
+    const prow=p=>`<tr class="r" data-m="${esc(p.mid)}" title="${esc(p.name)} · ${esc(p.dir_note)}"><td><span class="t">${esc(p.ticker)}</span></td><td title="${esc(p.dir_note)}">${dchip(p.dir)}</td><td class="sub" colspan="2">→ ${p.feeds.length?p.feeds.map(esc).join(' '):'未挂边'}</td><td class="ld sub">${p.next?`${p.next.d}d`:'—'}</td></tr>`;
+    const grp=(key,label,n,open)=>`<tr class="g" data-g="${key}"><td colspan="5">${open?'▾':'▸'} ${label} · ${n}</td></tr>`;
+    let h=grp('core','持仓 · 核心',3,st.core)+(st.core?W.filter(w=>w.group==='core').map(row).join(''):'');
+    h+=grp('tail','持仓 · 尾仓 tracker',W.filter(w=>w.group==='tail').length,st.tail)+(st.tail?W.filter(w=>w.group==='tail').map(row).join(''):'');
+    h+=grp('pot','上游可交易 · 未持仓',DATA.potential.length,st.pot)+(st.pot?DATA.potential.map(prow).join(''):'');
+    h+=grp('nonai','非 AI 敞口',W.filter(w=>w.group==='nonai').length,st.nonai)+(st.nonai?W.filter(w=>w.group==='nonai').map(row).join(''):'');
+    tb.innerHTML=h;
+    tb.querySelectorAll('tr.g').forEach(tr=>tr.addEventListener('click',()=>{ st[tr.dataset.g]=!st[tr.dataset.g]; renderWatch(); }));
+    tb.querySelectorAll('tr.r').forEach(tr=>tr.addEventListener('click',()=>{
+      const onPage=!document.getElementById('pageView').hidden;
+      if(tr.dataset.t){ if(onPage){ openPage({type:'ticker',ticker:tr.dataset.t,mid:tr.dataset.m}); return; } state.chain = state.chain===tr.dataset.t ? '' : tr.dataset.t; renderChips(); render(); renderWatch(); selectKF({type:'ticker',ticker:tr.dataset.t,mid:tr.dataset.m}); }
+      else { if(onPage){ openPage({type:'metric',mid:tr.dataset.m}); return; } state.chain=''; renderChips(); render(); tb.querySelectorAll('tr.sel').forEach(x=>x.classList.remove('sel')); tr.classList.add('sel'); selectKF({type:'metric',mid:tr.dataset.m}); }
+    }));
+    tb.querySelectorAll('tr.r .t').forEach(x=>x.addEventListener('click',e=>{ e.stopPropagation(); const tr=x.closest('tr'); if(tr.dataset.t) openPage({type:'ticker',ticker:tr.dataset.t,mid:tr.dataset.m}); else openPage({type:'metric',mid:tr.dataset.m}); }));
+    markHits();
+  }
+  function markHits(){ const tb=document.getElementById('sigBody'); tb.querySelectorAll('tr.hit').forEach(x=>x.classList.remove('hit')); (state.hits||[]).forEach(t=>{ const tr=tb.querySelector(`tr.r[data-t="${t}"]`); if(tr) tr.classList.add('hit'); }); }
+  document.getElementById('wlHelp').addEventListener('click',()=>{ const l=document.getElementById('wlLegend'); l.hidden=!l.hidden; });
+  (function(){ const sp=document.getElementById('splitter'), wl=document.getElementById('wlcard'); let drag=false, y0=0, h0=0; sp.addEventListener('mousedown',e=>{ drag=true; y0=e.clientY; h0=wl.offsetHeight; document.body.style.userSelect='none'; }); window.addEventListener('mousemove',e=>{ if(!drag) return; const h=Math.max(100, Math.min(window.innerHeight-200, h0+(e.clientY-y0))); wl.style.height=h+'px'; }); window.addEventListener('mouseup',()=>{ if(drag){ drag=false; document.body.style.userSelect=''; try{localStorage.setItem('wlH',wl.style.height)}catch(x){} } }); try{ const h=localStorage.getItem('wlH'); if(h) wl.style.height=h; }catch(x){} })();
+  function renderSideB(){
+    const ul=document.createElement('ul'); ul.className='wl';
+    for(const [t,w,mid] of TICKERS){ const m=M[mid]; if(!m) continue; const kpi=(m.value_latest||'—').split('；')[0]+((m.position_note||'')?' · '+esc((m.position_note||'').split('；').filter(x=>/仓/.test(x)).join('')):'');
+      const extra = t==='NBIS' ? ' · regime <span class="state up"><b></b>信念（P5）</span>' : (m.notes_assumption_ids||'').includes('out-of-AI') ? ' · <span class="badge">out-of-AI-scope</span>' : '';
+      ul.insertAdjacentHTML('beforeend',`<li data-m="${mid}"><span class="t">${esc(t)}</span><span class="w">${esc(w)} · ${esc(dimOf(m)||'—')}</span><span class="badge ${provClass(m.provenance)}">${esc(provShort(m.provenance))}</span><span class="k">${esc(kpi)}${extra}</span></li>`); }
+    const box=document.getElementById('sideB'); box.innerHTML=''; box.appendChild(ul);
+    ul.querySelectorAll('li').forEach(li=>li.addEventListener('click',()=>openDrawer(li.dataset.m)));
+  }
+  function renderSideA(){
+    const box=document.getElementById('sideA'); let html='';
+    for(const d of DIMS){ const ms=DATA.metrics.filter(m=>m.entry==='AI'&&metricDims(m).includes(d)); const filled=ms.filter(m=>(m.fill_status||'').startsWith('已填')).length;
+      html+=`<details ${d==='D1'?'open':''}><summary><span class="badge">${d}</span>${esc(DIM_NAME[d])}<span class="cnt">${filled}/${ms.length} 已填</span></summary><ul>`;
+      for(const m of ms){ const nr=(m.next_release||'').match(/^\d{4}-\d{2}-\d{2}/); const overdue=nr&&nr[0]<AS_OF; html+=`<li data-m="${esc(m.metric_id)}"><span class="own ${esc((m.owner||'').charAt(0))}">${esc((m.owner||'—').charAt(0))}</span>${esc(m.name)}<span class="fs">${overdue?'<span style="color:var(--critical)">过期未更新 · </span>':''}${esc(m.availability||'')} ${esc((m.fill_status||'').split('（')[0])}</span></li>`; }
+      html+='</ul></details>'; }
+    html+=`<details><summary><span class="badge">交点</span>持仓 ↔ AI 维（边）<span class="cnt">${DATA.edges.length} 条</span></summary><ul>`+DATA.edges.map(e=>`<li data-m="${esc(e.from_metric)}"><span class="badge">${esc(e.cert_tier.split('（')[0])}</span>${esc((M[e.from_metric]||{}).name||e.from_metric)} → ${esc(e.to_ticker)}<span class="fs">${esc(e.hops)} 跳 ${esc(e.is_key)}</span></li>`).join('')+'</ul></details>';
+    box.innerHTML=html; box.querySelectorAll('li').forEach(li=>li.addEventListener('click',()=>openDrawer(li.dataset.m)));
+  }
+
+  // ---------- drawer ----------
+  function openDrawer(mid){ openPage({type:'metric',mid}); }
+  function openDrawer_legacy(mid){
+    const m=M[mid]; if(!m) return;
+    const recs=m.records||[]; const TYPE={actual:'实测',prior:'上期',guidance:'指引',target:'目标',event:'事件',state:'状态',position:'仓位',computed:'计算值'};
+    const head=recs.find(r=>['actual','event','position','state','computed'].includes(r.obs_type))||recs[0];
+    // ---- 1 这是什么 ----
+    let html=`<div class="id">${esc(m.metric_id)} · ${esc(m.entry)} · ${esc(m.dim||'—')} · 类${esc(m.data_class)} · <span class="own ${esc((m.owner||'').charAt(0))}">${esc((m.owner||'—').charAt(0))}</span></div><h2 id="dTitle">${esc(m.name)}</h2>
+      <div class="hero">${esc(m.value_latest||'—')}</div>
+      <div class="sub">${head?esc(head.period)+' · 知悉 '+esc(head.knowledge_time)+' · ':''}<span class="badge ${provClass(m.provenance)}">${esc(m.provenance||'—')}</span> ${esc(m.availability||'')}${m.expectation_base?' · 预期基准：'+esc(m.expectation_base):''}${m.prior_or_yoy?' · 上期：'+esc(m.prior_or_yoy):''}</div>`;
+    // ---- 2 打到谁 + 3 多确定 ----
+    const im=m.impacts||[], up=m.upstream||[];
+    if(im.length){
+      html+=`<h3>打到谁（本节点 → 持仓票）</h3>`+im.map(i=>{ const chain=[m.name,...(i.chain?i.chain.split('→').map(x=>x.trim()):[]),i.ticker]; return `<div class="edge ${esc(i.tier.split('（')[0].split('/')[0])}"><div><b>${esc(i.ticker)}</b> <span class="sub" style="display:inline">${esc(i.weight)}</span> · ${esc(i.side)} · ${esc(i.hops)} 跳 · <span class="ic ${i.dominant==='预警'?'w':i.dominant==='可交易'?'t':''}">${esc(i.dominant)}占优</span> ${esc(i.is_key)}</div><div class="sub" style="margin-top:4px">${chain.map(esc).join(' → ')}</div><div class="sub">多确定：${esc(i.sentence)}</div><div class="sub">可交易 ${esc(i.tradable)} / 预警 ${esc(i.warning)}（仅排序，A1–A9）</div></div>`; }).join('');
+    } else if(up.length){
+      html+=`<h3>上游映射边（→ ${esc(m.ticker_or_entity)}）</h3>`+up.map(u=>`<div class="edge ${esc(u.tier.split('（')[0].split('/')[0])}"><div>← <b>${esc((M[u.from_metric]||{}).name||u.from_metric)}</b> · ${esc(u.side)} · ${esc(u.hops)} 跳 · <span class="ic ${u.dominant==='预警'?'w':u.dominant==='可交易'?'t':''}">${esc(u.dominant)}</span> ${esc(u.is_key)}</div><div class="sub">多确定：${esc(u.sentence)}</div></div>`).join('');
+    } else {
+      html+=`<h3>打到谁</h3><div class="sub">本节点尚未挂到任何持仓票的边（${m.entry==='AI'?'前沿雷达 / 方向类节点，或 scope 内待映射':'非 AI 敞口'}）。</div>`;
+    }
+    // ---- 4 接下来盯什么 ----
+    const tickers=[...new Set(im.map(i=>i.ticker).concat(up.length?[m.ticker_or_entity]:[]))];
+    const relMetrics=new Set([mid]); DATA.edges.forEach(e=>{ if(tickers.includes(e.to_ticker)) relMetrics.add(e.from_metric); }); DATA.metrics.forEach(x=>{ if(tickers.includes(x.ticker_or_entity)) relMetrics.add(x.metric_id); });
+    const upcoming=DATA.calendar.filter(r=>r.dated&&!r.is_past&&r.metrics.some(x=>relMetrics.has(x))).sort((a,b)=>a.date<b.date?-1:1).slice(0,6);
+    const eventDriven=DATA.calendar.filter(r=>!r.dated&&r.metrics.some(x=>relMetrics.has(x)));
+    html+=`<h3>接下来盯什么（同一条链上的下次数据点）</h3>`+(upcoming.length?`<ul style="padding-left:18px;font-size:12.5px;margin:0">`+upcoming.map(r=>`<li><b>${esc(r.date)}</b> ${esc(r.event)} ${basisTag(r.basis)}<div class="sub">${esc(r.entity_or_ticker)} · ${esc(r.source_or_rule)}</div></li>`).join('')+'</ul>':'<div class="sub">无已排期数据点。</div>')+(eventDriven.length?`<div class="sub" style="margin-top:6px">事件驱动、无排期：${eventDriven.map(r=>esc(r.event)).join('；')}</div>`:'');
+    if(im.length||up.length) html+=`<div style="margin:12px 0"><button id="dToMap">看整条链（映射图聚焦）→</button></div>`;
+    // ---- 5 记录 ----
+    const recRows=recs.map(r=>`<tr><td class="sub" style="white-space:nowrap">${esc(r.knowledge_time)}</td><td><span class="badge">${esc(TYPE[r.obs_type]||r.obs_type)}</span></td><td>${esc(r.entity)}</td><td class="num"><b>${esc(r.value)}</b> <span class="sub" style="display:inline">${esc(r.unit==='—'?'':r.unit)}</span><div class="sub">${esc(r.period)}${r.note?' · '+esc(r.note):''}</div></td><td><span class="badge ${provClass(r.provenance)}">${esc(r.provenance)}</span></td><td class="sub" style="word-break:break-all">${linkify(r.source)}</td></tr>`).join('');
+    html+=`<h3>证据：观测记录（${recs.length} 条 · 一行一个事实）</h3><div style="overflow:auto"><table class="rt"><thead><tr><th>知悉时间</th><th>类型</th><th>实体</th><th>值 / 期间</th><th>P</th><th>来源</th></tr></thead><tbody>${recRows||'<tr><td colspan="6" class="sub">无记录</td></tr>'}</tbody></table></div>`;
+    // ---- 6 数据卡（折叠）----
+    const kv=[['信号角色',esc(m.signal_role)],['频率 / 领先期',`${esc(m.frequency)} · ${esc(m.lead_time_est)}`],['owner',`${esc(m.owner)}`],['可得性',esc(m.availability)],['下次发布',`${esc(m.next_release)} ${basisTag(m.next_release_basis)}<div class="sub">${esc(m.next_release_basis)}</div>`],['填数状态',esc(m.status)],['来源族',linkify(m.source_family)],['备注 / 假设 ID',esc(m.notes_assumption_ids||'—')]];
+    html+=`<details style="margin-top:14px"><summary class="sub" style="cursor:pointer">数据卡（schema · 来源族 · 假设 —— 数据岗用）</summary><dl class="kv">${kv.map(([k,v])=>`<dt>${k}</dt><dd>${v||'—'}</dd>`).join('')}</dl></details>`;
+    document.getElementById('dBody').innerHTML=html;
+    const b=document.getElementById('dToMap'); if(b) b.addEventListener('click',()=>{ closeDrawer(); focusMap(mid); });
+    document.getElementById('drawer').classList.add('on'); document.getElementById('overlay').classList.add('on');
+  }
+  function closeDrawer(){ document.getElementById('drawer').classList.remove('on'); document.getElementById('overlay').classList.remove('on'); }
+  document.getElementById('dClose').addEventListener('click',closeDrawer);
+  document.getElementById('overlay').addEventListener('click',closeDrawer);
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeDrawer(); });
+
+  // ---------- controls ----------
+  const dimsBox=document.getElementById('dims');
+  for(const d of DIMS){ const l=document.createElement('label'); l.innerHTML=`<input type="checkbox" class="dim" data-d="${d}" checked> ${d} ${DIM_NAME[d]}`; dimsBox.appendChild(l); }
+  function syncState(){ state.entries=new Set([...document.querySelectorAll('.ent:checked')].map(x=>x.dataset.e)); state.dims=new Set([...document.querySelectorAll('.dim:checked')].map(x=>x.dataset.d)); state.cls=new Set([...document.querySelectorAll('.cls:checked')].map(x=>x.dataset.c)); state.cnOnly=document.getElementById('cnOnly').checked; renderChips(); render(); }
+  function renderChips(){ const chips=[]; if(state.entries.size<2) chips.push([...state.entries].join('+')||'无入口'); if(state.dims.size<DIMS.length) chips.push(state.dims.size?[...state.dims].join(' '):'无维度'); if(state.cls.size<4) chips.push('类 '+[...state.cls].join('')); if(state.cnOnly) chips.push('CN'); if(state.q) chips.push('搜 '+state.q); if(state.chain) chips.push('链：'+state.chain+' ×'); document.getElementById('activeChips').innerHTML=chips.map(c=>`<span class="achip" ${c.startsWith('链：')?'data-clear="chain" style="cursor:pointer"':''}>${esc(c)}</span>`).join(''); const cc=document.querySelector('.achip[data-clear="chain"]'); if(cc) cc.addEventListener('click',()=>{ state.chain=''; renderChips(); render(); renderWatch(); }); document.getElementById('filtCount').textContent=chips.length?`(${chips.length})`:''; }
+  document.querySelectorAll('.ent,.dim,.cls,#cnOnly').forEach(x=>x.addEventListener('change',syncState));
+  document.getElementById('filtReset').addEventListener('click',()=>{ document.querySelectorAll('.ent,.dim,.cls').forEach(x=>x.checked=true); document.getElementById('cnOnly').checked=false; document.getElementById('q').value=''; state.q=''; state.preset=''; state.chain=''; document.querySelectorAll('.preset').forEach(b=>b.setAttribute('aria-pressed','false')); syncState(); });
+  document.querySelectorAll('.rng').forEach(b=>b.addEventListener('click',()=>{ document.querySelectorAll('.rng').forEach(x=>x.setAttribute('aria-pressed','false')); b.setAttribute('aria-pressed','true'); state.range=b.dataset.r; render(); }));
+  document.querySelectorAll('.preset').forEach(b=>b.addEventListener('click',()=>{ const on=b.getAttribute('aria-pressed')!=='true'; document.querySelectorAll('.preset').forEach(x=>x.setAttribute('aria-pressed','false')); state.preset=on?b.dataset.p:''; b.setAttribute('aria-pressed',String(on)); render(); }));
+  const qEl=document.getElementById('q'); qEl.addEventListener('input',()=>{ state.q=qEl.value.trim().toLowerCase(); renderChips(); render(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='/'&&document.activeElement!==qEl){ e.preventDefault(); qEl.focus(); } });
+  document.getElementById('btnTheme').addEventListener('click',()=>{ const r=document.documentElement; const cur=r.getAttribute('data-theme'); const dark=cur?cur==='dark':matchMedia('(prefers-color-scheme: dark)').matches; r.setAttribute('data-theme',dark?'light':'dark'); try{localStorage.setItem('theme',dark?'light':'dark')}catch(e){} });
+  try{ const t=localStorage.getItem('theme'); if(t) document.documentElement.setAttribute('data-theme',t); }catch(e){}
+
+
+  // ---------- 关键事实卡（右栏）+ 下钻整页 ----------
+  const TYPE_CN={actual:'实测',prior:'上期',guidance:'指引',target:'目标',event:'事件',state:'状态',position:'仓位',computed:'计算值'};
+  const ROLE_UI={'领先':'领先指标','本体':'公司数据','仓位':'仓位','事件':'事件','regime':'政策','前沿':'前沿','观点':'观点','对账':'综合判断'}; const CONF_UI={T1:'可回测',T2:'结构成立',T3:'方向级'}; const DIR_TXT={'↑':'加强','↓':'削弱','→':'持平','!':'待判断','—':'无新观测','↑!':'加强，待判断','↓!':'削弱，待判断','→!':'持平，待判断'};
+  function daysTo(d){ return Math.round((new Date(d)-new Date(AS_OF))/86400000); }
+  function chainOf(mid){ const m=M[mid]; const tick=new Set(); DATA.edges.forEach(e=>{ if(e.from_metric===mid) tick.add(e.to_ticker); }); if(m&&m.entry==='持仓') tick.add(m.ticker_or_entity); const rel=new Set([mid]); DATA.edges.forEach(e=>{ if(tick.has(e.to_ticker)) rel.add(e.from_metric); }); DATA.metrics.forEach(x=>{ if(tick.has(x.ticker_or_entity)) rel.add(x.metric_id); }); return {tick,rel}; }
+  function upcomingFor(rel,n){ return DATA.calendar.filter(r=>r.dated&&!r.is_past&&r.metrics.some(x=>rel.has(x))).sort((a,b)=>a.date<b.date?-1:1).slice(0,n||6); }
+  function statsFor(mid){ const m=M[mid]; const {tick,rel}=chainOf(mid); const up=upcomingFor(rel,1)[0]; const es=DATA.edges.filter(e=>e.from_metric===mid); const mx=k=>es.length?Math.max(...es.map(e=>numS(e[k])??-1)):null; const recs=m.records||[]; const new7=recs.filter(r=>{const d=daysTo(r.knowledge_time); return d<=0&&d>=-7;}).length; return {next:up?{d:daysTo(up.date),ev:up.event,basis:(up.basis||'').split('（')[0]}:null, new7, edges:es.length, trad:mx('tradable_score'), warn:mx('warning_score'), tick:[...tick], prov:m.provenance}; }
+  // ---------- 右下面板：区块注册 + 可视组件 ----------
+  const PN_OBJ=[['id','身份'],['state','上游供给 · 下游需求 · 政策环境'],['judge','综合判断'],['ladder','AI 发展 → 本票'],['kpi','公司数据'],['struct','证据结构'],['risk','风险提示'],['next','接下来 120 天'],['fals','什么情况下判断会变'],['more','更多']];
+  const PN_SIG=[['id','身份'],['fact','事实'],['brief','关键事实'],['ladder','在 AI 发展链上的位置'],['tpl','读数'],['impact','影响持仓 · 可信程度'],['next','接下来'],['more','更多']];
+  const PN_DEF={obj:new Set(['id','state','judge','ladder','kpi','struct','next','more']), sig:new Set(['id','fact','brief','ladder','tpl','impact','next','more'])};
+  function pnPrefs(kind){ try{ const v=JSON.parse(localStorage.getItem('pn_'+kind)||'null'); if(v) return new Set(v); }catch(e){} return new Set(PN_DEF[kind]); }
+  function pnSave(kind,set){ try{ localStorage.setItem('pn_'+kind, JSON.stringify([...set])); }catch(e){} }
+  const dtxt=x=>DIR_TXT[x]||x;
+  function tile(label,st,sub){ return `<div class="tile ${dcls(st)}"><span class="sub">${esc(label)}</span><b>${esc(dtxt(st))}</b>${sub?`<span class="sub">${esc(sub)}</span>`:''}</div>`; }
+  function gauge3(pos,labels){ // pos: 0 左 1 中 2 右 -1 无
+    const W=200,H=112,cx=100,cy=100,r=78; const seg=(a0,a1,cls)=>{ const p=a=>[cx+r*Math.cos(Math.PI*(1-a)),cy-r*Math.sin(Math.PI*a)]; const [x0,y0]=p(a0),[x1,y1]=p(a1); return `<path d="M${x0.toFixed(1)},${y0.toFixed(1)} A${r},${r} 0 0 1 ${x1.toFixed(1)},${y1.toFixed(1)}" fill="none" stroke-width="12" class="${cls}"/>`; };
+    const ang=pos<0?null:[0.17,0.5,0.83][pos]; const nx=ang==null?null:cx+ (r-22)*Math.cos(Math.PI*(1-ang)), ny=ang==null?null:cy-(r-22)*Math.sin(Math.PI*ang);
+    return `<svg class="gauge" viewBox="0 0 ${W} ${H}">${seg(0,0.33,'g-dn')}${seg(0.34,0.66,'g-md')}${seg(0.67,1,'g-up')}${ang==null?'':`<line x1="${cx}" y1="${cy}" x2="${nx.toFixed(1)}" y2="${ny.toFixed(1)}" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/><circle cx="${cx}" cy="${cy}" r="4" fill="var(--ink)"/>`}<text x="14" y="${H-2}" font-size="10" fill="var(--ink-3)">${esc(labels[0])}</text><text x="${cx}" y="14" font-size="10" fill="var(--ink-3)" text-anchor="middle">${esc(labels[1])}</text><text x="${W-14}" y="${H-2}" font-size="10" fill="var(--ink-3)" text-anchor="end">${esc(labels[2])}</text></svg>`; }
+  function donut(parts,total,center){ const R=40,r=27,cx=48,cy=48; let a=-Math.PI/2, h=''; const cols={supply:'var(--accent)',demand:'var(--serious)',regime:'var(--p5)',compete:'var(--critical)',self:'var(--ink-3)'}; const names={supply:'供给侧',demand:'需求侧',regime:'政策',compete:'同业 / 竞对',self:'公司自身'};
+    for(const [k,v] of parts){ if(!v) continue; const f=v/Math.max(total,1)*2*Math.PI; const a1=a+f; const large=f>Math.PI?1:0; const p=(ang,rad)=>[cx+rad*Math.cos(ang),cy+rad*Math.sin(ang)]; const [x0,y0]=p(a,R),[x1,y1]=p(a1,R),[x2,y2]=p(a1,r),[x3,y3]=p(a,r); h+=`<path d="M${x0},${y0} A${R},${R} 0 ${large} 1 ${x1},${y1} L${x2},${y2} A${r},${r} 0 ${large} 0 ${x3},${y3} Z" fill="${cols[k]}"/>`; a=a1+0.02; }
+    return `<div class="donut"><svg viewBox="0 0 96 96" width="96" height="96">${h}<text x="48" y="52" text-anchor="middle" font-size="16" font-weight="700" fill="var(--ink)">${total}</text><text x="48" y="64" text-anchor="middle" font-size="9" fill="var(--ink-3)">${esc(center)}</text></svg><div class="lg">${parts.filter(([k,v])=>v).map(([k,v])=>`<span><i style="background:${cols[k]}"></i>${esc(names[k])}</span><b>${v}</b>`).join('')}</div></div>`; }
+  function segbar(items){ const tot=items.reduce((a,[k,v])=>a+v,0)||1; return `<div class="segbar">${items.map(([k,v,c])=>`<span style="width:${(v/tot*100).toFixed(1)}%;background:${c}" title="${esc(k)} ${v}"></span>`).join('')}</div><div class="sub" style="display:flex;gap:10px;flex-wrap:wrap">${items.map(([k,v,c])=>`<span><i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:${c};margin-right:4px"></i>${esc(k)} ${v}</span>`).join('')}</div>`; }
+  function strip(events,days){ days=days||120; const W=320,H=64; const x=d=>14+Math.max(0,Math.min(days,d))/days*(W-28); let h=`<line class="ax" x1="14" x2="${W-14}" y1="30" y2="30"/><line class="today" x1="14" x2="14" y1="8" y2="52"/><text x="14" y="62">今天</text><text x="${W-14}" y="62" text-anchor="end">+${days}d</text>`;
+    const shown=events.slice(0,8); shown.forEach((e,i)=>{ const cx=x(e.d); const up=i%2===0; h+=`<circle class="dot ${e.basis==='估计'||e.basis==='待定'?'est':''}" cx="${cx.toFixed(1)}" cy="30" r="4.5"><title>${esc(e.date)} ${esc(e.event)}（${esc(e.basis)}）</title></circle>`; if(i<5) h+=`<text x="${cx.toFixed(1)}" y="${up?18:46}" text-anchor="middle">${e.d}d</text>`; });
+    return `<svg class="strip" viewBox="0 0 ${W} ${H}">${h}</svg><ul class="kvt" style="list-style:none;padding:0;margin:4px 0 0">${shown.slice(0,4).map(e=>`<li style="display:flex;gap:8px;font-size:12px;padding:3px 0"><b style="min-width:34px">${e.d}d</b><span style="flex:1">${esc(e.event)}</span><span class="basis">${esc(e.basis)}</span></li>`).join('')}</ul><div class="sub">实心 = 公司公告 / 规则推定；空心 = 估计</div>`; }
+  function ladderHTML(rungs, curKey, tick){ return `<ul class="lad">${rungs.map(r=>{ const c=r.conf==='可回测'?'c1':r.conf==='结构成立'?'c2':'c3'; const pts=(r.points||[]).map(p=>`<div class="lp"><span class="k">${esc(p.entity)}</span> ${esc(String(p.value).slice(0,28))} ${p.unit&&p.unit!=='—'&&/^[\d≈~>+\-−.]/.test(p.value)?esc(p.unit.slice(0,14)):''} <span class="k">${esc(p.kt)}</span></div>`).join(''); return `<li class="${c} ${r.key===curKey?'cur':''} ${r.layer!=='AI 发展层'?'grey':''}"><div class="lt">${esc(r.label)} ${dchip(r.state)} <span class="conf">${esc(r.conf)} · ${r.n_edges||r.n_metrics} 条${r.excl&&r.excl.length?' · '+esc(r.excl.join(' / ')):''}</span></div>${pts}</li>`; }).join('')}${tick?`<li class="c1"><div class="lt">${esc(tick)}</div></li>`:''}</ul><div class="sub">深色点 = 可回测；灰点 = 结构成立；空心 = 方向级；灰字级 = 产业确认与公司数据（常规投研也有）</div>`; }
+  function kvTable(rows){ return `<table class="kvt">${rows.map(r=>`<tr><td>${r[0]}${r[2]?`<div class="dt">${r[2]}</div>`:''}</td><td>${r[1]}</td></tr>`).join('')}</table>`; }
+  function pnHeader(kind, title, sub, menuHtml){ return `<div style="display:flex;gap:8px;align-items:flex-start"><div style="flex:1;min-width:0"><div class="sub">${kind==='obj'?'对象':'信号'}</div><div style="font-size:16px;font-weight:600;line-height:1.3">${title}</div>${sub?`<div class="sub" style="margin-top:2px">${sub}</div>`:''}</div><div class="pnmenu"><button class="chip" id="pnMenuBtn" title="选择显示的区块">⋯</button><div class="menu" id="pnMenu" hidden>${menuHtml}</div></div></div>`; }
+  function objSections(w){ const t=w.ticker, meta=TICK_META[t]||{}, k=DATA.kf_ticker[t]||{}, own=DATA.metrics.filter(m=>m.ticker_or_entity===t), rec=M['m_reconcile_nbis']; const S={};
+    S.id=`<div class="sub">${esc(t)} · ${esc(meta.layer||'')}${meta.factor?' · 我们看：'+esc(meta.factor.replace(/^收入因子 = /,'')):''}</div>${k.status_line?`<div style="font-size:13px;margin-top:6px">${esc(k.status_line)}</div>`:''}<div class="sub" style="margin-top:6px">持仓权重 <b>${esc(w.weight)}</b> · 13F 2026Q2 · 截止 2026-06-30 · 数据更新至 ${AS_OF}</div>`;
+    S.state=`<div class="tiles">${tile('上游供给',w.st['供'])}${tile('下游需求',w.st['需'])}${tile('政策环境',w.st['政'])}</div><div class="sub" style="margin-top:6px">近 60 天关键上游观测的方向合成 · 本周：${esc(w.moved==='—'?'无':dtxt(w.moved.slice(1,2))+'（'+w.moved.split(' ')[1]+'）')} · 领先指标：${esc(w.lead)}</div>`;
+    const pos = t==='NBIS' ? 2 : -1;
+    S.judge= t==='NBIS' ? `${gauge3(pos,['偏空 / 背离','观察','偏多 / 同向'])}<div style="text-align:center;font-weight:600">同向偏多</div><div class="sub" style="text-align:center">分析师判断 · 2026-09-19 · 阈值暂定</div>` : `<div class="sub">该票尚未设对账节点，综合判断待建。</div>`;
+    S.ladder=ladderHTML(w.ladder||[], null, t+' · 持仓 '+w.weight);
+    S.kpi=kvTable(own.filter(m=>m.metric_id!=='m_reconcile_nbis').map(m=>{ const a=(m.records||[]).find(r=>['actual','target','event','state'].includes(r.obs_type)); const g=(m.records||[]).find(r=>['guidance'].includes(r.obs_type)); return [esc(m.name.replace(/^NBIS |^Rubrik |^FuelCell |^STAAR /,'')), a?`${dchip(a.direction)} ${fmtRec(a)}`:'—', (a?esc(a.period)+' · '+esc(a.knowledge_time):'')+(g?' · 指引 '+fmtRec(g)+'（'+esc(g.period)+'）':'')]; }));
+    const st=w.structure||{}; S.struct=(st.total?donut([['supply',st.side.supply],['demand',st.side.demand],['regime',st.side.regime],['compete',st.side.compete],['self',st.side.self]],st.total,'条上游边'):'')+`<div class="sub" style="margin-top:8px">可信程度</div>`+segbar([['可回测',st.tier?.T1||0,'var(--ink)'],['结构成立',st.tier?.T2||0,'var(--ink-3)'],['方向级',st.tier?.T3||0,'var(--line-strong)']])+`<div class="sub" style="margin-top:6px">来源层</div>`+segbar([['AI 发展层',st.layer?.['AI 发展层']||0,'var(--accent)'],['产业确认层',st.layer?.['产业确认层']||0,'var(--ink-3)'],['公司数据层',st.layer?.['公司数据层']||0,'var(--line-strong)']])+`<div class="sub" style="margin-top:6px">独家性：${Object.entries(st.excl||{}).map(([k,v])=>esc(k)+' '+v).join(' · ')}</div>`;
+    const risks=(w.warn_note||'').split('；').filter(Boolean); S.risk=risks.length?`<ul class="risk">${risks.slice(0,4).map(r=>`<li>${esc(r)}</li>`).join('')}</ul>${risks.length>4?`<div class="sub">还有 ${risks.length-4} 条，见票页</div>`:''}`:'<div class="sub">近 60 天无风险提示。</div>';
+    S.next=strip(w.upcoming||[],120);
+    S.fals=k.falsifier?`<div class="fals">${esc(k.falsifier)}</div><div class="sub" style="margin-top:4px">分析师判断（B 初稿，待复核）</div>`:'<div class="sub">未设。</div>';
+    S.more=`<div class="pnfoot"><button id="pnOpen">打开票页 →</button><button class="chip" id="pnMap">映射图</button><span class="sub">证据与数据卡在票页</span></div>`;
+    return S; }
+  function sigSections(sel){ const cal=sel.type==='event'?sel.cal:null; const mid=sel.mid||(cal?cal.metrics[0]:null); const m=M[mid]; const S={};
+    const recs=m.records||[]; const dayR=cal?recs.filter(r=>r.knowledge_time.slice(0,10)===cal.date||r.period.slice(0,10)===cal.date):[]; const f=dayR[0]||recs.find(r=>r.direction&&r.direction!=='—')||recs[0];
+    const kf=cal?cal.kf:(DATA.calendar.filter(r=>r.kf&&r.metrics.includes(mid)&&r.is_past).sort((a,b)=>a.date<b.date?1:-1)[0]||{}).kf;
+    S.id=`<div class="sub">${cal?esc(cal.date)+' · ':''}<span class="role r-${esc(m.tpl)}">${esc(ROLE_UI[m.role]||m.role)}</span> ${esc(m.layer)} · ${esc(m.dim||'')}${f?' · 来源 '+esc(provShort(f.provenance)==='P1'?'一手':provShort(f.provenance)==='P2'?'电话会口径':'二手 / 估算'):''}</div><div class="sub" style="margin-top:4px">${esc(m.name)}${cal?' · '+esc(cal.source_or_rule):''}</div>`;
+    S.fact= f?`<div style="font-size:18px;font-weight:650;line-height:1.35">${dchip(f.direction||'—')} ${esc(f.entity)} · ${fmtRec(f)}</div><div class="sub">${esc(f.period)} · 知悉 ${esc(f.knowledge_time)}${f.direction_note?' · '+esc(f.direction_note):''}</div>`:(cal&&!cal.is_past?`<div style="font-size:16px;font-weight:600">待发布</div><div class="sub">${esc(cal.basis)}</div>`:'<div class="sub">无记录</div>');
+    const parts=kf?parseBrief(kf.brief):null; S.brief= parts?kvTable(parts.map(([k,v])=>[`<span class="dt">${esc(k)}</span>`,`<div style="text-align:left;white-space:normal;font-size:12.5px">${esc(v)}</div>`,'']))+(kf.watch?`<div class="fals" style="border-color:var(--line-strong);margin-top:8px">关注：${esc(kf.watch)}</div>`:''):'<div class="sub">无简报</div>';
+    const ticks=[...new Set((m.impacts||[]).map(i=>i.ticker))]; const w0=DATA.watch.find(x=>x.ticker===(ticks[0]||'')); const curKey=(m.dim||'').split('/')[0]; S.ladder= w0?ladderHTML(w0.ladder||[], m.entry==='持仓'?'OWN':curKey, ticks.join(' / ')):'<div class="sub">尚未挂到持仓票的链上（雷达节点）。</div>';
+    S.tpl= m.tpl==='A'?(()=>{ const a=recs.find(r=>r.obs_type==='actual'),p=recs.find(r=>r.obs_type==='prior'),g=recs.find(r=>['guidance','target'].includes(r.obs_type)); return `<div class="tiles"><div class="tile ${a?dcls(a.direction):''}"><span class="sub">本期</span><b>${a?fmtRec(a):'—'}</b><span class="sub">${a?esc(a.period):''}</span></div><div class="tile"><span class="sub">上期</span><b>${p?fmtRec(p):'—'}</b><span class="sub">${p?esc(p.period):''}</span></div><div class="tile"><span class="sub">${g&&g.obs_type==='target'?'目标':'指引'}</span><b>${g?fmtRec(g):'—'}</b><span class="sub">${g?esc(g.period):''}</span></div></div>`; })() : m.tpl==='B'?(()=>{ const ev=recs.filter(r=>['event','state','actual'].includes(r.obs_type)).slice(0,5); return `<ul class="risk" style="font-size:12px">${ev.map(r=>`<li style="padding-left:0"><b>${esc(r.knowledge_time)}</b> ${dchip(r.direction||'—')} ${esc(r.entity)} · ${esc(String(r.value).slice(0,40))}</li>`).join('').replace(/<li style="padding-left:0">/g,'<li style="padding-left:0;list-style:none">')}</ul>`; })() : (()=>{ const cur=recs.find(r=>['actual','state'].includes(r.obs_type)), prev=recs.find(r=>r.obs_type==='prior')||recs.filter(r=>['actual','state'].includes(r.obs_type))[1]; const third=/Artificial Analysis|ARC|Arena|Epoch|Hugging Face|swebench|OpenRouter/.test((cur||{}).source+(cur||{}).entity); return `<div class="tiles" style="grid-template-columns:1fr 1fr"><div class="tile"><span class="sub">当前</span><b>${cur?fmtRec(cur):'—'}</b><span class="sub">${cur?esc(cur.knowledge_time):''}</span></div><div class="tile"><span class="sub">上版 / 对照</span><b>${prev?fmtRec(prev):'—'}</b><span class="sub">${prev?esc(prev.period):''}</span></div></div><div class="sub" style="margin-top:6px">${third?'✓ 第三方中立评测':'△ 厂商 / 媒体口径，需证伪'} · 影响力：未评（分析师判）</div>`; })();
+    S.impact=(m.impacts||[]).length?kvTable((m.impacts||[]).map(i=>[`<b>${esc(i.ticker)}</b> <span class="dt" style="display:inline">${esc(i.weight)}</span>`,`${esc(i.side)} · ${esc(i.hops)} 步 · <span class="ic ${i.dominant==='预警'?'w':i.dominant==='可交易'?'t':''}">${esc(i.dominant==='预警'?'偏风险':i.dominant==='可交易'?'偏可交易':'待定')}</span>`,esc(CONF_UI[i.tier.split('（')[0].split('/')[0]]||'')+'：'+esc(i.sentence.replace(/^T\d[^：]*：/,'').split('；')[0].slice(0,60))])):(m.upstream||[]).length?`<div class="sub">公司自身数据 · 上游 ${(m.upstream||[]).length} 条边，见票页</div>`:'<div class="sub">未挂到持仓票。</div>';
+    const rel=chainOf(mid).rel; S.next=strip(upcomingFor(rel,8).map(r=>({d:daysTo(r.date),date:r.date,event:r.event,basis:(r.basis||'').split('（')[0]})),120);
+    S.more=`<div class="pnfoot"><button id="pnOpen">${cal?'打开事件页 →':'打开节点页 →'}</button><button class="chip" id="pnMap">映射图</button><span class="sub">证据与数据卡在整页</span></div>`;
+    return S; }
+  function parseBrief(b){ if(!b) return null; const keys=['前因','关键数据','相关方','后果']; const out=[]; let rest=b; for(let i=0;i<keys.length;i++){ const k=keys[i]; const idx=rest.indexOf(k+'：'); if(idx<0) continue; const nextIdx=keys.slice(i+1).map(n=>rest.indexOf(n+'：')).filter(x=>x>idx).sort((a,b)=>a-b)[0]; out.push([k, rest.slice(idx+k.length+1, nextIdx==null?undefined:nextIdx).trim()]); } return out.length?out:[['简报',b]]; }
+  function selectKF(sel){ const head=document.getElementById('pnHead'), body=document.getElementById('kfCard'); let kind, defs, S, title, sub;
+    if(sel.type==='ticker'){ const w=DATA.watch.find(x=>x.ticker===sel.ticker); if(!w) return; kind='obj'; defs=PN_OBJ; S=objSections(w); title=`${esc(w.ticker)} <span class="sub" style="font-size:12px">${esc((TICK_META[w.ticker]||{}).layer||'')}</span>`; sub=''; }
+    else { kind='sig'; defs=PN_SIG; S=sigSections(sel); const m=M[sel.mid||(sel.cal?sel.cal.metrics[0]:'')]; title=esc(sel.type==='event'?sel.cal.event:m.name); sub=''; }
+    const prefs=pnPrefs(kind); const menu=defs.map(([k,l])=>`<label><input type="checkbox" data-k="${k}" ${prefs.has(k)?'checked':''}> ${esc(l)}</label>`).join('');
+    head.innerHTML=pnHeader(kind,title,sub,menu);
+    body.innerHTML=defs.filter(([k])=>prefs.has(k)&&S[k]).map(([k,l])=>`<div class="pn-sec" data-k="${k}">${k==='id'?'':`<h4>${esc(l)}</h4>`}${S[k]}</div>`).join('');
+    const mb=document.getElementById('pnMenuBtn'), mn=document.getElementById('pnMenu'); mb.addEventListener('click',()=>{ mn.hidden=!mn.hidden; }); mn.querySelectorAll('input').forEach(cb=>cb.addEventListener('change',()=>{ const set=pnPrefs(kind); cb.checked?set.add(cb.dataset.k):set.delete(cb.dataset.k); pnSave(kind,set); selectKF(sel); document.getElementById('pnMenu').hidden=false; }));
+    const ob=document.getElementById('pnOpen'); if(ob) ob.addEventListener('click',()=>openPage(sel));
+    const mp=document.getElementById('pnMap'); if(mp) mp.addEventListener('click',()=>{ const mid=sel.type==='ticker'?(DATA.watch.find(x=>x.ticker===sel.ticker)||{}).main:(sel.mid||sel.cal.metrics[0]); focusMap(mid); });
+    body.scrollTop=0; }
+  function timelineSVG(recs, W){ W=W||1000; const rs=recs.filter(r=>/^\d{4}-\d{2}(-\d{2})?/.test(r.knowledge_time)).map(r=>({...r,t:new Date(r.knowledge_time.length===7?r.knowledge_time+'-15':r.knowledge_time.slice(0,10)).getTime()})).filter(r=>!isNaN(r.t)); if(!rs.length) return '<div class="sub">无带日期的观测记录。</div>';
+    const t0=Math.min(...rs.map(r=>r.t)), t1=Math.max(...rs.map(r=>r.t), new Date(AS_OF).getTime()); const span=Math.max(t1-t0, 86400000*30); const x=t=>40+(t-t0)/span*(W-80); const H=120;
+    const nums=rs.filter(r=>r.obs_type==='actual'&&/^[\d.,]+$/.test(r.value.replace(/,/g,''))&&r.unit&&!/YoY|%/.test(r.unit)); const sameUnit=nums.length>=3&&new Set(nums.map(r=>r.unit)).size===1; let line='';
+    if(sameUnit){ const v=r=>parseFloat(r.value.replace(/,/g,'')); const vs=nums.map(v); const v0=Math.min(...vs), v1=Math.max(...vs); const y=val=>H-30-(val-v0)/Math.max(v1-v0,1e-9)*(H-60); const pts=nums.sort((a,b)=>a.t-b.t).map(r=>`${x(r.t).toFixed(1)},${y(v(r)).toFixed(1)}`).join(' '); line=`<polyline class="ln" points="${pts}"/>`+nums.map(r=>`<text x="${x(r.t).toFixed(1)}" y="${(y(v(r))-8).toFixed(1)}" text-anchor="middle">${esc(r.value)}</text>`).join(''); }
+    const dots=rs.map((r,i)=>{ const y=sameUnit&&r.obs_type==='actual'?null:H-30-((i%3)*14); const cy=y==null?(H-30-(()=>{const v=parseFloat(r.value.replace(/,/g,'')); const vs=nums.map(q=>parseFloat(q.value.replace(/,/g,''))); const v0=Math.min(...vs),v1=Math.max(...vs); return (v-v0)/Math.max(v1-v0,1e-9)*(H-60);})()):y; const cls=r.obs_type; const hollow=cls==='guidance'||cls==='target'; return `<circle class="pt ${cls}" cx="${x(r.t).toFixed(1)}" cy="${cy.toFixed(1)}" r="${hollow?4:4.5}"><title>${esc(r.knowledge_time)} ${esc(TYPE_CN[cls]||cls)} ${esc(r.entity)} ${esc(r.value)} ${esc(r.unit)}（${esc(r.period)}）</title></circle>`; }).join('');
+    const asx=x(new Date(AS_OF).getTime()); const ticks=[t0,t0+span/2,t1].map(t=>`<text x="${x(t).toFixed(1)}" y="${H-6}" text-anchor="middle">${new Date(t).toISOString().slice(0,10)}</text>`).join('');
+    return `<svg class="tl" viewBox="0 0 ${W} ${H}"><line class="ax" x1="30" x2="${W-30}" y1="${H-24}" y2="${H-24}"/><line class="ax" x1="${asx.toFixed(1)}" x2="${asx.toFixed(1)}" y1="10" y2="${H-24}" stroke-dasharray="3 3"/><text x="${asx.toFixed(1)}" y="10" text-anchor="middle">as-of</text>${line}${dots}${ticks}</svg><div class="sub">● 实测 ○ 指引 / 目标 ● 事件 · 灰 = 状态 · 量价类满 3 点画线（同单位）</div>`; }
+  function recTable(recs){ return `<div style="overflow:auto"><table class="rt"><thead><tr><th>知悉时间</th><th>类型</th><th title="相对所喂持仓票 thesis 的方向（A11，B 级）">方向</th><th>实体</th><th>值 / 期间</th><th>P</th><th>来源</th></tr></thead><tbody>${recs.map(r=>`<tr><td class="sub" style="white-space:nowrap">${esc(r.knowledge_time)}</td><td><span class="badge">${esc(TYPE_CN[r.obs_type]||r.obs_type)}</span></td><td title="${esc(r.direction_note||'')}">${dchip(r.direction||'—')}</td><td>${esc(r.entity)}</td><td class="num"><b>${esc(r.value)}</b> <span class="sub" style="display:inline">${esc(r.unit==='—'?'':r.unit)}</span><div class="sub">${esc(r.period)}${r.note?' · '+esc(r.note):''}</div></td><td><span class="badge ${provClass(r.provenance)}">${esc(r.provenance)}</span></td><td class="sub" style="word-break:break-all">${linkify(r.source)}</td></tr>`).join('')||'<tr><td colspan="7" class="sub">无记录</td></tr>'}</tbody></table></div>`; }
+  function edgeCards(mids){ const es=DATA.edges.filter(e=>mids.has(e.from_metric)); if(!es.length) return '<div class="sub">尚未挂到任何持仓票的边。</div>'; return es.map(e=>{ const m=M[e.from_metric]; const im=(m.impacts||[]).find(i=>i.edge_id===e.edge_id)||{}; const chain=[m.name,...(e.chain?e.chain.split('→').map(x=>x.trim()):[]),e.to_ticker]; return `<div class="edge ${esc(tierOf(e))} ${e.side==='compete'?'compete':''}"><div><b>${esc(e.to_ticker)}</b> <span class="sub" style="display:inline">${esc(im.weight||'')}</span> · ${esc(im.side||e.side)} · ${esc(e.hops)} 跳 · <span class="ic ${im.dominant==='预警'?'w':im.dominant==='可交易'?'t':''}">${esc(im.dominant||'待定')}占优</span> ${esc(e.is_key)}</div><div class="sub" style="margin-top:4px">${chain.map(esc).join(' → ')}</div><div class="sub">多确定：${esc(im.sentence||e.cert_method)}</div><div class="sub">可交易 ${esc(e.tradable_score)} / 预警 ${esc(e.warning_score)}（仅排序，A1–A9）· 证据：${esc(e.evidence)}</div></div>`; }).join(''); }
+  function upstreamTable(ticker){ const es=DATA.edges.filter(e=>e.to_ticker===ticker); return es.length?`<ul class="mlist">${es.map(e=>{ const m=M[e.from_metric]||{}; const im=(m.upstream||[]); return `<li><span><a href="#" data-m="${esc(e.from_metric)}">${esc(m.name||e.from_metric)}</a> <span class="sub" style="display:inline">${esc(e.side)} · ${esc(e.hops)} 跳 · ${esc(tierOf(e))} ${esc(e.is_key)}</span><div class="sub">${esc(m.value_latest||'—')} · 知悉 ${esc(m.knowledge_time||'—')}</div></span><span class="sub">可交易 ${esc(e.tradable_score)} / 预警 ${esc(e.warning_score)}</span></li>`; }).join('')}</ul>`:'<div class="sub">无上游边。</div>'; }
+  function focusedBows(tick){ const arr=[...tick]; const core=arr.filter(t=>TICK_META[t]); const tail=arr.filter(t=>TAIL.includes(t)); let h=core.map(bowSVG).join(''); if(tail.length) h+=tailSVG(); return h||'<div class="sub">无持仓票在链上。</div>'; }
+  function seriesSVG(m){ // 一个指标一张小图：同单位数值型 actual+prior ≥2 点画线，否则显示格子
+    const pts=(m.records||[]).filter(r=>['actual','prior'].includes(r.obs_type)&&/^[\d.,]+$/.test(r.value.replace(/,/g,''))).map(r=>({...r,v:parseFloat(r.value.replace(/,/g,'')),t:_pd(r.period)||_pd(r.knowledge_time)})).filter(r=>r.t);
+    const byU={}; pts.forEach(r=>{ (byU[r.unit]=byU[r.unit]||[]).push(r); }); const best=Object.values(byU).sort((a,b)=>b.length-a.length)[0]||[];
+    if(best.length<2) return '';
+    best.sort((a,b)=>a.t-b.t); const W=420,H=110; const t0=best[0].t,t1=best[best.length-1].t; const v0=Math.min(...best.map(r=>r.v)),v1=Math.max(...best.map(r=>r.v)); const x=t=>30+(t-t0)/Math.max(t1-t0,1)*(W-60), y=v=>H-26-(v-v0)/Math.max(v1-v0,1e-9)*(H-50);
+    return `<svg class="tl" viewBox="0 0 ${W} ${H}" style="max-width:420px"><polyline class="ln" points="${best.map(r=>`${x(r.t).toFixed(1)},${y(r.v).toFixed(1)}`).join(' ')}"/>${best.map(r=>`<circle class="pt actual" cx="${x(r.t).toFixed(1)}" cy="${y(r.v).toFixed(1)}" r="4"><title>${esc(r.period)} ${esc(r.value)} ${esc(r.unit)}</title></circle><text x="${x(r.t).toFixed(1)}" y="${(y(r.v)-8).toFixed(1)}" text-anchor="middle">${esc(r.value)}</text><text x="${x(r.t).toFixed(1)}" y="${H-8}" text-anchor="middle">${esc(r.period.slice(0,12))}</text>`).join('')}</svg><div class="sub">${esc(best[0].unit)} · ${best.length} 点</div>`; }
+  function _pd(p){ if(!p) return null; let m; if((m=/(\d{4})-(\d{2})-(\d{2})/.exec(p))) return new Date(+m[1],+m[2]-1,+m[3]).getTime(); if((m=/(\d{4})\s*Q([1-4])/.exec(p))) return new Date(+m[1],(+m[2])*3-1,15).getTime(); if((m=/Q([1-4])\s*FY(\d{2})/.exec(p))) return new Date(2000+ +m[2]-1,(+m[1])*3+6,15).getTime(); if((m=/(\d{4})H([12])/.exec(p))) return new Date(+m[1],m[2]==='1'?5:11,15).getTime(); if((m=/FY(\d{2})\s*Q([1-4])/.exec(p))) return new Date(2000+ +m[1]-1,(+m[2])*3+6,15).getTime(); if((m=/^(\d{4})$/.exec(p.trim()))) return new Date(+m[1],11,15).getTime(); if((m=/(\d{4})-(\d{2})/.exec(p))) return new Date(+m[1],+m[2]-1,15).getTime(); return null; }
+  function cell(label,val,sub){ return `<div class="c3"><div class="sub">${label}</div><div class="cv">${val||'—'}</div>${sub?`<div class="sub">${sub}</div>`:''}</div>`; }
+  function fmtRec(r){ if(!r) return '—'; const v=r.value, u=r.unit||''; if(!u||u==='—'||!/^[\d≈~>+\-−.]/.test(v)) return esc(v); const cur={USD:'$',CNY:'¥',HKD:'HK$',EUR:'€'}[u.slice(0,3)]; if(cur){ const rest=u.slice(3).trim(); return `${cur}${esc(v)}${rest?' <span class="sub" style="display:inline">'+esc(rest)+'</span>':''}`; } return `${esc(v)} <span class="sub" style="display:inline">${esc(u)}</span>`; }
+  function blockA(rel){ // 序列与对账
+    return rel.map(m=>{ const rs=m.records||[]; const a=rs.find(r=>r.obs_type==='actual'), p=rs.find(r=>r.obs_type==='prior'), g=rs.find(r=>['guidance','target'].includes(r.obs_type));
+      const lead=(m.impacts||[]).filter(i=>i.tier.startsWith('T1')||i.tier.startsWith('T2')).map(i=>`对 <b>${esc(i.ticker)}</b>：${esc(i.side)} ${esc(i.hops)} 跳 · ${esc(i.tier.split('（')[0])} · ${esc(i.dominant)}占优${a&&a.direction&&a.direction!=='—'?` · 本期方向 ${esc(a.direction)}`:''}`);
+      const kj=rs.filter(r=>/口径|multi_year_cap|contracted|措辞/.test(r.note+r.unit)).map(r=>`${esc(r.entity)} ${esc(r.value)} ${esc(r.unit)}：${esc(r.note.split('；')[0])}`);
+      return `<div class="pg-sub"><h4>${esc(m.name)} <span class="role r-${esc(m.tpl)}">${esc(m.role)}</span></h4><div class="c3s">${cell('本期',fmtRec(a),a?esc(a.period)+' · 知悉 '+esc(a.knowledge_time)+(a.note?' · '+esc(a.note.split('；')[0]):''):'')}${cell('上期',fmtRec(p),p?esc(p.period):'')}${cell(g&&g.obs_type==='target'?'目标':'指引',fmtRec(g),g?esc(g.period):'')}</div>${seriesSVG(m)}${lead.length?`<div class="sub" style="margin-top:6px">对票 KPI 的含义：${lead.join('；')}</div>`:''}${kj.length?`<div class="warnline">口径警示：${kj.join('；')}</div>`:''}</div>`; }).join(''); }
+  function blockB(rel, isRegime){ // 事件与机制
+    const recs=rel.flatMap(x=>(x.records||[])).filter(r=>['event','state','actual'].includes(r.obs_type)).sort((a,b)=>a.knowledge_time<b.knowledge_time?1:-1);
+    const parties=[...new Set(recs.map(r=>r.entity))];
+    const stream=recs.map(r=>`<li><b>${esc(r.knowledge_time)}</b> ${dchip(r.direction||'—')} <b>${esc(r.entity)}</b> · ${esc(r.value)} ${r.unit&&r.unit!=='—'?esc(r.unit):''} <span class="sub">${esc(r.period)} · <span class="badge ${provClass(r.provenance)}">${esc(r.provenance)}</span>${r.direction_note?' · '+esc(r.direction_note):r.note?' · '+esc(r.note.split('；')[0]):''}</span></li>`).join('');
+    let mech='';
+    if(isRegime){ const es=DATA.edges.filter(e=>rel.some(x=>x.metric_id===e.from_metric)); mech=`<h4>机制链</h4>${es.map(e=>`<div class="sub">${[M[e.from_metric].name,...(e.chain?e.chain.split('→').map(x=>x.trim()):[]),e.to_ticker].map(esc).join(' → ')} · ${esc(e.cert_method)}</div>`).join('')||'<div class="sub">无边</div>'}<h4>已被反映？</h4>${recs.filter(r=>r.direction==='!'&&r.direction_note).map(r=>`<div class="sub">${esc(r.entity)}：${esc(r.direction_note)}</div>`).join('')||'<div class="sub">无证据记录 · 判读 D</div>'}`; }
+    return `<div class="pg-sub"><h4>相关方</h4><div class="parties">${parties.map(p=>`<span>${esc(p)}</span>`).join('')}</div><h4>事件流</h4><ul class="stream">${stream||'<li class="sub">无</li>'}</ul>${mech}</div>`; }
+  function blockC(rel){ // 表述与证伪
+    return rel.map(m=>{ const rs=(m.records||[]).filter(r=>['actual','state','prior'].includes(r.obs_type)); const cur=rs[0], prev=rs.find(r=>r.obs_type==='prior')||rs[1];
+      const third=/Artificial Analysis|ARC|Arena|Epoch|Hugging Face|SWE-bench|OpenRouter|swebench/.test((cur||{}).source+(cur||{}).entity)?'第三方中立评测（T_a）':/官方|IR|SEC|newsroom|press/.test((cur||{}).source)?'厂商 / 官方口径（T_b，有立场）':'媒体 / 转述（T_c）';
+      const gate1=cur&&cur.provenance==='P1'&&third.startsWith('第三方')?'third_party_verified':cur&&cur.provenance==='P1'?'一手但为自报':'claimed_only / 待核';
+      const imp=(m.impacts||[]); const gate2=imp.length?`${imp.map(i=>`${esc(i.ticker)} ${esc(i.hops)} 跳 ${esc(i.tier.split('（')[0])}`).join('；')}（多跳 T3 只给方向）`:'未挂边：留在雷达，不外溢';
+      return `<div class="pg-sub"><h4>${esc(m.name)} <span class="role r-${esc(m.tpl)}">${esc(m.role)}</span></h4><div class="c3s">${cell('当前',cur?fmtRec(cur):'—',cur?esc(cur.period)+' · '+esc(cur.knowledge_time):'')}${cell('上版 / 对照',prev?fmtRec(prev):'—',prev?esc(prev.period):'')}${cell('谁说的',cur?esc(third):'—',cur?esc(cur.source.split(' http')[0].slice(0,40)):'')}</div><div class="gates"><div><b>证伪闸</b> · verifiability：${esc(gate1)}</div><div><b>影响力闸</b> · industry_impact：<span class="sub">未评（doc30 C8 占位，D 判）</span> · 松映射：${gate2}</div></div>${cur&&cur.note?`<div class="sub" style="margin-top:6px">${esc(cur.note)}</div>`:''}</div>`; }).join(''); }
+  function commonTabs(rel, mids, tick, relSet){
+    const recs=rel.flatMap(x=>(x.records||[])).sort((a,b)=>a.knowledge_time<b.knowledge_time?1:-1);
+    const sameChain=DATA.metrics.filter(x=>relSet.has(x.metric_id)&&!mids.has(x.metric_id)&&x.entry==='AI').slice(0,10);
+    return [['传导',`<h3>打到谁 · 多确定</h3>${edgeCards(mids)}<h3 style="margin-top:12px">映射图（聚焦）</h3>${focusedBows(tick)}${sameChain.length?`<h3 style="margin-top:12px">同链节点</h3><ul class="mlist">${sameChain.map(x=>`<li><span><a href="#" data-m="${esc(x.metric_id)}">${esc(x.name)}</a><div class="sub">${esc(x.value_latest||'—')} · 知悉 ${esc(x.knowledge_time||'—')}</div></span><span>${impactChips(x)}</span></li>`).join('')}</ul>`:''}`],
+            ['证据',recTable(recs)],
+            ['排期',`<ul style="padding-left:18px;font-size:12.5px;margin:0">${upcomingFor(relSet,8).map(r=>`<li><b>${esc(r.date)}</b> <a href="#" data-cal="${esc(r.cal_id)}">${esc(r.event)}</a> ${basisTag(r.basis)}<div class="sub">${esc(r.entity_or_ticker)} · ${esc(r.source_or_rule)}</div></li>`).join('')||'<li class="sub">无排期</li>'}</ul>`],
+            ['数据卡',rel.map(x=>`<div class="edge"><b>${esc(x.metric_id)}</b> · ${esc(x.entry)} · ${esc(x.dim||'—')} · 类${esc(x.data_class)} · ${esc(x.signal_role)} · ${esc(x.frequency)} / ${esc(x.lead_time_est)} · owner ${esc(x.owner)} · ${esc(x.availability)} · 状态 ${esc(x.status)}<div class="sub">下次发布：${esc(x.next_release)} ${basisTag(x.next_release_basis)} ${esc(x.next_release_basis)}</div><div class="sub">来源族：${linkify(x.source_family)}</div><div class="sub">${esc(x.notes_assumption_ids||'')}</div></div>`).join('')]]; }
+  function openPage(sel){ const V=document.getElementById('pageView'); let crumb='',head='',main='',secs=[]; let mids=new Set(), tick=new Set();
+    if(sel.type==='ticker'){ const t=sel.ticker; const w=DATA.watch.find(x=>x.ticker===t)||{}; const meta=TICK_META[t]||{}; const k=DATA.kf_ticker[t]; const own=DATA.metrics.filter(m=>m.ticker_or_entity===t); mids=new Set(own.map(m=>m.metric_id)); tick=new Set([t]);
+      crumb=`<a href="#" class="back">← 日历</a> › 持仓 › ${esc(meta.layer||'—')} › ${esc(t)}`;
+      head=`<h2>${esc(t)} <span class="sub" style="display:inline;font-weight:500">${esc(w.weight||'')} · ${esc(meta.layer||'')} · ${esc(meta.factor||'')}</span></h2><div class="sub">${w.st?`链状态 供${w.st['供']} 需${w.st['需']} 政${w.st['政']} · `:''}本周 ${esc(w.moved||'—')} · 预警 ${w.warn||0} · 领先读 ${esc(w.lead||'—')}${w.verify?` · 验证点 ${w.verify.d} 天（${esc(w.verify.ev)}）`:''}</div>${k?`<div class="brief">${esc(k.brief)}</div>${k.watch?`<div class="watch">盯：${esc(k.watch)}</div>`:''}`:''}`;
+      const sides=[['供给侧','供'],['需求侧','需'],['regime','政']];
+      let recon='';
+      if(t==='NBIS'){ const rc=M['m_reconcile_nbis']; recon=`<h4>对账矩阵（m_reconcile_nbis · owner D）</h4><table class="rt"><thead><tr><th>供给态 \\ 需求态</th><th>↑ 融资涌 / 进展快</th><th>→ 平</th><th>↓ 转冷 / 回流</th></tr></thead><tbody><tr><td>↑ 猛建</td><td class="${w.st['供'].includes('↑')&&w.st['需'].includes('↑')?'ov':''}"><b>信念</b> ← 当前（供${w.st['供']} 需${w.st['需']}）</td><td>中性 / 观察</td><td><b>泡沫预警</b></td></tr><tr><td>→ / ↓ 放缓</td><td>供给瓶颈</td><td>—</td><td>—</td></tr></tbody></table><div class="sub">当前 regime：${esc((rc.records||[])[0]?.value||'—')} · ${esc((rc.records||[])[0]?.note||'')} · 阈值 C6 未定，此处为定性</div>`; }
+      main=`<div class="pg-sub"><h4>供需两侧状态（60 天，B 级方向合成）</h4><div class="c3s">${sides.map(([l,k2])=>cell(l,dchip(w.st?w.st[k2]:'—'),'')).join('')}</div>${recon}</div>`;
+      const ownRecs=own.flatMap(m=>(m.records||[])).sort((a,b)=>a.knowledge_time<b.knowledge_time?1:-1);
+      const relSet=chainOf((own[0]||{}).metric_id||'').rel;
+      secs=[['本体 KPI',blockA(own)],['传导',`<div class="maplegend" style="padding:0 0 8px"><span><i class="g"></i>可交易 ≥ 预警</span><span><i class="s"></i>预警 &gt; 可交易</span><span><i></i>T1</span><span><i class="d"></i>T2</span><span><i class="o"></i>T3</span></div>${focusedBows(tick)}`],['上游节点',upstreamTable(t)],['排期',`<ul style="padding-left:18px;font-size:12.5px;margin:0">${upcomingFor(relSet,8).map(r=>`<li><b>${esc(r.date)}</b> <a href="#" data-cal="${esc(r.cal_id)}">${esc(r.event)}</a> ${basisTag(r.basis)}<div class="sub">${esc(r.source_or_rule)}</div></li>`).join('')||'<li class="sub">无排期</li>'}</ul>`],['证据',recTable(ownRecs)],['数据卡',own.map(m=>`<div class="edge"><b>${esc(m.metric_id)}</b> · 类${esc(m.data_class)} · ${esc(m.signal_role)} · ${esc(m.frequency)} · owner ${esc(m.owner)} · ${esc(m.availability)} · 状态 ${esc(m.status)}<div class="sub">来源族：${linkify(m.source_family)}</div><div class="sub">${esc(m.notes_assumption_ids||'')}</div></div>`).join('')]];
+    } else {
+      const cal=sel.type==='event'?sel.cal:null; const mid=sel.mid||(cal?cal.metrics[0]:null); const m=M[mid]; const rel=cal?cal.metrics.map(x=>M[x]).filter(Boolean):[m]; mids=new Set(rel.map(x=>x.metric_id)); rel.forEach(x=>{ (x.impacts||[]).forEach(i=>tick.add(i.ticker)); if(x.entry==='持仓') tick.add(x.ticker_or_entity); });
+      const kf=cal?cal.kf:(DATA.calendar.filter(r=>r.kf&&r.metrics.includes(mid)&&r.is_past).sort((a,b)=>a.date<b.date?1:-1)[0]||{}).kf;
+      const tpl=m.tpl==='T'?'A':m.tpl; const title=cal?cal.event:m.name;
+      crumb=`<a href="#" class="back">← 日历</a> › ${esc(m.entry)} › ${esc(m.dim||'—')} › <span class="role r-${esc(m.tpl)}">${esc(m.role)}</span> ${esc(cal?'事件':'节点')}`;
+      head=`<h2>${esc(title)}</h2><div class="sub">${cal?`${esc(cal.date)} ${basisTag(cal.basis)} · ${esc(cal.entity_or_ticker)} · ${esc(cal.source_or_rule)} · `:''}${esc(m.name)} · 知悉 ${esc(m.knowledge_time||'—')} · <span class="badge ${provClass(m.provenance)}">${esc(m.provenance||'—')}</span> · <span class="own ${esc((m.owner||'').charAt(0))}">${esc((m.owner||'—').charAt(0))}</span></div>${kf?`<div class="brief">${esc(kf.brief)}</div>${kf.watch?`<div class="watch">盯：${esc(kf.watch)}</div>`:''}`:`<div class="brief sub">（无简报）</div>`}`;
+      main = tpl==='A'?blockA(rel) : tpl==='B'?blockB(rel, m.role==='regime') : blockC(rel);
+      const relSet=new Set(); rel.forEach(x=>chainOf(x.metric_id).rel.forEach(v=>relSet.add(v)));
+      secs=commonTabs(rel, mids, tick, relSet);
+    }
+    V.innerHTML=`<div class="pg-crumb">${crumb}</div><div class="pg-head">${head}</div><div class="pg-main">${main}</div><div class="pg-tabs">${secs.map((s,i)=>`<button data-i="${i}" aria-pressed="${i===0}">${esc(s[0])}</button>`).join('')}</div>${secs.map((s,i)=>`<div class="pg-sec" data-i="${i}" ${i===0?'':'hidden'}>${s[1]}</div>`).join('')}`;
+    V.querySelectorAll('.pg-tabs button').forEach(b=>b.addEventListener('click',()=>{ V.querySelectorAll('.pg-tabs button').forEach(x=>x.setAttribute('aria-pressed','false')); b.setAttribute('aria-pressed','true'); V.querySelectorAll('.pg-sec').forEach(sec=>sec.hidden=sec.dataset.i!==b.dataset.i); fitTexts(V); }));
+    V.querySelector('.back').addEventListener('click',e=>{ e.preventDefault(); showView('cal'); });
+    V.querySelectorAll('a[data-m]').forEach(a=>a.addEventListener('click',e=>{ e.preventDefault(); openPage({type:'metric',mid:a.dataset.m}); }));
+    V.querySelectorAll('a[data-cal]').forEach(a=>a.addEventListener('click',e=>{ e.preventDefault(); const c=DATA.calendar.find(x=>x.cal_id===a.dataset.cal); if(c) openPage({type:'event',cal:c,mid:c.metrics[0]}); }));
+    V.querySelectorAll('.bow .nd[data-m]').forEach(n=>n.addEventListener('click',()=>openPage({type:'metric',mid:n.dataset.m})));
+    showView('page'); fitTexts(V); window.scrollTo({top:0,behavior:'smooth'}); selectKF(sel); }
+  // ---------- map view (bow-tie, data-driven from edges) ----------
+  const TICK_META={NBIS:{w:'51.22%',layer:'L2 neocloud',factor:'收入因子 = 产能执行 × 需求持续性（收入预合同化）',main:'m_nbis_rev',regime:'m_reconcile_nbis'},RBRK:{w:'29.80%',layer:'L4 数据安全 SaaS',factor:'收入因子 = 订阅 ARR 增速 × NRR',main:'m_rbrk_rev'},FCEL:{w:'7.12%',layer:'L1 电力',factor:'收入因子 = 数据中心电力订单',main:'m_fcel_rev'}};
+  const TAIL=['SUPX','SNDK','MU','INTC','CIEN','MRVL','POET','AMD'];
+  const tierOf=e=>(e.cert_tier||'').split('（')[0].split('/')[0].trim();
+  const numS=v=>{const n=parseFloat(String(v||'').replace('~',''));return isNaN(n)?null:n;};
+  const edgeClass=e=>{const t=numS(e.tradable_score),w=numS(e.warning_score); if(t==null&&w==null) return 'na'; return (t||0)>=(w||0)?'trad':'warn';};
+  const nextOf=m=>{const c=DATA.calendar.filter(r=>r.dated&&!r.is_past&&r.metrics.includes(m.metric_id)).sort((a,b)=>a.date<b.date?-1:1)[0]; if(c) return {d:c.date,b:(c.basis||'').split('（')[0]}; if(m.next_release&&m.next_release!=='—') return {d:m.next_release.replace(/（.*$/,''),b:(m.next_release_basis||'').split('（')[0]}; return null;};
+  const trunc=(t,n)=>{t=String(t||'');return t.length>n?t.slice(0,n-1)+'…':t;};
+  const X=s=>esc(s);
+  function nodeSVG(m, x, y, w, side, cls){ // x = left edge
+    const nx=nextOf(m); const val=trunc(String(m.value_latest||'—').replace(/（原文：[^）]*）/g,'').split(/；|;/)[0],24);
+    const p=provShort(m.provenance);
+    return `<g class="nd ${cls||''}" data-m="${X(m.metric_id)}" transform="translate(${x},${y})">
+      <rect width="${w}" height="58" rx="7"/>
+      <text x="8" y="16" class="t1">${X(trunc(m.name,15))}<tspan class="t3"> ${X(m.dim||'')} ${'★'.repeat(m.importance)}</tspan></text>
+      <text x="8" y="32" class="t2">${X(val)}</text>
+      <text x="8" y="48" class="t3">${X(p)} · ${nx?X(nx.d)+' '+X(nx.b):'无排期'}</text></g>`;
+  }
+  function midSVG(label,x,y,w){ return `<g class="nd mid" transform="translate(${x},${y})"><rect width="${w}" height="34" rx="6"/><text x="6" y="21" class="t2">${X(trunc(label,10))}</text></g>`; }
+  function bowSVG(ticker){
+    const meta=TICK_META[ticker]; const es=DATA.edges.filter(e=>e.to_ticker===ticker);
+    const left=es.filter(e=>e.side==='supply'), right=es.filter(e=>e.side==='demand'||e.side==='compete'), band=es.filter(e=>e.side==='regime'), self=es.filter(e=>e.side==='self');
+    const LANE=78, W=1280, CX=640, CW=176, UNIT=118, NW=176, MW=96;
+    const bandH=band.length?52:0; const top=12+bandH+14; const lanes=Math.max(left.length,right.length,1); const H=top+lanes*LANE+70;
+    const cy=top+ (lanes*LANE)/2;
+    let g='';
+    // axis labels
+    g+=`<text x="${CX-CW/2-20}" y="${top-2}" class="axis" text-anchor="end">◀ 上游 · 供给（离中心越远 = 跳数越多 = 越领先越不确定）</text><text x="${CX+CW/2+20}" y="${top-2}" class="axis">下游 · 需求 ▶</text>`;
+    // regime band
+    if(band.length){ g+=`<g class="band"><rect x="20" y="12" width="${W-40}" height="${bandH-8}" rx="8"/><text x="32" y="30" class="lbl">政策 / regime（横切，不分上下游）</text>`; let bx=230; for(const e of band){ const m=M[e.from_metric]; const lab=`${trunc(m.name,14)} · ${e.hops} 跳 · ${tierOf(e)} · 预警 ${e.warning_score}`; const pw=lab.length*11+20; g+=`<g class="pill nd" data-m="${X(m.metric_id)}" transform="translate(${bx},${18})"><rect width="${pw}" height="30" rx="15"/><text x="10" y="19" class="t2">${X(lab)}</text></g>`; bx+=pw+10; } g+='</g>'; }
+    // center
+    const regimeM=meta.regime?M[meta.regime]:null;
+    g+=`<g class="ctr nd" data-m="${X(meta.main)}" transform="translate(${CX-CW/2},${cy-36})"><rect width="${CW}" height="72" rx="10"/><text x="${CW/2}" y="24" text-anchor="middle" class="t1" style="font-size:16px">${X(ticker)}</text><text x="${CW/2}" y="42" text-anchor="middle" class="t3" style="fill:var(--bg);opacity:.85">${X(meta.w)} · ${X(meta.layer)}</text><text x="${CW/2}" y="60" text-anchor="middle" class="t3" style="fill:var(--bg);opacity:.85">${regimeM?'对账 regime：信念（P5）':X(meta.factor.replace(/^收入因子 = /,''))}</text></g>`;
+    // self edges under center
+    let sy=cy+42; for(const e of self){ const m=M[e.from_metric]; g+=`<g class="nd mid" data-m="${X(m.metric_id)}" transform="translate(${CX-CW/2},${sy})"><rect width="${CW}" height="26" rx="6"/><text x="${CW/2}" y="17" text-anchor="middle" class="t3">本体 0 跳 · ${X(trunc(m.name,12))}</text></g>`; sy+=30; }
+    // lanes
+    const lane=(list,dir)=>{ list=[...list].sort((a,b)=>b.hops-a.hops); let out=''; list.forEach((e,i)=>{ const y=top+i*LANE+ (LANE-58)/2; const m=M[e.from_metric]; const h=parseInt(e.hops)||1; const chain=(e.chain||'').split('→').map(x=>x.trim()).filter(Boolean);
+        const cls=edgeClass(e), tier=tierOf(e); const ymid=y+29;
+        // positions: k=0 center edge, k=1..h-1 intermediates, k=h source
+        const pos=k=> dir<0 ? (CX-CW/2 - k*UNIT) : (CX+CW/2 + k*UNIT);
+        // path from center edge to source, straight polyline with slight y bend at center
+        const x0=pos(0), xs=pos(h)+(dir<0?0:0);
+        out+=`<path class="edge ${tier} ${cls}" data-e="${X(e.edge_id)}" d="M ${x0} ${cy} C ${x0+dir*40} ${cy}, ${x0+dir*40} ${ymid}, ${x0+dir*70} ${ymid} L ${dir<0?pos(h):pos(h)} ${ymid}"/>`;
+        // intermediates
+        chain.slice(0,h-1).forEach((c,ci)=>{ const k=ci+1; const x= dir<0 ? pos(k)-MW-6 : pos(k)+6; out+=midSVG(c, x, ymid-17, MW).replace('<g class="nd mid"',`<g class="nd mid" data-e="${X(e.edge_id)}"`); });
+        // source node
+        const sx= dir<0 ? pos(h)-NW-6 : pos(h)+6;
+        out+=nodeSVG(m, sx, y, NW, dir, e.side==='compete'?'comp':'');
+        // edge label near center
+        const lx= dir<0 ? x0-14 : x0+14; out+=`<text x="${lx}" y="${ymid-24}" class="lbl" text-anchor="${dir<0?'end':'start'}">${X(e.hops)} 跳 · ${X(tier)} · 可交易 ${X(e.tradable_score)} / 预警 ${X(e.warning_score)} ${X(e.is_key)}</text>`;
+      }); return out; };
+    g+=lane(left,-1)+lane(right,1);
+    return `<div class="bow" data-t="${X(ticker)}"><h3>${X(ticker)} <span class="w">${X(meta.w)} · ${X(meta.layer)} · ${X(meta.factor)}</span><span class="w" style="margin-left:auto">${es.length} 条边 · 供给 ${left.length} / 需求 ${right.length} / regime ${band.length}</span></h3><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${X(ticker)} 映射蝴蝶结">${g}</svg></div>`;
+  }
+  function tailSVG(){
+    const es=DATA.edges.filter(e=>TAIL.includes(e.to_ticker)); const srcs=[...new Set(es.map(e=>e.from_metric))];
+    const W=1280,H=40+Math.max(srcs.length,TAIL.length)*46+20; let g='';
+    const sy=i=>40+i*46+ (Math.max(srcs.length,TAIL.length)-srcs.length)*23, ty=i=>40+i*46;
+    g+=`<text x="20" y="22" class="axis">D1 子节点（1 跳 · E2 供应链本体）</text><text x="${W-20}" y="22" class="axis" text-anchor="end">尾仓 8 只 · 合计 ≈4% · tracker 不深挖</text>`;
+    es.forEach(e=>{ const si=srcs.indexOf(e.from_metric), ti=TAIL.indexOf(e.to_ticker); g+=`<path class="edge ${tierOf(e)} ${edgeClass(e)}" data-e="${X(e.edge_id)}" d="M 300 ${sy(si)+29} C 500 ${sy(si)+29}, 700 ${ty(ti)+20}, 900 ${ty(ti)+20}"/>`; });
+    srcs.forEach((mid,i)=>{ g+=nodeSVG(M[mid], 120, sy(i), 180, -1, ''); });
+    TAIL.forEach((t,i)=>{ const m=M['m_tail_'+t.toLowerCase()]; g+=`<g class="nd" data-m="${X(m.metric_id)}" transform="translate(900,${ty(i)})"><rect width="230" height="40" rx="7"/><text x="10" y="17" class="t1">${X(t)} <tspan class="t3">${X(m.weight||'')} ${X((m.position_note||'').split('；').slice(-1)[0].replace(/上季.*$/,''))}</tspan></text><text x="10" y="32" class="t3">${X(trunc(m.value_latest||'',30))}</text></g>`; });
+    return `<div class="bow" data-t="TAIL"><h3>算力尾仓 <span class="w">8 只 · 各 &lt;1.5% · D1 各子节点的分散 tracker</span></h3><svg viewBox="0 0 ${W} ${H}">${g}</svg></div>`;
+  }
+  function renderMap(){ const box=document.getElementById('bows'); box.innerHTML=['NBIS','RBRK','FCEL'].map(bowSVG).join('')+tailSVG()+`<div class="sub" style="padding:4px 12px 8px">STAA（8.03%）追不到任何 AI 节点，不在此图，标 out-of-AI-scope（中国地面数据 nowcast 方法论样板）。分数只用于排序（假设 A1–A9）；「待定 / —」的边画灰线。</div>`;
+    box.querySelectorAll('.nd[data-m]').forEach(n=>n.addEventListener('click',()=>openPage({type:'metric',mid:n.dataset.m})));
+    fitTexts(box); }
+  function fitTexts(root){ // 按实际像素宽截断，中英混排安全
+    root.querySelectorAll('g.nd').forEach(g=>{ const r=g.querySelector('rect'); if(!r) return; const rw=+r.getAttribute('width'); g.querySelectorAll('text').forEach(t=>{ const x=+t.getAttribute('x')||0; const anchor=t.getAttribute('text-anchor'); const limit = anchor==='middle' ? rw-10 : rw-x-6; let guard=0; while(t.getBBox().width>limit && guard++<80){ const last=t.lastChild; if(!last) break; if(last.nodeType===3){ const v=last.nodeValue.replace(/…$/,''); if(v.length<=1){ t.removeChild(last); continue; } last.nodeValue=v.slice(0,-2)+'…'; } else { const v=last.textContent.replace(/…$/,''); if(v.length<=1){ t.removeChild(last); continue; } last.textContent=v.slice(0,-2)+'…'; } } }); }); }
+  function showView(v){ for(const k of ['cal','map','lib','page']){ document.getElementById(k+'View').hidden=(k!==v); const b=document.getElementById('v'+k.charAt(0).toUpperCase()+k.slice(1)); if(b) b.setAttribute('aria-pressed',String(k===v)); } document.getElementById('toolbar').style.opacity=v==='cal'?'1':'.45'; if(v==='map'&&!document.getElementById('bows').children.length) renderMap(); if(v==='lib'&&!document.getElementById('libTable').tBodies[0].children.length){ renderSideA(); renderLib(); } }
+  document.getElementById('vLib').addEventListener('click',()=>showView('lib'));
+  const LIBCOLS=[['name','指标'],['role','角色'],['dim','维'],['owner','owner'],['provenance','P'],['knowledge_time','最近观测'],['next_release','下次'],['n_edges','边'],['max_trad','可交易↑'],['max_warn','预警↑'],['availability','源'],['status','状态']];
+  function libRows(){ return DATA.metrics.map(m=>{ const es=DATA.edges.filter(e=>e.from_metric===m.metric_id); const mx=k=>es.length?Math.max(...es.map(e=>numS(e[k])??-1)):-1; const nr=(m.next_release||'').match(/^\d{4}-\d{2}-\d{2}/); return {...m, n_edges:es.length, max_trad:mx('tradable_score'), max_warn:mx('warning_score'), overdue: nr&&nr[0]<AS_OF}; }); }
+  let libSort={k:'max_trad',dir:'desc'};
+  function renderLib(){ const rows=libRows().sort((a,b)=>{ let x=a[libSort.k],y=b[libSort.k]; if(typeof x==='number'||typeof y==='number'){ x=+x||-1; y=+y||-1; } else { x=String(x||''); y=String(y||''); } return (x<y?-1:x>y?1:0)*(libSort.dir==='asc'?1:-1); });
+    const th=LIBCOLS.map(([k,l])=>`<th data-k="${k}" ${libSort.k===k?`data-dir="${libSort.dir}"`:''}>${l}</th>`).join('');
+    const tb=rows.map(m=>`<tr data-m="${esc(m.metric_id)}"><td title="${esc(m.metric_id)}">${esc(m.name)}</td><td><span class="role r-${esc(m.tpl)}">${esc(m.role)}</span></td><td>${esc(m.dim||'—')}</td><td><span class="own ${esc((m.owner||'').charAt(0))}">${esc((m.owner||'—').charAt(0))}</span></td><td><span class="badge ${provClass(m.provenance)}">${esc(provShort(m.provenance))}</span></td><td class="${m.overdue?'ov':''}">${esc(m.knowledge_time||'—')}</td><td class="${m.overdue?'ov':''}">${esc((m.next_release||'—').replace(/（.*$/,''))}${m.overdue?' 过期':''}</td><td>${m.n_edges}</td><td>${m.max_trad<0?'—':m.max_trad.toFixed(2)}</td><td>${m.max_warn<0?'—':m.max_warn.toFixed(2)}</td><td>${esc(m.availability||'')}</td><td class="sub">${esc((m.status||'').split('（')[0])}</td></tr>`).join('');
+    const T=document.getElementById('libTable'); T.tHead.innerHTML=`<tr>${th}</tr>`; T.tBodies[0].innerHTML=tb;
+    T.querySelectorAll('th').forEach(h=>h.addEventListener('click',()=>{ const k=h.dataset.k; libSort={k, dir: libSort.k===k&&libSort.dir==='desc'?'asc':'desc'}; renderLib(); }));
+    T.querySelectorAll('tbody tr').forEach(tr=>tr.addEventListener('click',()=>openDrawer(tr.dataset.m))); }
+  document.getElementById('vCal').addEventListener('click',()=>showView('cal'));
+  document.getElementById('vMap').addEventListener('click',()=>showView('map'));
+  function clearFocus(){ document.querySelectorAll('.bow .dim').forEach(x=>x.classList.remove('dim')); document.querySelectorAll('.bow .nd.hl').forEach(n=>n.classList.remove('hl')); document.querySelectorAll('.bow.hidden').forEach(b=>b.classList.remove('hidden')); const c=document.getElementById('crumb'); if(c) c.remove(); }
+  function focusMap(mid){ showView('map'); clearFocus(); const m=M[mid]; if(!m) return;
+    const rel=new Set([mid]); const tick=new Set(); DATA.edges.forEach(e=>{ if(e.from_metric===mid) tick.add(e.to_ticker); }); if(m.entry==='持仓') tick.add(m.ticker_or_entity); DATA.edges.forEach(e=>{ if(tick.has(e.to_ticker)) rel.add(e.from_metric); });
+    const relEdge=new Set(DATA.edges.filter(e=>e.from_metric===mid||(m.entry==='持仓'&&e.to_ticker===m.ticker_or_entity)).map(e=>e.edge_id));
+    document.querySelectorAll('.bow[data-t]').forEach(b=>{ const ok = b.dataset.t==='TAIL' ? TAIL.some(t=>tick.has(t)) : tick.has(b.dataset.t); if(!ok) b.classList.add('hidden'); });
+    document.querySelectorAll('.bow .edge[data-e]').forEach(p=>{ if(!relEdge.has(p.dataset.e)) p.classList.add('dim'); });
+    document.querySelectorAll('.bow .nd[data-m]').forEach(n=>{ const id=n.dataset.m; const isRel = id===mid || relEdge.size&&DATA.edges.some(e=>relEdge.has(e.edge_id)&&e.from_metric===id) || Object.values(TICK_META).some(t=>t.main===id&&tick.has(Object.keys(TICK_META).find(k=>TICK_META[k]===t))); if(!isRel && !n.classList.contains('ctr')) n.classList.add('dim'); });
+    document.querySelectorAll('.bow .nd.mid[data-e]').forEach(n=>{ if(relEdge.has(n.dataset.e)) n.classList.remove('dim'); });
+    const n=document.querySelector(`.bow .nd[data-m="${mid}"]`); if(n){ n.classList.add('hl'); }
+    const bar=document.createElement('div'); bar.id='crumb'; bar.className='crumb'; bar.innerHTML=`聚焦：<b>${esc(m.name)}</b> → ${[...tick].map(esc).join(' / ')||'（无持仓边）'} <button id="crumbClear" class="chip">清除聚焦</button>`; document.getElementById('mapView').insertBefore(bar, document.getElementById('bows')); document.getElementById('crumbClear').addEventListener('click',clearFocus);
+    if(n) n.scrollIntoView({block:'center',behavior:'smooth'}); }
+
+  renderWatch(); render(); selectKF({type:'ticker',ticker:'NBIS',mid:'m_nbis_rev'});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>主题/范式节点 — idea 级信号怎么归置</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1a1d24;--mut:#7a828f;--line:#e7e9ee;--line2:#eef0f3;--accent:#4f46e5;--accent-soft:#eef0ff;
+ --up:#16a34a;--up-bg:#e7f6ec;--dn:#dc2626;--shock:#c2740c;--t1:#0e7490;--pass:#16a34a;--hold:#9aa2ad;--paper:#7c3aed;--blog:#0891b2;--talent:#db2777;--fund:#d97706}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:13px/1.5 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:1000px;margin:0 auto;padding:20px 18px 50px}
+h1{font-size:18px;margin:0 0 2px}.lead{color:var(--mut);margin:0 0 14px;font-size:12.5px}.lead b{color:var(--ink)}
+.themes{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px}
+.tc{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:11px 13px}
+.tc.sel{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.tc .nm{font-weight:700;font-size:13px}.tc .meta{color:var(--mut);font-size:10.5px;margin-top:2px}
+.tc .slope{display:flex;align-items:center;gap:6px;margin-top:7px}
+.tc .sv{font-size:16px;font-weight:700}.tc .sv.up{color:var(--up)}
+.spark{margin-left:auto}
+.big{background:var(--card);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.bh{padding:13px 15px;border-bottom:1px solid var(--line);background:linear-gradient(0deg,#faf9ff,#fff)}
+.bh .r1{display:flex;align-items:center;gap:9px}.bh .t{font-size:15px;font-weight:700}
+.pill{display:inline-block;padding:1px 8px;border-radius:999px;font-size:11px;border:1px solid var(--line);background:#fbfbfd}
+.pill.acc{background:var(--up-bg);color:var(--up);border-color:#16a34a44;font-weight:600}
+.pill.wl{background:#f1f3f5;color:var(--mut)}
+.bh .desc{color:var(--mut);font-size:11.5px;margin-top:6px}
+.gaterow{display:flex;gap:16px;margin-top:9px;font-size:11.5px;flex-wrap:wrap}
+.gaterow .g b{color:var(--ink)}.gaterow .g{color:var(--mut)}
+.flowh{padding:9px 15px;font-size:11px;font-weight:700;color:var(--mut);background:#fafbfc;border-bottom:1px solid var(--line2);text-transform:uppercase;letter-spacing:.03em}
+table{width:100%;border-collapse:collapse;font-size:12px}
+td{padding:9px 15px;border-bottom:1px solid var(--line2);vertical-align:top}tr:last-child td{border-bottom:0}
+.typ{display:inline-block;padding:0 7px;border-radius:5px;font-size:10px;font-weight:700;color:#fff;white-space:nowrap}
+.t-paper{background:var(--paper)}.t-blog{background:var(--blog)}.t-talent{background:var(--talent)}.t-fund{background:var(--fund)}.t-adopt{background:#0d9488}
+.it .nm{font-weight:600}.it .src{color:var(--mut);font-size:10.5px;margin-top:2px}
+.ta{display:inline-block;padding:0 5px;border-radius:4px;font-size:9.5px;font-weight:700;border:1px solid;margin-left:4px}
+.taa{background:#0e749012;color:var(--t1);border-color:#0e749033}.tab{color:#7c3aed;border-color:#7c3aed44}.tac{color:var(--mut);border-color:var(--line)}
+.gate{font-size:11px;white-space:nowrap}.ok{color:var(--pass)}.no{color:var(--hold)}
+.imp{padding:1px 6px;border-radius:5px;font-size:10px;font-weight:600}.imp-h{background:var(--up-bg);color:var(--up)}.imp-m{background:#f1f3f5;color:var(--mut)}
+.spill{font-size:11px}.spill .tk{border:1px solid #16a34a55;background:#e7f6ec66;border-radius:6px;padding:0 6px;color:#146c43;font-weight:600}
+.wl{color:var(--hold);font-size:11px}
+.foot{padding:11px 15px;background:#fafbfc;border-top:1px solid var(--line);font-size:11.5px;color:var(--mut)}
+.foot b{color:var(--ink)}
+.note{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:13px;margin-top:15px;font-size:12.5px}.note b{color:var(--accent)}
+</style></head><body><div class="wrap">
+<h1>主题 / 范式节点 — idea 级信号怎么归置</h1>
+<p class="lead">顶刊(一个思想)· 博客(一个 idea/采用)· 人才流动(一个动向)——<b>单条都没有值、不挂票</b>。归置办法:它们是某个<b>主题</b>下的异质数据点;被监测的是<b>主题的斜率</b>,不是单条。顶层看主题,点开看底下混合信号流。</p>
+
+<div class="themes">
+ <div class="tc sel"><div class="nm">决策模型 / harness 范式</div><div class="meta">D5 方法·架构 · System-1 / JEV</div>
+  <div class="slope"><span class="sv up">5</span><span style="color:var(--up);font-size:11px">↑ 30d 加速</span>
+   <svg class="spark" width="70" height="22" viewBox="0 0 70 22"><polyline points="0,19 18,17 34,13 50,7 70,3" fill="none" stroke="var(--up)" stroke-width="1.8"/></svg></div></div>
+ <div class="tc"><div class="nm">开源追赶闭源</div><div class="meta">D5 效率</div>
+  <div class="slope"><span class="sv up">8</span><span style="color:var(--mut);font-size:11px">↑ 稳升</span>
+   <svg class="spark" width="70" height="22" viewBox="0 0 70 22"><polyline points="0,16 18,14 34,12 50,9 70,7" fill="none" stroke="var(--up)" stroke-width="1.8"/></svg></div></div>
+ <div class="tc"><div class="nm">数据枯竭 / 合成数据</div><div class="meta">D2 稀缺</div>
+  <div class="slope"><span class="sv up">4</span><span style="color:var(--shock);font-size:11px">⚠ 瓶颈</span>
+   <svg class="spark" width="70" height="22" viewBox="0 0 70 22"><polyline points="0,14 18,13 34,14 50,11 70,9" fill="none" stroke="var(--shock)" stroke-width="1.8"/></svg></div></div>
+</div>
+
+<div class="big">
+ <div class="bh"><div class="r1"><span class="t">决策模型 / harness 范式(System-1 / JEV)</span><span class="pill acc">主题斜率 ↑ 加速</span><span class="pill wl">当前 watchlist · 不下注</span></div>
+  <div class="desc">范式主张:不是所有智能都该用 Generation 算;判断/路由/验证可用更便宜的决策模型。挂 D5「方法/架构」主轴,原主轴无此环 → <b>新增主题节点</b>(complete-by-construction)。</div>
+  <div class="gaterow">
+   <span class="g">含金量(证伪闸聚合):<b>中</b> — 多为 demo/官方博客,第三方独立证少</span>
+   <span class="g">产业影响(影响力闸):<b>潜在高</b> — 改推理需求结构(generation→decision)、降本</span>
+   <span class="g">外溢:<b class="wl">暂不</b>,若斜率续升 → T3 方向边 → NBIS/推理算力</span>
+  </div>
+ </div>
+ <div class="flowh">主题下的异质信号流(5 条 · 混合类型,均 anchor-only 无数值)</div>
+ <table><tbody>
+  <tr><td style="width:11%"><span class="typ t-paper">思想/论文</span></td>
+   <td class="it"><div class="nm">Jev:"Decisions, not strings" — System-1 决策模型<span class="ta tab">T_b</span></div><div class="src">TypeSafe 发布帖 / Latent Space · 提出范式</div></td>
+   <td class="gate"><span class="no">✗ 厂商发布 · claimed_only</span></td><td><span class="imp imp-h">高</span></td><td class="wl">范式源头</td></tr>
+  <tr><td><span class="typ t-blog">博客/采用</span></td>
+   <td class="it"><div class="nm">LangChain:building a harness with Jev<span class="ta tab">T_b</span></div><div class="src">langchain.com/blog · 可信玩家的采用 demo(你给的这条)</div></td>
+   <td class="gate"><span class="ok">△ 可复现做法</span> · 有生态立场</td><td><span class="imp imp-m">中</span></td><td class="wl">采用 +1(喂斜率)</td></tr>
+  <tr><td><span class="typ t-adopt">采用</span></td>
+   <td class="it"><div class="nm">Browser Use:jev-ultrafast harness<span class="ta tab">T_b</span></div><div class="src">GitHub · 生产工程化采用</div></td>
+   <td class="gate"><span class="ok">✓ 开源可复跑</span></td><td><span class="imp imp-m">中</span></td><td class="wl">采用 +1</td></tr>
+  <tr><td><span class="typ t-fund">融资/背书</span></td>
+   <td class="it"><div class="nm">TypeSafe $40M 种子 · DCVC 领投<span class="ta taa">T_a</span></div><div class="src">Forbes · 估值 ~$2B(资本背书这个范式)</div></td>
+   <td class="gate"><span class="ok">✓ 多源</span></td><td><span class="imp imp-m">中</span></td><td class="wl">资本信号(接 D3)</td></tr>
+  <tr><td><span class="typ t-talent">人才</span></td>
+   <td class="it"><div class="nm">Diogo Almeida(InstructGPT/RLHF)→ 做决策模型<span class="ta tac">T_c</span></div><div class="src">领英/署名 · "把模型变会说话的人转做不说话的模型"</div></td>
+   <td class="gate"><span class="no">△ 单点 · 合规半人工</span></td><td><span class="imp imp-m">中</span></td><td class="wl">人才动向(最早)</td></tr>
+ </tbody></table>
+ <div class="foot"><b>怎么读这张</b>:5 条不同类型的信号(论文/博客/采用/融资/人才)本身都没有"值",但它们<b>聚成一个主题、且 30 天内在加速</b> —— 这个"加速"才是被监测的信号。谁都过不了双闸单独外溢,但主题动量够了会整体外溢成一条 T3 方向边。点任一条 → 原文 anchor;点"→NBIS" → 传播图里那条多跳边。</div>
+</div>
+
+<div class="note"><b style="color:var(--ink)">归置规则(一句)：idea 级信号不建指标、不挂票，建/挂到「主题节点」，当它主题时序里的一个 anchor 点。</b>
+ <ul style="margin:6px 0 0">
+  <li><b>单位是主题,不是指标</b>:一篇论文/一个博客/一次跳槽 = 主题下一个点;信号 = 主题的<b>斜率</b>(加不加速)。</li>
+  <li><b>anchor-only 记录</b>:fct_frontier/event,score 留空,只存 思想摘要 + 源 + 立场 + 可验证 + 类型(论文/博客/采用/融资/人才)。</li>
+  <li><b>无处安放 = 补主题</b>:分类器挂不上现有主轴 → 新建主题节点(如"决策模型范式"),这是 complete-by-construction。</li>
+  <li><b>两道闸照走</b>,但外溢的判据是<b>主题级</b>(斜率×含金量×影响力),不是单条;默认 watchlist / 方向。</li>
+  <li><b>schema 增量</b>:topic_cluster 从 fct_frontier 的一个字段,升成一等「theme 节点」(带 主轴归属 / 斜率 / 双闸聚合 / 外溢状态)——和我们给传播图升机制节点同一个做法。</li>
+ </ul>
+ 数据:fct_frontier.topic_cluster/anchor/source_stance/verifiability · fct_event(personnel/funding) · 主题时序斜率(二期聚类管线) · d_falsify_gate/d_impact_gate。
+</div>
+</div></body></html>

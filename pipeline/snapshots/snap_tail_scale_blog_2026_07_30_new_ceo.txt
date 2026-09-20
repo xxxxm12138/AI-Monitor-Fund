@@ -1,0 +1,41 @@
+# SNAPSHOT · Scale AI blog · Scale appoints new CEO (2026-07-30)
+# source: https://scale.com/blog/scale-appoints-new-ceo
+# fetched: 2026-09-20 · curl -A Anatole UA · text extracted from HTML (tables flattened with ' | ')
+
+Scale appoints Francis deSouza as the new CEO Learn more
+Products
+Solutions
+Research
+Resources
+Log in
+Get Started
+Get Started
+← Blog Company
+Scale AI Appoints Francis deSouza as CEO to Lead Next Phase of Company’s Growth
+By The Scale Team · July 30, 2026 · 3 min read
+Copy Link
+Scale AI today announced that its Board of Directors has appointed Francis deSouza as Chief Executive Officer, effective August 10, 2026. The appointment comes as Scale's momentum accelerates, with customer growth across both its data and applications businesses. Recent wins include the addition of enterprise customers such as BP and Mayo Clinic, along with expanded business with both U.S. and international governments. Jason Droege, who has led the company as interim CEO since June 2025, will work closely with Francis over the coming months to help with the transition.
+"There is no better person to lead Scale through this critical moment in AI than Francis," said Alexandr Wang, Scale AI Founder and Chairman of the Board. "He has led and scaled complex, technical businesses, and understands what it takes to serve both enterprises and governments at the highest level of trust and reliability. That's exactly what Scale needs as more organizations depend on the company’s AI solutions for their most important decisions."
+Francis brings more than three decades of experience building and scaling enterprise technology businesses. Most recently, he served as Chief Operating Officer and President of Security Products, of Google Cloud during a period of enormous growth for the business, where he saw firsthand how enterprises and governments deploy AI applications at scale. Before Google Cloud, he served as President and CEO of Illumina, a publicly traded company, where he oversaw one of the world's largest and most important genomic data platforms while growing the company's revenue to over $4.5 billion and expanding its reach across more than 150 countries. Earlier in his career he was President of Products and Services at Symantec, and founded two companies acquired by Microsoft and Symantec. He holds bachelor's and master's degrees in electrical engineering and computer science from MIT.
+Francis’s experience running large, complex, data-driven businesses translates well to Scale's two core businesses: providing the data that powers frontier AI models and building the applications that run on top of them.
+"I want to thank the Board for their confidence and Jason Droege for his leadership over the past year. I am honored to be joining a company that has become essential infrastructure for the AI industry over the last decade,” said deSouza. "Scale sits at a rare intersection of frontier model development and real-world deployment, and the opportunity for continued growth and success is enormous. My focus will be getting Scale’s solutions into more businesses and governments, delivering the best data for AI labs, and showing our value through provable outcomes. I look forward to building on what this world-class team has already accomplished."
+About Scale AI
+Scale AI is a leading AI applications and data infrastructure company, helping the world's most consequential organizations, from frontier AI labs to the U.S. Department of War to Fortune 500 companies, build, evaluate, and deploy AI that performs in the real world. The company's data engine underpins model development at many of the major frontier labs, while Scale's Generative AI Platform powers mission-critical AI programs across governments and global enterprises.
+Francis deSouza, incoming Chief Executive Officer of Scale
+Ready to break through your data bottleneck?
+Scale's team will match your project to the right experts, fast.
+Talk to our experts
+Products
+Scale data engine Scale GenAI Portfolio Scale Donovan
+Solutions
+Enterprise Insurance Healthcare National Security US Public Sector Global Public Sector
+Company
+About Careers Security Terms Privacy Modern Slavery Statement
+Resources
+Blog Contact Us Events Documentation Data Partnerships Brand Guidelines
+Guides
+Data Labeling ML Model Training Diffusion Models Guide to AI for eCommerce Computer Vision Applications Large Language Models
+Reliable AI for the world’s most important decisions
+Manage your cookie preferences
+Copyright © 2026 Scale AI, Inc. All rights reserved
+Terms of Use & Privacy Policy

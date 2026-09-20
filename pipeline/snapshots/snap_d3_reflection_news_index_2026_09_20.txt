@@ -1,0 +1,31 @@
+# SNAPSHOT · Reflection AI 官方 News 页索引（截至 2026-09-20：仅转列媒体，无 2026 年融资官方稿）
+# source: https://reflection.ai/news
+# fetched: 2026-09-20 15:03 · curl -sL -A "Anatole research e1728233@u.nus.edu" · HTML→文本（去 script/style，</p>→换行，</td>→" | "）；外链另列
+
+Latest announcements
+BloombergNebius to Sell $1 Billion in AI Capacity to ReflectionJuly 14, 2026
+CNBCSpaceX signs computing power deal with open-source AI startup Reflection worth up to $6.3 billionJune 22, 2026
+The Washington PostAI & Tech Brief: Reflection AI arrives in WashingtonMay 26, 2026
+AxiosExclusive: Reflection AI to power Genesis MissionMay 22, 2026
+Business WireDell Technologies Closes the Gap Between AI Ambition and AI OutcomesMay 18, 2026
+TechCrunchPentagon inks deals with Nvidia, Microsoft, and AWS to deploy AI on classified networksMay 1, 2026
+CNBC SquawkboxReflection CEO confirms latest funding round closed at $25 billion pre-money valuationApril 23, 2026
+Wall Street JournalNvidia-Backed AI Startup to Spend Billions on Korea Data Center to Combat ChinaMarch 16, 2026
+Financial TimesNvidia-backed 'open' AI start-up courts investors at $20bn-plus valuationMarch 2, 2026
+Core MemoryThe Open Source AI Model For the West: Ep. 44 with Misha LaskinNovember 19, 2025
+
+
+# 页内外链（href）：
+http://x.com/reflection_ai
+https://reflection.ai/news
+https://techcrunch.com/2026/05/01/pentagon-inks-deals-with-nvidia-microsoft-and-aws-to-deploy-ai-on-classified-networks/
+https://www.axios.com/2026/05/22/reflection-ai-genesis-mission-energy-partnership
+https://www.bloomberg.com/news/articles/2026-07-14/nebius-to-sell-1-billion-in-ai-capacity-to-startup-reflection?srnd=undefined&amp;embedded-checkout=true
+https://www.businesswire.com/news/home/20260518066830/en/Dell-Technologies-Closes-the-Gap-Between-AI-Ambition-and-AI-Outcomes
+https://www.cnbc.com/2026/06/22/spacex-ai-colossus-data-center-reflection.html
+https://www.cnbc.com/video/2026/04/23/reflection-ceo-on-ai-race-the-best-open-models-are-coming-from-china.html
+https://www.corememory.com/p/the-open-source-ai-model-reflectionai
+https://www.ft.com/content/07073c8f-7176-471c-ac69-ef1458845fb2
+https://www.linkedin.com/company/reflectionai/
+https://www.washingtonpost.com/wp-intelligence/ai-tech-brief/2026/05/26/ai-tech-brief-reflection-ai-arrives-washington/
+https://www.wsj.com/tech/ai/nvidia-backed-ai-startup-to-spend-billions-on-korea-data-center-to-combat-china-f945a326

@@ -1,0 +1,13 @@
+# SNAPSHOT · TechCrunch 2026-07-14 · Reflection inks $1B compute deal with Nebius
+# source: https://techcrunch.com/2026/07/14/reflection-inks-1b-compute-deal-with-nebius/
+# fetched: 2026-09-20 15:03 · curl -sL（浏览器 UA；研究 UA 被 403） · HTML→文本（去 script/style，</p>→换行，</td>→" | "）
+
+Reflection inks $1B compute deal with Nebius
+Reflection AI, a U.S. startup vying to develop open models, has signed a $1 billion compute deal with European AI infrastructure company Nebius. 
+Nebius, a company spun out of Russian tech giant Yandex, will provide Reflection access to Nvidia’s latest chips. The deal comes just a few weeks after the startup signed a similar deal to access SpaceX’s computing resources, and mirrors several partnerships by AI firms as they race to secure compute for training and deploying their models.
+Along with its increasingly capable Chinese counterparts, Reflection is one of several open-weight AI model developers that have received ample attention lately as debate rages over the value of top-shelf, closed-source AI models — especially with data retention concerns surging up, as well as government intervention. 
+Just last month, the Trump administration pressured Anthropic and OpenAI to restrict their most powerful new models, raising concerns that access to AI models could be taken away overnight. That, plus the release of more capable open models from China, has led to an increase in mainstream interest in open source AI.
+Reflection, currently valued at $25 billion pre-money, was founded in 2024 by two former Google DeepMind researchers. It has already raised close to $2.6 billion in funding from backers including Nvidia, Sequoia Capital, and Lightspeed Venture Partners.
+Shortly after securing a $2 billion investment from Nvidia, Nebius signed a five-year infrastructure deal with Meta worth up to $27 billion. Last year, Nebius signed a multi-year deal with Microsoft worth up to $19.4 billion.
+TechCrunch has reached out to Reflection and Nebius for more information.
+Correction: A previous version of this article misstated Reflection’s last known valuation.

@@ -1,0 +1,113 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>选中 D1 后显示啥</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1a1d24;--mut:#7a828f;--line:#e7e9ee;--line2:#eef0f3;--accent:#4f46e5;--accent-soft:#eef0ff;
+ --up-bg:#e7f6ec;--up:#16a34a;--dn-bg:#fdeaea;--dn:#dc2626;--shock:#c2740c;--t1:#0e7490;--chn:#e11d48}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:13px/1.5 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:1120px;margin:0 auto;padding:22px 20px 50px}
+h1{font-size:18px;margin:0 0 3px}.lead{color:var(--mut);margin:0 0 18px}
+h2{font-size:13px;margin:24px 0 11px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+/* panel-state row */
+.state{display:grid;grid-template-columns:150px 1fr 320px;gap:10px}
+.pane{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:12px}
+.pane .h{font-size:11px;font-weight:700;color:var(--accent);margin-bottom:7px}
+.pane.dim .h{color:var(--mut)}
+.rail .it{padding:6px 8px;border-radius:7px;font-size:12px;display:flex;justify-content:space-between;align-items:center}
+.rail .it.on{background:var(--accent-soft);color:var(--accent);font-weight:700}
+.rail .n{background:#eef0f3;border-radius:999px;padding:0 6px;font-size:10px;color:var(--mut)}
+.ev{border-top:1px solid var(--line2);padding:6px 2px;font-size:11.5px}.ev:first-of-type{border-top:0}
+.ev .d{color:var(--mut);font-size:10px}
+.graphbox{height:100%;min-height:180px;border:1px dashed #c7cbd3;border-radius:9px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--mut);text-align:center;font-size:11.5px;background:radial-gradient(circle at 50% 40%,#eef0ff55,transparent 60%)}
+.chips{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+.chip{border:1px solid var(--line);border-radius:6px;padding:2px 7px;font-size:10.5px;background:#fbfbfd}
+.chip.dst{border-color:var(--shock);color:#a35a08;font-weight:600;background:#fdf7ee}
+.chip.mech{background:#f6f4fb;border-color:#e6e0f5;color:#6d5aa8}
+/* overview card */
+.ov .top{display:flex;align-items:baseline;gap:8px}.ov .top .t{font-size:15px;font-weight:700}
+.tag{font-size:10.5px;color:var(--mut);background:#f1f3f5;border-radius:5px;padding:1px 7px}
+.k{color:var(--mut);font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-top:12px}
+.v{font-size:12.5px;margin-top:3px}
+.spine{font-size:11.5px;color:var(--mut);background:#fafbfc;border:1px solid var(--line2);border-radius:7px;padding:6px 9px;margin-top:4px}
+.dirbar{display:flex;height:10px;border-radius:5px;overflow:hidden;margin-top:5px}
+.dirbar i{display:block}.du{background:var(--up)}.dd{background:var(--dn)}.df{background:#cbd2da}
+.fan{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px}
+.tk{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:7px;padding:3px 8px;font-size:11.5px;background:#fbfbfd}
+.tk b{font-weight:700}.tk .s{color:var(--mut);font-size:10.5px}.tk.hot{border-color:#16a34a55;background:#e7f6ec66}
+.kpi{border:1px solid var(--line);border-radius:9px;padding:9px 10px;margin-top:6px}
+.kpi .r{display:flex;justify-content:space-between;align-items:center}.kpi .lab{font-size:11px;color:var(--mut)}
+.corr{font-size:10.5px;font-weight:600;color:var(--up);background:var(--up-bg);border-radius:6px;padding:1px 7px}
+.big{font-size:16px;font-weight:700}
+.cell{padding:1px 7px;border-radius:5px;font-weight:600;font-size:11px}.c-up{background:var(--up-bg);color:var(--up)}
+.p1{background:#0e749012;color:var(--t1);border:1px solid #0e749033;border-radius:5px;padding:0 6px;font-size:10.5px;font-weight:600}
+.quad{display:grid;grid-template-columns:48px 1fr 1fr;border:1px solid var(--line);border-radius:8px;overflow:hidden;font-size:10.5px;margin-top:5px}
+.quad>div{padding:5px 7px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.quad .h2c{background:#fafbfc;font-weight:600;color:var(--mut);border-top:0}.quad .rh{background:#fafbfc;font-weight:600;color:var(--mut);display:flex;align-items:center}
+.qa{background:#e7f6ec66}.qa b{color:var(--up)}.qw{background:#fdf1e366}.qw b{color:var(--shock)}.qp b{color:var(--mut)}
+.note{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px;margin-top:14px;font-size:12.5px}
+.note li{margin:5px 0}.note b{color:var(--accent)}
+</style></head><body><div class="wrap">
+<h1>左栏选中 D1 后 → 整个面板 scope 到这个维</h1>
+<p class="lead">维本身是第 4 类可选对象。选中它,四个区一起变;右栏默认出一张新的 <b>维概览卡</b>,再点具体 事件/边/节点 才换成 信号/路径/节点 卡。</p>
+
+<h2>选中「D1 算力供给」时,三个区长这样</h2>
+<div class="state">
+ <div class="pane dim"><div class="h">左栏(选中态)</div>
+  <div class="rail">
+   <div class="it on">D1 算力 <span class="row"><span style="color:var(--chn)">●</span> <span class="n">35</span></span></div>
+   <div class="it" style="color:var(--mut)">D2 数据 <span class="n">3</span></div>
+   <div class="it" style="color:var(--mut)">D3 资本 <span class="n">7</span></div>
+   <div class="it" style="color:var(--mut)">D5 能力 <span class="n">7</span></div>
+   <div class="it" style="color:var(--mut)">D7 政策 <span class="n">5</span></div>
+  </div>
+  <div style="font-size:10px;color:var(--mut);margin:9px 0 3px;font-weight:700">D1 最近事件流 ↓</div>
+  <div class="ev">旭创半年报 +182%<div class="d">P1 · 08-26</div></div>
+  <div class="ev">NVDA DC 收入 $89B<div class="d">P1 · 08-27</div></div>
+  <div class="ev">NBIS 5GW 上电指引<div class="d">P2 · 08-12</div></div>
+ </div>
+ <div class="pane"><div class="h">中央:传播图 re-root 到 D1 子图</div>
+  <div class="graphbox">D1 的 <b>17 条路径 → 10 个票</b> 高亮,其余维灰化
+   <div class="chips"><span class="chip">D1 源(35)</span><span class="chip mech">在建强度</span><span class="chip mech">算力子节点</span><span class="chip dst">NBIS</span><span class="chip dst">MRVL</span><span class="chip dst">…10 票</span></div>
+   <div style="margin-top:8px;font-size:10.5px">点边→路径卡 · 点节点→节点档案 · 点事件→信号卡</div>
+  </div>
+  <div class="quad"><div class="h2c"></div><div class="h2c">证据硬</div><div class="h2c">证据软</div>
+   <div class="rh">领先长</div><div class="qa"><b>13</b>现在动</div><div class="qw"><b>2</b>观察</div>
+   <div class="rh">领先短</div><div class="qp"><b>2</b>priced</div><div><b>0</b></div></div>
+  <div style="font-size:10px;color:var(--mut);margin-top:4px">↑ 顶部 2×2 也重算成 D1 路径分布</div>
+ </div>
+ <div class="pane ov"><div class="h" style="color:var(--mut)">右栏默认:维概览卡</div>
+  <div class="top"><span class="t">D1 算力供给</span><span class="tag" style="margin-left:auto">投入 · 基金视角 高 · ●中国侧</span></div>
+  <div class="k">拆解主轴(complete-by-construction)</div>
+  <div class="spine">硅 → 封装 → 互连 → 整机 → 数据中心 → 分发</div>
+  <div class="k">节点方向分布(35 指标)</div>
+  <div class="dirbar"><i class="du" style="width:83%"></i><i class="dd" style="width:3%"></i><i class="df" style="width:14%"></i></div>
+  <div class="v" style="color:var(--mut);font-size:11px">29↑ · 1↓ · 5 中性/不适用</div>
+  <div class="k">打到哪些票(扇出排序)</div>
+  <div class="fan">
+   <span class="tk hot"><b>NBIS</b><span class="s">7路 · 0.39</span></span>
+   <span class="tk hot"><b>MRVL</b><span class="s">0.39</span></span>
+   <span class="tk"><b>INTC</b><span class="s">0.39</span></span>
+   <span class="tk"><b>SUPX</b><span class="s">0.39</span></span>
+   <span class="tk"><b>CIEN</b><span class="s">0.26</span></span>
+   <span class="tk"><b>MU</b><span class="s">0.18</span></span>
+   <span class="tk"><b>FCEL</b><span class="s">0.14</span></span>
+   <span class="tk"><span class="s">…10 票</span></span>
+  </div>
+  <div class="k">关键读数(点→跳记分卡)</div>
+  <div class="kpi"><div class="r"><span class="lab">中际旭创 海外营收</span><span class="corr">→NBIS T1</span></div>
+   <div class="row" style="gap:8px;align-items:baseline"><span class="big">¥417.78亿</span><span class="cell c-up">+182%</span><span class="p1">P1</span></div></div>
+  <div class="kpi"><div class="r"><span class="lab">GPU 出货(NVDA DC 代理)</span><span class="corr">→5 票 T1</span></div>
+   <div class="row" style="gap:8px;align-items:baseline"><span class="big">$89.0B</span><span class="cell c-up">+117%</span><span class="p1">P1</span></div></div>
+ </div>
+</div>
+
+<div class="note"><b style="color:var(--ink)">一句话:选中维 = 给整个面板加一个"只看这个维"的镜头。</b>
+ <ul>
+  <li><b>中央图</b>:re-root 到该维子图(D1 的源→机制→票全高亮,别的维灰化)。</li>
+  <li><b>左栏下半</b>:变成该维的"最近活跃事件流"(点一条=信号卡)。</li>
+  <li><b>顶部 2×2</b>:重算成该维路径的 领先期×证据 分布。</li>
+  <li><b>右栏</b>:默认这张<b>维概览卡</b>(主轴+方向分布+扇出排序+关键读数+2×2);再点具体 事件/边/节点 → 换成 信号/路径/节点 卡。</li>
+  <li><b>副视图记分卡</b>:过滤到该维的 KPI 卡。</li>
+ </ul>
+ 数据:metric_registry(dim 分组)· propagate.py --dim(扇出)· v_signal_latest(方向)· v_metric_latest(读数)。
+</div>
+</div></body></html>

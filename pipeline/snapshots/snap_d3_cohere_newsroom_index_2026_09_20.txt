@@ -1,0 +1,72 @@
+# SNAPSHOT · Cohere Newsroom 索引第 1 页（截至 2026-09-20：2026-03 至 2026-09-16 无融资完成公告）
+# source: https://cohere.com/newsroom
+# fetched: 2026-09-20 15:03 · curl -sL -A "Anatole research e1728233@u.nus.edu" · HTML→文本（去 script/style，</p>→换行，</td>→" | "）
+
+Cohere and Aleph Alpha sign agreement to become the first transatlantic sovereign AI solution
+Sep 16, 2026
+3 min read
+Recent company news
+PartnerCompany News
+Cohere and OpenText partner to bring trusted agentic AI to governments and regulated industries
+Sep 16, 2026
+1 min read
+Company News
+Who Gets to Define the Rules for AI?
+Sep 13, 2026
+15 min read
+Product LaunchCompany News
+Introducing Parse: Enterprise document intelligence at scale
+Aug 27, 2026
+5 min read
+Company NewsPartner
+Cohere and the University of Waterloo launch partnership to strengthen Canada’s AI talent pipeline
+Aug 06, 2026
+2 min read
+Company NewsPartner
+Cohere and the University of Toronto partner to advance responsible AI adoption at scale
+Jul 16, 2026
+1 min read
+Product LaunchAI for Developers
+Meet Cohere Transcribe Arabic
+Jul 07, 2026
+5 min read
+Company News
+Cohere triples UK footprint with new London office to support R&D growth
+Jun 15, 2026
+2 min read
+Product LaunchCompany News
+Introducing North Mini Code: Cohere’s first model for developers
+Jun 09, 2026
+3 min read
+Company NewsPartner
+Cohere and Mila partner to advance Quebec French language and cultural context in AI
+May 27, 2026
+2 min read
+Company News
+Our 2026 summer merch collection is here
+May 26, 2026
+1 min read
+Company News
+Cohere Releases Command A+: An Open-Source Enterprise AI Model Built for Sovereign Critical Infrastructure
+May 20, 2026
+3 min read
+Company News
+Announcing strategic MOUs with Indra Group and Multiverse Computing
+May 20, 2026
+2 min read
+Healthcare & Life SciencesCompany News
+Cohere acquires Reliant AI to expand sovereign enterprise AI for the global biopharma and healthcare sectors
+May 19, 2026
+3 min read
+Company News
+Cohere and Aleph Alpha join forces to form global AI powerhouse as nations and enterprises demand control over their technology
+Apr 24, 2026
+3 min read
+Company News
+Cohere joins Aston Martin Aramco Formula One™ Team as official Generative AI Partner to help accelerate AI innovation
+Mar 04, 2026
+3 min read
+1
+2
+3
+…
