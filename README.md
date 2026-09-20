@@ -69,7 +69,7 @@
 | ① 供给侧建模 | 把 AI 发展拆成 **D1–D7 七维节点**(算力 / 数据 / 资本 / 人才 / 能力前沿 / 商用 / 政策·能源),每维一条"拆解主轴"保证查全 | [供给侧全景](docs/process/01-供给侧建模.md) |
 | ② 指标体系 | 数据类型四分类(量价 / 事件 / 观点 / 前沿)+ 通用元数据层 + 字段规范 | [指标体系](docs/process/02-指标体系.md) |
 | ③ **供需对接** | 把 AI 节点 × 持仓 ticker 连成一张有向图(即上图 bowtie)+ 一条 thesis 两端对读 | [供需对接](docs/process/03-供需对接.md) |
-| ④ schema 设计 | 把节点 / 边 / 事实 / 判断落成可计算的表(四类 fct、R 指标、E 边、判断表) | [schema 设计](docs/process/04-schema设计.md) · [`schema.sql`](pipeline/schema.sql) |
+| ④ schema 设计 | 把前几步的产物落成可计算、可追踪的表:**节点**(① 的 D1–D7)→ 指标真源 R、**边**(③ 的传导关系)→ 边真源 E、**事实**(② 的四类观测)→ 四类事实表 `fct_*`、**判断**(分析师的分级 / 方向 / 定 tier,前面没出现的新增层)→ 判断表(决策层)。核心纪律:原子事实 vs 可推导、判断与数据分表 | [schema 设计](docs/process/04-schema设计.md) · [`schema.sql`](pipeline/schema.sql) |
 | ⑤ **点 · 边 · 权重(映射范式)** | 逐票向上游反推 · 六类边 E1–E6 · 跳数 · **映射价值 = 传导确定性 × 节点质量** · 边确定性三层验证 T1/T2/T3 → `edge_registry` | [点·边·权重(整理稿)](docs/process/05-映射范式-点边权重.md) · [`edge_registry` 字段 ↗](pipeline/SCHEMA.md#tbl-edge_registry) |
 | ⑥ 实例验证 | NBIS 七条链(光互连 / 在建强度 / 上电 / lab 融资 / 能力→推理 / 政策审批 / 出口管制)逐链核对,真实数据走一遍 | [NBIS 实例(整理稿 · 真数 + 已兑现)](docs/process/06-NBIS实例.md) |
 
