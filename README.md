@@ -108,16 +108,39 @@
 
 ## 四算子 ↔ 现有 schema(点落点看字段结构)
 
-> 「落点」列里带 ↗ 的表名可点击,直接跳到 [`pipeline/SCHEMA.md`](pipeline/SCHEMA.md) 对应表的**字段结构**(列 · 含义 · 设计出处 · 有值率)。
+> 这一节是**数据的 extra value 落点**:四算子不是概念,每一步都落到真实的表/视图,带真实规模。「落点」里带 ↗ 的表名可点击,跳到 [`pipeline/SCHEMA.md`](pipeline/SCHEMA.md) 看**字段结构**。**成熟度**如实标"运行中 / 骨架就绪"——诚实标注小样本本身,是数据治理的第一考核。
 
-| 算子 | 含义 | 在本体系的落点 |
+| 算子 | 在本体系的落点(真实规模 · ↗ 看字段) | 成熟度 |
 |---|---|---|
-| **REPRESENT** 压缩表征 | 把混乱世界压成 point-in-time、可比较的 state | [`stg_observation`↗](pipeline/SCHEMA.md#tbl-stg_observation) → 四类 [`fct_*`↗](pipeline/SCHEMA.md#tbl-fct_quant) + 通用元数据层(knowledge_time / P1–P5 / anchor / snapshot_id / owner)· [`source_master`↗](pipeline/SCHEMA.md#tbl-source_master) |
-| **PROPOSE** 枚举候选 | 扩张候选空间:新解释、新机制从哪来 | [`edge_registry`↗](pipeline/SCHEMA.md#tbl-edge_registry) 六类边 E1–E6(本体 / 供应链 / 需求 / 竞对 / 主题 / 资金人才)· 前沿雷达 · [假设台账↗](pipeline/SCHEMA.md#tbl-assumption) |
-| **PREDICT** 指标预判 | 在指标空间(而非文本)预判后果 | [`metric_registry`↗](pipeline/SCHEMA.md#tbl-metric_registry).lead_time_est · expectation_base(Forecast)· [日历排期↗](pipeline/SCHEMA.md#tbl-calendar) · warning = τ·l·e |
-| **SELECT** 剪枝选择 | 有限候选上的高频判断:路由 / 分级 / 验证 / 排序 | 接入路由 · [`observation_direction`↗](pipeline/SCHEMA.md#tbl-observation_direction) · 两道闸(可信度 → 重要性)· 三态对账 · `tradable`/`warning` 排序 |
-| **闭环** 自我校准 | confidence → outcome → 校准曲线 | [`decision_log`↗](pipeline/SCHEMA.md#tbl-decision_log) 六元组 · `v_calibration` · [`decision_registry`↗](pipeline/SCHEMA.md#tbl-decision_registry).calib_status 状态机(human → shadow → assisted → auto) |
-| **分工即 routing policy** | 确定性代码 → 专用判断 → 小生成模型 → human 的 cascade | AI 生成 / 分析师复核 / 数据团队,**边界随校准数据移动** |
+| **REPRESENT** 压缩表征 | [`stg_observation`↗](pipeline/SCHEMA.md#tbl-stg_observation) **317 条**单口接入 → `route()` 确定性分五类 fct([`quant`↗](pipeline/SCHEMA.md#tbl-fct_quant) 179 / event 92 / frontier 23 / opinion 8 / position 15,**零漏路由**,checks 7b 守)· 通用元数据层 **100% 填满**:knowledge_time as-of(月→15、年/季→NULL **不伪造精度**)· provenance P1–P5(P1 占 259)· snapshot_id→**101 个真快照文件**· anchor 存原文短引 · `superseded_by` **32 条修订链**旧值不删 · [`source_master`↗](pipeline/SCHEMA.md#tbl-source_master) 176 源分级 · schema_doc **402 列**全字典 | 🟢 运行中 |
+| **PROPOSE** 枚举候选 | [`edge_registry`↗](pipeline/SCHEMA.md#tbl-edge_registry) **36 边** = 候选解释词表(E1 2 / E2 12 / E3 14 / E4 2 / E5 5 / E6 1;28 节点 → 11 票;hops 0–3 带 `map_path` 显式中间机制 + `evidence_ids` JSON 溯源;cert_tier T1/T2/T3)· [`candidate_pool`↗](pipeline/SCHEMA.md#tbl-candidate_pool) **10 候选**(背离触发,超期报欠账 checks 7n)· [假设台账↗](pipeline/SCHEMA.md#tbl-assumption) 42 | 🟢 运行中(剪枝样本少) |
+| **PREDICT** 指标预判 | [`metric_registry`↗](pipeline/SCHEMA.md#tbl-metric_registry)`.lead_time_est`(海关 20d / 光模块 18d / 上电 90d / lab 融资 180–278d,先验挂假设台账)· expectation_base **25 指标 Forecast** · [日历排期↗](pipeline/SCHEMA.md#tbl-calendar) 58 · `warning = τ·l·e` → `v_edge_calc` 36 边 · `d_edge_predict` **3 条带日期方向预测已兑现** | 🟡 部分(量级待回测) |
+| **SELECT** 剪枝选择 | `route()`(唯一 auto 算子)· [`observation_direction`↗](pipeline/SCHEMA.md#tbl-observation_direction) **317 方向** · **两道级联闸**(证伪 → 影响力,decision_log impact 42 / falsify 9 留痕)· [`metric_factor`↗](pipeline/SCHEMA.md#tbl-metric_factor) **84 节点** × r/e/l/s/φ → 闭式打分 `tradable=c·r·s·φ` / `warning=τ·l·e` · 系数外置挂假设台账(**未 validated 故只排序、禁 sizing**) | 🟢 运行中 |
+| **闭环** 自我校准 | [`decision_log`↗](pipeline/SCHEMA.md#tbl-decision_log) **95 条六元组**(state_anchor 可回放)· [`decision_registry`↗](pipeline/SCHEMA.md#tbl-decision_registry) 12 类判断的 I/O 契约 + `calib_status` 状态机 · `v_calibration` **首点**(d_edge_predict conf 0.6 · 命中 3/3 · calib_error 0.4) | ⚪ 骨架就绪(outcome 3/95) |
+| **分工即 routing policy** | owner A/B/C/D 印在 ~12 张表(observation_direction 317 · change_log 3226)· `executor_kind`{rule 3 / human 9}· `calib_status`{**auto** 1 / **assisted** 2 / **human** 9}· checks 7l 校准闸(未 validated 禁 assisted/auto) | 🟡 人力版运行 · 模型段待接 |
+
+### 为什么这是"租不到"的资产 · 对标竞品
+
+大家都有数据 / nowcast / 血缘,**没人有一张会自我校准、逐事实 point-in-time 诚实的 AI → ticker 类型化因果图**。逐格看差异化落在哪一格:
+
+| 你租得到 | 它给你 | 这张图多给的一格 |
+|---|---|---|
+| TickerTrends / M Science(alt-data nowcast) | 逐 KPI 的 Bogey / Consensus / Δ% / MOE | KPI 有了,但**没有"传导来路"**——这里给每条 KPI 挂上 AI 节点 → 六类边 → 票的因果链 |
+| Daloopa / Visible Alpha(数据血缘) | 逐格 provenance 到 filing | provenance 有了,但**不做因果、不做预判**——这里带 lead_time + 方向 + cert_tier |
+| DataHub / dbt / OpenLineage(治理) | 数据血缘 impact analysis | 血缘有了,但**机械、无置信度**——这里每条边带 T1/T2/T3 验证档 + confidence |
+| State of AI / Epoch / AI Index(AI 追踪) | AI 发展数据 + 带日期预测记分卡 | 数据/预测有了,但**不落到票、无逐事实 provenance**——这里 confidence→outcome→校准,每条事实 P1–P5 可追 |
+
+**四件的组合(逐事实 point-in-time 诚实 + 类型化因果边 + 带置信度的验证档 + confidence→outcome 自校准)就是租不到的那一格**:模型谁都能租,这张图与它的权重(R + E + 判断 + 校准曲线)租不到。
+
+### 诚实成熟度标尺(现在跑通了什么 vs 待兑现)
+
+按体系**自设的证伪标准**(见 [`JEV-intelligence-graph`](pipeline/JEV-intelligence-graph.md) §五):
+
+- 🟢 **已运行**:接入→路由→四类 fct(317 条零漏)· 逐事实 provenance + 32 条修订谱系 · 六类边 + 闭式打分 · 判断六元组账(95 条)· 人力版 A/B/C/D cascade · 边级预测 3 条真兑现(旭创 +182% ⟷ NBIS +514% 等)。
+- 🟡 **骨架就绪、待数据兑现**:outcome 回填 3/95 · v_calibration 仅 1 桶 n=3 · 边 cert_tier 回测 1/36 · 模型执行者(llm/model)0 条、**从未跨 human→shadow**。
+- ⛔ **按纪律暂关**:系数未 validated → 全套分数**只排序、禁 sizing 与告警**;P&L 归因(北极星)待建。
+
+**这是一座地基扎实、正在施工的护城河,不是已兑现的 alpha**——它的价值在于:每条人工判断以≈0 边际成本沉淀成校准 / 训练集(`decision_registry` 每行 = 未来一个专用小模型的 I/O 契约),**数据的复利从第一天开始**。
 
 ---
 
