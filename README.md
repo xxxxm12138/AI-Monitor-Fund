@@ -46,11 +46,11 @@
 
 投研恰好是最典型的 **decision-native**(而非 generation-native)工作负载:每个节点的输入 state 很复杂(多源证据、可信度、口径是否可比),输出却是**有限候选上的一个选择 + 一个置信度**。所以结论不是"我们要用某个模型",而是——**基金的投资体系本身应该按这个计算范式来设计**:重决策、压缩、预测、剪枝;生成只在图的**边缘**出现(写简报、向人解释、提出新的解释候选)。
 
-- **候选空间是被设计出来的,不是天生的**:之前"AI 发展 → ticker"的分析(按供应链、按竞对……),本质上就是在一个人工枚举的候选空间里工作。把它显式化成一张图,这个空间才可以**扩张、细化、校准**——甚至整个基金的投资体系都可以采用这种形式。
+- **候选空间是被设计出来的,不是天生的**:常规投研里,"AI 发展 → ticker"的分析(按供应链、按竞对……)本质上就是在一个人工枚举的候选空间里工作。把它显式化成一张图,这个空间才可以**扩张、细化、校准**——甚至整个基金的投资体系都可以采用这种形式。
 - **compute 的执行者不必是通用大模型**:它可以是 *for-representation / for-prediction / for-selection* 的专用**小模型**。schema 只声明每个决策点的 **typed I/O 契约**,执行者(人 / 通用 LLM / 专用模型 / 规则代码)是**可替换件**。
 - 押注的是 **Computation Specialization,而非 Model Specialization**。所以**今天的每一行数据,同时是明天专用模型的 I/O 契约与训练集**——这就是"**为后来的 AI 基建做设计**"的具体含义。
 
-> 完整设计立场文见 [`pipeline/JEV-intelligence-graph.md`](pipeline/JEV-intelligence-graph.md)(原文 [`pipeline/JEV`](pipeline/JEV))。
+> 这套计算范式的判断,**启发自孟醒的文章 [《JEV 火了，但真正重要的不是 JEV》](https://mp.weixin.qq.com/s/m2NUWypKHN3Lv857aNVhSg)**(公众号「孟醒的笔记本」)。我读后的设计立场——四算子如何落到本体系的 schema——见 [`pipeline/JEV-intelligence-graph.md`](pipeline/JEV-intelligence-graph.md)(文章原文存档 [`pipeline/JEV`](pipeline/JEV))。
 
 ---
 
@@ -62,7 +62,7 @@
 <img src="assets/readme/bowtie.svg" alt="供需对接 bowtie:AI 供给 D1–D7 → 六类边 → 持仓 ticker" width="100%">
 </div>
 
-上一节那句"已经有一定逻辑(供应链、竞对……)"不是空话——它是一步步搭出来的。这套「AI 发展 → 基金 ticker」映射的真实构建路径(每步附当时的过程原稿):
+要让"AI 发展 → ticker"的朴素逻辑(供应链、竞对……)能扩张、能校准,就得把它一步步搭成一张真正的图。这套「AI 发展 → 基金 ticker」映射的真实构建路径如下(每步附过程稿;⑤⑥ 为整理后的面试版,①–④ 为原始工作稿):
 
 | 步 | 做了什么 | 过程原稿 / 落点 |
 |---|---|---|
@@ -70,8 +70,8 @@
 | ② 需求侧建模 | 每只持仓票的驱动指标、关注点与可观测量 | [`4-指标测`](research/4-指标测1.md) |
 | ③ **供需对接** | 把 AI 节点 × 持仓 ticker 连成一张有向图(即上图 bowtie) | [`5-AI×指标结合`](research/5-AI%26指标侧结合1.md) |
 | ④ schema 设计 | 把节点 / 边 / 事实 / 判断落成可计算的表(四类 fct、R 指标、E 边、判断表) | [`6-schema1`](research/6-schema1.md) · [`8-schema_AI`](research/8-schema_AI.md) · [`schema.sql`](pipeline/schema.sql) |
-| ⑤ **点 · 边 · 权重(映射范式)** | 逐票向上游反推 · 六类边 E1–E6 · 跳数 · **映射价值 = 传导确定性 × 节点质量** · 边确定性三层验证 T1/T2/T3 → `edge_registry` | [`9-映射`](research/9-映射.md) · [`edge_registry` 字段结构 ↗](pipeline/SCHEMA.md#tbl-edge_registry) |
-| ⑥ 实例验证 | NBIS 七条链(光互连 / 在建强度 / 上电 / lab 融资 / 能力→推理 / 政策审批 / 出口管制)逐链核对 | [`10-NBIS实例`](research/10-NBIS实例.md) |
+| ⑤ **点 · 边 · 权重(映射范式)** | 逐票向上游反推 · 六类边 E1–E6 · 跳数 · **映射价值 = 传导确定性 × 节点质量** · 边确定性三层验证 T1/T2/T3 → `edge_registry` | [点·边·权重(整理稿)](docs/process/05-映射范式-点边权重.md) · [`edge_registry` 字段 ↗](pipeline/SCHEMA.md#tbl-edge_registry) |
+| ⑥ 实例验证 | NBIS 七条链(光互连 / 在建强度 / 上电 / lab 融资 / 能力→推理 / 政策审批 / 出口管制)逐链核对,真实数据走一遍 | [NBIS 实例(整理稿 · 真数 + 已兑现)](docs/process/06-NBIS实例.md) |
 
 **正是这套具体逻辑,才被抽象成四算子 Intelligence Graph**:供需对接 = REPRESENT + PROPOSE 的雏形,点-边-权重打分 = SELECT,逐票向上游反推 = 在候选空间里剪枝。下一节是它到 schema 的正式对应。
 
