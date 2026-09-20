@@ -1,56 +1,83 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 470" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', Helvetica, Arial, sans-serif">
-  <rect width="1200" height="470" rx="18" fill="#FBFCFE"/>
-  <rect x="1" y="1" width="1198" height="468" rx="17" fill="none" stroke="#E0E3EB" stroke-width="1"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 534" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', Helvetica, Arial, sans-serif">
+  <rect width="1200" height="534" rx="18" fill="#FBFCFE"/>
+  <rect x="1" y="1" width="1198" height="532" rx="17" fill="none" stroke="#E0E3EB" stroke-width="1"/>
 
-  <text x="600" y="34" text-anchor="middle" font-size="14" font-weight="600" fill="#5B6472">NBIS 实例 · 一条 thesis 两端对读(真实数据 · as-of 2026-09)</text>
-  <text x="190" y="64" text-anchor="middle" font-size="12.5" font-weight="600" fill="#2158E0">供给端读 · 算力在建多少</text>
-  <text x="1010" y="64" text-anchor="middle" font-size="12.5" font-weight="600" fill="#077568">需求端读 · 需求真不真、续不续</text>
+  <text x="600" y="32" text-anchor="middle" font-size="14" font-weight="700" fill="#131722">NBIS 实例 · AI 发展(D1–D7)→ 边 → 权重 → ticker(真实数据 · as-of 2026-09)</text>
+  <text x="222" y="58" text-anchor="middle" font-size="12" font-weight="600" fill="#5B6472">AI 发展节点 · D 维 + 真数</text>
+  <text x="556" y="58" text-anchor="middle" font-size="12" font-weight="600" fill="#5B6472">边 · 类型 / 跳数 / 验证 tier</text>
+  <text x="777" y="58" text-anchor="middle" font-size="12" font-weight="600" fill="#5B6472">产出(权重)</text>
 
-  <!-- 连线 -->
-  <g stroke="#C6CEDD" stroke-width="1.2">
-    <line x1="340" y1="105" x2="520" y2="200"/>
-    <line x1="340" y1="155" x2="520" y2="200"/>
-    <line x1="340" y1="205" x2="520" y2="200"/>
-    <line x1="340" y1="255" x2="520" y2="200"/>
+  <!-- 泳道连线 -->
+  <g stroke="#D0D7E2" stroke-width="1.4">
+    <line x1="408" y1="96" x2="893" y2="96"/>
+    <line x1="408" y1="152" x2="893" y2="152"/>
+    <line x1="408" y1="208" x2="893" y2="208"/>
+    <line x1="408" y1="264" x2="893" y2="264"/>
+    <line x1="408" y1="320" x2="893" y2="320"/>
   </g>
-  <g stroke="#B7DCD2" stroke-width="1.2">
-    <line x1="860" y1="121" x2="680" y2="200"/>
-    <line x1="860" y1="181" x2="680" y2="200"/>
-    <line x1="860" y1="241" x2="680" y2="200"/>
-  </g>
-
-  <!-- 左:供给端真数 -->
-  <g font-size="13" fill="#131722">
-    <rect x="40" y="84"  width="300" height="42" rx="8" fill="#EAF0FE" stroke="#2962FF" stroke-width="1.1"/><text x="56" y="110">中际旭创 2026Q1 营收</text><text x="324" y="110" text-anchor="end" font-weight="700" fill="#089981">+192%</text>
-    <rect x="40" y="134" width="300" height="42" rx="8" fill="#EAF0FE" stroke="#2962FF" stroke-width="1.1"/><text x="56" y="160">光模块出货 24M → 63M 只</text>
-    <rect x="40" y="184" width="300" height="42" rx="8" fill="#EAF0FE" stroke="#2962FF" stroke-width="1.1"/><text x="56" y="210">NBIS 收入 $582.3M</text><text x="324" y="210" text-anchor="end" font-weight="700" fill="#089981">+454%</text>
-    <rect x="40" y="234" width="300" height="42" rx="8" fill="#EAF0FE" stroke="#2962FF" stroke-width="1.1"/><text x="56" y="260">backlog $40B · 5GW 在建</text>
+  <g fill="#AEB6C4">
+    <path d="M895 96 l-10 -5 v10 z"/><path d="M895 152 l-10 -5 v10 z"/><path d="M895 208 l-10 -5 v10 z"/><path d="M895 264 l-10 -5 v10 z"/><path d="M895 320 l-10 -5 v10 z"/>
   </g>
 
-  <!-- 中:NBIS -->
-  <rect x="520" y="150" width="160" height="100" rx="12" fill="#2962FF"/>
-  <text x="600" y="196" text-anchor="middle" font-size="26" font-weight="800" fill="#FFFFFF">NBIS</text>
-  <text x="600" y="222" text-anchor="middle" font-size="12.5" fill="#CFE0FF">51% · neocloud</text>
+  <!-- NBIS 汇聚节点 -->
+  <rect x="895" y="73" width="150" height="270" rx="12" fill="#2962FF"/>
+  <text x="970" y="205" text-anchor="middle" font-size="26" font-weight="800" fill="#FFFFFF">NBIS</text>
+  <text x="970" y="230" text-anchor="middle" font-size="12" fill="#CFE0FF">51% · neocloud</text>
 
-  <!-- 右:需求端真数 -->
-  <g font-size="13" fill="#131722">
-    <rect x="860" y="100" width="300" height="42" rx="8" fill="#E3F4F0" stroke="#089981" stroke-width="1.1"/><text x="876" y="126">Reflection $2B 融资 · 2025-10</text>
-    <rect x="860" y="160" width="300" height="42" rx="8" fill="#DCF0EA" stroke="#089981" stroke-width="1.6"/><text x="876" y="186" font-weight="700">→ 签 NBIS $1B 算力合同 · 2026-07</text>
-    <rect x="860" y="220" width="300" height="42" rx="8" fill="#E3F4F0" stroke="#089981" stroke-width="1.1"/><text x="876" y="246">Cohere $240M ARR</text>
+  <!-- 节点 + 边 + 产出:五条链 -->
+  <!-- lane1 D1 光互连 -->
+  <g font-size="12.5" fill="#131722">
+    <rect x="36" y="73" width="372" height="46" rx="8" fill="#FFFFFF" stroke="#E0E3EB"/>
+    <rect x="48" y="85" width="30" height="22" rx="5" fill="#2962FF"/><text x="63" y="101" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">D1</text>
+    <text x="88" y="101">光互连出货 · 中际旭创</text><text x="396" y="101" text-anchor="end" font-weight="700" fill="#089981">+192%</text>
+    <rect x="430" y="80" width="252" height="32" rx="8" fill="#F0F3FA" stroke="#D0D7E2"/><text x="556" y="100" text-anchor="middle">E2 供应链 · 3 跳 · T1 可回测</text>
+    <rect x="702" y="80" width="150" height="32" rx="8" fill="#E3F4F0" stroke="#089981"/><text x="777" y="100" text-anchor="middle" fill="#077568" font-weight="600">可交易(beta)</text>
+  </g>
+  <!-- lane2 D1 电力 -->
+  <g font-size="12.5" fill="#131722">
+    <rect x="36" y="129" width="372" height="46" rx="8" fill="#FFFFFF" stroke="#E0E3EB"/>
+    <rect x="48" y="141" width="30" height="22" rx="5" fill="#2962FF"/><text x="63" y="157" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">D1</text>
+    <text x="88" y="157">自有电力上电 · 5GW 在建</text><text x="396" y="157" text-anchor="end" font-weight="700" fill="#E0912B">★ 关键</text>
+    <rect x="430" y="136" width="252" height="32" rx="8" fill="#F0F3FA" stroke="#D0D7E2"/><text x="556" y="156" text-anchor="middle">E2 直接 · 1 跳 · T2 结构</text>
+    <rect x="702" y="136" width="150" height="32" rx="8" fill="#E3F4F0" stroke="#089981"/><text x="777" y="156" text-anchor="middle" fill="#077568" font-weight="600">可交易 ★</text>
+  </g>
+  <!-- lane3 D3 lab 融资 -->
+  <g font-size="12.5" fill="#131722">
+    <rect x="36" y="185" width="372" height="46" rx="8" fill="#FFFFFF" stroke="#E0E3EB"/>
+    <rect x="48" y="197" width="30" height="22" rx="5" fill="#089981"/><text x="63" y="213" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">D3</text>
+    <text x="88" y="213">前沿 lab 融资 · Reflection</text><text x="396" y="213" text-anchor="end" font-weight="700" fill="#089981">→ $1B 合同</text>
+    <rect x="430" y="192" width="252" height="32" rx="8" fill="#F0F3FA" stroke="#D0D7E2"/><text x="556" y="212" text-anchor="middle">E3 需求 · 2 跳 · T2 对账</text>
+    <rect x="702" y="192" width="150" height="32" rx="8" fill="#FDF1DC" stroke="#E0912B"/><text x="777" y="212" text-anchor="middle" fill="#B26A00" font-weight="600">预警(命中风险)</text>
+  </g>
+  <!-- lane4 D5 能力前沿 -->
+  <g font-size="12.5" fill="#131722">
+    <rect x="36" y="241" width="372" height="46" rx="8" fill="#FFFFFF" stroke="#E0E3EB"/>
+    <rect x="48" y="253" width="30" height="22" rx="5" fill="#8B5CF6"/><text x="63" y="269" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">D5</text>
+    <text x="88" y="269">能力前沿 → 推理需求</text><text x="396" y="269" text-anchor="end" font-weight="700" fill="#7C3AED">+4–5×/yr</text>
+    <rect x="430" y="248" width="252" height="32" rx="8" fill="#F0F3FA" stroke="#D0D7E2"/><text x="556" y="268" text-anchor="middle">E3 需求 · 3 跳 · T3 方向</text>
+    <rect x="702" y="248" width="150" height="32" rx="8" fill="#F0F3FA" stroke="#D0D7E2"/><text x="777" y="268" text-anchor="middle" fill="#5A5D68" font-weight="600">方向(不下注)</text>
+  </g>
+  <!-- lane5 D7 regime -->
+  <g font-size="12.5" fill="#131722">
+    <rect x="36" y="297" width="372" height="46" rx="8" fill="#FFFFFF" stroke="#E0E3EB"/>
+    <rect x="48" y="309" width="30" height="22" rx="5" fill="#E0912B"/><text x="63" y="325" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">D7</text>
+    <text x="88" y="325">政策 regime · 出口管制 / 电力</text>
+    <rect x="430" y="304" width="252" height="32" rx="8" fill="#F0F3FA" stroke="#D0D7E2"/><text x="556" y="324" text-anchor="middle">regime · 2 跳 · T2</text>
+    <rect x="702" y="304" width="150" height="32" rx="8" fill="#FDF1DC" stroke="#E0912B"/><text x="777" y="324" text-anchor="middle" fill="#B26A00" font-weight="600">regime 预警</text>
   </g>
 
-  <!-- 对账逻辑 -->
-  <rect x="40" y="300" width="1120" height="66" rx="10" fill="#F5F7FB" stroke="#E0E3EB"/>
-  <text x="60" y="326" font-size="12.5" font-weight="700" fill="#5B6472">对账逻辑</text>
-  <g font-size="13">
-    <circle cx="70" cy="346" r="5" fill="#089981"/>
-    <text x="84" y="351" fill="#131722"><tspan font-weight="700" fill="#077568">同向</tspan>(供给猛建 + 需求涌入)→ 周期健康 · backlog 可信 · 支持加仓</text>
-    <circle cx="600" cy="346" r="5" fill="#F23645"/>
-    <text x="614" y="351" fill="#131722"><tspan font-weight="700" fill="#C0293A">背离</tspan>(供给还在建 · 需求转冷)→ neocloud 泡沫 / 循环融资预警(WeWork 2.0)· 减仓</text>
+  <text x="36" y="366" font-size="11.5" fill="#7A8494">产出 = 映射价值 V(传导确定性 × 节点质量);<tspan font-weight="600" fill="#5B6472">方向与 cert_tier 由分析师判断,可校准</tspan>——这一层就是"判断",与数据分表进决策层。</text>
+
+  <!-- 对账 -->
+  <rect x="36" y="384" width="1128" height="62" rx="10" fill="#F5F7FB" stroke="#E0E3EB"/>
+  <text x="56" y="409" font-size="12.5" font-weight="700" fill="#5B6472">供给读 ⟷ 需求读 对账</text>
+  <g font-size="12.5">
+    <circle cx="66" cy="429" r="5" fill="#089981"/><text x="80" y="434" fill="#131722"><tspan font-weight="700" fill="#077568">同向</tspan>(供给猛建 + 需求涌入)→ 周期健康 · 支持加仓</text>
+    <circle cx="600" cy="429" r="5" fill="#F23645"/><text x="614" y="434" fill="#131722"><tspan font-weight="700" fill="#C0293A">背离</tspan>(供给建 · 需求转冷)→ neocloud 泡沫 / 循环融资预警(WeWork 2.0)· 减仓</text>
   </g>
 
   <!-- 已兑现 -->
-  <rect x="40" y="380" width="1120" height="60" rx="10" fill="#E3F4F0" stroke="#089981" stroke-width="1.2"/>
-  <text x="60" y="405" font-size="13" font-weight="700" fill="#077568">已兑现 ✓ 三条边级方向预测全部 correct</text>
-  <text x="60" y="426" font-size="12.5" fill="#131722">光模块 ↑ → NBIS ↑ &#160;·&#160; lab 融资 → 签 $1B 合同 &#160;·&#160; hyperscaler capex ↑ → NBIS &#160;&#160;(命中率 100% @ 中置信 · 小样本诚实标注)</text>
+  <rect x="36" y="454" width="1128" height="58" rx="10" fill="#E3F4F0" stroke="#089981" stroke-width="1.2"/>
+  <text x="56" y="479" font-size="12.5" font-weight="700" fill="#077568">已兑现 ✓ 三条边级方向预测全部 correct</text>
+  <text x="56" y="500" font-size="12" fill="#131722">光模块 ↑ → NBIS ↑ &#160;·&#160; lab 融资 → 签 $1B 合同 &#160;·&#160; hyperscaler capex ↑ → NBIS &#160;&#160;(命中率 100% @ 中置信 · 小样本诚实标注)</text>
 </svg>
