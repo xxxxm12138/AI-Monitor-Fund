@@ -62,14 +62,14 @@
 <img src="assets/readme/bowtie.svg" alt="供需对接 bowtie:AI 供给 D1–D7 → 六类边 → 持仓 ticker" width="100%">
 </div>
 
-要让"AI 发展 → ticker"的朴素逻辑(供应链、竞对……)能扩张、能校准,就得把它一步步搭成一张真正的图。这套「AI 发展 → 基金 ticker」映射的真实构建路径如下(每步附过程稿;⑤⑥ 为整理后的面试版,①–④ 为原始工作稿):
+要让"AI 发展 → ticker"的朴素逻辑(供应链、竞对……)能扩张、能校准,就得把它一步步搭成一张真正的图。这套「AI 发展 → 基金 ticker」映射的真实构建路径如下(每步都是整理后的面试版,过程稿在 `docs/process/`;每步末标注了当时的"为什么 · 思路 · 目标"):
 
 | 步 | 做了什么 | 过程原稿 / 落点 |
 |---|---|---|
-| ① 供给侧建模 | 把 AI 发展拆成 **D1–D7 七维节点**(算力 / 数据 / 资本 / 人才 / 能力前沿 / 商用 / 政策·能源),每维一条"拆解主轴"保证查全 | [`3-AI侧`](research/3-AI侧1.md) |
-| ② 需求侧建模 | 每只持仓票的驱动指标、关注点与可观测量 | [`4-指标测`](research/4-指标测1.md) |
-| ③ **供需对接** | 把 AI 节点 × 持仓 ticker 连成一张有向图(即上图 bowtie) | [`5-AI×指标结合`](research/5-AI%26指标侧结合1.md) |
-| ④ schema 设计 | 把节点 / 边 / 事实 / 判断落成可计算的表(四类 fct、R 指标、E 边、判断表) | [`6-schema1`](research/6-schema1.md) · [`8-schema_AI`](research/8-schema_AI.md) · [`schema.sql`](pipeline/schema.sql) |
+| ① 供给侧建模 | 把 AI 发展拆成 **D1–D7 七维节点**(算力 / 数据 / 资本 / 人才 / 能力前沿 / 商用 / 政策·能源),每维一条"拆解主轴"保证查全 | [供给侧全景](docs/process/01-供给侧建模.md) |
+| ② 指标体系 | 数据类型四分类(量价 / 事件 / 观点 / 前沿)+ 通用元数据层 + 字段规范 | [指标体系](docs/process/02-指标体系.md) |
+| ③ **供需对接** | 把 AI 节点 × 持仓 ticker 连成一张有向图(即上图 bowtie)+ 一条 thesis 两端对读 | [供需对接](docs/process/03-供需对接.md) |
+| ④ schema 设计 | 把节点 / 边 / 事实 / 判断落成可计算的表(四类 fct、R 指标、E 边、判断表) | [schema 设计](docs/process/04-schema设计.md) · [`schema.sql`](pipeline/schema.sql) |
 | ⑤ **点 · 边 · 权重(映射范式)** | 逐票向上游反推 · 六类边 E1–E6 · 跳数 · **映射价值 = 传导确定性 × 节点质量** · 边确定性三层验证 T1/T2/T3 → `edge_registry` | [点·边·权重(整理稿)](docs/process/05-映射范式-点边权重.md) · [`edge_registry` 字段 ↗](pipeline/SCHEMA.md#tbl-edge_registry) |
 | ⑥ 实例验证 | NBIS 七条链(光互连 / 在建强度 / 上电 / lab 融资 / 能力→推理 / 政策审批 / 出口管制)逐链核对,真实数据走一遍 | [NBIS 实例(整理稿 · 真数 + 已兑现)](docs/process/06-NBIS实例.md) |
 
