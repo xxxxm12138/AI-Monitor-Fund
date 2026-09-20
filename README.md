@@ -166,13 +166,13 @@ python3 build_dashboard2.py # 库 → panel_v2.html(数据管理者面板)
 
 ## 数据模型(五层)
 
-| 层 | 表 / 视图 |
+| 层 | 表 / 视图(带 ↗ 的可点击看字段结构) |
 |---|---|
-| 接入 | [`stg_observation`](pipeline/SCHEMA.md#tbl-stg_observation)(一行一个事实,人 / agent 的登记格式) |
-| 资产 | [`entity_master`](pipeline/SCHEMA.md#tbl-entity_master) · [`metric_registry`](pipeline/SCHEMA.md#tbl-metric_registry)(R,指标定义)· [`edge_registry`](pipeline/SCHEMA.md#tbl-edge_registry)(E,六类边 × 跳数 × T1–T3)· `fct_quant/event/opinion/frontier`(四类事实)· [`source_master`](pipeline/SCHEMA.md#tbl-source_master) |
-| 治理 | `assumption` · `coefficient` · [`metric_factor`](pipeline/SCHEMA.md#tbl-metric_factor)(r/e/l/s/φ)· `observation_direction` · `key_fact` |
-| 治理·决策层 | [`decision_registry`](pipeline/SCHEMA.md#tbl-decision_registry)(每类重复判断的 I/O 契约 + calib_status)· [`decision_log`](pipeline/SCHEMA.md#tbl-decision_log)(六元组:state_anchor / candidates / choice / confidence / basis / outcome)· [`candidate_pool`](pipeline/SCHEMA.md#tbl-candidate_pool) |
-| 元数据 | `schema_doc` · `migration_log` · `change_log` · `thesis_node` · `decision_fork` · `artifact_anchor` |
+| 接入 | [`stg_observation`↗](pipeline/SCHEMA.md#tbl-stg_observation)(一行一个事实,人 / agent 的登记格式) |
+| 资产 | [`entity_master`↗](pipeline/SCHEMA.md#tbl-entity_master) · [`metric_registry`↗](pipeline/SCHEMA.md#tbl-metric_registry)(R,指标定义)· [`edge_registry`↗](pipeline/SCHEMA.md#tbl-edge_registry)(E,六类边 × 跳数 × T1–T3)· 四类事实 [`fct_quant`↗](pipeline/SCHEMA.md#tbl-fct_quant) / [`fct_event`↗](pipeline/SCHEMA.md#tbl-fct_event) / [`fct_opinion`↗](pipeline/SCHEMA.md#tbl-fct_opinion) / [`fct_frontier`↗](pipeline/SCHEMA.md#tbl-fct_frontier) · [`source_master`↗](pipeline/SCHEMA.md#tbl-source_master) |
+| 治理 | [`assumption`↗](pipeline/SCHEMA.md#tbl-assumption) · [`coefficient`↗](pipeline/SCHEMA.md#tbl-coefficient) · [`metric_factor`↗](pipeline/SCHEMA.md#tbl-metric_factor)(r/e/l/s/φ)· [`observation_direction`↗](pipeline/SCHEMA.md#tbl-observation_direction) · [`key_fact`↗](pipeline/SCHEMA.md#tbl-key_fact) |
+| 治理·决策层 | [`decision_registry`↗](pipeline/SCHEMA.md#tbl-decision_registry)(每类重复判断的 I/O 契约 + calib_status)· [`decision_log`↗](pipeline/SCHEMA.md#tbl-decision_log)(六元组:state_anchor / candidates / choice / confidence / basis / outcome)· [`candidate_pool`↗](pipeline/SCHEMA.md#tbl-candidate_pool) |
+| 元数据 | [`schema_doc`↗](pipeline/SCHEMA.md#tbl-schema_doc) · [`migration_log`↗](pipeline/SCHEMA.md#tbl-migration_log) · [`change_log`↗](pipeline/SCHEMA.md#tbl-change_log) · [`thesis_node`↗](pipeline/SCHEMA.md#tbl-thesis_node) · [`decision_fork`↗](pipeline/SCHEMA.md#tbl-decision_fork) · [`artifact_anchor`↗](pipeline/SCHEMA.md#tbl-artifact_anchor) |
 
 完整字典见 [`pipeline/SCHEMA.md`](pipeline/SCHEMA.md);运行机制见 [`pipeline/PIPELINE.md`](pipeline/PIPELINE.md);数据岗操作见 [`pipeline/README.md`](pipeline/README.md)。
 
