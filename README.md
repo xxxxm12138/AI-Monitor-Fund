@@ -253,7 +253,7 @@
 
 ### 5.3 判断记录 · Judgment
 
-对应治理层，也是数据岗作为辅助用户主要进入的视图。Decision Registry 列出判断类型（执行方 / 校准阶段 / 日志 / outcome）；点开看实例六元组。左侧 LLM 路由标了 demo、当前为 off，Langfuse 接入是规划不是现状。本屏回答：这类判断谁做、校准到哪一档、事后有没有回写。
+对应治理层，也是数据岗作为辅助用户主要进入的视图。Decision Registry 列出判断类型（执行方 / 校准阶段 / 日志 / outcome）；点开看实例六元组。本屏回答：这类判断谁做、校准到哪一档、事后有没有回写。LLM 校准面见下一点。
 
 **图 · Judgment**
 
@@ -261,7 +261,17 @@
 <img src="assets/readme/panel-03-judgment.png" alt="Judgment：决策覆盖、执行队列与判断登记表" width="92%">
 </div>
 
-### 5.4 持仓传导 · Results
+### 5.4 LLM 校准 · Judgment（规划）
+
+左栏切到 LLM，判断记录变成监控面：升级率、Eval、幻觉、成本、队列，以及每类判断停在 Human / Shadow / Assisted / Auto 的哪一档。下面是优先队列（幻觉、低分待复核、分布外逃逸）和按 REPRESENT / PROPOSE / SELECT 分列的判断类型。当前 LLM 路由为 demo、在跑条数为 0；Trace 预留的是规划中的 Langfuse 接入，数字为演示，不是已上线监控。数据岗作为辅助用户主要看这一层：哪类判断还停在 shadow、何时可以升档。
+
+**图 · LLM 校准（演示布局）**
+
+<div align="center">
+<img src="assets/readme/panel-03b-llm.png" alt="Judgment · LLM Monitor：校准阶段、Eval 与优先队列" width="92%">
+</div>
+
+### 5.5 持仓传导 · Results
 
 选票后看仓位权重与证据强度（Strength = 独立路径深度，不是买卖标签）。Transmission Graph 是上游 → 机制 → 票；Path Table 给出 tradable / warning / tier。与第四节 NBIS 推演是同一张图的交互面：先看冲突与路径，再回 Source 对账。打分只用于排序，不进 Sizing。
 
