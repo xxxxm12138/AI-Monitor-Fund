@@ -136,7 +136,7 @@
 图结构为三条**并行传导链**，而非串行漏斗：供给侧汇聚于「集群在建」；需求侧经 lab 采购落地；并网属于公司产能执行边，不接入光模块供给。[`graph_data.py`](pipeline/graph_data.py)
 
 <div align="center">
-<img src="assets/readme/evidence-nbis.svg" alt="供给汇集群在建；并网单独" width="88%">
+<img src="assets/readme/evidence-nbis.svg" alt="NBIS 传导结构与候选空间 A/B/C" width="92%">
 </div>
 
 可观测冲突：上游供给与订单已扩张，公司并网容量与上季收入尚未同步。对「尚未同步」至少存在三种互斥解释，且在披露前均未被证伪：
