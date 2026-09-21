@@ -37,7 +37,7 @@
    6. [VI. 终局：数据资产沉淀与未来迭代](#vi-终局数据资产沉淀与未来迭代)
    7. [附录：人机协作纪实](#附录人机协作纪实)
 2. **重要参考**
-   - 决策顺序与人机分工：[docs/22](docs/22-解题思路与分工.md)
+   - 决策链路：[docs/22](docs/22-解题思路与分工.md)
    - 数据源与处理链路：[docs/21](docs/21-数据来源与处理方法说明.md)
    - 分叉与取舍：[docs/23](docs/23-解题思路.md)
    - 监测面板：[AI Monitoring System](https://creatoraix.top/AI-Monitoring-System/)
