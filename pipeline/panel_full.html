@@ -151,7 +151,10 @@ body.guide-on .wrap{margin-right:336px;transition:margin-right .2s}
 .guide-panel{position:fixed;top:56px;right:0;width:320px;height:calc(100vh - 56px);background:var(--card);border-left:1px solid var(--line);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .22s ease;box-shadow:-8px 0 24px rgba(26,29,41,.06)}
 body.guide-on .guide-panel{transform:translateX(0)}
 .guide-head{padding:14px 16px 10px;border-bottom:1px solid var(--line2);flex:none}
-.guide-head .gt{font-size:14px;font-weight:700}.guide-head .gs{font-size:11px;color:var(--mut);margin-top:3px;line-height:1.45}
+.guide-head .gt{font-size:14px;font-weight:700}
+.guide-head .gd{display:inline-flex;align-items:center;gap:4px;margin-top:5px;font-size:11px;font-weight:600;color:var(--ac);text-decoration:none}
+.guide-head .gd:hover{text-decoration:underline}
+.guide-head .gs{font-size:11px;color:var(--mut);margin-top:6px;line-height:1.45}
 .guide-body{padding:12px 14px 16px;overflow:auto;flex:1}
 .guide-card{border:1px solid var(--line);border-radius:9px;padding:10px 12px;margin-bottom:8px;cursor:pointer;background:#fff}
 .guide-card:hover{border-color:var(--ac-bd);background:var(--soft)}
@@ -211,6 +214,7 @@ function svg(p,s){return `<svg width="${s||14}" height="${s||14}" viewBox="0 0 2
 const TABS=[['overview','Overview','grid'],['source','Source','db'],['judge','Judgment','cpu'],['result','Results','chart']];
 let tab='overview', ticker='NBIS', mmZ=0, mmS=1, mmX=0, mmY=0, guideOn=false, guideFocus='', onboardStep=0, onboardChecked=false;
 const ONBOARD_KEY='ams-onboard-v1';
+const GUIDE_README='https://github.com/xxxxm12138/AI-Monitor-Fund#v-%E7%9B%91%E6%B5%8B%E9%9D%A2%E6%9D%BF%E6%8A%95%E7%A0%94%E5%86%B3%E7%AD%9B%E5%85%A5%E5%8F%A3';
 const GUIDE={
  overview:[
   {id:'ov-shared',title:'Shared Exposure',what:'Upstream nodes shared by 2+ holdings.',for:'Systemic risk — one break hits multiple positions.',when:'Start of week · before earnings season · when a macro node moves.'},
@@ -411,7 +415,7 @@ function renderGuide(){
  let body='';
  if(items.length){body=items.map(it=>`<div class="guide-card ${guideFocus===it.id?'on':''}" onclick="setGuideFocus('${it.id}')"><div class="gr">${tabLab}</div><div class="gn">${it.title}</div><div class="gx"><b>What</b> ${it.what}<br><b>For</b> ${it.for}<br><b>When</b> ${it.when}</div></div>`).join('')}
  else{body=`<div class="guide-card on"><div class="gr">${tabLab}</div><div class="gn">No modules</div><div class="gx">Guide copy for this page is empty.</div></div>`}
- el.innerHTML=`<div class="guide-head"><div class="gt">Guide · ${tabLab}</div><div class="gs">Click a module on the page or in this panel. Switch tabs to switch guides. Click dimmed area to clear.</div></div><div class="guide-body">${body}</div><div class="guide-foot">${items.length} modules · two-way spotlight</div>`;
+ el.innerHTML=`<div class="guide-head"><div class="gt">Guide · ${tabLab}</div><a class="gd" href="${GUIDE_README}" target="_blank" rel="noopener">${svg(IC.ext,12)} Full write-up on GitHub</a><div class="gs">Click a module on the page or in this panel. Switch tabs to switch guides. Click dimmed area to clear.</div></div><div class="guide-body">${body}</div><div class="guide-foot">${items.length} modules · two-way spotlight</div>`;
  applyGuideHL();
  if(guideFocus){const card=el.querySelector('.guide-card.on');if(card)try{card.scrollIntoView({block:'nearest',behavior:'smooth'})}catch(e){}}}
 function strengthUi(s){
