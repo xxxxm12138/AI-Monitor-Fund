@@ -284,7 +284,9 @@ const LLM={health:{esc:0.14,eval:0.85,halluc:1,cost:'$12/日',todo:5,shadow:3,as
 const LF_HOST='https://cloud.langfuse.com';
 function lfTraceUrl(id){return id?LF_HOST+'/trace/'+encodeURIComponent(id):LF_HOST}
 function tgOf(id){for(const g in TG)if(TG[g].includes(id))return g;return '运维'}
-function judRows(){return J.registry.filter(r=>(judEK==='all'||r.ek===judEK)&&fCal.has(r.calib)&&fTier.has(r.tier||'—')&&fGrp.has(tgOf(r.id))&&(fOwner.size===0||fOwner.has(r.owner))&&(!q||(r.name||'').includes(q)))}
+const DEC_PLAIN={'d_calendar_scope':'这条日程要不要纳入监测','d_direction':'这条观测对持仓偏多还是偏空','d_divergence_explain':'供需对不上时采用哪条解释','d_edge_predict':'这条传导事后有没有兑现','d_edge_tier':'这条传导的证据有多硬','d_factor':'这条信号的质量怎么打分','d_falsify_gate':'这条前沿消息能不能被证伪','d_fill_priority':'下一步先补哪块数据','d_impact_gate':'这条前沿消息产业影响有多大','d_regime':'实测、指引、上期是否对得上','d_route':'这条记录进哪张事实表','d_source_tier':'这个来源可信到哪一级'};
+function decTitle(r){return DEC_PLAIN[r.id]||r.q||r.name}
+function judRows(){return J.registry.filter(r=>(judEK==='all'||r.ek===judEK)&&fCal.has(r.calib)&&fTier.has(r.tier||'—')&&fGrp.has(tgOf(r.id))&&(fOwner.size===0||fOwner.has(r.owner))&&(!q||[r.name,r.q,decTitle(r),r.id].some(s=>(s||'').includes(q))))}
 function setJudEK(k){judEK=k;judType=null;if(guideOn)guideFocus=defaultGuideFocus();render()}
 function togS(s,k){s.has(k)?s.delete(k):s.add(k);render()}
 function setJudType(id){judType=(judType===id?null:id);render()}
@@ -331,12 +333,14 @@ function setSource(id){srcHit='';const i=srcSels.indexOf(id);if(i>=0)srcSels.spl
 function srcObs(id){return SRC.obs[id]||[]}
 function srcBlockRows(id){
   const m=metricOf(id)||{},os=srcObs(id);
-  const head=`<tr><td colspan="7" style="background:var(--soft);padding:7px 8px"><b style="font-size:12.5px">${esc(m.name||id)}</b> ${dcTag(m.dc)}${m.unit?` <span class="mini">${esc(m.unit)}</span>`:''} <span class="mini">· ${esc(id)} · latest <b class="num" style="color:var(--ink)">${esc(m.latest||'—')}</b> · ${os.length} obs</span><div class="mini" style="margin-top:3px">Sources ${srcChips(m)}</div></td></tr>`;
+  const head=`<tr><td colspan="7" style="background:var(--soft);padding:7px 8px"><b style="font-size:12.5px">${esc(m.name||id)}</b> ${dcTag(m.dc)}${m.unit?` <span class="mini">${esc(m.unit)}</span>`:''} <span class="mini">· ${esc(id)} · latest <b class="num" style="color:var(--ink)">${esc(prettySrcVal(m.latest||'—'))}</b> · ${os.length} obs</span><div class="mini" style="margin-top:3px">Sources ${srcChips(m)}</div></td></tr>`;
   if(!os.length)return head+`<tr><td colspan="7" class="mini">No observations</td></tr>`;
   return head+os.slice().reverse().map(o=>{
     const hit=srcHit&&((o.kt||'').slice(0,10)===srcHit||(o.kt||'').slice(0,7)===srcHit.slice(0,7)||(o.period||'').includes(srcHit.slice(0,7)));
-    return `<tr class="${hit?'sel':''}"><td>${esc(o.period)}</td><td class="r num" style="font-weight:600">${esc(o.value)}</td><td><span class="mini">${OTYPE[o.otype]||o.otype}</span></td><td><span class="tier">${esc(o.prov)}</span></td><td>${srcA(o.src,o.url)}</td><td class="mini num">${esc(o.kt)}</td><td class="mini" style="color:var(--mut)">${linkify(o.note||'')}</td></tr>`}).join('');
+    const val=prettySrcVal(o.value);
+    return `<tr class="${hit?'sel':''}"><td>${esc(o.period)}</td><td class="r num" style="font-weight:600">${esc(val)}</td><td><span class="mini">${OTYPE[o.otype]||o.otype}</span></td><td><span class="tier">${esc(o.prov)}</span></td><td>${srcA(o.src,o.url)}</td><td class="mini num">${esc(o.kt)}</td><td class="mini" style="color:var(--mut)">${linkify(o.note||'')}</td></tr>`}).join('');
 }
+function prettySrcVal(v){v=v||'';if(/未标定|不出定量|不定出量/.test(v))return '占比未标定 · 暂不给出金额';return v;}
 function toggleDim(d){srcOpen=(srcOpen===d?null:d);render()}
 const NUM=v=>{const m=(''+v).replace(/[,%]/g,'').match(/-?\d+(\.\d+)?/);return m?parseFloat(m[0]):null}
 function lineChart(vals){if(vals.length<2)return '';const w=560,h=110,pad=10,mn=Math.min(...vals),mx=Math.max(...vals),rng=(mx-mn)||1;
@@ -696,7 +700,7 @@ function stage(){let h='';
    h=`<div data-guide="jud-registry"><div class="mini" style="margin-bottom:6px">Decision Registry · <b class="num" style="color:var(--ink)">${rows.length}</b>/12 matched · click row for instances</div>
     <table><thead><tr><th>Decision Type</th><th>Executor</th><th>Calibration</th><th>Tier</th><th class="r">Logs</th><th class="r">Outcome</th></tr></thead><tbody>
     ${rows.map(r=>{const ag=J.logagg[r.id]||{n:0,outcome:0};
-     return `<tr class="clk ${judType===r.id?'sel':''}" onclick="setJudType('${r.id}')"><td style="font-weight:600">${r.name}<div class="mini">${r.id} · view instances</div></td><td><span class="ekb ek-${r.ek}">${r.ek==='rule'?'Rule':'Human'}</span></td><td>${lad(r.calib)}</td><td><span class="tier">${r.tier||'—'}</span></td><td class="r num">${ag.n}</td><td class="r num" style="color:${ag.outcome?'var(--up)':'var(--mut)'}">${ag.outcome}</td></tr>`}).join('')||'<tr><td colspan=6 class="mini">No match · adjust filters</td></tr>'}
+     return `<tr class="clk ${judType===r.id?'sel':''}" onclick="setJudType('${r.id}')"><td style="font-weight:600">${esc(decTitle(r))}<div class="mini">${esc(r.name)}</div></td><td><span class="ekb ek-${r.ek}">${r.ek==='rule'?'Rule':'Human'}</span></td><td>${lad(r.calib)}</td><td><span class="tier">${r.tier||'—'}</span></td><td class="r num">${ag.n}</td><td class="r num" style="color:${ag.outcome?'var(--up)':'var(--mut)'}">${ag.outcome}</td></tr>`}).join('')||'<tr><td colspan=6 class="mini">No match · adjust filters</td></tr>'}
     </tbody></table></div>`;
    if(judType)h+=`<div data-guide="jud-instances">${judDrill(judType)}</div>`;}
  } else {
