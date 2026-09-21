@@ -20,7 +20,7 @@
 <p>——孟醒 · <a href="https://mp.weixin.qq.com/s/m2NUWypKHN3Lv857aNVhSg">《JEV火了，但真正重要的不是JEV》</a></p>
 </blockquote>
 
-[阅读指南](#阅读指南) • [第一部分：破题](#i-破题与定位信息降维与需求锚定) • [第二部分：点边](#ii-点边表征intelligence-graph-计算循环) • [第三部分：落地](#iii-三层架构落地与工程体系) • [第四部分：示例](#iv-示例以-nbis-为例的全链路推演) • [第五部分：面板](#v-监测面板投研决策入口) • [第六部分：终局](#vi-终局数据资产沉淀与未来迭代) • [附录：协作](#附录人机协作纪实)
+[阅读指南](#阅读指南) • [第一部分：破题](#i-破题与定位信息降维与需求锚定) • [第二部分：点边](#ii-点边表征intelligence-graph-计算循环) • [第三部分：落地](#iii-三层架构落地与工程体系) • [第四部分：示例](#iv-示例以-nbis-为例的全链路推演) • [第五部分：面板](#monitoring-panel) • [第六部分：终局](#vi-终局数据资产沉淀与未来迭代) • [附录：协作](#附录人机协作纪实)
 
 </div>
 
@@ -227,6 +227,8 @@
 
 ---
 
+<a id="monitoring-panel"></a>
+
 ## V. 监测面板：投研决策入口
 
 > **核心思路**：把非结构化监测收成可调用、可对账的数据资产，再交给投研决策链使用。研究员和 PM 用来在披露前跟踪领先变化、核验投资逻辑；数据岗用来核验来源分级、判断记录与校准状态。四块屏幕走同一条链：持仓扫描、事实溯源、判断记录、持仓传导。在线：[AI Monitoring System](https://creatoraix.top/AI-Monitoring-System/)。
@@ -264,7 +266,7 @@
 
 ### 5.3 判断记录 · Judgment
 
-对应治理层。研究员看判断有没有回写、校准到哪一档；数据岗核验执行方、状态机与 outcome。Eval 与 Evolve 见下一点。
+对应治理层。研究员看判断有没有回写、校准到哪一档；数据岗核验执行方、状态机与 outcome。Eval&Evolve 见下一点。
 
 *   **Outcome Backfill**：已回写结果的判断条数
 *   **Decision Coverage**：Represent / Edge / Gate / Regime / Ops × Human → Auto
@@ -278,7 +280,7 @@
 <img src="assets/readme/panel-03-judgment.png" alt="Judgment：决策覆盖、执行队列与判断登记表" width="92%">
 </div>
 
-### 5.4 LLM 校准 · Eval 与 Evolve
+### 5.4 LLM 校准 · Eval&Evolve
 
 Eval 看抽取和分类准不准；Evolve 决定哪类 LLM 判断可以从 Human / Shadow 升到 Assisted / Auto。Trace 是两者的依据，不是另做一套监控。当前路由为 demo、在跑条数为 0；数字是演示，不是已上线监控。
 
@@ -286,7 +288,7 @@ Eval 看抽取和分类准不准；Evolve 决定哪类 LLM 判断可以从 Human
 *   **Priority Queue**：幻觉、低分待复核、分布外逃逸
 *   **LLM Decision Types**：按 REPRESENT / PROPOSE / SELECT 分列，看哪类还停在 shadow
 
-**图 · LLM 校准：Eval 与 Evolve**
+**图 · LLM 校准：Eval&Evolve**
 
 <div align="center">
 <img src="assets/readme/panel-03b-llm.png" alt="Judgment · LLM Monitor：校准阶段、Eval 与优先队列" width="92%">
