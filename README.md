@@ -20,7 +20,7 @@
 <p>——孟醒 · <a href="https://mp.weixin.qq.com/s/m2NUWypKHN3Lv857aNVhSg">《JEV火了，但真正重要的不是JEV》</a></p>
 </blockquote>
 
-[阅读指南](#阅读指南) • [第一部分：破题](#i-破题与定位信息降维与需求锚定) • [第二部分：点边](#ii-点边表征intelligence-graph-计算循环) • [第三部分：落地](#iii-三层架构落地与工程体系) • [第四部分：示例](#iv-示例以-nbis-为例的全链路推演) • [第五部分：面板](#v-决策面板四屏用法) • [第六部分：终局](#vi-终局数据资产沉淀与未来迭代) • [附录：协作](#附录人机协作纪实)
+[阅读指南](#阅读指南) • [第一部分：破题](#i-破题与定位信息降维与需求锚定) • [第二部分：点边](#ii-点边表征intelligence-graph-计算循环) • [第三部分：落地](#iii-三层架构落地与工程体系) • [第四部分：示例](#iv-示例以-nbis-为例的全链路推演) • [第五部分：面板](#v-决策面板投研用法) • [第六部分：终局](#vi-终局数据资产沉淀与未来迭代) • [附录：协作](#附录人机协作纪实)
 
 </div>
 
@@ -33,7 +33,7 @@
    2. [II. 点边表征：Intelligence Graph 计算循环](#ii-点边表征intelligence-graph-计算循环)
    3. [III. 三层架构：落地与工程体系](#iii-三层架构落地与工程体系)
    4. [IV. 示例：以 NBIS 为例的全链路推演](#iv-示例以-nbis-为例的全链路推演)
-   5. [V. 决策面板：四屏用法](#v-决策面板四屏用法)
+   5. [V. 决策面板：投研用法](#v-决策面板投研用法)
    6. [VI. 终局：数据资产沉淀与未来迭代](#vi-终局数据资产沉淀与未来迭代)
    7. [附录：人机协作纪实](#附录人机协作纪实)
 2. **重要参考**
@@ -131,16 +131,20 @@
 *   **三路执行路由**：确定性逻辑交给 **Code**（如关系映射、规则计算）；复杂的语义压缩交给 **LLM**；而最终的信号定档与方向复核，必须交由 **人工** 兜底。
 *   **Agent Trace (设想与规划)**：未来的规划是全面接入 Langfuse。通过留存每一次 Prompt 与 Output 形成观测轨迹，并建立 Eval 机制对模型分类准确度持续打分，确保高精度数据资产沉淀。
 
-### 3. 呈现层：四屏决策面板
-点边和计算循环留在库里，研究员打开的是四块屏幕，数据同源。在线面板：[AI Monitoring System](https://creatoraix.top/AI-Monitoring-System/)。
+### 3. 呈现层：监测面板
+面板要沉淀的是对冲基金用得上的数据资产，不是又一个资讯站。
 
-四屏各管一件事：
-*   **Overview**：这周先看什么，哪些持仓证据偏薄。
-*   **Source**：这个数字从哪来，能不能对上原始披露。
-*   **Judgment**：这类判断谁做、校准到哪一档、事后有没有回写。
-*   **Results**：这条信号怎么打到持仓，哪条边更可交易、哪条只作预警。
+**给谁**：研究员和 PM——周初排注意力、持有期看 thesis 哪一环变了、财报前对预期差、要不要证伪管理层。数据岗用库和校验脚本，不把 schema 当主界面。
 
-日常顺序是：周初看 Overview，核对数字去 Source，看判断记录去 Judgment，查单票传导去 Results。各屏画面见 [第五节](#v-决策面板四屏用法)。
+**目标**：把需求锚定后的上游信号，在披露前折成可对账的领先读（Lead Time / Nowcast），并写清打到哪只持仓、有多确定、下一步盯什么。多出来的价值不在多抓新闻，而在同一条产业链信息按可靠性与领先期分层后接到仓位边上。
+
+**呈现什么、分哪几层**：
+*   **组合层**：书里哪些仓位证据不够、上游一断会连坐谁、这周该盯哪些数据点。
+*   **事实层**：数字从哪来、P 级、知悉日、实测对指引。
+*   **判断层**：谁做的判断、校准到哪一档、事后有没有回写。
+*   **传导层**：信号如何打到持仓；哪条边进 Nowcast 排序，哪条只进预警。
+
+界面按这四层拆成 Overview / Source / Judgment / Results，同源一张库。在线：[AI Monitoring System](https://creatoraix.top/AI-Monitoring-System/)。各层画面见 [第五节](#v-决策面板投研用法)。
 
 ---
 
@@ -225,11 +229,11 @@
 
 ---
 
-## V. 决策面板：四屏用法
+## V. 决策面板：投研用法
 
-> **核心思路**：四屏是同一张库的四种投影，不是四套系统。Overview 排注意力，Source 核事实，Judgment 看判断闭环，Results 落到持仓边。在线：[AI Monitoring System](https://creatoraix.top/AI-Monitoring-System/)。
+> **核心思路**：面板是投研数据资产的出口，给研究员和 PM 看组合暴露、事实溯源、判断闭环和持仓传导。四块屏幕只是这四层信息的界面，不是四套系统。在线：[AI Monitoring System](https://creatoraix.top/AI-Monitoring-System/)。
 
-### 5.1 Overview：排注意力
+### 5.1 组合层 · Overview
 
 周初入口。Shared Exposure 看上游节点砸穿会打到多少仓；Weekly Focus 给出 Alert / Book / Events / Mandate；Holdings Coverage 对照仓位权重与独立证据路径（仓位大、图薄的票优先下钻 Results）；Data Calendar 是披露与数据点排期，不是新闻流。底栏是管线健康：覆盖、P1 占比、复核队列、outcome 回填。
 
@@ -239,7 +243,7 @@
 <img src="assets/readme/panel-01-overview.png" alt="Overview：共享暴露、本周焦点、持仓覆盖与数据日历" width="92%">
 </div>
 
-### 5.2 Source：核事实
+### 5.2 事实层 · Source
 
 对应数据层。左栏按 D1–D7 展开指标树，可按 Quant / Event / View / Frontier 过滤；右栏是选定指标的观测记录：期间、值、类型、P 级、来源、知悉日。顶栏 Dimension Coverage 看哪一维还薄。用法：Results 上看到的数，回到这里对账。
 
@@ -249,7 +253,7 @@
 <img src="assets/readme/panel-02-source.png" alt="Source：七维覆盖、观测记录与溯源" width="92%">
 </div>
 
-### 5.3 Judgment：看判断闭环
+### 5.3 判断层 · Judgment
 
 对应治理层。Decision Registry 列出判断类型（执行方 / 校准阶段 / 日志 / outcome）；点开看实例六元组。左侧 LLM 路由标了 demo、当前为 off，Langfuse 接入是规划不是现状。本屏回答：这类判断谁做、校准到哪一档、事后有没有回写。
 
@@ -259,7 +263,7 @@
 <img src="assets/readme/panel-03-judgment.png" alt="Judgment：决策覆盖、执行队列与判断登记表" width="92%">
 </div>
 
-### 5.4 Results：落到持仓边
+### 5.4 传导层 · Results
 
 选票后看仓位权重与证据强度（Strength = 独立路径深度，不是买卖标签）。Transmission Graph 是上游 → 机制 → 票；Path Table 给出 tradable / warning / tier。与第四节 NBIS 推演是同一张图的交互面：先看冲突与路径，再回 Source 对账。打分只用于排序，不进 Sizing。
 
