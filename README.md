@@ -138,9 +138,24 @@
 
 - 🟢 **已运行**:接入→路由→四类 fct(317 条零漏)· 逐事实 provenance + 32 条修订谱系 · 六类边 + 闭式打分 · 判断六元组账(95 条)· 人力版 A/B/C/D cascade · 边级预测 3 条真兑现(旭创 +182% ⟷ NBIS +514% 等)。
 - 🟡 **骨架就绪、待数据兑现**:outcome 回填 3/95 · v_calibration 仅 1 桶 n=3 · 边 cert_tier 回测 1/36 · 模型执行者(llm/model)0 条、**从未跨 human→shadow**。
-- ⛔ **按纪律暂关**:系数未 validated → 全套分数**只排序、禁 sizing 与告警**;P&L 归因(北极星)待建。
+- ⛔ **按纪律暂关**:系数未 validated → 全套分数**只排序、禁 sizing 与告警**;realized P&L 需行情源,暂留位(库内无价格序列,**不编价**)。
 
 **这是一座地基扎实、正在施工的护城河,不是已兑现的 alpha**——它的价值在于:每条人工判断以≈0 边际成本沉淀成校准 / 训练集(`decision_registry` 每行 = 未来一个专用小模型的 I/O 契约),**数据的复利从第一天开始**。
+
+### 判断经济学与兑现(JEV §五 · 真数,非实盘 P&L)
+
+健康度从"填了多少行"转向**判断经济学**——下面前四行**不需要任何行情数据**,全部由 [`decision_log`↗](pipeline/SCHEMA.md#tbl-decision_log) / `v_decision_health` / `v_calibration` 直接派生:
+
+| 指标 | 值(真库核验) | 要外部数据? |
+|---|---|---|
+| 判断吞吐 | **95 决策**(impact_gate 42 · factor 30 · falsify 9 · edge_tier 6 · edge_predict 3 · …) | 否 |
+| 执行者分布(cost 代理) | **human 60% / rule 40% / llm·model 0%**(cascade 模型段待接) | 否 |
+| 升级率 escalation | **0%**(0 / 95) | 否 |
+| 校准误差 calibration error | **0.4**(d_edge_predict conf 0.6 · 命中 3/3 · 现 1 桶 n=3) | 否 |
+| **方向兑现** | **3 / 3 命中**;兑现量级(**真实公开基本面**):旭创 +182% · NBIS +454% / Reflection $2B→$1B 合同 / hyperscaler capex ≈$165B | 公开基本面(真) |
+| realized P&L | **待接行情源**——方法学已定(方向命中 × 区间标的收益 → 纸面,接实盘换 realized);库内无价格序列,**不编价** | 需行情 / 实盘 |
+
+**诚实边界**:前四行是真过程指标(现在就有);方向兑现用的是**真实公开基本面**,不是价格收益;realized P&L 需要行情源——没有就留位,**不拿假价格凑一条 P&L**。这本身就是数据负责人的第一考核。
 
 ---
 
