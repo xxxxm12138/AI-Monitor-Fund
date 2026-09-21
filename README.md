@@ -206,7 +206,7 @@
 
 下文**假设**拍板结果为 **B**（工作假设，不是已知事实）：合同电力与订单已落地，更符合入账时滞而非当期硬约束，并调用假设 B4（产能领先收入约 90 天，[`assumption`](pipeline/SCHEMA.md#tbl-assumption)）。A、C 仍留在池里，等披露后对账。
 
-### 4.4 闭环 · 披露后回写与校准
+### 4.4 校准 · 披露后回写
 
 承接上文：假设已选 **B**，并采用假设 B4（产能领先收入约 90 天）。披露后不改事前选择，只按 A / B / C 各自的可证伪预测对账，outcome 回写 [`decision_log`](pipeline/SCHEMA.md#tbl-decision_log)。
 
@@ -215,6 +215,8 @@
 *   **事后更接近 C**（当季加速 **且** FY 指引上修）：选 B 记 **mixed / wrong**——序列收入可以对上 B，全年跳跃不在 B 的覆盖范围。C 保持独立路径，禁止把 B 自动晋升为 C。若 C 当时不在池里，才回到 **PROPOSE** 补候选。
 
 三种落点决定下一轮改哪一层：路径选错改 **SELECT**；解释当时没枚举改 **PROPOSE**；字段抽错改 **REPRESENT**；时滞天数不准改 **B4**。本例 SELECT 命中、C 独立记不成立，无需改 REPRESENT / PROPOSE。
+
+### 4.5 迭代 · 轨迹与评测
 
 这些回写构成可回放轨迹，用来迭代，而不是停在单次对错：
 1. **轨迹**：每次 SELECT 记一条 rollout。observation = 当时可见的 `state_anchor`；action space = {A, B, C}；action = 拍板路径；delayed reward = 披露后的 correct / wrong / mixed。
