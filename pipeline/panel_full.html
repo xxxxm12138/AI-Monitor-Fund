@@ -257,17 +257,20 @@ const LLM={health:{esc:0.14,eval:0.85,halluc:1,cost:'$12/日',todo:5,shadow:3,as
   {id:'d_topic_cluster',name:'主题聚类',op:'PROPOSE',calib:'shadow',eval:0.83,esc:0.15,n:64,prompt:'topic@v2'},
   {id:'d_falsify_stance',name:'证伪闸 stance',op:'REPRESENT',calib:'assisted',eval:0.86,esc:0.12,n:31,prompt:'falsify_stance@v3'},
   {id:'d_divergence_draft',name:'背离解释初稿',op:'SELECT',calib:'shadow',eval:0.79,esc:0.22,n:12,prompt:'div_draft@v1'}],
- queue:[{sev:'high',kind:'幻觉旗标',txt:'背离解释初稿 · r158 · 引用了不存在的公告',type:'d_divergence_draft'},
-  {sev:'high',kind:'低分待复核',txt:'背离解释初稿 · r166 · eval 0.58 < 阈 0.70',type:'d_divergence_draft'},
-  {sev:'high',kind:'低分待复核',txt:'主题聚类 · 顶刊批次 #12 · eval 0.61',type:'d_topic_cluster'},
-  {sev:'mid',kind:'OOD 逃逸',txt:'源分类 · 新型来源(播客转写)· 已自动转人工',type:'d_source_classify'},
-  {sev:'act',kind:'待晋升审批',txt:'源分类五元组 · shadow 连续 6 窗 ≥ 人 → 升 assisted?',type:'d_source_classify'}],
+ queue:[{sev:'high',kind:'幻觉旗标',txt:'背离解释初稿 · r158 · 引用了不存在的公告',type:'d_divergence_draft',trace:'lf_tr_2a70'},
+  {sev:'high',kind:'低分待复核',txt:'背离解释初稿 · r166 · eval 0.58 < 阈 0.70',type:'d_divergence_draft',trace:'lf_tr_2a91'},
+  {sev:'high',kind:'低分待复核',txt:'主题聚类 · 顶刊批次 #12 · eval 0.61',type:'d_topic_cluster',trace:'lf_tr_0f77'},
+  {sev:'mid',kind:'OOD 逃逸',txt:'源分类 · 新型来源(播客转写)· 已自动转人工',type:'d_source_classify',trace:'lf_tr_1c30'},
+  {sev:'act',kind:'待晋升审批',txt:'源分类五元组 · shadow 连续 6 窗 ≥ 人 → 升 assisted?',type:'d_source_classify',trace:'lf_tr_1c33'}],
  inst:{d_falsify_stance:[{dec:'lf_0207',target:'fct_frontier r147',choice:'stance=支持证伪·可核=高·过闸',conf:0.86,ev:['rubric 0.86','幻觉无','vs人标一致'],trace:'lf_tr_9f2a',esc:false},
    {dec:'lf_0205',target:'fct_frontier r141',choice:'stance=待定',conf:0.55,ev:['rubric 0.58','vs人标分歧'],trace:'lf_tr_7a02',esc:true}],
   d_source_classify:[{dec:'lf_0330',target:'stg_observation r241',choice:'维=D1·机制=GPU供给·类2·T_a/P1',conf:0.93,ev:['P/R/F1 0.92','幻觉无'],trace:'lf_tr_1c33',esc:false},
    {dec:'lf_0329',target:'stg_observation r240',choice:'维=D5·低置信',conf:0.44,ev:['P/R/F1 0.55','OOD'],trace:'lf_tr_1c30',esc:true}],
   d_topic_cluster:[{dec:'lf_0288',target:'batch#12',choice:'簇=推理架构效率↑,新主题候选',conf:0.61,ev:['一致性 0.61','边界模糊'],trace:'lf_tr_0f77',esc:true}],
-  d_divergence_draft:[{dec:'lf_0410',target:'stg r166',choice:'草稿:循环融资=regime,方向不下注',conf:0.58,ev:['rubric 0.58','幻觉疑'],trace:'lf_tr_2a91',esc:true}]}};
+  d_divergence_draft:[{dec:'lf_0410',target:'stg r166',choice:'草稿:循环融资=regime,方向不下注',conf:0.58,ev:['rubric 0.58','幻觉疑'],trace:'lf_tr_2a91',esc:true},
+   {dec:'lf_0409',target:'stg r158',choice:'草稿:引用不存在公告',conf:0.40,ev:['rubric 0.40','幻觉是'],trace:'lf_tr_2a70',esc:true}]}};
+const LF_HOST='https://cloud.langfuse.com';
+function lfTraceUrl(id){return id?LF_HOST+'/trace/'+encodeURIComponent(id):LF_HOST}
 function tgOf(id){for(const g in TG)if(TG[g].includes(id))return g;return '运维'}
 function judRows(){return J.registry.filter(r=>(judEK==='all'||r.ek===judEK)&&fCal.has(r.calib)&&fTier.has(r.tier||'—')&&fGrp.has(tgOf(r.id))&&(fOwner.size===0||fOwner.has(r.owner))&&(!q||(r.name||'').includes(q)))}
 function setJudEK(k){judEK=k;judType=null;if(guideOn)guideFocus=defaultGuideFocus();render()}
@@ -287,12 +290,12 @@ function renderLLM(){const H=LLM.health;
   <div class="mini" style="margin:2px 0 5px;font-weight:700;color:var(--ink)">LLM Health</div>
   <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:12px">${kpi('Escalation',(H.esc*100).toFixed(0)+'%',H.esc>0.1)}${kpi('Eval Avg',H.eval)}${kpi('Hallucination',H.halluc,H.halluc>0)}${kpi('Cost',H.cost)}${kpi('Queue',H.todo,H.todo>0)}${kpi('Calibration','Sh '+H.shadow+' · As '+H.assisted)}</div>
   <div class="mini" style="margin:2px 0 5px;font-weight:700;color:var(--ink)">Priority Queue</div>
-  <div class="kcard" style="margin-bottom:12px">${LLM.queue.map(z=>`<div class="ln" style="padding:8px 12px"><span class="tag ${z.sev==='high'?'w':'n'}">${z.kind}</span><span class="v" style="flex:1">${z.txt}</span><span class="mini" style="color:var(--ac);cursor:pointer" onclick="setJudType('${z.type}')">Trace ›</span></div>`).join('')}</div>
+  <div class="kcard" style="margin-bottom:12px">${LLM.queue.map(z=>`<div class="ln" style="padding:8px 12px"><span class="tag ${z.sev==='high'?'w':'n'}">${z.kind}</span><span class="v" style="flex:1">${z.txt}</span><a class="mini" href="${lfTraceUrl(z.trace)}" target="_blank" rel="noopener" style="color:var(--ac);text-decoration:none;font-weight:600" title="Open trace in Langfuse">Trace ↗</a></div>`).join('')}</div>
   <div class="mini" style="margin:2px 0 5px;font-weight:700;color:var(--ink)">LLM Decision Types</div>
   <table><thead><tr><th>Type</th><th>Operator</th><th>Calibration</th><th class="r">Eval</th><th class="r">Escalation</th><th class="r">Logs</th><th>Prompt</th></tr></thead><tbody>${LLM.types.map(t=>`<tr class="clk ${judType===t.id?'sel':''}" onclick="setJudType('${t.id}')"><td style="font-weight:600">${t.name}</td><td><span class="tier">${t.op}</span></td><td>${lad(t.calib)}</td><td class="r num" style="color:${t.eval>=0.85?'var(--up)':t.eval>=0.7?'var(--warn)':'var(--dn)'}">${t.eval}</td><td class="r num" style="color:${t.esc>0.15?'var(--dn)':''}">${(t.esc*100).toFixed(0)}%</td><td class="r num">${t.n}</td><td class="mini">${t.prompt}</td></tr>`).join('')}</tbody></table>`;
  if(judType&&LLM.inst[judType]){const t=LLM.types.find(x=>x.id===judType),ins=LLM.inst[judType];
-  h+=`<div style="margin-top:12px;border:1px solid var(--ac-bd);border-radius:8px;background:#fbfbff;padding:10px 12px"><div style="font-size:12px;font-weight:700;color:var(--ac);margin-bottom:6px">${t.name} · eval ${t.eval} · escalation ${(t.esc*100).toFixed(0)}% · ${t.prompt} · Langfuse</div>
-   <table><thead><tr><th>ID</th><th>Target</th><th>Choice</th><th class="r">Conf</th><th>Eval</th><th>Trace</th></tr></thead><tbody>${ins.map(x=>`<tr><td class="mini">${x.dec}</td><td class="mini">${x.target}</td><td style="font-size:11px">${x.choice}${x.esc?' <span class="tag w">Escalated</span>':''}</td><td class="r num">${x.conf}</td><td class="mini">${x.ev.join(' · ')}</td><td><a href="https://langfuse.example/traces/${x.trace}" target="_blank" style="color:var(--ac)">↗</a></td></tr>`).join('')}</tbody></table></div>`}
+  h+=`<div style="margin-top:12px;border:1px solid var(--ac-bd);border-radius:8px;background:#fbfbff;padding:10px 12px"><div style="font-size:12px;font-weight:700;color:var(--ac);margin-bottom:6px">${t.name} · eval ${t.eval} · escalation ${(t.esc*100).toFixed(0)}% · ${t.prompt} · <a href="${LF_HOST}" target="_blank" rel="noopener" style="color:var(--ac);text-decoration:none">Langfuse ↗</a></div>
+   <table><thead><tr><th>ID</th><th>Target</th><th>Choice</th><th class="r">Conf</th><th>Eval</th><th>Trace</th></tr></thead><tbody>${ins.map(x=>`<tr><td class="mini">${x.dec}</td><td class="mini">${x.target}</td><td style="font-size:11px">${x.choice}${x.esc?' <span class="tag w">Escalated</span>':''}</td><td class="r num">${x.conf}</td><td class="mini">${x.ev.join(' · ')}</td><td><a href="${lfTraceUrl(x.trace)}" target="_blank" rel="noopener" class="ext" title="Open trace ${esc(x.trace)} in Langfuse">${svg(IC.ext,14)}</a></td></tr>`).join('')}</tbody></table></div>`}
  return h}
 const DCT={'1':['Quant','--bl'],'2':['Event','--am'],'3':['View','--pp'],'4':['Frontier','--gr']};
 const OTYPE={actual:'Actual',guidance:'Guidance',prior:'Prior',event:'Event',state:'State',position:'Position',computed:'Computed',target:'Target'};
