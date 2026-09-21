@@ -113,7 +113,7 @@
 在投研中，最危险的是将主观预判当成客观事实。工程上必须做到物理隔离：
 *   **绝对真实的底层**：底层只存储绝对干净的、遵循 P1-P5 溯源的事实记录（[`source_master` ↗](pipeline/SCHEMA.md#tbl-source_master)）。
 *   **假设台账 (Assumptions Ledger)**：所有涉及主观预判的传导概率与权重系数，全部分离存入独立的“台账”（[`assumption` ↗](pipeline/SCHEMA.md#tbl-assumption)）。预测出现偏差只需调参，真实数据链绝不被污染。
-*   **自动化入库**：严格分离指标定义与四类事实表，按 `采集 → 快照 → 抽取 → 路由 → 校验 → 迁移` 的 Pipeline 自动流转。
+*   **自动化入库**：严格分离指标定义与四类事实表，按 `采集 → 快照 → 抽取 → 路由 → 校验 → 迁移` 的 Pipeline 自动流转（[docs/21 §四](docs/21-数据来源与处理方法说明.md#四处理链从登记到看板) · [pipeline/README.md](pipeline/README.md)）。
 
 ### 2. 治理层：执行路由与白盒化管理 (Governance)
 
