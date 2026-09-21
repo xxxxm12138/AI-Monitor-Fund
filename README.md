@@ -41,8 +41,6 @@
    - 监测面板：[AI Monitoring System](https://creatoraix.top/AI-Monitoring-System/)
    - 工程复现：[pipeline/README.md](pipeline/README.md)
 
-`docs/13`、`docs/process/`、`research/` 为过程稿，不作为入口。
-
 ---
 
 ## I. 破题与定位：信息降维与需求锚定
