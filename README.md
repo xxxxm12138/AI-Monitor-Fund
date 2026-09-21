@@ -144,7 +144,7 @@
 *   **判断记录**：判断由谁作出、处在哪一校准阶段、事后是否回写结果。
 *   **持仓传导**：上游信号如何传到具体持仓；哪些路径用于 Nowcast 排序，哪些只进入预警。
 
-界面按上述层次对应 Overview / Source / Judgment / Results，数据同源。在线：[AI Monitoring System](https://creatoraix.top/AI-Monitoring-System/)。各层画面见 [第五节](#v-监测面板投研决策入口)。
+界面按上述层次对应 Overview / Source / Judgment / Results，数据同源。在线：[AI Monitoring System](https://creatoraix.top/AI-Monitoring-System/)。各层画面见 [第五节](#monitoring-panel)。
 
 ---
 
