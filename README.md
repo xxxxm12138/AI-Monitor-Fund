@@ -113,8 +113,6 @@
 
 <div align="center">
 <img src="assets/readme/nbis.svg" alt="NBIS 供需对账" width="85%">
-<br/><br/>
-<img src="assets/readme/evidence-structure.svg" alt="证据结构图:稳健性 = 最小割" width="60%">
 </div>
 
 基于基金 2026 Q2 的 13F 披露，**NBIS（占比 51%）** 处于 AI 基建价值链（L2 云与平台）的枢纽位置，用来衔接上游算力与下游应用。
@@ -138,6 +136,11 @@
        
        上述系数（c / r / e / l / s / φ / τ）目前登记为假设值，只用于排序，不进入仓位 Sizing（见 [`assumption` ↗](pipeline/SCHEMA.md#tbl-assumption)）。原因是当前多为点状快照，缺乏可对齐的历史时序，无法做 T1 级回测标定。后续路径：补齐周频/季频历史序列后，用实测领先期与命中率替换先验，状态从 assumption 推进到 calibrating / validated。
    *   **最小割分析**：图论分析表明，所有价格主线均汇聚于“neocloud 实际上电”这一节点（最小割=1），将其标记为系统的核心观测咽喉。
+
+<div align="center">
+<img src="assets/readme/evidence-nbis.svg" alt="NBIS 证据结构：6 通道，主线最小割=1" width="88%">
+</div>
+
 2. **REPRESENT（数据抓取与模型分工）**：
    *   数据从源头进入系统。电话会转录由 **LLM** 做语义压缩与立场抽取（管理层 PR vs 中立陈述）；表格类源（海关月报、A 股季报）由 **Code** 做数值解析与期间换算。结果写入 [`fct_quant` ↗](pipeline/SCHEMA.md#tbl-fct_quant) / [`fct_opinion` ↗](pipeline/SCHEMA.md#tbl-fct_opinion)，并同时打上三套时间戳。
 
