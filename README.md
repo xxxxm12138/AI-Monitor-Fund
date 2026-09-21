@@ -38,6 +38,10 @@
 > 
 > 首先是**供需对接 (Demand-anchored)**：我们必须从基金当前的 13F 真实持仓（如 NBIS、RBRK）以及未来目标票池出发，反向逆推我们需要监测的 AI 节点。通过将“AI 信息供给”与“持仓需求”进行科学溯源的对接，系统能够过滤出一个高信噪比的候选池，并框定我们的 Overall Scope。
 > 
+> <div align="center">
+> <img src="assets/readme/bowtie.svg" alt="供需对接:AI 供给 D1–D7 → 六类边 → 持仓 ticker" width="100%">
+> </div>
+> 
 > 其次是**信息降维 (Information Funnel)**：从 Science Lab 到创业公司再到上市公司的演进，是一个信息降维的漏斗。追踪这个降维过程的核心价值在于获取**领先期 (Lead Time)** 与**信号的确定性**——早期的非结构化科研突破，最终会降维成清晰的商业 KPI。
 > 
 > 将这两重拆解结合，我们就能准确定位系统的核心优势（Extra Value）——例如，利用中国供应链地面数据的时间差与前瞻性，去精准预测（Nowcast）美股 KPI。这为我们后续拆解实现路径与分配计算资源指明了方向。
@@ -64,6 +68,10 @@
 > *   借鉴**运筹学**与**信息论**的视角，对信号的确定性衰减与传导效率进行量化评估。
 > 
 > 基于这些视角，选取了跳数、可回测性、来源等级等客观标准来定义模型的基础。更关键的是底层的计算范式。正如 JEV 所揭示的：为了最终的投资判断，我们需要的是分类、路由和注意力分配，而不是一篇 3000 字的生成式研报。开枪是低频的，瞄准是高频的。将点边模型接入 Intelligence Graph 范式，把大模型的开放式生成收敛为可量化的分类错误。通过 REPRESENT（压成事实） → PROPOSE（生成路径） → PREDICT（预判） → SELECT（打分剪枝）的循环，每一次判断都被沉淀为可复用、可优化的资产（Agent Trace）。
+> 
+> <div align="center">
+> <img src="assets/readme/paradigm.svg" alt="计算范式" width="90%">
+> </div>
 
 **具体执行拆解**：
 *   **点边建模**：
@@ -99,7 +107,10 @@
     *   **绝对真实**：318 条记录、177 个来源，遵循 P1-P5 五级溯源，彻底隔离未经证实的 Rumor（[`source_master` ↗](pipeline/SCHEMA.md#tbl-source_master)）。
     *   **解耦设计**：指标定义（`metric_registry`）与四类事实表（量价、事件、观点、前沿）严格分离。
     *   **自动化入库**：采集 → 快照 → 抽取 → `core.py` 路由 → 校验 → `migrate.py` 事务性迁移。
-*   **层二：判断与治理层 (Governance)**
+*   **层二：治理层 (判断与追踪)**
+    <div align="center">
+    <img src="assets/readme/calibration-loop.svg" alt="校准复盘双控制器闭环" width="80%">
+    </div>
     *   **人机分工矩阵**：明确 A(AI 独立)、B(AI 初稿人复核)、C(人定规则)、D(人定方向) 的权限边界。
     *   **假设台账 (Assumptions Ledger)**：所有打分权重、领先期先验剥离入表（[`assumption` ↗](pipeline/SCHEMA.md#tbl-assumption)），未经验证不得进入仓位 Sizing。
     *   **Langfuse Eval**：非结构化处理接入 Langfuse 留痕，将 AI 从黑盒转变为可管理的系统组件。
@@ -116,6 +127,12 @@
 > 这套系统目前完成了 Phase 1：构建广度骨架并以 NBIS 为核心打通了深度样板。但如果用生产环境的标准来审视，它目前仍存在几处明显的断点。未来的迭代规划，正是基于对这些断点的诊断，以及将这套单票验证工具转化为全域数据资产引擎的路线图。
 
 ### 4.1 闭环实战验证 (以 NBIS 为例)
+<div align="center">
+<img src="assets/readme/nbis.svg" alt="NBIS 供需对账" width="85%">
+<br/><br/>
+<img src="assets/readme/evidence-structure.svg" alt="证据结构图:稳健性 = 最小割" width="60%">
+</div>
+
 *   **供需对账**：通过追踪算力猛建（光模块排产）与 需求降温（Lab融资），两端对账形成冲突预警，成功**证伪**了管理层的乐观发言。
 *   **持续监测**：`checks.py` 执行严苛的 30+ 项一致性断言；`change_log` 沉淀字段级修改账本；数据链失效时，`v_health` 视图第一时间预警。
 
