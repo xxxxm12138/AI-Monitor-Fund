@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 590" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
 <defs>
 <marker id="ah" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#9aa0a8"/></marker>
 <marker id="ahr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#b3271e"/></marker>
 </defs>
-<rect x="0" y="0" width="720" height="560" fill="#ffffff"/>
+<rect x="0" y="0" width="720" height="590" fill="#ffffff"/>
 <text x="24" y="32" fill="#1f2329" font-size="16" font-weight="700">证据结构 · NBIS 最小割</text>
 <text x="24" y="52" fill="#8a9099" font-size="11.5">6 条独立通道同时打到持仓；价格主线全汇于 neocloud 上电（割点=1）</text>
 
@@ -49,15 +49,15 @@
 <path d="M192,370 C400,390 510,290 546,272" fill="none" stroke="#c3c8ce" stroke-width="1.7" marker-end="url(#ah2)"/>
 
 <line x1="24" y1="414" x2="696" y2="414" stroke="#e6e8eb"/>
-<text x="24" y="438" fill="#1f2329" font-size="12" font-weight="700">读法</text>
-<text x="24" y="458" fill="#454b52" font-size="12">6 条通道同时打到 → 断任一条，thesis 仍立（稳健）。</text>
-<text x="24" y="478" fill="#454b52" font-size="12">价格主线 = 供给，全汇于 <tspan fill="#b3271e" font-weight="700">neocloud 上电</tspan> → 断此点掉供给链，退回「本体 + 需求」。</text>
-<text x="24" y="498" fill="#454b52" font-size="12">红边 / 红框 = 割点（最小割），单点风险。</text>
+<text x="24" y="438" fill="#1f2329" font-size="12" font-weight="700">怎么读</text>
+<text x="24" y="458" fill="#454b52" font-size="12">最小割 = 要让「上游证据 → NBIS」断掉，最少拆几条互不共用的通道。</text>
+<text x="24" y="478" fill="#454b52" font-size="12">6 条都能打到持仓：拆掉其中一条，整体判断还在。</text>
+<text x="24" y="498" fill="#454b52" font-size="12">供给几条都先经过 <tspan fill="#b3271e" font-weight="700">neocloud 上电</tspan>：这个点拆掉，供给链一起失效，只剩 backlog 和需求。</text>
 
-<rect x="24" y="520" width="26" height="3" fill="#b3271e"/>
-<text x="58" y="526" fill="#454b52" font-size="11">红边 / 红框 = 割点</text>
-<rect x="184" y="514" width="16" height="16" rx="4" fill="#fbeaea" stroke="#e6a9a9"/>
-<text x="208" y="526" fill="#454b52" font-size="11">咽喉节点</text>
-<rect x="300" y="514" width="16" height="16" rx="4" fill="#1f2329"/>
-<text x="324" y="526" fill="#454b52" font-size="11">持仓节点</text>
+<rect x="24" y="528" width="26" height="3" fill="#b3271e"/>
+<text x="58" y="534" fill="#454b52" font-size="11">红线 = 经过咽喉的边</text>
+<rect x="184" y="522" width="16" height="16" rx="4" fill="#fbeaea" stroke="#e6a9a9"/>
+<text x="208" y="534" fill="#454b52" font-size="11">浅红框 = 上电咽喉</text>
+<rect x="330" y="522" width="16" height="16" rx="4" fill="#1f2329"/>
+<text x="354" y="534" fill="#454b52" font-size="11">黑块 = NBIS 持仓</text>
 </svg>
