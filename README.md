@@ -111,6 +111,7 @@
     <div align="center">
     <img src="assets/readme/calibration-loop.svg" alt="校准复盘双控制器闭环" width="80%">
     </div>
+    
     *   **人机分工矩阵**：明确 A(AI 独立)、B(AI 初稿人复核)、C(人定规则)、D(人定方向) 的权限边界。
     *   **假设台账 (Assumptions Ledger)**：所有打分权重、领先期先验剥离入表（[`assumption` ↗](pipeline/SCHEMA.md#tbl-assumption)），未经验证不得进入仓位 Sizing。
     *   **Langfuse Eval**：非结构化处理接入 Langfuse 留痕，将 AI 从黑盒转变为可管理的系统组件。
