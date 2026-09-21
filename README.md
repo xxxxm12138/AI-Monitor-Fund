@@ -20,8 +20,6 @@
 <p>——孟醒 · <a href="https://mp.weixin.qq.com/s/m2NUWypKHN3Lv857aNVhSg">《JEV火了，但真正重要的不是JEV》</a></p>
 </blockquote>
 
-[阅读指南](#阅读指南) • [第一部分：破题](#i-破题与定位信息降维与需求锚定) • [第二部分：点边](#ii-点边表征intelligence-graph-计算循环) • [第三部分：落地](#iii-三层架构落地与工程体系) • [第四部分：示例](#iv-示例以-nbis-为例的全链路推演) • [第五部分：面板](#monitoring-panel) • [第六部分：终局](#vi-终局数据资产沉淀与未来迭代) • [附录：协作](#附录人机协作纪实)
-
 </div>
 
 ---
