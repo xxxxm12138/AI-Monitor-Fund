@@ -178,7 +178,15 @@
 
    价值不在「猜中 Q2」：A/B/C 事先写了可证伪的预测，披露后各记一笔。B 对、C 错 → 假设 B4 从「空先验」变成一次可回放的校准点（仍未到 T1，因为只有一个点）；C 被剪掉 → 下次 PROPOSE 不再把「环比加速」自动升成「全年指引打穿」。选 A 的人会在这笔上亏方向，但并网约束仍在账上，H2 继续盯 `r009` 是否兑现——错也留下下一跳还要看什么。
 
-   账本：[`checks.py`](pipeline/checks.py) 挡住未验证假设进 Sizing；[`change_log`](pipeline/SCHEMA.md) 字段级重放「当时看见哪几行」；[`v_health`](pipeline/SCHEMA.md) 看信源是否过期。Langfuse Eval 仍为规划：把这次 SELECT 的对错收成下一轮分类样本。
+   **选错之后改哪一层**：先看 outcome 打在谁身上。真解释已在候选池里、只是选错了 → 改 **SELECT**（这条 `decision_log` 标 wrong/mixed，下次同样状态下压错的那条）。真解释当时根本没列出来 → 改 **PROPOSE**（下次把缺的读法补进 `candidate_pool`）。数抽错了 → 改 **REPRESENT**（快照/抽取，不碰判断词表）。本例若选 A：Q2 已到 $575M，A 的预测被打掉，SELECT 记错；A 仍可留在下一轮空间里（并网约束没消失），只是「并网低 ⇒ 当季做不到」这条规则被降权。若选 C：当季涨了、全年指引没动，C 记错；PROPOSE 仍保留 C 为单独一跳，SELECT 禁止把 B 的命中自动晋升为 C。
+
+   **轨迹长什么样（给评测，不是先拿去 SFT）**：一行 = 一次 SELECT。输入 `state_anchor`（当时可知的 record_id + as-of）；动作 = 候选集 {A,B,C} + 选中项 + 置信度；延迟标签 = 各候选事先登记的预测 vs Q2 实际（correct / wrong / mixed）。积多条之后先做 **Eval**：校准曲线（自信 0.8 的命中率是不是真 80%）、路径命中率、PROPOSE 覆盖率（后来成真的那条当时在不在池里）。这是决策分类 + 延迟奖励，样本是「票 × 季」，量级小，不适合一上来当海量 SFT 去训生成模型。
+
+   两套语料不要混：
+   *   **REPRESENT 轨迹**（规划接 Langfuse）：原文 span → 结构化字段。有快照金标，适合抽取 SFT / DPO，改的是「数有没有抽对」。
+   *   **SELECT 轨迹**（`decision_log` + outcome）：状态 → 选哪条路。先当评测集和偏好对（B≻A | 同事实、事后 B 的预测命中）；样本够了再训一个 **打分头** P(路径|状态)，而不是让模型写研报。Agent 训练形态是：工具抽取事实 → 枚举候选 → 选一条 → 等财报给奖励；错在覆盖不足就回写 PROPOSE，错在选错就回写 SELECT。
+
+   账本：[`checks.py`](pipeline/checks.py) 挡住未验证假设进 Sizing；[`change_log`](pipeline/SCHEMA.md) 字段级重放「当时看见哪几行」；[`v_health`](pipeline/SCHEMA.md) 看信源是否过期。Langfuse 与 SELECT 打分头均为规划，本轮只把轨迹字段留在 `decision_log`。
 
 ## V. 终局：数据资产沉淀与未来迭代
 
