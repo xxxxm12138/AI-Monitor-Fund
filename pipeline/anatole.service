@@ -1,0 +1,14 @@
+[Unit]
+Description=Anatole panel (static server)
+After=network.target
+
+[Service]
+WorkingDirectory=/home/ubuntu/anatole
+ExecStart=/usr/bin/python3 -u /home/ubuntu/anatole/serve.py
+Environment=ANATOLE_BIND=127.0.0.1
+Environment=ANATOLE_PORT=8090
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=default.target

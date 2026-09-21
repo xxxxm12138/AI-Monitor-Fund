@@ -1,0 +1,1761 @@
+{
+ "positions": {
+  "SUPX": 1.3,
+  "SNDK": 0.83,
+  "MU": 0.37,
+  "INTC": 0.24,
+  "CIEN": 0.23,
+  "MRVL": 0.15,
+  "POET": 0.15,
+  "AMD": 0.13,
+  "SLMT": 0.42,
+  "0679.HK": 9.01,
+  "RBRK": 29.8,
+  "NBIS": 51.22,
+  "FCEL": 7.12,
+  "STAA": 8.03
+ },
+ "tickers": {
+  "AMD": {
+   "weight": 0.13,
+   "raw": 2,
+   "independent": 2,
+   "mincut": [
+    "D1 算力子节点(HBM/存储/光/加速器/整机)",
+    "m_lab_funding_frontier"
+   ],
+   "fam": {
+    "supply": [
+     1,
+     [
+      "D1 算力子节点(HBM/存储/光/加速器/整机)"
+     ]
+    ],
+    "demand": [
+     1,
+     [
+      "m_lab_funding_frontier"
+     ]
+    ]
+   },
+   "sizing": {
+    "strength": "弱",
+    "indep": 2,
+    "trad": 0.24,
+    "weight": 0.13,
+    "gate": "未校准·仅排序",
+    "missing": [
+     "variant(无共识源)",
+     "拥挤度(无跨基金13F)"
+    ]
+   },
+   "paths": [
+    {
+     "edge": "e_d1_amd",
+     "src": "m_gpu_ship",
+     "src_label": "GPU / 加速器出货与代际（NVDA 数据中心收入作代理）",
+     "dim": "D1",
+     "mechs": [
+      "D1 算力子节点(HBM/存储/光/加速器/整机)"
+     ],
+     "hops": 1,
+     "etype": "E2_supplier",
+     "side": "supply",
+     "tier": "T1",
+     "tradable": 0.394,
+     "warning": 0.099,
+     "dominant": "可交易"
+    },
+    {
+     "edge": "e_anthropic_amd",
+     "src": "m_lab_funding_frontier",
+     "src_label": "其他前沿 lab 大额融资（2026）",
+     "dim": "D3",
+     "mechs": [],
+     "hops": 1,
+     "etype": "E3_customer",
+     "side": "demand",
+     "tier": "T2",
+     "tradable": 0.087,
+     "warning": 0.189,
+     "dominant": "预警"
+    }
+   ]
+  },
+  "CIEN": {
+   "weight": 0.23,
+   "raw": 1,
+   "independent": 1,
+   "mincut": [
+    "D1 算力子节点(HBM/存储/光/加速器/整机)"
+   ],
+   "fam": {
+    "supply": [
+     1,
+     [
+      "D1 算力子节点(HBM/存储/光/加速器/整机)"
+     ]
+    ]
+   },
+   "sizing": {
+    "strength": "弱",
+    "indep": 1,
+    "trad": 0.26,
+    "weight": 0.23,
+    "gate": "未校准·仅排序",
+    "missing": [
+     "variant(无共识源)",
+     "拥挤度(无跨基金13F)"
+    ]
+   },
+   "paths": [
+    {
+     "edge": "e_d1_cien",
+     "src": "m_800g_shipment",
+     "src_label": "800G+ 全球光模块出货",
+     "dim": "D1",
+     "mechs": [
+      "D1 算力子节点(HBM/存储/光/加速器/整机)"
+     ],
+     "hops": 1,
+     "etype": "E2_supplier",
+     "side": "supply",
+     "tier": "T1",
+     "tradable": 0.262,
+     "warning": 0.099,
+     "dominant": "可交易"
+    }
+   ]
+  },
+  "FCEL": {
+   "weight": 7.12,
+   "raw": 3,
+   "independent": 3,
+   "mincut": [
+    "m_fcel_dc_ppa",
+    "数据中心供电方案(基荷/共址)",
+    "数据中心电力需求(建设驱动)"
+   ],
+   "fam": {
+    "demand": [
+     1,
+     [
+      "数据中心电力需求(建设驱动)"
+     ]
+    ],
+    "regime": [
+     2,
+     [
+      "数据中心供电方案(基荷/共址)",
+      "数据中心电力需求(建设驱动)"
+     ]
+    ]
+   },
+   "sizing": {
+    "strength": "弱",
+    "indep": 3,
+    "trad": 0.08,
+    "weight": 7.12,
+    "gate": "未校准·仅排序",
+    "missing": [
+     "variant(无共识源)",
+     "拥挤度(无跨基金13F)"
+    ]
+   },
+   "paths": [
+    {
+     "edge": "e_energy_fcel",
+     "src": "m_energy_grid",
+     "src_label": "能源 / 电网（用电审批、核电、PPA）",
+     "dim": "D7",
+     "mechs": [
+      "数据中心供电方案(基荷/共址)"
+     ],
+     "hops": 2,
+     "etype": "E5_theme",
+     "side": "regime",
+     "tier": "T2",
+     "tradable": 0.052,
+     "warning": 0.144,
+     "dominant": "预警"
+    },
+    {
+     "edge": "e_dcbuild_fcel",
+     "src": "m_dc_power_iea",
+     "src_label": "全球数据中心用电",
+     "dim": "D1",
+     "mechs": [
+      "数据中心电力需求(建设驱动)"
+     ],
+     "hops": 2,
+     "etype": "E3_customer",
+     "side": "demand",
+     "tier": "T2",
+     "tradable": 0.079,
+     "warning": 0.144,
+     "dominant": "预警"
+    },
+    {
+     "edge": "e_dcppa_fcel",
+     "src": "m_fcel_dc_ppa",
+     "src_label": "FuelCell 首个数据中心供电协议",
+     "dim": "D1",
+     "mechs": [],
+     "hops": 0,
+     "etype": "E1_self",
+     "side": "self",
+     "tier": "T2",
+     "tradable": 0.097,
+     "warning": 0.014,
+     "dominant": "待定"
+    }
+   ]
+  },
+  "INTC": {
+   "weight": 0.24,
+   "raw": 1,
+   "independent": 1,
+   "mincut": [
+    "D1 算力子节点(HBM/存储/光/加速器/整机)"
+   ],
+   "fam": {
+    "supply": [
+     1,
+     [
+      "D1 算力子节点(HBM/存储/光/加速器/整机)"
+     ]
+    ]
+   },
+   "sizing": {
+    "strength": "弱",
+    "indep": 1,
+    "trad": 0.39,
+    "weight": 0.24,
+    "gate": "未校准·仅排序",
+    "missing": [
+     "variant(无共识源)",
+     "拥挤度(无跨基金13F)"
+    ]
+   },
+   "paths": [
+    {
+     "edge": "e_d1_intc",
+     "src": "m_gpu_ship",
+     "src_label": "GPU / 加速器出货与代际（NVDA 数据中心收入作代理）",
+     "dim": "D1",
+     "mechs": [
+      "D1 算力子节点(HBM/存储/光/加速器/整机)"
+     ],
+     "hops": 1,
+     "etype": "E2_supplier",
+     "side": "supply",
+     "tier": "T1",
+     "tradable": 0.394,
+     "warning": 0.099,
+     "dominant": "可交易"
+    }
+   ]
+  },
+  "MRVL": {
+   "weight": 0.15,
+   "raw": 1,
+   "independent": 1,
+   "mincut": [
+    "D1 算力子节点(HBM/存储/光/加速器/整机)"
+   ],
+   "fam": {
+    "supply": [
+     1,
+     [
+      "D1 算力子节点(HBM/存储/光/加速器/整机)"
+     ]
+    ]
+   },
+   "sizing": {
+    "strength": "弱",
+    "indep": 1,
+    "trad": 0.39,
+    "weight": 0.15,
+    "gate": "未校准·仅排序",
+    "missing": [
+     "variant(无共识源)",
+     "拥挤度(无跨基金13F)"
+    ]
+   },
+   "paths": [
+    {
+     "edge": "e_d1_mrvl",
+     "src": "m_gpu_ship",
+     "src_label": "GPU / 加速器出货与代际（NVDA 数据中心收入作代理）",
+     "dim": "D1",
+     "mechs": [
+      "D1 算力子节点(HBM/存储/光/加速器/整机)"
+     ],
+     "hops": 1,
+     "etype": "E2_supplier",
+     "side": "supply",
+     "tier": "T1",
+     "tradable": 0.394,
+     "warning": 0.099,
+     "dominant": "可交易"
+    }
+   ]
+  },
+  "MU": {
+   "weight": 0.37,
+   "raw": 1,
+   "independent": 1,
+   "mincut": [
+    "D1 算力子节点(HBM/存储/光/加速器/整机)"
+   ],
+   "fam": {
+    "supply": [
+     1,
+     [
+      "D1 算力子节点(HBM/存储/光/加速器/整机)"
+     ]
+    ]
+   },
+   "sizing": {
+    "strength": "弱",
+    "indep": 1,
+    "trad": 0.17,
+    "weight": 0.37,
+    "gate": "未校准·仅排序",
+    "missing": [
+     "variant(无共识源)",
+     "拥挤度(无跨基金13F)"
+    ]
+   },
+   "paths": [
+    {
+     "edge": "e_d1_mu",
+     "src": "m_hbm_cowos",
+     "src_label": "HBM 代际 / 产能、CoWoS 先进封装产能",
+     "dim": "D1",
+     "mechs": [
+      "D1 算力子节点(HBM/存储/光/加速器/整机)"
+     ],
+     "hops": 1,
+     "etype": "E2_supplier",
+     "side": "supply",
+     "tier": "T1",
+     "tradable": 0.175,
+     "warning": 0.198,
+     "dominant": "预警"
+    }
+   ]
+  },
+  "NBIS": {
+   "weight": 51.22,
+   "raw": 20,
+   "independent": 10,
+   "mincut": [
+    "GPU 供给 / 成本",
+    "NBIS 产能执行 / 上电",
+    "lab 算力采购力",
+    "m_circular_financing",
+    "m_crwv_peer",
+    "m_nbis_backlog",
+    "全球 AI 集群在建强度",
+    "推理 / 训练需求",
+    "推理需求弹性(cost/token)",
+    "数据中心用电审批 / 上电节奏"
+   ],
+   "fam": {
+    "supply": [
+     3,
+     [
+      "GPU 供给 / 成本",
+      "NBIS 产能执行 / 上电",
+      "全球 AI 集群在建强度"
+     ]
+    ],
+    "demand": [
+     4,
+     [
+      "lab 算力采购力",
+      "推理 / 训练需求",
+      "推理需求弹性(cost/token)",
+      "数据中心用电审批 / 上电节奏"
+     ]
+    ],
+    "regime": [
+     3,
+     [
+      "GPU 供给 / 成本",
+      "m_circular_financing",
+      "数据中心用电审批 / 上电节奏"
+     ]
+    ]
+   },
+   "sizing": {
+    "strength": "中",
+    "indep": 10,
+    "trad": 0.15,
+    "weight": 51.22,
+    "gate": "未校准·仅排序",
+    "missing": [
+     "variant(无共识源)",
+     "拥挤度(无跨基金13F)"
+    ]
+   },
+   "paths": [
+    {
+     "edge": "e_optics_nbis",
+     "src": "m_cn_optics_zte",
+     "src_label": "中际旭创 季度 / 半年营收",
+     "dim": "D1",
+     "mechs": [
+      "全球 AI 集群在建强度",
+      "neocloud 扩张环境"
+     ],
+     "hops": 3,
+     "etype": "E2_supplier",
+     "side": "supply",
+     "tier": "T1",
+     "tradable": 0.319,
+     "warning": 0.36,
+     "dominant": "可交易"
+    },
+    {
+     "edge": "e_eoptolink_nbis",
+     "src": "m_cn_optics_eoptolink",
+     "src_label": "新易盛 季度 / 半年营收",
+     "dim": "D1",
+     "mechs": [
+      "全球 AI 集群在建强度",
+      "neocloud 扩张环境"
+     ],
+     "hops": 3,
+     "etype": "E2_supplier",
+     "side": "supply",
+     "tier": "T1",
+     "tradable": 0.319,
+     "warning": 0.36,
+     "dominant": "可交易"
+    },
+    {
+     "edge": "e_capex_nbis",
+     "src": "m_hyperscaler_capex",
+     "src_label": "hyperscaler capex 四家合计（计算值）",
+     "dim": "D1",
+     "mechs": [
+      "全球 AI 集群在建强度"
+     ],
+     "hops": 2,
+     "etype": "E5_theme",
+     "side": "supply",
+     "tier": "T1",
+     "tradable": 0.354,
+     "warning": 0.144,
+     "dominant": "可交易"
+    },
+    {
+     "edge": "e_backlog_nbis",
+     "src": "m_nbis_backlog",
+     "src_label": "NBIS 客户承诺 / 预付 / 合同",
+     "dim": "D1",
+     "mechs": [],
+     "hops": 0,
+     "etype": "E1_self",
+     "side": "self",
+     "tier": "T2",
+     "tradable": 0.097,
+     "warning": 0.014,
+     "dominant": "待定"
+    },
+    {
+     "edge": "e_power_nbis",
+     "src": "m_nbis_capacity",
+     "src_label": "NBIS 电力目标（合同电力 / 并网电力）",
+     "dim": "D1",
+     "mechs": [
+      "NBIS 产能执行 / 上电"
+     ],
+     "hops": 1,
+     "etype": "E2_supplier",
+     "side": "supply",
+     "tier": "T2",
+     "tradable": 0.087,
+     "warning": 0.036,
+     "dominant": "可交易"
+    },
+    {
+     "edge": "e_labfund_nbis",
+     "src": "m_lab_funding_reflection",
+     "src_label": "Reflection AI 一级融资",
+     "dim": "D3",
+     "mechs": [
+      "lab 算力采购力"
+     ],
+     "hops": 2,
+     "etype": "E3_customer",
+     "side": "demand",
+     "tier": "T2",
+     "tradable": 0.079,
+     "warning": 0.257,
+     "dominant": "预警"
+    },
+    {
+     "edge": "e_frontierfund_nbis",
+     "src": "m_lab_funding_frontier",
+     "src_label": "其他前沿 lab 大额融资（2026）",
+     "dim": "D3",
+     "mechs": [
+      "lab 算力采购力"
+     ],
+     "hops": 2,
+     "etype": "E3_customer",
+     "side": "demand",
+     "tier": "T3",
+     "tradable": 0.039,
+     "warning": 0.257,
+     "dominant": "预警"
+    },
+    {
+     "edge": "e_capability_nbis",
+     "src": "m_train_compute_epoch",
+     "src_label": "前沿训练算力年增速",
+     "dim": "D5",
+     "mechs": [
+      "推理 / 训练需求",
+      "lab 算力采购力"
+     ],
+     "hops": 3,
+     "etype": "E3_customer",
+     "side": "demand",
+     "tier": "T3",
+     "tradable": 0.035,
+     "warning": 0.27,
+     "dominant": "预警"
+    },
+    {
+     "edge": "e_aa_nbis",
+     "src": "m_aa_intel_index",
+     "src_label": "Artificial Analysis 智能指数（榜首）",
+     "dim": "D5",
+     "mechs": [
+      "推理 / 训练需求",
+      "lab 算力采购力"
+     ],
+     "hops": 3,
+     "etype": "E3_customer",
+     "side": "demand",
+     "tier": "T3",
+     "tradable": 0.053,
+     "warning": 0.27,
+     "dominant": "预警"
+    },
+    {
+     "edge": "e_bench_nbis",
+     "src": "m_bench_frontier",
+     "src_label": "前沿 benchmark（SWE-bench / GPQA / ARC-AGI / LMArena 榜首）",
+     "dim": "D5",
+     "mechs": [
+      "推理 / 训练需求",
+      "lab 算力采购力"
+     ],
+     "hops": 3,
+     "etype": "E3_customer",
+     "side": "demand",
+     "tier": "T3",
+     "tradable": 0.018,
+     "warning": 0.27,
+     "dominant": "预警"
+    },
+    {
+     "edge": "e_power_reg_nbis",
+     "src": "m_dc_power_iea",
+     "src_label": "全球数据中心用电",
+     "dim": "D7",
+     "mechs": [
+      "数据中心用电审批 / 上电节奏"
+     ],
+     "hops": 2,
+     "etype": "E5_theme",
+     "side": "regime",
+     "tier": "T2",
+     "tradable": 0.079,
+     "warning": 0.144,
+     "dominant": "预警"
+    },
+    {
+     "edge": "e_export_nbis",
+     "src": "m_export_ctrl_bis",
+     "src_label": "BIS 对华 GPU / HBM / 设备出口管制",
+     "dim": "D7",
+     "mechs": [
+      "GPU 供给 / 成本"
+     ],
+     "hops": 2,
+     "etype": "E5_theme",
+     "side": "regime",
+     "tier": "T2",
+     "tradable": 0.079,
+     "warning": 0.144,
+     "dominant": "预警"
+    },
+    {
+     "edge": "e_token_nbis",
+     "src": "m_token_usage",
+     "src_label": "推理用量 / token 消耗",
+     "dim": "D6",
+     "mechs": [
+      "推理 / 训练需求"
+     ],
+     "hops": 2,
+     "etype": "E3_customer",
+     "side": "demand",
+     "tier": "T2",
+     "tradable": 0.354,
+     "warning": 0.144,
+     "dominant": "待定"
+    },
+    {
+     "edge": "e_gpu_nbis",
+     "src": "m_gpu_ship",
+     "src_label": "GPU / 加速器出货与代际（NVDA 数据中心收入作代理）",
+     "dim": "D1",
+     "mechs": [
+      "GPU 供给 / 成本"
+     ],
+     "hops": 1,
+     "etype": "E2_supplier",
+     "side": "supply",
+     "tier": "T2",
+     "tradable": 0.262,
+     "warning": 0.099,
+     "dominant": "可交易"
+    },
+    {
+     "edge": "e_crwv_nbis",
+     "src": "m_crwv_peer",
+     "src_label": "CoreWeave 季度收入 / backlog / capex（NBIS 同业对照）",
+     "dim": "D1",
+     "mechs": [],
+     "hops": 1,
+     "etype": "E4_competitor",
+     "side": "compete",
+     "tier": "T1",
+     "tradable": 0.394,
+     "warning": 0.099,
+     "dominant": "可交易"
+    },
+    {
+     "edge": "e_circular_nbis",
+     "src": "m_circular_financing",
+     "src_label": "Nvidia 系战略投资 / 循环融资信号",
+     "dim": "D3",
+     "mechs": [],
+     "hops": 1,
+     "etype": "E6_flow",
+     "side": "regime",
+     "tier": "T2",
+     "tradable": 0.087,
+     "warning": 0.189,
+     "dominant": "预警"
+    },
+    {
+     "edge": "e_costtoken_nbis",
+     "src": "m_cost_per_token",
+     "src_label": "推理成本下降曲线（cost/token）、API 降价",
+     "dim": "D6",
+     "mechs": [
+      "推理需求弹性(cost/token)"
+     ],
+     "hops": 2,
+     "etype": "E3_customer",
+     "side": "demand",
+     "tier": "T3",
+     "tradable": 0.177,
+     "warning": 0.144,
+     "dominant": "预警"
+    },
+    {
+     "edge": "e_openclosed_nbis",
+     "src": "m_open_vs_closed",
+     "src_label": "开源 vs 闭源差距",
+     "dim": "D5",
+     "mechs": [
+      "推理需求弹性(cost/token)"
+     ],
+     "hops": 2,
+     "etype": "E3_customer",
+     "side": "demand",
+     "tier": "T3",
+     "tradable": 0.059,
+     "warning": 0.257,
+     "dominant": "预警"
+    },
+    {
+     "edge": "e_priceperf_nbis",
+     "src": "m_infer_price_perf",
+     "src_label": "推理性价比（质量 / 延迟 / 成本）",
+     "dim": "D5",
+     "mechs": [
+      "推理需求弹性(cost/token)"
+     ],
+     "hops": 2,
+     "etype": "E3_customer",
+     "side": "demand",
+     "tier": "T3",
+     "tradable": 0.059,
+     "warning": 0.257,
+     "dominant": "预警"
+    },
+    {
+     "edge": "e_infer_arch_nbis",
+     "src": "m_infer_arch",
+     "src_label": "推理架构效率(DSA/MoE调度/KV-cache)",
+     "dim": "D5",
+     "mechs": [
+      "推理需求弹性(cost/token)",
+      "neocloud 扩张环境"
+     ],
+     "hops": 3,
+     "etype": "E3_customer",
+     "side": "demand",
+     "tier": "T3",
+     "tradable": 0.018,
+     "warning": 0.27,
+     "dominant": "待定"
+    }
+   ]
+  },
+  "POET": {
+   "weight": 0.15,
+   "raw": 1,
+   "independent": 1,
+   "mincut": [
+    "D1 算力子节点(HBM/存储/光/加速器/整机)"
+   ],
+   "fam": {
+    "supply": [
+     1,
+     [
+      "D1 算力子节点(HBM/存储/光/加速器/整机)"
+     ]
+    ]
+   },
+   "sizing": {
+    "strength": "弱",
+    "indep": 1,
+    "trad": 0.26,
+    "weight": 0.15,
+    "gate": "未校准·仅排序",
+    "missing": [
+     "variant(无共识源)",
+     "拥挤度(无跨基金13F)"
+    ]
+   },
+   "paths": [
+    {
+     "edge": "e_d1_poet",
+     "src": "m_800g_shipment",
+     "src_label": "800G+ 全球光模块出货",
+     "dim": "D1",
+     "mechs": [
+      "D1 算力子节点(HBM/存储/光/加速器/整机)"
+     ],
+     "hops": 1,
+     "etype": "E2_supplier",
+     "side": "supply",
+     "tier": "T1",
+     "tradable": 0.262,
+     "warning": 0.099,
+     "dominant": "可交易"
+    }
+   ]
+  },
+  "RBRK": {
+   "weight": 29.8,
+   "raw": 4,
+   "independent": 3,
+   "mincut": [
+    "m_new_paradigm",
+    "企业数据治理 / 合规预算",
+    "企业需备好 / 护住 AI 数据"
+   ],
+   "fam": {
+    "demand": [
+     2,
+     [
+      "企业数据治理 / 合规预算",
+      "企业需备好 / 护住 AI 数据"
+     ]
+    ],
+    "regime": [
+     1,
+     [
+      "企业数据治理 / 合规预算"
+     ]
+    ]
+   },
+   "sizing": {
+    "strength": "弱",
+    "indep": 3,
+    "trad": 0.09,
+    "weight": 29.8,
+    "gate": "未校准·仅排序",
+    "missing": [
+     "variant(无共识源)",
+     "拥挤度(无跨基金13F)"
+    ]
+   },
+   "paths": [
+    {
+     "edge": "e_adoption_rbrk",
+     "src": "m_enterprise_adoption",
+     "src_label": "企业 AI adoption / ARR / NRR（RBRK 为一手样本）",
+     "dim": "D6",
+     "mechs": [
+      "企业需备好 / 护住 AI 数据"
+     ],
+     "hops": 2,
+     "etype": "E3_customer",
+     "side": "demand",
+     "tier": "T2",
+     "tradable": 0.236,
+     "warning": 0.144,
+     "dominant": "预警"
+    },
+    {
+     "edge": "e_datagov_rbrk",
+     "src": "m_copyright_lit",
+     "src_label": "版权诉讼与授权（NYT × OpenAI 等）",
+     "dim": "D2",
+     "mechs": [
+      "企业数据治理 / 合规预算"
+     ],
+     "hops": 2,
+     "etype": "E3_customer",
+     "side": "demand",
+     "tier": "T3",
+     "tradable": 0.039,
+     "warning": 0.144,
+     "dominant": "预警"
+    },
+    {
+     "edge": "e_reg_rbrk",
+     "src": "m_ai_regulation",
+     "src_label": "AI 监管（EU AI Act / 美各州）与合规法规",
+     "dim": "D7",
+     "mechs": [
+      "企业数据治理 / 合规预算"
+     ],
+     "hops": 2,
+     "etype": "E5_theme",
+     "side": "regime",
+     "tier": "T2",
+     "tradable": 0.052,
+     "warning": 0.144,
+     "dominant": "预警"
+    },
+    {
+     "edge": "e_challenger_rbrk",
+     "src": "m_new_paradigm",
+     "src_label": "新范式信号（世界模型 / 具身 / AI4S / 新架构）",
+     "dim": "D5",
+     "mechs": [],
+     "hops": 1,
+     "etype": "E4_competitor",
+     "side": "compete",
+     "tier": "T3",
+     "tradable": 0.015,
+     "warning": 0.189,
+     "dominant": "预警"
+    }
+   ]
+  },
+  "SNDK": {
+   "weight": 0.83,
+   "raw": 1,
+   "independent": 1,
+   "mincut": [
+    "D1 算力子节点(HBM/存储/光/加速器/整机)"
+   ],
+   "fam": {
+    "supply": [
+     1,
+     [
+      "D1 算力子节点(HBM/存储/光/加速器/整机)"
+     ]
+    ]
+   },
+   "sizing": {
+    "strength": "弱",
+    "indep": 1,
+    "trad": 0.17,
+    "weight": 0.83,
+    "gate": "未校准·仅排序",
+    "missing": [
+     "variant(无共识源)",
+     "拥挤度(无跨基金13F)"
+    ]
+   },
+   "paths": [
+    {
+     "edge": "e_d1_sndk",
+     "src": "m_hbm_cowos",
+     "src_label": "HBM 代际 / 产能、CoWoS 先进封装产能",
+     "dim": "D1",
+     "mechs": [
+      "D1 算力子节点(HBM/存储/光/加速器/整机)"
+     ],
+     "hops": 1,
+     "etype": "E2_supplier",
+     "side": "supply",
+     "tier": "T1",
+     "tradable": 0.175,
+     "warning": 0.198,
+     "dominant": "预警"
+    }
+   ]
+  },
+  "SUPX": {
+   "weight": 1.3,
+   "raw": 1,
+   "independent": 1,
+   "mincut": [
+    "D1 算力子节点(HBM/存储/光/加速器/整机)"
+   ],
+   "fam": {
+    "supply": [
+     1,
+     [
+      "D1 算力子节点(HBM/存储/光/加速器/整机)"
+     ]
+    ]
+   },
+   "sizing": {
+    "strength": "弱",
+    "indep": 1,
+    "trad": 0.39,
+    "weight": 1.3,
+    "gate": "未校准·仅排序",
+    "missing": [
+     "variant(无共识源)",
+     "拥挤度(无跨基金13F)"
+    ]
+   },
+   "paths": [
+    {
+     "edge": "e_d1_supx",
+     "src": "m_gpu_ship",
+     "src_label": "GPU / 加速器出货与代际（NVDA 数据中心收入作代理）",
+     "dim": "D1",
+     "mechs": [
+      "D1 算力子节点(HBM/存储/光/加速器/整机)"
+     ],
+     "hops": 1,
+     "etype": "E2_supplier",
+     "side": "supply",
+     "tier": "T1",
+     "tradable": 0.394,
+     "warning": 0.099,
+     "dominant": "可交易"
+    }
+   ]
+  }
+ },
+ "book": [
+  {
+   "node": "m_gpu_ship",
+   "weight": 54.62,
+   "n_tk": 9,
+   "tickers": [
+    [
+     "AMD",
+     0.13,
+     4,
+     3
+    ],
+    [
+     "CIEN",
+     0.23,
+     3,
+     2
+    ],
+    [
+     "INTC",
+     0.24,
+     3,
+     2
+    ],
+    [
+     "MRVL",
+     0.15,
+     3,
+     2
+    ],
+    [
+     "MU",
+     0.37,
+     3,
+     2
+    ],
+    [
+     "NBIS",
+     51.22,
+     20,
+     19
+    ],
+    [
+     "POET",
+     0.15,
+     3,
+     2
+    ],
+    [
+     "SNDK",
+     0.83,
+     3,
+     2
+    ],
+    [
+     "SUPX",
+     1.3,
+     3,
+     2
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_hbm_cowos",
+   "weight": 3.4,
+   "n_tk": 8,
+   "tickers": [
+    [
+     "AMD",
+     0.13,
+     4,
+     3
+    ],
+    [
+     "CIEN",
+     0.23,
+     3,
+     2
+    ],
+    [
+     "INTC",
+     0.24,
+     3,
+     2
+    ],
+    [
+     "MRVL",
+     0.15,
+     3,
+     2
+    ],
+    [
+     "MU",
+     0.37,
+     3,
+     2
+    ],
+    [
+     "POET",
+     0.15,
+     3,
+     2
+    ],
+    [
+     "SNDK",
+     0.83,
+     3,
+     2
+    ],
+    [
+     "SUPX",
+     1.3,
+     3,
+     2
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "D1 算力子节点(HBM/存储/光/加速器/整机)",
+   "weight": 3.4,
+   "n_tk": 8,
+   "tickers": [
+    [
+     "AMD",
+     0.13,
+     4,
+     1
+    ],
+    [
+     "CIEN",
+     0.23,
+     3,
+     0
+    ],
+    [
+     "INTC",
+     0.24,
+     3,
+     0
+    ],
+    [
+     "MRVL",
+     0.15,
+     3,
+     0
+    ],
+    [
+     "MU",
+     0.37,
+     3,
+     0
+    ],
+    [
+     "POET",
+     0.15,
+     3,
+     0
+    ],
+    [
+     "SNDK",
+     0.83,
+     3,
+     0
+    ],
+    [
+     "SUPX",
+     1.3,
+     3,
+     0
+    ]
+   ],
+   "disconnected": [
+    "CIEN",
+    "INTC",
+    "MRVL",
+    "MU",
+    "POET",
+    "SNDK",
+    "SUPX"
+   ]
+  },
+  {
+   "node": "m_800g_shipment",
+   "weight": 3.4,
+   "n_tk": 8,
+   "tickers": [
+    [
+     "AMD",
+     0.13,
+     4,
+     3
+    ],
+    [
+     "CIEN",
+     0.23,
+     3,
+     2
+    ],
+    [
+     "INTC",
+     0.24,
+     3,
+     2
+    ],
+    [
+     "MRVL",
+     0.15,
+     3,
+     2
+    ],
+    [
+     "MU",
+     0.37,
+     3,
+     2
+    ],
+    [
+     "POET",
+     0.15,
+     3,
+     2
+    ],
+    [
+     "SNDK",
+     0.83,
+     3,
+     2
+    ],
+    [
+     "SUPX",
+     1.3,
+     3,
+     2
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_dc_power_iea",
+   "weight": 58.34,
+   "n_tk": 2,
+   "tickers": [
+    [
+     "FCEL",
+     7.12,
+     3,
+     2
+    ],
+    [
+     "NBIS",
+     51.22,
+     20,
+     19
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_lab_funding_frontier",
+   "weight": 51.35,
+   "n_tk": 2,
+   "tickers": [
+    [
+     "AMD",
+     0.13,
+     4,
+     3
+    ],
+    [
+     "NBIS",
+     51.22,
+     20,
+     19
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_cn_optics_zte",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     19
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "全球 AI 集群在建强度",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     17
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_cn_optics_eoptolink",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     19
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_hyperscaler_capex",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     19
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_nbis_backlog",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     19
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_nbis_capacity",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     19
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "NBIS 产能执行 / 上电",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     19
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_lab_funding_reflection",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     19
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "lab 算力采购力",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     18
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_train_compute_epoch",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     19
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "推理 / 训练需求",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     16
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_aa_intel_index",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     19
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_bench_frontier",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     19
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "数据中心用电审批 / 上电节奏",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     19
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_export_ctrl_bis",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     19
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "GPU 供给 / 成本",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     18
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_token_usage",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     19
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_crwv_peer",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     19
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_circular_financing",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     19
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_cost_per_token",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     19
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "推理需求弹性(cost/token)",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     16
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_open_vs_closed",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     19
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_infer_price_perf",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     19
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_infer_arch",
+   "weight": 51.22,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "NBIS",
+     51.22,
+     20,
+     19
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_enterprise_adoption",
+   "weight": 29.8,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "RBRK",
+     29.8,
+     4,
+     3
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "企业需备好 / 护住 AI 数据",
+   "weight": 29.8,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "RBRK",
+     29.8,
+     4,
+     3
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_copyright_lit",
+   "weight": 29.8,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "RBRK",
+     29.8,
+     4,
+     3
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "企业数据治理 / 合规预算",
+   "weight": 29.8,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "RBRK",
+     29.8,
+     4,
+     2
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_ai_regulation",
+   "weight": 29.8,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "RBRK",
+     29.8,
+     4,
+     3
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_new_paradigm",
+   "weight": 29.8,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "RBRK",
+     29.8,
+     4,
+     3
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_energy_grid",
+   "weight": 7.12,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "FCEL",
+     7.12,
+     3,
+     2
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "数据中心供电方案(基荷/共址)",
+   "weight": 7.12,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "FCEL",
+     7.12,
+     3,
+     2
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "数据中心电力需求(建设驱动)",
+   "weight": 7.12,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "FCEL",
+     7.12,
+     3,
+     2
+    ]
+   ],
+   "disconnected": []
+  },
+  {
+   "node": "m_fcel_dc_ppa",
+   "weight": 7.12,
+   "n_tk": 1,
+   "tickers": [
+    [
+     "FCEL",
+     7.12,
+     3,
+     2
+    ]
+   ],
+   "disconnected": []
+  }
+ ],
+ "divergence": [
+  {
+   "subject": "r133",
+   "type": "shock",
+   "metric": "m_circular_financing",
+   "detail": "!",
+   "date": "2026-09-02"
+  },
+  {
+   "subject": "r158",
+   "type": "shock",
+   "metric": "m_cost_per_token",
+   "detail": "! 已公告 2027-01-01 涨价一倍，cost/token 非单调下行",
+   "date": "2026-09-19"
+  },
+  {
+   "subject": "r352",
+   "type": "shock",
+   "metric": "m_export_ctrl_bis",
+   "detail": "! 同上，法律生效",
+   "date": "2026-07-14"
+  }
+ ],
+ "keyfact": {
+  "NBIS": {
+   "status_line": "上游供给（中国光模块、云厂 capex）与下游需求（lab 融资转合同）同向；Q3 看并网兑现与预付到账",
+   "falsifier": "AI 侧：Epoch 训练算力增速回落至 2×/年以下、开源与闭源差距归零且前沿档 API 降价，则训练需求逻辑弱化。需求侧：Reflection 类客户不续签、lab 融资转冷（半年无 $10B 级新轮），则需求真实性存疑。执行侧：12-31 并网 <800MW 或 Q3 预付到账明显低于 >$9B 年度指引节奏，则判断转观察。阈值为暂定（C6 未定）。",
+   "brief": "持仓里 51.22% 的第一大仓。thesis：neocloud 的收入预合同化，因子 = 产能执行 × 需求持续性。供给端：合同电力目标 5 GW、并网 800MW–1GW（年底）、客户承诺 >$40B、预付 >$9B；光模块（旭创 H1 +182%）与 hyperscaler capex（≈$166B/季）证明在建强度。需求端：Reflection 融资后签 $1B 合同、三大 lab 2026 融资 ≈$207B。风险：NVIDIA 既是供芯方、股东（$2B）又是客户的领投方，循环融资敞口是一手事实；对账 regime 目前为「信念」，阈值未定。",
+   "watch": "11-10 Q3：并网兑现率、预付到账、NVIDIA 关联占比；12-31 上电目标。"
+  },
+  "RBRK": {
+   "status_line": "企业 AI adoption 一手读数（Sub-ARR +33%）向好；政策侧 DOJ 支持 fair use 对数据治理顺风偏空",
+   "falsifier": "Sub-ARR 增速连续两季低于 FY27 指引节奏（$1,880–1,885M 需约 +30%），或 NRR 转弱；AI-native 安全挑战者拿下大客户；法院采纳 fair use 立场使数据治理预算顺风消失。",
+   "brief": "29.80% 的第二大仓，本体即 D6 企业 AI adoption 节点，0 跳一手读数。Q2 FY27 收入 $427.3M（+38%）、Sub-ARR $1.66B（+33%）、FCF $65.7M；FY27 Sub-ARR 指引 $1,880–1,885M。上游只有需求侧：AI adoption（可交易）、数据治理 / 版权与 AI 监管（方向）、AI-native 安全挑战者（做空侧）。DOJ 支持 fair use 的立场若被采纳，数据治理预算顺风减弱。",
+   "watch": "12-03 Q3；Agent Cloud 贡献；挑战者动向。"
+  },
+  "FCEL": {
+   "status_line": "收入下滑但首个 75MW 数据中心供电协议落地；验证点是产能目标 100MW 与协议细节披露",
+   "falsifier": "10-31 年化产能未达 100MW；Q4 仍不披露 75MW 对手方与金额；数据中心供电订单半年无新增，则「算力能源约束代理」的逻辑失去证据。",
+   "brief": "7.12% 的电力标的，本体即 D1 数据中心电力 / D7 能源约束节点。Q3 FY26 收入 $33.0M（−29%）但 backlog 合计 $3.65B，季后签首份 75MW 数据中心供电协议（对手方与金额未披露）；产能 37.1MW → 10 月目标 100MW → 2028 目标 500MW。thesis 是「算力的能源约束代理」，验证点在产能目标与协议披露。",
+   "watch": "10-31 100MW；12 月 Q4 是否披露 75MW 细节。"
+  }
+ }
+}
