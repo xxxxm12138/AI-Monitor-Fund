@@ -2,7 +2,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 500" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
 <defs>
 <marker id="ah2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#9aa0a8"/></marker>
-<marker id="ahr2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#b3271e"/></marker>
 <marker id="ahb" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#1a7f45"/></marker>
 <marker id="ahg" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#8a9099"/></marker>
 <marker id="aha" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#c45c12"/></marker>
@@ -17,15 +16,14 @@
 <text x="456" y="70" fill="#8a9099" font-size="11">可观测冲突</text>
 <text x="676" y="70" fill="#8a9099" font-size="11">候选空间</text>
 
-<!-- group: expanded -->
-<rect x="16" y="80" width="416" height="196" rx="10" fill="#f3faf6" stroke="#c5e3d0"/>
+<!-- groups -->
+<rect x="16" y="80" width="412" height="196" rx="10" fill="#f3faf6" stroke="#c5e3d0"/>
 <text x="28" y="98" fill="#1a7f45" font-size="11" font-weight="700">已扩张</text>
 <text x="72" y="98" fill="#7a9e88" font-size="10">供给 + 订单 + 合同电力</text>
 
-<!-- group: not synced -->
-<rect x="16" y="286" width="416" height="122" rx="10" fill="#fdf6f4" stroke="#efd0c4"/>
-<text x="28" y="304" fill="#c45c12" font-size="11" font-weight="700">尚未同步</text>
-<text x="84" y="304" fill="#c49a7a" font-size="10">并网容量 + 上季收入</text>
+<rect x="16" y="288" width="412" height="116" rx="10" fill="#fdf6f4" stroke="#efd0c4"/>
+<text x="28" y="306" fill="#c45c12" font-size="11" font-weight="700">尚未同步</text>
+<text x="84" y="306" fill="#c49a7a" font-size="10">并网容量 + 上季收入</text>
 
 <!-- sources expanded -->
 <rect x="28" y="108" width="156" height="28" rx="6" fill="#eef1fb" stroke="#c9d2f0"/>
@@ -40,31 +38,32 @@
 <text x="40" y="261" fill="#2f4bb3" font-size="11" font-weight="600">合同电力 &gt;3.5 GW</text>
 
 <!-- mechs expanded -->
-<rect x="252" y="126" width="164" height="48" rx="7" fill="#ffffff" stroke="#1a7f45" stroke-width="1.4"/>
-<text x="264" y="146" fill="#1a7f45" font-size="12" font-weight="700">集群在建</text>
-<text x="264" y="164" fill="#5a8f70" font-size="10.5">三条供给的公共点</text>
+<rect x="252" y="124" width="160" height="48" rx="7" fill="#ffffff" stroke="#1a7f45" stroke-width="1.4"/>
+<text x="264" y="144" fill="#1a7f45" font-size="12" font-weight="700">集群在建</text>
+<text x="264" y="162" fill="#5a8f70" font-size="10.5">三条供给的公共点</text>
 
-<rect x="252" y="204" width="164" height="32" rx="7" fill="#ffffff" stroke="#bfe3cc"/>
+<rect x="252" y="204" width="160" height="32" rx="7" fill="#ffffff" stroke="#bfe3cc"/>
 <text x="264" y="225" fill="#1a7f45" font-size="12" font-weight="600">lab 采购力</text>
 
 <!-- sources lagging -->
-<rect x="28" y="314" width="156" height="28" rx="6" fill="#fbeaea" stroke="#e6a9a9"/>
-<text x="40" y="333" fill="#b3271e" font-size="12" font-weight="600">并网 800MW–1GW</text>
-<rect x="28" y="350" width="156" height="28" rx="6" fill="#fbeaea" stroke="#e6a9a9"/>
-<text x="40" y="369" fill="#b3271e" font-size="12" font-weight="600">Q1 收入 $389.7M</text>
+<rect x="28" y="316" width="156" height="28" rx="6" fill="#fbeaea" stroke="#e6a9a9"/>
+<text x="40" y="335" fill="#b3271e" font-size="12" font-weight="600">并网 800MW–1GW</text>
+<rect x="28" y="354" width="156" height="28" rx="6" fill="#fbeaea" stroke="#e6a9a9"/>
+<text x="40" y="373" fill="#b3271e" font-size="12" font-weight="600">Q1 收入 $389.7M</text>
 
-<!-- mech lagging -->
-<rect x="252" y="322" width="164" height="48" rx="7" fill="#ffffff" stroke="#c45c12" stroke-width="1.4"/>
-<text x="264" y="342" fill="#c45c12" font-size="12" font-weight="700">产能执行 / 上电</text>
-<text x="264" y="360" fill="#c49a7a" font-size="10.5">独立产能边，不接光模块</text>
+<!-- mech lagging: aligned with 并网 only -->
+<rect x="252" y="316" width="160" height="66" rx="7" fill="#ffffff" stroke="#c45c12" stroke-width="1.4"/>
+<text x="264" y="338" fill="#c45c12" font-size="12" font-weight="700">产能执行 / 上电</text>
+<text x="264" y="356" fill="#c49a7a" font-size="10.5">并网与上季收入的汇点</text>
+<text x="264" y="372" fill="#c49a7a" font-size="10">不接光模块</text>
 
-<!-- ungrouped supporting -->
+<!-- supporting -->
 <rect x="28" y="420" width="156" height="26" rx="6" fill="#f3f4f6" stroke="#e0e3e7"/>
 <text x="40" y="438" fill="#5b6472" font-size="11" font-weight="600">本体 backlog</text>
-<rect x="28" y="452" width="156" height="26" rx="6" fill="#fbf0dd" stroke="#efdcae"/>
-<text x="40" y="470" fill="#b5730c" font-size="11" font-weight="600">GPU 出货</text>
-<rect x="252" y="452" width="164" height="26" rx="6" fill="#fbfbfd" stroke="#dfe3e8"/>
-<text x="264" y="470" fill="#5b6472" font-size="11">GPU 供给 / 成本</text>
+<rect x="28" y="454" width="156" height="26" rx="6" fill="#fbf0dd" stroke="#efdcae"/>
+<text x="40" y="472" fill="#b5730c" font-size="11" font-weight="600">GPU 出货</text>
+<rect x="252" y="454" width="160" height="26" rx="6" fill="#fbfbfd" stroke="#dfe3e8"/>
+<text x="264" y="472" fill="#5b6472" font-size="11">GPU 供给 / 成本</text>
 
 <!-- conflict card -->
 <rect x="448" y="150" width="200" height="214" rx="10" fill="#1f2329"/>
@@ -77,7 +76,7 @@
 <text x="548" y="318" text-anchor="middle" fill="#f0b090" font-size="11">并网与 Q1 收入尚未同步</text>
 <text x="548" y="344" text-anchor="middle" fill="#7a828c" font-size="10">800MW–1GW  ·  $389.7M</text>
 
-<!-- candidate panel -->
+<!-- candidates -->
 <rect x="668" y="80" width="252" height="398" rx="10" fill="#f7f8fa" stroke="#e6e8eb"/>
 
 <rect x="680" y="96" width="228" height="100" rx="8" fill="#ffffff" stroke="#dfe3e8"/>
@@ -98,31 +97,27 @@
 <text x="692" y="386" fill="#5b6472" font-size="11">需求强度迫使 FY 指引上修</text>
 <text x="692" y="408" fill="#8a9099" font-size="11">当季加速且指引上修</text>
 
-<!-- edges: supply -> cluster -->
-<line x1="184" y1="122" x2="250" y2="142" stroke="#1a7f45" stroke-width="1.8" marker-end="url(#ahb)"/>
-<line x1="184" y1="156" x2="250" y2="150" stroke="#1a7f45" stroke-width="1.8" marker-end="url(#ahb)"/>
-<line x1="184" y1="190" x2="250" y2="158" stroke="#1a7f45" stroke-width="1.8" marker-end="url(#ahb)"/>
-<line x1="184" y1="224" x2="250" y2="220" stroke="#1a7f45" stroke-width="1.6" marker-end="url(#ahb)"/>
+<!-- 观测 -> 机制：短水平 / 短斜线，不跨组 -->
+<line x1="184" y1="122" x2="252" y2="138" stroke="#1a7f45" stroke-width="1.7" marker-end="url(#ahb)"/>
+<line x1="184" y1="156" x2="252" y2="148" stroke="#1a7f45" stroke-width="1.7" marker-end="url(#ahb)"/>
+<line x1="184" y1="190" x2="252" y2="158" stroke="#1a7f45" stroke-width="1.7" marker-end="url(#ahb)"/>
+<line x1="184" y1="224" x2="252" y2="220" stroke="#1a7f45" stroke-width="1.6" marker-end="url(#ahb)"/>
+<line x1="184" y1="330" x2="252" y2="340" stroke="#c45c12" stroke-width="1.7" marker-end="url(#aha)"/>
+<line x1="184" y1="368" x2="252" y2="360" stroke="#c45c12" stroke-width="1.7" marker-end="url(#aha)"/>
+<line x1="184" y1="467" x2="252" y2="467" stroke="#c3c8ce" stroke-width="1.4" marker-end="url(#ah2)"/>
 
-<!-- 合同电力 crosses into lag group: the intra-company mismatch -->
-<path d="M184,256 C220,256 236,330 250,342" fill="none" stroke="#c45c12" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#aha)"/>
+<!-- 机制 -> 冲突：同行短线 -->
+<line x1="412" y1="148" x2="448" y2="186" stroke="#1a7f45" stroke-width="1.7" marker-end="url(#ahb)"/>
+<line x1="412" y1="220" x2="448" y2="220" stroke="#1a7f45" stroke-width="1.6" marker-end="url(#ahb)"/>
+<line x1="184" y1="256" x2="448" y2="256" stroke="#1a7f45" stroke-width="1.5" marker-end="url(#ahb)"/>
+<line x1="412" y1="349" x2="448" y2="330" stroke="#c45c12" stroke-width="1.7" marker-end="url(#aha)"/>
 
-<!-- 并网 / Q1 -> 上电 / conflict -->
-<line x1="184" y1="328" x2="250" y2="342" stroke="#c45c12" stroke-width="1.7" marker-end="url(#aha)"/>
-<path d="M184,364 C220,364 400,364 446,330" fill="none" stroke="#c45c12" stroke-width="1.5" marker-end="url(#aha)"/>
-
-<!-- GPU -->
-<line x1="184" y1="465" x2="250" y2="465" stroke="#c3c8ce" stroke-width="1.4" marker-end="url(#ah2)"/>
-
-<!-- mechs -> conflict -->
-<path d="M416,150 C432,150 438,196 446,210" fill="none" stroke="#1a7f45" stroke-width="1.8" marker-end="url(#ahb)"/>
-<path d="M416,220 C432,220 438,220 446,232" fill="none" stroke="#1a7f45" stroke-width="1.6" marker-end="url(#ahb)"/>
-<path d="M416,346 C432,346 438,300 446,292" fill="none" stroke="#c45c12" stroke-width="1.8" marker-end="url(#aha)"/>
-<path d="M184,433 C320,433 400,280 446,250" fill="none" stroke="#c3c8ce" stroke-width="1.3" marker-end="url(#ah2)"/>
-<path d="M416,465 C432,465 438,300 446,300" fill="none" stroke="#c3c8ce" stroke-width="1.3" marker-end="url(#ah2)"/>
+<!-- backlog / GPU 沿底边汇入冲突卡底部 -->
+<polyline points="184,433 548,433 548,364" fill="none" stroke="#c3c8ce" stroke-width="1.3" marker-end="url(#ah2)"/>
+<polyline points="412,467 430,467 430,433" fill="none" stroke="#c3c8ce" stroke-width="1.3"/>
 
 <!-- conflict -> candidates -->
-<path d="M648,200 C660,200 666,146 678,146" fill="none" stroke="#c3c8ce" stroke-width="1.4" marker-end="url(#ahg)"/>
-<path d="M648,257 C660,257 666,268 678,268" fill="none" stroke="#1a7f45" stroke-width="1.8" marker-end="url(#ahb)"/>
-<path d="M648,314 C660,314 666,390 678,390" fill="none" stroke="#c3c8ce" stroke-width="1.4" marker-end="url(#ahg)"/>
+<polyline points="648,200 668,146" fill="none" stroke="#c3c8ce" stroke-width="1.4" marker-end="url(#ahg)"/>
+<polyline points="648,257 668,268" fill="none" stroke="#1a7f45" stroke-width="1.8" marker-end="url(#ahb)"/>
+<polyline points="648,314 668,390" fill="none" stroke="#c3c8ce" stroke-width="1.4" marker-end="url(#ahg)"/>
 </svg>
