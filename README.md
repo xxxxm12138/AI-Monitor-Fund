@@ -233,7 +233,7 @@
 
 ### 5.1 持仓扫描 · Overview
 
-本屏总览本周需要盯的持仓与上游变化。Shared Exposure 看上游节点砸穿会打到多少仓；Weekly Focus 给出 Alert / Book / Events / Mandate；Holdings Coverage 对照仓位权重与独立证据路径（仓位大、图薄的票优先下钻 Results）；Data Calendar 是披露与数据点排期，不是新闻流。底栏是管线健康：覆盖、P1 占比、复核队列、outcome 回填。
+本屏总览本周需要盯的持仓与上游信号节点变化。Shared Exposure 看上游节点砸穿会打到多少仓；Weekly Focus 给出 Alert / Book / Events / Mandate；Holdings Coverage 对照仓位权重与独立证据路径（仓位大、图薄的票优先下钻 Results）；Data Calendar 是披露与数据点排期，不是新闻流。底栏是管线健康：覆盖、P1 占比、复核队列、outcome 回填。
 
 **图 · Overview**
 
