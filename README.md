@@ -172,9 +172,11 @@
 | 将 B 的成立自动晋升为 C | 禁止；C 保持独立跳跃 | FY 指引未动，C 记不成立 |
 
 **迭代路径（规划）：**
-1. **轨迹**：每次 SELECT 记一条 Agent rollout。observation = `state_anchor`（当时可知的 record_id 与 as-of）；action space = {A,B,C}；action = 选中路径；delayed reward = 披露后的 correct / wrong / mixed。
-2. **评测**：离线看校准（置信度是否等于命中率）与候选召回（事后成立的路径当时是否在池内）。
-3. **训练**：SELECT 训成离散动作上的 policy head，输出 P(路径 | 状态)；REPRESENT 的抽取轨迹接入 Langfuse，以 span-level eval 迭代抽取器。
+1. **记样本**：每次 SELECT 留下一组可回放字段——当时看见哪些记录（`state_anchor`）、候选 {A,B,C}、选了谁、各条事先写死的预测；财报披露后对照实际，给这次选择打上成立 / 不成立 / 部分成立（标签来得晚，所以是 delayed reward）。
+2. **先评测**：看两件事。校准：自称 80% 把握时，是否大约 80% 命中。候选召回：后来成真的那条，当时有没有被列进池子。
+3. **再训练**：用这些样本把 SELECT 做成候选集上的分类器，输出 P(路径 | 状态)。文档抽取（原文 → 字段）另接 Langfuse，按字段对错迭代抽取器。
+
+工程底座：[`checks.py`](pipeline/checks.py) 拦截未验证假设进入 Sizing；`change_log` 按 as-of 重放当时可见记录；`v_health` 监测信源时效。
 
 工程底座：[`checks.py`](pipeline/checks.py) 拦截未验证假设进入 Sizing；`change_log` 按 as-of 重放当时可见记录；`v_health` 监测信源时效。
 
