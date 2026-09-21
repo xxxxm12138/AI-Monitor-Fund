@@ -61,7 +61,13 @@
 | **创业 / 未上市** | Frontier lab、neocloud、供应链中游 | 融资、合同、排产、出货、政策文本 | 中长 | 中 | **D3** 资本；**D1** 中游供给；早期 **D6**；**D7** 政策冲击常先打这里 | 领先指标与路径候选 |
 | **上市公司** | 持仓与可比公司 | 财报、股东信、电话会、8-K / 巨潮 | 最短 | 最高 | **D1** 产业确认；上市 **D6**；可对账 **D7**；持仓本体 KPI | 验证终点与披露回写 |
 
-*   **观测信号池 (Signal Set)**：需求侧与 AI 侧对齐后，进入池的信号按节点五因子与边传导打分（[`metric_factor`](pipeline/SCHEMA.md#tbl-metric_factor) / `v_edge_calc`）：**可靠** r、**独家** e、**可观测 / 信噪** s、**频率** φ、**固有领先** l，以及边上的传导确定性 c 与领先期 τ。节点固有价值 `valuable = w_e·e + w_s·s + w_r·r + w_φ·φ`；落到持仓边上再拆成 **可交易度** `tradable = c·r·s·φ`（进 Nowcast / 排序）与 **预警度** `warning = τ·l·e`（进 watchlist）。系数登记为假设，只用于排序，不进 Sizing（[`assumption`](pipeline/SCHEMA.md#tbl-assumption)）。
+产业链七维：**D1 算力供给** · **D2 数据供给** · **D3 资本** · **D4 人才** · **D5 算法与能力前沿** · **D6 商用落地 / token 经济** · **D7 政策 · 能源 · 安全**（投入 D1–D4，能力 D5，变现 D6，regime D7）。
+
+*   **观测信号池 (Signal Set)**：需求侧与 AI 侧对齐后，进入池的信号按节点五因子与边传导打分（[`metric_factor`](pipeline/SCHEMA.md#tbl-metric_factor) / `v_edge_calc`）。
+    *   **节点五因子**：可靠 r、独家 e、可观测 / 信噪 s、频率 φ、固有领先 l。
+    *   **边传导**：传导确定性 c、领先期 τ。
+    *   **打分**：节点固有价值 `valuable = w_e·e + w_s·s + w_r·r + w_φ·φ`；落到持仓边上再拆 **可交易度** `tradable = c·r·s·φ`（Nowcast / 排序）与 **预警度** `warning = τ·l·e`（watchlist）。
+    *   系数登记为假设，只用于排序，不进 Sizing（[`assumption`](pipeline/SCHEMA.md#tbl-assumption)）。
 
 ---
 
