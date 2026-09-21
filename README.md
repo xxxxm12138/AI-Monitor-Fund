@@ -20,7 +20,7 @@
 <p>——孟醒 · <a href="https://mp.weixin.qq.com/s/m2NUWypKHN3Lv857aNVhSg">《JEV火了，但真正重要的不是JEV》</a></p>
 </blockquote>
 
-[阅读指南](#阅读指南) • [第一部分：破题](#i-破题与定位信息降维与需求锚定) • [第二部分：点边](#ii-点边表征intelligence-graph-计算循环) • [第三部分：落地](#iii-三层架构落地与工程体系) • [第四部分：示例](#iv-示例以-nbis-为例的全链路推演) • [第五部分：终局](#v-终局数据资产沉淀与未来迭代) • [附录：协作](#附录人机协作纪实)
+[阅读指南](#阅读指南) • [第一部分：破题](#i-破题与定位信息降维与需求锚定) • [第二部分：点边](#ii-点边表征intelligence-graph-计算循环) • [第三部分：落地](#iii-三层架构落地与工程体系) • [第四部分：示例](#iv-示例以-nbis-为例的全链路推演) • [第五部分：面板](#v-决策面板四屏用法) • [第六部分：终局](#vi-终局数据资产沉淀与未来迭代) • [附录：协作](#附录人机协作纪实)
 
 </div>
 
@@ -33,13 +33,14 @@
    2. [II. 点边表征：Intelligence Graph 计算循环](#ii-点边表征intelligence-graph-计算循环)
    3. [III. 三层架构：落地与工程体系](#iii-三层架构落地与工程体系)
    4. [IV. 示例：以 NBIS 为例的全链路推演](#iv-示例以-nbis-为例的全链路推演)
-   5. [V. 终局：数据资产沉淀与未来迭代](#v-终局数据资产沉淀与未来迭代)
-   6. [附录：人机协作纪实](#附录人机协作纪实)
+   5. [V. 决策面板：四屏用法](#v-决策面板四屏用法)
+   6. [VI. 终局：数据资产沉淀与未来迭代](#vi-终局数据资产沉淀与未来迭代)
+   7. [附录：人机协作纪实](#附录人机协作纪实)
 2. **重要参考**
    - 决策顺序与人机分工：[docs/22](docs/22-解题思路与分工.md)
    - 数据源与处理链路：[docs/21](docs/21-数据来源与处理方法说明.md)
    - 分叉与取舍：[docs/23](docs/23-解题思路.md)
-   - 决策视图：[日历式看板](assets/16-AI发展监测日历.html)
+   - 决策面板：[AI Monitoring System](https://creatoraix.top/AI-Monitoring-System/)
    - 工程复现：[pipeline/README.md](pipeline/README.md)
 
 `docs/13`、`docs/process/`、`research/` 为过程稿，不作为入口。
@@ -130,9 +131,10 @@
 *   **三路执行路由**：确定性逻辑交给 **Code**（如关系映射、规则计算）；复杂的语义压缩交给 **LLM**；而最终的信号定档与方向复核，必须交由 **人工** 兜底。
 *   **Agent Trace (设想与规划)**：未来的规划是全面接入 Langfuse。通过留存每一次 Prompt 与 Output 形成观测轨迹，并建立 Eval 机制对模型分类准确度持续打分，确保高精度数据资产沉淀。
 
-### 3. 呈现层：决策视图重构 (Decision-Oriented Presentation)
-底层执行着复杂的图计算，但系统的终端出口必须向研究员的投资直觉靠拢，屏蔽底层的技术复杂度。
-*   **日历式主视图与影响卡 (Impact Card)**：抛弃给数据管理者看的复杂 Schema，极简为三个核心决策信息：事件本体描述（这是什么）、传导对象与权重（影响谁）、验证逻辑的时间点（下一步盯什么）。（👉 [点击查看 Demo](assets/16-AI发展监测日历.html)）
+### 3. 呈现层：四屏决策面板
+底层是点边与计算循环，出口不把 schema 摊开，而是压成研究员可扫的四屏。同一张 DuckDB 的四种投影，在线面板：[AI Monitoring System](https://creatoraix.top/AI-Monitoring-System/)。
+*   **思路**：Overview 排组合注意力；Source 核观测与溯源；Judgment 看判断类型与校准状态；Results 把信号落到持仓边上的 tradable / warning。
+*   **用法**：周初从 Overview 看共享暴露与本周焦点；对到数先去 Source 对账；路径选择前后看 Judgment 的 `decision_log`；下钻单票进 Results。四屏细读见 [第五节](#v-决策面板四屏用法)。
 
 ---
 
@@ -217,16 +219,64 @@
 
 工程底座：[`checks.py`](pipeline/checks.py) 拦截未验证假设进入 Sizing；`change_log` 按 as-of 重放当时可见记录；`v_health` 监测信源时效。
 
-## V. 终局：数据资产沉淀与未来迭代
+---
+
+## V. 决策面板：四屏用法
+
+> **核心思路**：四屏是同一张库的四种投影，不是四套系统。Overview 排注意力，Source 核事实，Judgment 看判断闭环，Results 落到持仓边。在线：[AI Monitoring System](https://creatoraix.top/AI-Monitoring-System/)。
+
+### 5.1 Overview：排注意力
+
+周初入口。Shared Exposure 看上游节点砸穿会打到多少仓；Weekly Focus 给出 Alert / Book / Events / Mandate；Holdings Coverage 对照仓位权重与独立证据路径（仓位大、图薄的票优先下钻 Results）；Data Calendar 是披露与数据点排期，不是新闻流。底栏是管线健康：覆盖、P1 占比、复核队列、outcome 回填。
+
+**图 · Overview**
+
+<div align="center">
+<img src="assets/readme/panel-01-overview.png" alt="Overview：共享暴露、本周焦点、持仓覆盖与数据日历" width="92%">
+</div>
+
+### 5.2 Source：核事实
+
+对应数据层。左栏按 D1–D7 展开指标树，可按 Quant / Event / View / Frontier 过滤；右栏是选定指标的观测记录：期间、值、类型、P 级、来源、知悉日。顶栏 Dimension Coverage 看哪一维还薄。用法：Results 上看到的数，回到这里对账。
+
+**图 · Source**
+
+<div align="center">
+<img src="assets/readme/panel-02-source.png" alt="Source：七维覆盖、观测记录与溯源" width="92%">
+</div>
+
+### 5.3 Judgment：看判断闭环
+
+对应治理层。Decision Registry 列出判断类型（执行方 / 校准阶段 / 日志 / outcome）；点开看实例六元组。左侧 LLM 路由标了 demo、当前为 off，Langfuse 接入是规划不是现状。本屏回答：这类判断谁做、校准到哪一档、事后有没有回写。
+
+**图 · Judgment**
+
+<div align="center">
+<img src="assets/readme/panel-03-judgment.png" alt="Judgment：决策覆盖、执行队列与判断登记表" width="92%">
+</div>
+
+### 5.4 Results：落到持仓边
+
+选票后看仓位权重与证据强度（Strength = 独立路径深度，不是买卖标签）。Transmission Graph 是上游 → 机制 → 票；Path Table 给出 tradable / warning / tier。与第四节 NBIS 推演是同一张图的交互面：先看冲突与路径，再回 Source 对账。打分只用于排序，不进 Sizing。
+
+**图 · Results**
+
+<div align="center">
+<img src="assets/readme/panel-04-results.png" alt="Results：传导图、路径表与 tradable / warning" width="92%">
+</div>
+
+---
+
+## VI. 终局：数据资产沉淀与未来迭代
 
 > **核心思路**：真正的护城河不是单次的个股预测，而是系统自身的运行纪律。基于对当前系统断点的诊断，把这套单票验证工具迭代为可横向复制的数据资产。
 
-### 5.1 当前系统的断点与缺陷诊断
+### 6.1 当前系统的断点与缺陷诊断
 1. **回测深度不足，系数仍为假设**：目前的周频/季频数据多为近期的点状快照，缺乏历史时间序列。这导致“点边模型”中的权重和传导系数，绝大多数仍是停留在“假设台账”里的主观先验，无法达到 T1 级别的量化验证。
 2. **缺乏自动化调度与排队机制**：虽然架构规划了 Code/LLM/人工的分工，但由于没有引入调度器，数据的采集、抽取和入库尚未形成真正的自动化流转。
 3. **LLM 结果缺乏闭环监控**：目前的判断层多为 AI 初稿，但对 LLM 提取的准度缺乏系统的评估（Eval）和反馈循环。
 
-### 5.2 下一步的迭代路径与资源需求
+### 6.2 下一步的迭代路径与资源需求
 针对上述断点，下一步的演进路径及所需资源如下：
 1. **数据纵深回填与系数标定**
    *   **行动**：向历史回溯，补齐过去数个财季与周期的底层数据。
