@@ -214,7 +214,7 @@ function svg(p,s){return `<svg width="${s||14}" height="${s||14}" viewBox="0 0 2
 const TABS=[['overview','Overview','grid'],['source','Source','db'],['judge','Judgment','cpu'],['result','Results','chart']];
 let tab='overview', ticker='NBIS', mmZ=0, mmS=1, mmX=0, mmY=0, guideOn=false, guideFocus='', onboardStep=0, onboardChecked=false;
 const ONBOARD_KEY='ams-onboard-v1';
-const GUIDE_README='https://github.com/xxxxm12138/AI-Monitor-Fund#v-%E7%9B%91%E6%B5%8B%E9%9D%A2%E6%9D%BF%E6%8A%95%E7%A0%94%E5%86%B3%E7%AD%9B%E5%85%A5%E5%8F%A3';
+const GUIDE_README='https://github.com/xxxxm12138/AI-Monitor-Fund/blob/main/README.md#monitoring-panel';
 const GUIDE={
  overview:[
   {id:'ov-shared',title:'Shared Exposure',what:'Upstream nodes shared by 2+ holdings.',for:'Systemic risk — one break hits multiple positions.',when:'Start of week · before earnings season · when a macro node moves.'},
