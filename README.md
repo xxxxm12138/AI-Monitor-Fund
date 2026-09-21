@@ -253,7 +253,7 @@
 
 ### 5.3 判断记录 · Judgment
 
-对应治理层。研究员看判断有没有回写、校准到哪一档；数据岗核验执行方、状态机与 outcome。本屏回答：这类判断谁做、事后有没有闭环。LLM 校准面见下一点。
+对应治理层。研究员看判断有没有回写、校准到哪一档；数据岗核验执行方、状态机与 outcome。顶栏 Outcome Backfill 是已回写结果的判断条数；Decision Coverage 按 Represent / Edge / Gate / Regime / Ops 对照 Human → Auto 校准档；Execution & Signals 给出 Rule / Human / Review Queue 计数，以及待处理的冲击与证伪信号。左栏按执行方、校准阶段、投研分层筛选。Decision Registry 列出 12 类判断的执行方、校准档、日志数与 outcome；点开一行看实例六元组（对象、选择、置信度、依据、结果）。LLM 校准面见下一点。
 
 **图 · Judgment**
 
