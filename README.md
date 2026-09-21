@@ -140,7 +140,29 @@
        上述系数（c / r / e / l / s / φ / τ）目前登记为假设值，只用于排序，不进入仓位 Sizing（见 [`assumption` ↗](pipeline/SCHEMA.md#tbl-assumption)）。原因是当前多为点状快照，缺乏可对齐的历史时序，无法做 T1 级回测标定。后续路径：补齐周频/季频历史序列后，用实测领先期与命中率替换先验，状态从 assumption 推进到 calibrating / validated。
    *   **最小割分析**：图论分析表明，所有价格主线均汇聚于“neocloud 实际上电”这一节点（最小割=1），将其标记为系统的核心观测咽喉。
 2. **REPRESENT（数据抓取与模型分工）**：
-   *   数据从源头进入系统。针对电话会转录文本，由 **LLM** 进行语义压缩与立场抽取（区分管理层 PR 与中立陈述）；针对海关数据，由 **Code** 进行数值解析。抽取结果结构化并打上时间戳入库（[`fct_quant` ↗](pipeline/SCHEMA.md#tbl-fct_quant)）。
+   *   数据从源头进入系统。电话会转录由 **LLM** 做语义压缩与立场抽取（管理层 PR vs 中立陈述）；表格类源（海关月报、A 股季报）由 **Code** 做数值解析与期间换算。结果写入 [`fct_quant` ↗](pipeline/SCHEMA.md#tbl-fct_quant) / [`fct_opinion` ↗](pipeline/SCHEMA.md#tbl-fct_opinion)，并同时打上三套时间戳。
+
+   **处理对照**（库内抽样，非示意）：
+
+   | 源 | 路由 | 原始（截取） | 处理后落表 | 三时点 |
+   | :--- | :--- | :--- | :--- | :--- |
+   | Q2 电话会转录 | LLM → `fct_quant` `r261` | “capital expenditures of $20 billion to $25 billion” | `m_nbis_capex` · `obs_type=guidance` · `value_text=20–25` · `unit=USD B` · `provenance=P2`（CFO 口径，非书面披露） | period=`FY2026` · knowledge=`2026-08-12` · ingest=`2026-09-21` |
+   | Q2 股东信 | LLM → `fct_opinion` `r208` | “more than 30% higher pricing on older-generation GPUs versus Q1” | `m_nbis_calltone` · `speaker_role=management` · `direction=up` · `strength=strong` · `anchor_quote=+30%` | knowledge=`2026-08-12` · snapshot=`snap_nebius_shl_q2_2026` |
+   | 中际旭创 2026 半年报 | Code → `fct_quant` `r323` | H1 营收 41,777,861,795.03 − Q1 19,496,398,083.95 | `obs_type=computed` · `value=22,281,463,711.08` · `unit=CNY` · YoY +174.6% · `provenance=P1` | period=`2026Q2` · knowledge=`2026-08-22` · ingest=`2026-09-20` |
+   | 海关总署 HS8517 月度表 | Code → `m_cn_optics_customs` | 月度进出口金额 / 数量表 | 当前 `fill_status=placeholder`（占比系数 C1 未标定；标定前只落方向，不进量级） | 计划月频；下一发布 `2026-10-07` |
+
+   **落表时必须同时写齐的字段**（回测生命线靠这三套时间，缺一不可）：
+
+   | 字段 | 作用 |
+   | :--- | :--- |
+   | `period` / `period_start` / `period_end` | 事实所属期间（这份数覆盖哪一段） |
+   | `knowledge_time` / `knowledge_date` | 市场可知时刻；按原文粒度，月→15 日、季/年→NULL，不伪造精度 |
+   | `ingest_time` | 入库时刻（系统何时看见，禁止用它回填可知日） |
+   | `snapshot_id` + `anchor` | 原文快照 + 必须能在快照中命中的短引 |
+   | `obs_type` | `actual` / `prior` / `guidance` / `target` / `computed` |
+   | `provenance` | P1–P5；电话会口径固定 P2 |
+   | `speaker` / `speaker_role` | 仅观点表：谁说的、是否管理层 |
+   | `conversion_assumption` | 仅换算：如海关 HS8517→光模块占比系数 C1 |
 3. **PREDICT 与 SELECT（交叉对账与证伪）**：
    *   系统检测到 D1 光模块出货与 D3 Lab 购买力的上行趋势，与 NBIS 此前给出的保守/平稳上电指引形成背离。
    *   当供需背离在节点图中引发冲突预警时，系统通过底层数据的增量，**证伪**了管理层此前的保守预期，在财报前（基于先验的 90 天领先期）捕获了 NBIS Q2 营收激增的预期差（实际 Q2 营收印证了这一推演）。
