@@ -235,13 +235,13 @@
 
 ### 5.1 持仓扫描 · Overview
 
-本屏总览本周需要盯的持仓与上游信号节点变化。
+本屏回答：**这周组合层面有什么系统性风险、该先盯哪几只票。** 不做单票深钻，只做优先级排序。
 
-*   **Shared Exposure**：上游节点砸穿会打到多少仓
-*   **Weekly Focus**：Alert / Book / Events / Mandate
-*   **Holdings Coverage**：仓位权重对照独立证据路径；仓位大、图薄的票下钻 Results
-*   **Data Calendar**：披露与数据点排期，不是新闻流
-*   **底栏**：覆盖、P1 占比、复核队列、outcome 回填
+*   **Shared Exposure（共享暴露）**：有些上游节点（如 hyperscaler capex、GPU 供给）被**多只持仓共用**。若该节点**恶化或击穿关键假设**（口语里叫「砸穿」），会**同时冲击**组合里多大比例仓位——条形图上的 % 就是「这一环出问题，会波及多少仓」。
+*   **Weekly Focus（本周焦点）**：人工策展的待办条：**Alert** 突发冲击 · **Portfolio** 持仓快照 · **Events** 临近数据点 · **Mandate** 本周必须跟进的动作；点条目可跳到 Source / Results。
+*   **Holdings Coverage（持仓覆盖）**：各持仓的**仓位权重** vs **独立证据路径数**；权重高但路径少的，点进 **Results** 细看传导链。
+*   **Data Calendar（数据日历）**：**已排期的披露与数据发布**（财报、海关、产能节点等），不是新闻流；用来提前安排对账。
+*   **底栏 KPI**：指标覆盖率 · P1 一手源占比 · 待人复核队列 · 判断 outcome 回填率——管道健康度，不是买卖信号。
 
 **图 · Overview**
 
@@ -251,12 +251,16 @@
 
 ### 5.2 事实溯源 · Source
 
-对应数据层。Results 上看到的数，回到这里对账。
+对应**数据层**。Results 上看到的任何数，都应回到这里**对账、查来源**。
 
-*   **Dimension Coverage**：D1–D7 在 T1 / T2 / T3 / Frontier 上的覆盖
-*   **Data Calendar**：即将披露的数据点，点进去落到对应指标
-*   **左栏 Source Metrics**：按七维展开的指标树，可按 Quant / Event / View / Frontier 过滤
-*   **右栏 Observations**：期间、值、类型、P 级、来源、知悉日
+*   **Dimension Coverage（维度覆盖）**：热力图看 **AI 产业链七维 D1–D7**（算力 / 数据 / 资本 / 人才 / 算法前沿 / 商用落地 / 政策能源，见 [第一节](#i-破题与定位信息降维与需求锚定)）在各**证据档位**上有没有指标、有多厚：
+    *   **T1** = 可回测（有历史序列、能算）
+    *   **T2** = 结构 + 真值对账（点少，靠结构论证与事后核验）
+    *   **T3** = 定性 / 方向（只能判方向，不能精算）
+    *   **Frontier** = 前沿 / 未上市对象（多为事件型、占位或低确定性数据）
+*   **Data Calendar**：与 Overview 同源，但在这里**点事件会直接选中对应指标**，方便溯源。
+*   **左栏 Source Metrics**：按 D1–D7 展开的指标树，支持多选与搜索；可按 **Quant**（量价序列）/ **Event**（事件）/ **View**（观点）/ **Frontier**（前沿）过滤。
+*   **右栏 Observations**：选中指标的**逐条观测**——期间、数值、类型、溯源 P 级、原文链接、知悉日。
 
 **图 · Source**
 
@@ -266,13 +270,13 @@
 
 ### 5.3 判断记录 · Judgment
 
-对应治理层。研究员看判断有没有回写、校准到哪一档；数据岗核验执行方、状态机与 outcome。Eval&Evolve 见下一点。
+对应**治理层**：系统里每一次「拍板」——源分类、边定档、证伪闸、方向选择——是否**有记录、有回写、能升档**。LLM 专项见 5.4。
 
-*   **Outcome Backfill**：已回写结果的判断条数
-*   **Decision Coverage**：Represent / Edge / Gate / Regime / Ops × Human → Auto
-*   **Execution & Signals**：Rule / Human / Review Queue，以及待处理冲击与证伪信号
-*   **左栏**：按执行方、校准阶段、投研分层筛选
-*   **Decision Registry**：12 类判断的执行方、校准档、日志与 outcome；点开看实例六元组
+*   **Outcome Backfill（顶栏）**：已有多少条判断**事后回填了结果**（预测对不对），相对总日志数的完成率——看闭环有没有断。
+*   **Decision Coverage（决策覆盖）**：热力图。**行** = 五类判断分组——**Represent**（源怎么分类）· **Edge**（边怎么定档）· **Gate**（证伪 / 影响闸）· **Regime**（方向 / 背离解释）· **Ops**（路由 / 日历等运维）；**列** = 校准阶段 **Human → Shadow → Assisted → Auto**（从纯人工，到影子试运行，到人机协同，到可自动）。颜色越深 = 该类型在该阶段积累的记录越多；用来找「还在人工、该升档」的空白格。
+*   **Execution & Signals（执行与信号）**：三张计数卡——**Rule** = 规则 / code 自动执行的判断 · **Human** = 人工拍板 · **Review Queue** = 待人复核条数；下方是**待处理冲击**与**证伪信号** feed，链回 Source / Results。
+*   **左栏筛选**：按**执行方**（Rule / Human / LLM）· **校准阶段** · **投研档 A/B/C** · **判断分组** · **Owner** 收窄登记表。
+*   **Decision Registry（判断登记表）**：**12 类**具体判断（如源分类五元组、证伪 stance、方向选择…）各一行，列示：**谁执行** · **在校准漏斗哪一档** · **日志条数** · **outcome 条数**。点某行下钻到**单条实例**——**六元组** = 当时看到了什么（state）→ 有哪些候选（candidates）→ 选了什么（choice）→ 置信度 → 依据 → 事后结果（outcome）。这是未来校准 decision model 的训练样本。
 
 **图 · Judgment**
 
@@ -282,11 +286,11 @@
 
 ### 5.4 LLM 校准 · Eval&Evolve
 
-Eval 看抽取和分类准不准；Evolve 决定哪类 LLM 判断可以从 Human / Shadow 升到 Assisted / Auto。Trace 是两者的依据，不是另做一套监控。当前路由为 demo、在跑条数为 0；数字是演示，不是已上线监控。
+Judgment 左栏选 **LLM** 进入此模式。**Eval** = LLM 判得准不准；**Evolve** = 哪类判断可以从人工升到自动。Trace 链到 Langfuse，是评估依据，不是另做一套仪表盘。**当前 LLM 路由为 demo、在跑条数 = 0**；界面数字是示意布局。
 
-*   **LLM Health**：升级率、Eval、幻觉、成本、队列、校准档
-*   **Priority Queue**：幻觉、低分待复核、分布外逃逸
-*   **LLM Decision Types**：按 REPRESENT / PROPOSE / SELECT 分列，看哪类还停在 shadow
+*   **LLM Health（健康概览）**：**升级率** = 低分自动转人工的比例 · **Eval 均分** · **幻觉旗标数** · **成本 / 调用量** · **待处理队列** · **Shadow / Assisted 各几类**——只放决策需要的摘要，不放 token 级 trace。
+*   **Priority Queue（优先队列）**：今天要处理什么——**幻觉**（引用了不存在的来源）· **低分待复核**（eval 低于阈值）· **分布外逃逸（OOD）** = 遇到训练分布外的新情况（如从未见过的来源类型），模型置信度崩了，**自动转人工**而不是硬判。
+*   **LLM Decision Types**：按 Intelligence Graph 三算子分列——**REPRESENT**（抽取 / 分类）· **PROPOSE**（提出候选 / 聚类）· **SELECT**（stance / 解释初稿等选择型）。看每类的 eval、逃逸率、日志量；**Shadow** = **影子阶段**：LLM 在后台跑并记 trace，**不真正接管**判断，等人标对比达标后再升到 **Assisted**（人机协同）或 **Auto**。
 
 **图 · LLM 校准：Eval&Evolve**
 
@@ -296,14 +300,16 @@ Eval 看抽取和分类准不准；Evolve 决定哪类 LLM 判断可以从 Human
 
 ### 5.5 持仓传导 · Results
 
-选票后看仓位权重与证据强度（Strength = 独立路径深度，不是买卖标签）。与第四节 NBIS 推演是同一张图：先看冲突与路径，再回 Source 对账。打分只用于排序，不进 Sizing。
+单票深钻屏，与 [第四节 NBIS 推演](#iv-示例以-nbis-为例的全链路推演) 是**同一张传导图**的交互版。阅读顺序建议：**选票 → 看覆盖哪里薄 → 追近期信号 → 读结构是否冗余 → 下钻逐条路径 → 回 Source 对账数字**。
 
-*   **Holdings Rail**：切换核心仓 / 尾仓
-*   **Evidence Coverage**：Supply / Demand / Regime / Entity / Peers × T1–T3 与 Alert
-*   **Signals & Catalysts**：接到这只票上的冲击与待对账节点
-*   **Evidence Structure**：原始路径、独立路径、最小割
-*   **Transmission Graph**：上游 → 机制 → 票
-*   **Path Table**：每条边的 tradable / warning / tier
+顶栏 **Weight %** = 组合权重 · **Strength** = 独立证据路径深度（Weak / Medium / Strong），**不是买卖标签**。tradable / warning 等打分**只用于排序与注意力分配**，不进 Sizing。
+
+*   **Holdings Rail（左栏）**：在核心仓 / 尾仓之间**切换当前分析的 ticker**。
+*   **Evidence Coverage（证据覆盖）**：这只票的传导路径，按**五侧**（Supply 供给 · Demand 需求 · Regime 宏观政体 · Entity 本体 · Peers 竞对）× **证据档 T1–T3 / Alert** 看哪里密、哪里空——找 thesis 该 stress-test 的薄弱侧。
+*   **Signals & Catalysts（信号与催化）**：**挂在这只票上的两件事**——① 近期**冲击**（价格异动、新闻 shock、宏观事件）② **待对账节点**（日历里快到期的披露 / 数据发布）。点条目可**过滤 Path Table** 或切换相关 ticker。
+*   **Evidence Structure（证据结构）**：在进入长表之前先回答——一共有多少条传导路径、去重后多少**独立**路径（冗余度）、**最小割（min-cut）** 是哪一环（砍掉它 thesis 最脆弱）。用来判断「是不是只靠单一路径硬撑」。
+*   **Transmission Graph（传导图）**：Mermaid 可视化 **上游因子 → 中间机制 → 持仓 ticker** 的因果链；适合向 PM / 复核人**讲故事**，不适合日常排序。
+*   **Path Table（路径表）**：每一行 = 一条完整传导链（从哪个 Source Signal 出发、经几跳到达 ticker）。列 **Tradable**（可交易度）/ **Warning**（预警度）/ **Tier**（证据档）/ **Dominant**（是否主路径）——用来**分配注意力**：先看 warning 高、tradable 高的行。
 
 **图 · Results**
 
