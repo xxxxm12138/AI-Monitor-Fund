@@ -208,30 +208,18 @@
 
 ### 4.4 闭环 · 披露后回写与校准
 
-**表 · 披露后兑现与路径标签**
+承接上文：假设已选 **B**，并采用假设 B4（产能领先收入约 90 天）。披露后不改事前选择，只按 A / B / C 各自的可证伪预测对账，outcome 回写 [`decision_log`](pipeline/SCHEMA.md#tbl-decision_log)。
 
-| 口径 | B 的事前预测 | Q2 实现 | 标签 |
-| :--- | :--- | :--- | :--- |
-| AI cloud | 环比显著高于 $389.7M | **$575M**（QoQ **+47.6%**） | **B 成立** |
-| 集团 | 同上 | **$582.3M**（QoQ **+46.0%**） | **B 成立** |
-| ARR | 随产能确认上移 | $1.92B → **$3.0B** | 与 B 同向 |
-| FY 指引 | B **不要求**上修 | 仍 **$3.0–3.4B** | **C 不成立**；B 的覆盖范围限于序列收入 |
+*   **事后更接近 A**（收入仍贴着 Q1 ~$390M）：选 B 记 **wrong**。同类状态下对 B 降权、对 A 升权；回假设台账复核 B4 的 90 天是否过短，或并网确为硬约束。事实表不动。
+*   **事后更接近 B**（当季环比显著高于 Q1，全年指引不上修）：选 B 记 **correct**，B4 记一次校准样本。本例落在这里：AI cloud **$575M**（QoQ **+47.6%**），集团 **$582.3M**，ARR $1.92B → **$3.0B**，FY 仍 **$3.0–3.4B**。
+*   **事后更接近 C**（当季加速 **且** FY 指引上修）：选 B 记 **mixed / wrong**——序列收入可以对上 B，全年跳跃不在 B 的覆盖范围。C 保持独立路径，禁止把 B 自动晋升为 C。若 C 当时不在池里，才回到 **PROPOSE** 补候选。
 
-**误差归因**（按 outcome 落点分层）：
+三种落点决定下一轮改哪一层：路径选错改 **SELECT**；解释当时没枚举改 **PROPOSE**；字段抽错改 **REPRESENT**；时滞天数不准改 **B4**。本例 SELECT 命中、C 独立记不成立，无需改 REPRESENT / PROPOSE。
 
-**表 · 选错改哪一层**
-
-| 情形 | 修正层 | 本例 |
-| :--- | :--- | :--- |
-| 候选已在池内、路径选错 | **SELECT**：`decision_log` 记 wrong，同类状态下对该路径降权 | 若选 A：并网偏低并不蕴含当季收入无法兑现；A 保留在下一期候选池 |
-| 事后成立的解释当时未枚举 | **PROPOSE**：补入 `candidate_pool` | 本例未发生 |
-| 字段抽取错误 | **REPRESENT** | 本例未发生 |
-| 将 B 的成立自动晋升为 C | 禁止；C 保持独立跳跃 | FY 指引未动，C 记不成立 |
-
-**迭代路径（规划）：**
-1. **轨迹**：每次 SELECT 记一条 Agent rollout。observation = `state_anchor`（当时可知的 record_id 与 as-of）；action space = {A,B,C}；action = 选中路径；delayed reward = 披露后的 correct / wrong / mixed。
-2. **评测**：离线看校准（置信度是否等于命中率）与候选召回（事后成立的路径当时是否在池内）。
-3. **训练**：SELECT 训成离散动作上的 policy head，输出 P(路径 | 状态)；REPRESENT 的抽取轨迹接入 Langfuse，以 span-level eval 迭代抽取器。
+这些回写构成可回放轨迹，用来迭代，而不是停在单次对错：
+1. **轨迹**：每次 SELECT 记一条 rollout。observation = 当时可见的 `state_anchor`；action space = {A, B, C}；action = 拍板路径；delayed reward = 披露后的 correct / wrong / mixed。
+2. **评测**：看置信度是否等于命中率，以及事后成立的路径当时是否在池内。
+3. **训练（规划）**：SELECT 做成离散动作上的 policy head，输出 P(路径 | 状态)；REPRESENT 的抽取轨迹接入 Langfuse，用 span-level eval 迭代抽取器。未完成校准前，拍板仍由研究员 / PM 执行。
 
 工程底座：[`checks.py`](pipeline/checks.py) 拦截未验证假设进入 Sizing；`change_log` 按 as-of 重放当时可见记录；`v_health` 监测信源时效。
 
