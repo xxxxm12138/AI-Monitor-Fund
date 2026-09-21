@@ -222,7 +222,7 @@ const ONBOARD_KEY='ams-onboard-v1';
 const GUIDE={
  overview:[
   {id:'ov-shared',title:'Shared Exposure',what:'Upstream nodes shared by 2+ holdings.',for:'Systemic risk — one break hits multiple positions.',when:'Start of week · before earnings season · when a macro node moves.'},
-  {id:'ov-weekly',title:'Weekly Focus',what:'Curated alert, book snapshot, events, mandate.',for:'Priority triage without opening every tab.',when:'Monday AM · pre-market · after a major shock. Click rows to drill.'},
+  {id:'ov-weekly',title:'Weekly Focus',what:'Curated alert, portfolio snapshot, events, mandate.',for:'Priority triage without opening every tab.',when:'Monday AM · pre-market · after a major shock. Click rows to drill.'},
   {id:'ov-holdings',title:'Holdings Coverage',what:'Weight vs independent evidence paths per ticker.',for:'Spot oversized positions with thin graphs (weight ↑ evidence ↓).',when:'Rebalancing prep · deciding which name needs a deep dive in Results.'},
   {id:'ov-calendar',title:'Data Calendar',what:'Scheduled data releases — filings, customs, capacity nodes.',for:'Lead time for nowcast / falsifier checks (not news headlines).',when:'Planning the week · T-7 / T-3 before a release. Click to jump Source or Results.'},
   {id:'ov-kpi',title:'KPI Strip',what:'Metric coverage · P1 source ratio · review queue · outcome backfill.',for:'Pipeline health at a glance.',when:'Daily standup · before trusting a signal · audit backlog.'},
@@ -245,7 +245,7 @@ const GUIDE={
   {id:'jud-instances',title:'Instances',what:'Six-tuple records for one decision type (target · choice · conf · basis · outcome).',for:'Audit a specific judgment call.',when:'After clicking a registry row · outcome pending · dispute resolution.'},
   {id:'jud-llm',title:'LLM Monitor',what:'Preview layout for future LLM judgment ops (health · queue · types).',for:'Placeholder for assisted/auto LLM decisions — not active yet.',when:'Roadmap review only · demo mode when Executor = LLM.'}],
  result:[
-  {id:'res-topbar',title:'Ticker Snapshot',what:'Weight % = book allocation for the selected ticker. Strength = evidence depth (independent paths × tradable score) — Weak / Medium / Strong. Not a buy/sell label.',for:'Spot large positions with thin graphs (e.g. 30% weight + Weak strength).',when:'Every Results visit · each ticker switch on the rail.'},
+  {id:'res-topbar',title:'Ticker Snapshot',what:'Weight % = portfolio allocation for the selected ticker. Strength = evidence depth (independent paths × tradable score) — Weak / Medium / Strong. Not a buy/sell label.',for:'Spot large positions with thin graphs (e.g. 30% weight + Weak strength).',when:'Every Results visit · each ticker switch on the rail.'},
   {id:'res-coverage',title:'Evidence Coverage',what:'Paths by side (supply/demand/regime/entity/peers) × tier/alert.',for:'See where evidence is dense vs where warnings cluster.',when:'Pick which side of thesis to stress-test for this ticker.'},
   {id:'res-signals',title:'Signals & Catalysts',what:'Shocks and calendar items linked to this ticker\'s paths.',for:'In-layer drill — filter paths or switch ticker without leaving Results.',when:'Something moved · event approaching · follow a signal into the path table.'},
   {id:'res-rail',title:'Holdings Rail',what:'Core · watchlist · tail positions with weights.',for:'Switch the ticker under analysis.',when:'Compare NBIS vs RBRK · tail names with thin graphs.'},
@@ -386,7 +386,7 @@ function renderOnboard(){
    <div class="ot">Welcome to AI Monitoring System</div>
    <p class="ob">A four-layer dashboard for monitoring AI-linked holdings — from portfolio overview down to source data, judgment calls, and per-ticker evidence paths.</p>
    <div class="onboard-layers">
-    <div class="onboard-layer"><b>Overview</b>Book-level exposure & weekly focus</div>
+    <div class="onboard-layer"><b>Overview</b>Whole-portfolio view & weekly focus</div>
     <div class="onboard-layer"><b>Source</b>Metrics, provenance & observations</div>
     <div class="onboard-layer"><b>Judgment</b>Decision registry & outcomes</div>
     <div class="onboard-layer"><b>Results</b>Evidence graphs per holding</div>
@@ -591,12 +591,12 @@ function toprow(){let h='';
     <div class="pb">${cards}<div style="font-weight:700;font-size:11px;color:var(--mut);margin:2px 0 4px">SIGNALS & CATALYSTS</div>${evs.map(feedRow).join('')}</div></div>`;
  } else { // overview
   const mx=Math.max(...R.book.filter(b=>b.n_tk>=2).map(b=>b.weight));
-  h=`<div class="panel" data-guide="ov-shared"><div class="ph"><span class="t">Shared Exposure</span><span class="r">Book exposure</span></div><div class="pb">
+  h=`<div class="panel" data-guide="ov-shared"><div class="ph"><span class="t">Shared Exposure</span><span class="r">Portfolio exposure</span></div><div class="pb">
      ${R.book.filter(b=>b.n_tk>=2).sort((a,b)=>b.weight-a.weight).slice(0,4).map(b=>`<div class="bar"><span class="bl">${MLAB[b.node]||b.node}</span><div class="bt ${b.disconnected&&b.disconnected.length?'risk':''}"><i style="width:${(b.weight/mx*100)|0}%"></i></div><span class="bp num">${b.weight.toFixed(0)}%</span></div>`).join('')}
-     <div class="mini" style="margin-top:8px">% of book if upstream node breaks · shared across holdings</div></div></div>
+     <div class="mini" style="margin-top:8px">% of portfolio if upstream node breaks · shared across holdings</div></div></div>
    <div class="panel" data-guide="ov-weekly"><div class="ph"><span class="t">Weekly Focus</span><span class="r clk" style="color:var(--ac);font-weight:600" onclick="settab('result')">View Signals ›</span></div><div class="pb">
      ${wfRow('Alert','FCEL divergence · revenue <span class="num">−29%</span> · 75MW pending',`goResult('FCEL')`,1)}
-     ${wfRow('Book','NBIS 51% · covered · RBRK 30% · thin · FCEL 7% · narrow · STAA 8% · no graph',`goResult('NBIS')`)}
+     ${wfRow('Portfolio','NBIS 51% · covered · RBRK 30% · thin · FCEL 7% · narrow · STAA 8% · no graph',`goResult('NBIS')`)}
      ${wfRow('Events','<span class="num">09-30</span> MU · <span class="num">10-28</span> Hyperscaler capex · <span class="num">10-31</span> FCEL capacity',`settab('source')`)}
      ${wfRow('Mandate','<span class="mut">Reorder attention only · sizing unchanged</span>',`settab('judge')`)}
    </div></div>`;
@@ -613,7 +613,7 @@ function rail(){let sel='',cats='',body='';
   const core=['NBIS','RBRK','STAA','FCEL'].filter(live);
   const tail=['SUPX','SNDK','MU','INTC','CIEN','MRVL','POET','AMD'].filter(live);
   const pot=['CRWV'].filter(live);
-  const row=(t,ico)=>`<div class="item ${ticker===t?'on':''}" onclick="setTicker('${t}')">${ico?`<span class="ico">${svg(IC.chart,13)}</span>`:''}${t}<span class="w num">${R.positions[t]!=null?(R.positions[t]+'%'):'Off book'}</span></div>`;
+  const row=(t,ico)=>`<div class="item ${ticker===t?'on':''}" onclick="setTicker('${t}')">${ico?`<span class="ico">${svg(IC.chart,13)}</span>`:''}${t}<span class="w num">${R.positions[t]!=null?(R.positions[t]+'%'):'Not held'}</span></div>`;
   body=grp('--ac','Core Holdings',core.length,core.map(t=>row(t,1)).join(''))
     +(pot.length?grp('--pp','Watchlist',pot.length,pot.map(t=>row(t,0)).join('')):'')
     +grp('--mut','Tail Positions',tail.length,tail.map(t=>row(t,0)).join(''));
