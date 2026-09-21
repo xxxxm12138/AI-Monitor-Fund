@@ -5,11 +5,11 @@
 <marker id="ahr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#b3271e"/></marker>
 </defs>
 <rect x="0" y="0" width="720" height="590" fill="#ffffff"/>
-<text x="24" y="32" fill="#1f2329" font-size="16" font-weight="700">NBIS 证据怎么汇到持仓</text>
-<text x="24" y="52" fill="#8a9099" font-size="11.5">6 条证据都能撑仓；供给几条必须先经过「机房上电」这一关</text>
+<text x="24" y="32" fill="#1f2329" font-size="16" font-weight="700">NBIS：6 条理由，卡在上电</text>
+<text x="24" y="52" fill="#8a9099" font-size="11.5">少一条理由没关系；上电没发生，供给那几条一起没</text>
 
-<text x="24" y="84" fill="#1a7f45" font-size="13.5" font-weight="700">NBIS · 证据条数够，但供给卡在上电</text>
-<text x="24" y="102" fill="#8a9099" font-size="11">少一条证据仓还立得住；上电这一环断了，供给证据一起没</text>
+<text x="24" y="84" fill="#1a7f45" font-size="13.5" font-weight="700">6 条独立理由</text>
+<text x="24" y="102" fill="#8a9099" font-size="11">供给几条都建立在「机房已经通电」上</text>
 
 <g>
 <rect x="24" y="122" width="168" height="36" rx="7" fill="#eef1fb" stroke="#c9d2f0"/><rect x="24" y="122" width="4" height="36" fill="#2f4bb3"/><text x="38" y="145" fill="#2f4bb3" font-size="12" font-weight="600">供给 · 光 / GPU / capex</text>
@@ -21,7 +21,7 @@
 </g>
 
 <g>
-<rect x="268" y="122" width="168" height="36" rx="7" fill="#fbeaea" stroke="#e6a9a9" stroke-width="1.6"/><text x="280" y="138" fill="#b3271e" font-size="11.5">neocloud 上电 / 在建</text><text x="280" y="152" fill="#b3271e" font-size="11" font-weight="700">供给都过这一关</text>
+<rect x="268" y="122" width="168" height="36" rx="7" fill="#fbeaea" stroke="#e6a9a9" stroke-width="1.6"/><text x="280" y="138" fill="#b3271e" font-size="11.5">neocloud 上电 / 在建</text><text x="280" y="152" fill="#b3271e" font-size="11" font-weight="700">没通电则后面都白做</text>
 <rect x="268" y="168" width="168" height="36" rx="7" fill="#fbfbfd" stroke="#dfe3e8"/><text x="280" y="191" fill="#454b52" font-size="11.5">lab 算力采购力</text>
 <rect x="268" y="214" width="168" height="36" rx="7" fill="#fbfbfd" stroke="#dfe3e8"/><text x="280" y="237" fill="#454b52" font-size="11.5">推理 / 训练需求</text>
 <rect x="268" y="260" width="168" height="36" rx="7" fill="#fbfbfd" stroke="#dfe3e8"/><text x="280" y="283" fill="#454b52" font-size="11.5">推理需求弹性</text>
@@ -49,10 +49,10 @@
 <path d="M192,370 C400,390 510,290 546,272" fill="none" stroke="#c3c8ce" stroke-width="1.7" marker-end="url(#ah2)"/>
 
 <line x1="24" y1="414" x2="696" y2="414" stroke="#e6e8eb"/>
-<text x="24" y="438" fill="#1f2329" font-size="12" font-weight="700">怎么读</text>
-<text x="24" y="458" fill="#454b52" font-size="12">左边每一条都是一条独立证据。少一条，另外几条还能撑「持有 NBIS」。</text>
-<text x="24" y="478" fill="#454b52" font-size="12">光模块 / GPU / capex 都要先看机房有没有上电。没上电，这几条同时作废。</text>
-<text x="24" y="498" fill="#454b52" font-size="12">所以日常最盯红框：上电。黑块是持仓本身。</text>
+<text x="24" y="438" fill="#1f2329" font-size="12" font-weight="700">例子</text>
+<text x="24" y="458" fill="#454b52" font-size="12">理由 1：光模块在出货。理由 2：lab 融到钱。一共 6 条。少 1 条，其余还在。</text>
+<text x="24" y="478" fill="#454b52" font-size="12">但「出货 / 买 GPU / 花 capex」都假定机房已经通电。没通电，这几条同一天失效。</text>
+<text x="24" y="498" fill="#454b52" font-size="12">红框 = 通电有没有发生。黑块 = 这只股票。</text>
 
 <rect x="24" y="528" width="26" height="3" fill="#b3271e"/>
 <text x="58" y="534" fill="#454b52" font-size="11">红线 = 必须经过上电</text>
