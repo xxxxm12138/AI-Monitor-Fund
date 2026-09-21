@@ -264,7 +264,7 @@
 
 ### 5.3 判断记录 · Judgment
 
-对应治理层。研究员看判断有没有回写、校准到哪一档；数据岗核验执行方、状态机与 outcome。LLM 校准面见下一点。
+对应治理层。研究员看判断有没有回写、校准到哪一档；数据岗核验执行方、状态机与 outcome。Eval 与升档见下一点。
 
 *   **Outcome Backfill**：已回写结果的判断条数
 *   **Decision Coverage**：Represent / Edge / Gate / Regime / Ops × Human → Auto
@@ -278,15 +278,15 @@
 <img src="assets/readme/panel-03-judgment.png" alt="Judgment：决策覆盖、执行队列与判断登记表" width="92%">
 </div>
 
-### 5.4 LLM 校准 · Judgment（规划）
+### 5.4 LLM 校准 · Eval 与升档
 
-左栏切到 LLM 后的监控面。当前路由为 demo、在跑条数为 0；Trace 预留 Langfuse，数字是演示，不是已上线监控。
+用来决定哪类 LLM 判断可以从 Human / Shadow 升到 Assisted / Auto。Trace 和 Eval 是升档依据，不是另做一套监控。当前路由为 demo、在跑条数为 0；数字是演示，不是已上线监控。
 
 *   **LLM Health**：升级率、Eval、幻觉、成本、队列、校准档
 *   **Priority Queue**：幻觉、低分待复核、分布外逃逸
 *   **LLM Decision Types**：按 REPRESENT / PROPOSE / SELECT 分列，看哪类还停在 shadow
 
-**图 · LLM 校准（演示布局）**
+**图 · LLM 校准：Eval 与升档**
 
 <div align="center">
 <img src="assets/readme/panel-03b-llm.png" alt="Judgment · LLM Monitor：校准阶段、Eval 与优先队列" width="92%">
