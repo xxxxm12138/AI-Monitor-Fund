@@ -304,9 +304,9 @@ Judgment 左栏选 **LLM** 进入此模式。**Eval** = LLM 判得准不准；**
 
 ### 5.5 持仓传导 · Results
 
-单票深钻屏，与 [第四节 NBIS 推演](#iv-示例以-nbis-为例的全链路推演) 是**同一张传导图**的交互版。阅读顺序建议：**选票 → 看覆盖哪里薄 → 追近期信号 → 读结构是否冗余 → 下钻逐条路径 → 回 Source 对账数字**。
+**单票传导分析页**（Results）：与 [第四节 NBIS 推演](#iv-示例以-nbis-为例的全链路推演) 是**同一张传导图**的交互版，选定一只持仓后逐层下钻。阅读顺序建议：**选票 → 看覆盖哪里薄 → 追近期信号 → 读结构是否冗余 → 下钻逐条路径 → 回 Source 对账数字**。
 
-顶栏 **Weight %** = 组合权重 · **Strength** = 独立证据路径深度（Weak / Medium / Strong），**不是买卖标签**。tradable / warning 等打分**只用于排序与注意力分配**，不进 Sizing。
+顶栏 **Weight %** = 组合权重 · **Strength** = 独立证据路径深度（Weak / Medium / Strong），**不是买卖标签**。tradable / warning 等打分**只用于排序、决定先看哪条路径**，**不直接驱动加减仓**（不参与仓位 sizing 公式）。
 
 *   **Holdings Rail（左栏）**：在核心仓 / 尾仓之间**切换当前分析的 ticker**。
 *   **Evidence Coverage（证据覆盖）**：这只票的传导路径，按**五侧**（Supply 供给 · Demand 需求 · Regime 宏观政体 · Entity 本体 · Peers 竞对）× **证据档 T1–T3 / Alert** 看哪里密、哪里空——找 thesis 该 stress-test 的薄弱侧。
