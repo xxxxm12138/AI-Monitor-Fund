@@ -1,63 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 590" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
-<defs>
-<marker id="ah" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#9aa0a8"/></marker>
-<marker id="ahr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#b3271e"/></marker>
-</defs>
-<rect x="0" y="0" width="720" height="590" fill="#ffffff"/>
-<text x="24" y="32" fill="#1f2329" font-size="16" font-weight="700">NBIS：6 条理由，卡在上电</text>
-<text x="24" y="52" fill="#8a9099" font-size="11.5">少一条理由没关系；上电没发生，供给那几条一起没</text>
-
-<text x="24" y="84" fill="#1a7f45" font-size="13.5" font-weight="700">6 条独立理由</text>
-<text x="24" y="102" fill="#8a9099" font-size="11">供给几条都建立在「机房已经通电」上</text>
-
-<g>
-<rect x="24" y="122" width="168" height="36" rx="7" fill="#eef1fb" stroke="#c9d2f0"/><rect x="24" y="122" width="4" height="36" fill="#2f4bb3"/><text x="38" y="145" fill="#2f4bb3" font-size="12" font-weight="600">供给 · 光 / GPU / capex</text>
-<rect x="24" y="168" width="168" height="36" rx="7" fill="#e3f4e9" stroke="#bfe3cc"/><rect x="24" y="168" width="4" height="36" fill="#1a7f45"/><text x="38" y="191" fill="#1a7f45" font-size="12" font-weight="600">需求 · lab 融资 / token</text>
-<rect x="24" y="214" width="168" height="36" rx="7" fill="#efeafc" stroke="#ddd3f3"/><rect x="24" y="214" width="4" height="36" fill="#6b4bc4"/><text x="38" y="237" fill="#6b4bc4" font-size="12" font-weight="600">能力 · 训练 / AA / bench</text>
-<rect x="24" y="260" width="168" height="36" rx="7" fill="#e0f0f2" stroke="#bfe0e4"/><rect x="24" y="260" width="4" height="36" fill="#0e7490"/><text x="38" y="283" fill="#0e7490" font-size="12" font-weight="600">变现 · 推理弹性 / cost</text>
-<rect x="24" y="306" width="168" height="36" rx="7" fill="#fbf0dd" stroke="#efdcae"/><rect x="24" y="306" width="4" height="36" fill="#b5730c"/><text x="38" y="329" fill="#b5730c" font-size="12" font-weight="600">政体 · 出口 / 循环融资</text>
-<rect x="24" y="352" width="168" height="36" rx="7" fill="#f3f4f6" stroke="#e0e3e7"/><rect x="24" y="352" width="4" height="36" fill="#8a9099"/><text x="38" y="375" fill="#8a9099" font-size="12" font-weight="600">本体 · backlog / 上电</text>
-</g>
-
-<g>
-<rect x="268" y="122" width="168" height="36" rx="7" fill="#fbeaea" stroke="#e6a9a9" stroke-width="1.6"/><text x="280" y="138" fill="#b3271e" font-size="11.5">neocloud 上电 / 在建</text><text x="280" y="152" fill="#b3271e" font-size="11" font-weight="700">没通电则后面都白做</text>
-<rect x="268" y="168" width="168" height="36" rx="7" fill="#fbfbfd" stroke="#dfe3e8"/><text x="280" y="191" fill="#454b52" font-size="11.5">lab 算力采购力</text>
-<rect x="268" y="214" width="168" height="36" rx="7" fill="#fbfbfd" stroke="#dfe3e8"/><text x="280" y="237" fill="#454b52" font-size="11.5">推理 / 训练需求</text>
-<rect x="268" y="260" width="168" height="36" rx="7" fill="#fbfbfd" stroke="#dfe3e8"/><text x="280" y="283" fill="#454b52" font-size="11.5">推理需求弹性</text>
-</g>
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 640" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
 <defs>
 <marker id="ah2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#9aa0a8"/></marker>
 <marker id="ahr2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#b3271e"/></marker>
 </defs>
+<rect x="0" y="0" width="760" height="640" fill="#ffffff"/>
+<text x="24" y="30" fill="#1f2329" font-size="16" font-weight="700">NBIS 边怎么连（按 graph_data.py）</text>
+<text x="24" y="50" fill="#8a9099" font-size="11.5">三条供给先汇「集群在建」= 图上的最小割。上电是自己那条产能边，不接光模块。</text>
 
-<line x1="192" y1="140" x2="266" y2="140" stroke="#b3271e" stroke-width="2.1" marker-end="url(#ahr2)"/>
-<line x1="192" y1="186" x2="266" y2="186" stroke="#c3c8ce" stroke-width="1.7" marker-end="url(#ah2)"/>
-<line x1="192" y1="232" x2="266" y2="232" stroke="#c3c8ce" stroke-width="1.7" marker-end="url(#ah2)"/>
-<line x1="192" y1="278" x2="266" y2="278" stroke="#c3c8ce" stroke-width="1.7" marker-end="url(#ah2)"/>
+<text x="24" y="78" fill="#8a9099" font-size="11">观测</text>
+<text x="268" y="78" fill="#8a9099" font-size="11">中间机制</text>
+<text x="548" y="78" fill="#8a9099" font-size="11">持仓</text>
 
-<rect x="548" y="214" width="144" height="72" rx="10" fill="#1f2329"/>
-<text x="620" y="244" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="600">L2 · 51.2%</text>
-<text x="620" y="268" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="800">NBIS</text>
+<!-- sources -->
+<rect x="24" y="96" width="168" height="32" rx="6" fill="#eef1fb" stroke="#c9d2f0"/><text x="36" y="117" fill="#2f4bb3" font-size="12" font-weight="600">旭创营收</text>
+<rect x="24" y="136" width="168" height="32" rx="6" fill="#eef1fb" stroke="#c9d2f0"/><text x="36" y="157" fill="#2f4bb3" font-size="12" font-weight="600">新易盛营收</text>
+<rect x="24" y="176" width="168" height="32" rx="6" fill="#eef1fb" stroke="#c9d2f0"/><text x="36" y="197" fill="#2f4bb3" font-size="12" font-weight="600">云厂 capex</text>
+<rect x="24" y="232" width="168" height="32" rx="6" fill="#e3f4e9" stroke="#bfe3cc"/><text x="36" y="253" fill="#1a7f45" font-size="12" font-weight="600">lab 融资</text>
+<rect x="24" y="288" width="168" height="32" rx="6" fill="#fbeaea" stroke="#e6a9a9"/><text x="36" y="309" fill="#b3271e" font-size="12" font-weight="600">合同电力 / 上电读数</text>
+<rect x="24" y="344" width="168" height="32" rx="6" fill="#f3f4f6" stroke="#e0e3e7"/><text x="36" y="365" fill="#5b6472" font-size="12" font-weight="600">本体 backlog</text>
+<rect x="24" y="400" width="168" height="32" rx="6" fill="#fbf0dd" stroke="#efdcae"/><text x="36" y="421" fill="#b5730c" font-size="12" font-weight="600">GPU 出货</text>
 
-<path d="M436,140 C490,140 520,228 546,244" fill="none" stroke="#b3271e" stroke-width="2.1" marker-end="url(#ahr2)"/>
-<path d="M436,186 C490,186 520,236 546,248" fill="none" stroke="#c3c8ce" stroke-width="1.7" marker-end="url(#ah2)"/>
-<line x1="436" y1="232" x2="546" y2="250" stroke="#c3c8ce" stroke-width="1.7" marker-end="url(#ah2)"/>
-<path d="M436,278 C490,278 520,262 546,258" fill="none" stroke="#c3c8ce" stroke-width="1.7" marker-end="url(#ah2)"/>
-<path d="M192,324 C400,338 500,276 546,266" fill="none" stroke="#c3c8ce" stroke-width="1.7" marker-end="url(#ah2)"/>
-<path d="M192,370 C400,390 510,290 546,272" fill="none" stroke="#c3c8ce" stroke-width="1.7" marker-end="url(#ah2)"/>
+<!-- mechs -->
+<rect x="268" y="128" width="176" height="56" rx="7" fill="#fbeaea" stroke="#e6a9a9" stroke-width="1.6"/>
+<text x="280" y="150" fill="#b3271e" font-size="12" font-weight="700">集群在建</text>
+<text x="280" y="170" fill="#b3271e" font-size="11">三条供给的公共点</text>
 
-<line x1="24" y1="414" x2="696" y2="414" stroke="#e6e8eb"/>
-<text x="24" y="438" fill="#1f2329" font-size="12" font-weight="700">例子</text>
-<text x="24" y="458" fill="#454b52" font-size="12">理由 1：光模块在出货。理由 2：lab 融到钱。一共 6 条。少 1 条，其余还在。</text>
-<text x="24" y="478" fill="#454b52" font-size="12">但「出货 / 买 GPU / 花 capex」都假定机房已经通电。没通电，这几条同一天失效。</text>
-<text x="24" y="498" fill="#454b52" font-size="12">红框 = 通电有没有发生。黑块 = 这只股票。</text>
+<rect x="268" y="224" width="176" height="40" rx="7" fill="#fbfbfd" stroke="#dfe3e8"/>
+<text x="280" y="249" fill="#454b52" font-size="12">lab 采购力</text>
 
-<rect x="24" y="528" width="26" height="3" fill="#b3271e"/>
-<text x="58" y="534" fill="#454b52" font-size="11">红线 = 必须经过上电</text>
-<rect x="184" y="522" width="16" height="16" rx="4" fill="#fbeaea" stroke="#e6a9a9"/>
-<text x="208" y="534" fill="#454b52" font-size="11">浅红框 = 上电（最该盯）</text>
-<rect x="330" y="522" width="16" height="16" rx="4" fill="#1f2329"/>
-<text x="354" y="534" fill="#454b52" font-size="11">黑块 = NBIS</text>
+<rect x="268" y="280" width="176" height="48" rx="7" fill="#fff6f6" stroke="#e6a9a9"/>
+<text x="280" y="300" fill="#b3271e" font-size="12" font-weight="700">产能执行 / 上电</text>
+<text x="280" y="318" fill="#8a9099" font-size="11">只接合同电力这一条</text>
+
+<rect x="268" y="392" width="176" height="40" rx="7" fill="#fbfbfd" stroke="#dfe3e8"/>
+<text x="280" y="417" fill="#454b52" font-size="12">GPU 供给 / 成本</text>
+
+<!-- ticker -->
+<rect x="560" y="232" width="168" height="72" rx="10" fill="#1f2329"/>
+<text x="644" y="262" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="600">L2 · 51.2%</text>
+<text x="644" y="286" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="800">NBIS</text>
+
+<!-- edges sources -> mech -->
+<line x1="192" y1="112" x2="266" y2="148" stroke="#b3271e" stroke-width="2" marker-end="url(#ahr2)"/>
+<line x1="192" y1="152" x2="266" y2="156" stroke="#b3271e" stroke-width="2" marker-end="url(#ahr2)"/>
+<line x1="192" y1="192" x2="266" y2="164" stroke="#b3271e" stroke-width="2" marker-end="url(#ahr2)"/>
+<line x1="192" y1="248" x2="266" y2="244" stroke="#c3c8ce" stroke-width="1.6" marker-end="url(#ah2)"/>
+<line x1="192" y1="304" x2="266" y2="304" stroke="#c3c8ce" stroke-width="1.6" marker-end="url(#ah2)"/>
+<line x1="192" y1="416" x2="266" y2="412" stroke="#c3c8ce" stroke-width="1.6" marker-end="url(#ah2)"/>
+
+<!-- backlog direct -->
+<path d="M192,360 C400,360 500,300 558,280" fill="none" stroke="#c3c8ce" stroke-width="1.6" marker-end="url(#ah2)"/>
+
+<!-- mech -> ticker -->
+<path d="M444,156 C520,156 540,250 558,260" fill="none" stroke="#b3271e" stroke-width="2" marker-end="url(#ahr2)"/>
+<line x1="444" y1="244" x2="558" y2="260" stroke="#c3c8ce" stroke-width="1.6" marker-end="url(#ah2)"/>
+<path d="M444,304 C520,304 540,278 558,272" fill="none" stroke="#c3c8ce" stroke-width="1.6" marker-end="url(#ah2)"/>
+<path d="M444,412 C520,412 540,310 558,292" fill="none" stroke="#c3c8ce" stroke-width="1.6" marker-end="url(#ah2)"/>
+
+<line x1="24" y1="456" x2="736" y2="456" stroke="#e6e8eb"/>
+<text x="24" y="480" fill="#1f2329" font-size="12" font-weight="700">怎么读</text>
+<text x="24" y="502" fill="#454b52" font-size="12">红框「集群在建」进了 3 条线：这才是图上的最小割（拆这一个点，三条供给同时断）。</text>
+<text x="24" y="522" fill="#454b52" font-size="12">「上电」只进 1 条线，那是 NBIS 自己的产能读数，不是三条供给的汇合点。</text>
+<text x="24" y="542" fill="#454b52" font-size="12">backlog 绕过中间机制直连。GPU 走供给成本，也不经过上电。</text>
+<text x="24" y="562" fill="#454b52" font-size="12">没通电变不成收入 = 业务判断，不要画成「光模块边经过上电」。</text>
+
+<rect x="24" y="580" width="26" height="3" fill="#b3271e"/>
+<text x="58" y="586" fill="#454b52" font-size="11">红线 = 经过集群在建</text>
+<rect x="200" y="574" width="16" height="16" rx="4" fill="#fbeaea" stroke="#e6a9a9"/>
+<text x="224" y="586" fill="#454b52" font-size="11">公共瓶颈</text>
+<rect x="310" y="574" width="16" height="16" rx="4" fill="#1f2329"/>
+<text x="334" y="586" fill="#454b52" font-size="11">NBIS</text>
 </svg>
