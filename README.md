@@ -171,9 +171,12 @@
 | 字段抽取错误 | **REPRESENT** | 本例未发生 |
 | 将 B 的成立自动晋升为 C | 禁止；C 保持独立跳跃 | FY 指引未动，C 记不成立 |
 
-轨迹用于评测，而非直接作为 SFT 语料。一条记录对应一次 SELECT：`state_anchor`（当时可知的 record_id 与 as-of）、候选集 {A,B,C}、选择项、各候选事先登记的预测、披露后的 correct / wrong / mixed。样本粒度为标的 × 财季。优先观察校准曲线与候选覆盖率；样本量充分后再训练打分头 P(路径|状态)。抽取轨迹（原文 → 字段）单独接入 Langfuse，不得与 SELECT 混成生成语料。
+**迭代路径（规划）：**
+1. **轨迹**：每次 SELECT 记一条 Agent rollout。observation = `state_anchor`（当时可知的 record_id 与 as-of）；action space = {A,B,C}；action = 选中路径；delayed reward = 披露后的 correct / wrong / mixed。
+2. **评测**：离线看校准（置信度是否等于命中率）与候选召回（事后成立的路径当时是否在池内）。
+3. **训练**：SELECT 训成离散动作上的 policy head，输出 P(路径 | 状态)；REPRESENT 的抽取轨迹接入 Langfuse，以 span-level eval 迭代抽取器。
 
-工程约束：[`checks.py`](pipeline/checks.py) 拦截未验证假设进入 Sizing；`change_log` 支持按 as-of 重放可见记录；`v_health` 监测信源时效。Langfuse 与打分头均为规划项。
+工程底座：[`checks.py`](pipeline/checks.py) 拦截未验证假设进入 Sizing；`change_log` 按 as-of 重放当时可见记录；`v_health` 监测信源时效。
 
 ## V. 终局：数据资产沉淀与未来迭代
 
