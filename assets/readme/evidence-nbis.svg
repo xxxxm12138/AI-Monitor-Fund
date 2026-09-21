@@ -1,100 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 430" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 500" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
 <defs>
 <marker id="ah2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#9aa0a8"/></marker>
 <marker id="ahr2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#b3271e"/></marker>
 <marker id="ahb" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#1a7f45"/></marker>
 <marker id="ahg" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#8a9099"/></marker>
+<marker id="aha" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#c45c12"/></marker>
 </defs>
-<rect x="0" y="0" width="920" height="430" fill="#ffffff"/>
+<rect x="0" y="0" width="940" height="500" fill="#ffffff"/>
 
-<text x="24" y="28" fill="#1f2329" font-size="16" font-weight="700">NBIS 传导结构与候选空间</text>
-<text x="24" y="48" fill="#8a9099" font-size="11.5">边按 graph_data.py。A / B / C 为对同一组事实的互斥解释，披露前均未被证伪。</text>
+<text x="24" y="26" fill="#1f2329" font-size="16" font-weight="700">NBIS 传导结构与候选空间</text>
+<text x="24" y="46" fill="#8a9099" font-size="11.5">边按 graph_data.py。色块标出可观测冲突：上游已扩张，公司并网与 Q1 收入尚未同步。</text>
 
-<text x="24" y="76" fill="#8a9099" font-size="11">观测</text>
-<text x="248" y="76" fill="#8a9099" font-size="11">中间机制</text>
-<text x="508" y="76" fill="#8a9099" font-size="11">持仓</text>
-<text x="668" y="76" fill="#8a9099" font-size="11">候选空间</text>
+<text x="28" y="70" fill="#8a9099" font-size="11">观测</text>
+<text x="252" y="70" fill="#8a9099" font-size="11">中间机制</text>
+<text x="456" y="70" fill="#8a9099" font-size="11">可观测冲突</text>
+<text x="676" y="70" fill="#8a9099" font-size="11">候选空间</text>
 
-<!-- sources -->
-<rect x="24" y="92" width="160" height="30" rx="6" fill="#eef1fb" stroke="#c9d2f0"/>
-<text x="36" y="112" fill="#2f4bb3" font-size="12" font-weight="600">旭创营收</text>
-<rect x="24" y="130" width="160" height="30" rx="6" fill="#eef1fb" stroke="#c9d2f0"/>
-<text x="36" y="150" fill="#2f4bb3" font-size="12" font-weight="600">新易盛营收</text>
-<rect x="24" y="168" width="160" height="30" rx="6" fill="#eef1fb" stroke="#c9d2f0"/>
-<text x="36" y="188" fill="#2f4bb3" font-size="12" font-weight="600">云厂 capex</text>
-<rect x="24" y="220" width="160" height="30" rx="6" fill="#e3f4e9" stroke="#bfe3cc"/>
-<text x="36" y="240" fill="#1a7f45" font-size="12" font-weight="600">lab 融资</text>
-<rect x="24" y="272" width="160" height="30" rx="6" fill="#fbeaea" stroke="#e6a9a9"/>
-<text x="36" y="292" fill="#b3271e" font-size="12" font-weight="600">合同电力 / 并网</text>
-<rect x="24" y="324" width="160" height="30" rx="6" fill="#f3f4f6" stroke="#e0e3e7"/>
-<text x="36" y="344" fill="#5b6472" font-size="12" font-weight="600">本体 backlog</text>
-<rect x="24" y="376" width="160" height="30" rx="6" fill="#fbf0dd" stroke="#efdcae"/>
-<text x="36" y="396" fill="#b5730c" font-size="12" font-weight="600">GPU 出货</text>
+<!-- group: expanded -->
+<rect x="16" y="80" width="416" height="196" rx="10" fill="#f3faf6" stroke="#c5e3d0"/>
+<text x="28" y="98" fill="#1a7f45" font-size="11" font-weight="700">已扩张</text>
+<text x="72" y="98" fill="#7a9e88" font-size="10">供给 + 订单 + 合同电力</text>
 
-<!-- mechs -->
-<rect x="248" y="122" width="168" height="52" rx="7" fill="#fbeaea" stroke="#e6a9a9" stroke-width="1.6"/>
-<text x="260" y="143" fill="#b3271e" font-size="12" font-weight="700">集群在建</text>
-<text x="260" y="161" fill="#b3271e" font-size="11">三条供给的公共点</text>
+<!-- group: not synced -->
+<rect x="16" y="286" width="416" height="122" rx="10" fill="#fdf6f4" stroke="#efd0c4"/>
+<text x="28" y="304" fill="#c45c12" font-size="11" font-weight="700">尚未同步</text>
+<text x="84" y="304" fill="#c49a7a" font-size="10">并网容量 + 上季收入</text>
 
-<rect x="248" y="214" width="168" height="36" rx="7" fill="#fbfbfd" stroke="#dfe3e8"/>
-<text x="260" y="237" fill="#454b52" font-size="12">lab 采购力</text>
+<!-- sources expanded -->
+<rect x="28" y="108" width="156" height="28" rx="6" fill="#eef1fb" stroke="#c9d2f0"/>
+<text x="40" y="127" fill="#2f4bb3" font-size="12" font-weight="600">旭创营收</text>
+<rect x="28" y="142" width="156" height="28" rx="6" fill="#eef1fb" stroke="#c9d2f0"/>
+<text x="40" y="161" fill="#2f4bb3" font-size="12" font-weight="600">新易盛营收</text>
+<rect x="28" y="176" width="156" height="28" rx="6" fill="#eef1fb" stroke="#c9d2f0"/>
+<text x="40" y="195" fill="#2f4bb3" font-size="12" font-weight="600">云厂 capex</text>
+<rect x="28" y="210" width="156" height="28" rx="6" fill="#e3f4e9" stroke="#bfe3cc"/>
+<text x="40" y="229" fill="#1a7f45" font-size="12" font-weight="600">lab 融资</text>
+<rect x="28" y="244" width="156" height="24" rx="6" fill="#eef1fb" stroke="#c9d2f0"/>
+<text x="40" y="261" fill="#2f4bb3" font-size="11" font-weight="600">合同电力 &gt;3.5 GW</text>
 
-<rect x="248" y="264" width="168" height="44" rx="7" fill="#fff6f6" stroke="#e6a9a9"/>
-<text x="260" y="282" fill="#b3271e" font-size="12" font-weight="700">产能执行 / 上电</text>
-<text x="260" y="298" fill="#8a9099" font-size="11">独立产能边，不接光模块</text>
+<!-- mechs expanded -->
+<rect x="252" y="126" width="164" height="48" rx="7" fill="#ffffff" stroke="#1a7f45" stroke-width="1.4"/>
+<text x="264" y="146" fill="#1a7f45" font-size="12" font-weight="700">集群在建</text>
+<text x="264" y="164" fill="#5a8f70" font-size="10.5">三条供给的公共点</text>
 
-<rect x="248" y="370" width="168" height="36" rx="7" fill="#fbfbfd" stroke="#dfe3e8"/>
-<text x="260" y="393" fill="#454b52" font-size="12">GPU 供给 / 成本</text>
+<rect x="252" y="204" width="164" height="32" rx="7" fill="#ffffff" stroke="#bfe3cc"/>
+<text x="264" y="225" fill="#1a7f45" font-size="12" font-weight="600">lab 采购力</text>
 
-<!-- ticker -->
-<rect x="496" y="214" width="140" height="68" rx="10" fill="#1f2329"/>
-<text x="566" y="242" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="600">L2 · 51.2%</text>
-<text x="566" y="266" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="800">NBIS</text>
+<!-- sources lagging -->
+<rect x="28" y="314" width="156" height="28" rx="6" fill="#fbeaea" stroke="#e6a9a9"/>
+<text x="40" y="333" fill="#b3271e" font-size="12" font-weight="600">并网 800MW–1GW</text>
+<rect x="28" y="350" width="156" height="28" rx="6" fill="#fbeaea" stroke="#e6a9a9"/>
+<text x="40" y="369" fill="#b3271e" font-size="12" font-weight="600">Q1 收入 $389.7M</text>
 
-<!-- sources -> mech -->
-<line x1="184" y1="107" x2="246" y2="140" stroke="#b3271e" stroke-width="2" marker-end="url(#ahr2)"/>
-<line x1="184" y1="145" x2="246" y2="148" stroke="#b3271e" stroke-width="2" marker-end="url(#ahr2)"/>
-<line x1="184" y1="183" x2="246" y2="156" stroke="#b3271e" stroke-width="2" marker-end="url(#ahr2)"/>
-<line x1="184" y1="235" x2="246" y2="232" stroke="#c3c8ce" stroke-width="1.6" marker-end="url(#ah2)"/>
-<line x1="184" y1="287" x2="246" y2="286" stroke="#c3c8ce" stroke-width="1.6" marker-end="url(#ah2)"/>
-<line x1="184" y1="391" x2="246" y2="388" stroke="#c3c8ce" stroke-width="1.6" marker-end="url(#ah2)"/>
+<!-- mech lagging -->
+<rect x="252" y="322" width="164" height="48" rx="7" fill="#ffffff" stroke="#c45c12" stroke-width="1.4"/>
+<text x="264" y="342" fill="#c45c12" font-size="12" font-weight="700">产能执行 / 上电</text>
+<text x="264" y="360" fill="#c49a7a" font-size="10.5">独立产能边，不接光模块</text>
 
-<!-- backlog direct -->
-<path d="M184,339 C340,339 430,290 494,258" fill="none" stroke="#c3c8ce" stroke-width="1.6" marker-end="url(#ah2)"/>
+<!-- ungrouped supporting -->
+<rect x="28" y="420" width="156" height="26" rx="6" fill="#f3f4f6" stroke="#e0e3e7"/>
+<text x="40" y="438" fill="#5b6472" font-size="11" font-weight="600">本体 backlog</text>
+<rect x="28" y="452" width="156" height="26" rx="6" fill="#fbf0dd" stroke="#efdcae"/>
+<text x="40" y="470" fill="#b5730c" font-size="11" font-weight="600">GPU 出货</text>
+<rect x="252" y="452" width="164" height="26" rx="6" fill="#fbfbfd" stroke="#dfe3e8"/>
+<text x="264" y="470" fill="#5b6472" font-size="11">GPU 供给 / 成本</text>
 
-<!-- mech -> ticker -->
-<path d="M416,148 C460,148 478,230 494,240" fill="none" stroke="#b3271e" stroke-width="2" marker-end="url(#ahr2)"/>
-<line x1="416" y1="232" x2="494" y2="244" stroke="#c3c8ce" stroke-width="1.6" marker-end="url(#ah2)"/>
-<path d="M416,286 C456,286 474,262 494,256" fill="none" stroke="#c3c8ce" stroke-width="1.6" marker-end="url(#ah2)"/>
-<path d="M416,388 C460,388 478,290 494,272" fill="none" stroke="#c3c8ce" stroke-width="1.6" marker-end="url(#ah2)"/>
+<!-- conflict card -->
+<rect x="448" y="150" width="200" height="214" rx="10" fill="#1f2329"/>
+<text x="548" y="176" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="600">L2 · 51.2%</text>
+<text x="548" y="200" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="800">NBIS</text>
+<line x1="468" y1="216" x2="628" y2="216" stroke="#3a414b"/>
+<text x="548" y="238" text-anchor="middle" fill="#d7c48a" font-size="11" font-weight="700">可观测冲突</text>
+<text x="548" y="262" text-anchor="middle" fill="#9fd0b0" font-size="11">上游供给 / 订单已扩张</text>
+<text x="548" y="292" text-anchor="middle" fill="#c9cdd3" font-size="12" font-weight="700">≠</text>
+<text x="548" y="318" text-anchor="middle" fill="#f0b090" font-size="11">并网与 Q1 收入尚未同步</text>
+<text x="548" y="344" text-anchor="middle" fill="#7a828c" font-size="10">800MW–1GW  ·  $389.7M</text>
 
-<!-- candidate column panel -->
-<rect x="660" y="88" width="236" height="322" rx="10" fill="#f7f8fa" stroke="#e6e8eb"/>
+<!-- candidate panel -->
+<rect x="668" y="80" width="252" height="398" rx="10" fill="#f7f8fa" stroke="#e6e8eb"/>
 
-<!-- A -->
-<rect x="672" y="100" width="212" height="88" rx="8" fill="#ffffff" stroke="#dfe3e8"/>
-<text x="684" y="122" fill="#5b6472" font-size="12" font-weight="700">A  天花板</text>
-<text x="684" y="144" fill="#5b6472" font-size="11">并网构成当期硬约束</text>
-<text x="684" y="164" fill="#8a9099" font-size="11">Q2 ≈ $390M · 不增加敞口</text>
+<rect x="680" y="96" width="228" height="100" rx="8" fill="#ffffff" stroke="#dfe3e8"/>
+<text x="692" y="120" fill="#5b6472" font-size="12" font-weight="700">A  天花板</text>
+<text x="692" y="142" fill="#5b6472" font-size="11">并网构成当期硬约束</text>
+<text x="692" y="164" fill="#8a9099" font-size="11">Q2 ≈ $390M · 不增加敞口</text>
 
-<!-- B SELECT -->
-<rect x="672" y="200" width="212" height="96" rx="8" fill="#ffffff" stroke="#1a7f45" stroke-width="1.8"/>
-<rect x="800" y="210" width="70" height="18" rx="9" fill="#1a7f45"/>
-<text x="835" y="223" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700">SELECT</text>
-<text x="684" y="224" fill="#1a7f45" font-size="12" font-weight="700">B  时差</text>
-<text x="684" y="246" fill="#1f2329" font-size="11">并网为入账时滞（B4 ~90d）</text>
-<text x="684" y="266" fill="#1a7f45" font-size="11">Q2 环比显著高于 Q1</text>
-<text x="684" y="284" fill="#8a9099" font-size="11">不要求 FY 上修 · 偏向增持</text>
+<rect x="680" y="212" width="228" height="112" rx="8" fill="#ffffff" stroke="#1a7f45" stroke-width="1.8"/>
+<rect x="820" y="224" width="72" height="18" rx="9" fill="#1a7f45"/>
+<text x="856" y="237" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700">SELECT</text>
+<text x="692" y="238" fill="#1a7f45" font-size="12" font-weight="700">B  时差</text>
+<text x="692" y="262" fill="#1f2329" font-size="11">并网为入账时滞（B4 ~90d）</text>
+<text x="692" y="282" fill="#1a7f45" font-size="11">Q2 环比显著高于 Q1</text>
+<text x="692" y="302" fill="#8a9099" font-size="11">不要求 FY 上修 · 偏向增持</text>
 
-<!-- C -->
-<rect x="672" y="308" width="212" height="88" rx="8" fill="#ffffff" stroke="#dfe3e8"/>
-<text x="684" y="330" fill="#5b6472" font-size="12" font-weight="700">C  打穿全年</text>
-<text x="684" y="352" fill="#5b6472" font-size="11">需求强度迫使 FY 指引上修</text>
-<text x="684" y="372" fill="#8a9099" font-size="11">当季加速且指引上修</text>
+<rect x="680" y="340" width="228" height="100" rx="8" fill="#ffffff" stroke="#dfe3e8"/>
+<text x="692" y="364" fill="#5b6472" font-size="12" font-weight="700">C  打穿全年</text>
+<text x="692" y="386" fill="#5b6472" font-size="11">需求强度迫使 FY 指引上修</text>
+<text x="692" y="408" fill="#8a9099" font-size="11">当季加速且指引上修</text>
 
-<!-- ticker -> candidates -->
-<path d="M636,232 C650,232 656,144 670,144" fill="none" stroke="#c3c8ce" stroke-width="1.4" marker-end="url(#ahg)"/>
-<path d="M636,248 C650,248 656,248 670,248" fill="none" stroke="#1a7f45" stroke-width="1.8" marker-end="url(#ahb)"/>
-<path d="M636,264 C650,264 656,352 670,352" fill="none" stroke="#c3c8ce" stroke-width="1.4" marker-end="url(#ahg)"/>
+<!-- edges: supply -> cluster -->
+<line x1="184" y1="122" x2="250" y2="142" stroke="#1a7f45" stroke-width="1.8" marker-end="url(#ahb)"/>
+<line x1="184" y1="156" x2="250" y2="150" stroke="#1a7f45" stroke-width="1.8" marker-end="url(#ahb)"/>
+<line x1="184" y1="190" x2="250" y2="158" stroke="#1a7f45" stroke-width="1.8" marker-end="url(#ahb)"/>
+<line x1="184" y1="224" x2="250" y2="220" stroke="#1a7f45" stroke-width="1.6" marker-end="url(#ahb)"/>
+
+<!-- 合同电力 crosses into lag group: the intra-company mismatch -->
+<path d="M184,256 C220,256 236,330 250,342" fill="none" stroke="#c45c12" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#aha)"/>
+
+<!-- 并网 / Q1 -> 上电 / conflict -->
+<line x1="184" y1="328" x2="250" y2="342" stroke="#c45c12" stroke-width="1.7" marker-end="url(#aha)"/>
+<path d="M184,364 C220,364 400,364 446,330" fill="none" stroke="#c45c12" stroke-width="1.5" marker-end="url(#aha)"/>
+
+<!-- GPU -->
+<line x1="184" y1="465" x2="250" y2="465" stroke="#c3c8ce" stroke-width="1.4" marker-end="url(#ah2)"/>
+
+<!-- mechs -> conflict -->
+<path d="M416,150 C432,150 438,196 446,210" fill="none" stroke="#1a7f45" stroke-width="1.8" marker-end="url(#ahb)"/>
+<path d="M416,220 C432,220 438,220 446,232" fill="none" stroke="#1a7f45" stroke-width="1.6" marker-end="url(#ahb)"/>
+<path d="M416,346 C432,346 438,300 446,292" fill="none" stroke="#c45c12" stroke-width="1.8" marker-end="url(#aha)"/>
+<path d="M184,433 C320,433 400,280 446,250" fill="none" stroke="#c3c8ce" stroke-width="1.3" marker-end="url(#ah2)"/>
+<path d="M416,465 C432,465 438,300 446,300" fill="none" stroke="#c3c8ce" stroke-width="1.3" marker-end="url(#ah2)"/>
+
+<!-- conflict -> candidates -->
+<path d="M648,200 C660,200 666,146 678,146" fill="none" stroke="#c3c8ce" stroke-width="1.4" marker-end="url(#ahg)"/>
+<path d="M648,257 C660,257 666,268 678,268" fill="none" stroke="#1a7f45" stroke-width="1.8" marker-end="url(#ahb)"/>
+<path d="M648,314 C660,314 666,390 678,390" fill="none" stroke="#c3c8ce" stroke-width="1.4" marker-end="url(#ahg)"/>
 </svg>
