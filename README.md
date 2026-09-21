@@ -273,7 +273,7 @@
 
 ### 5.5 持仓传导 · Results
 
-选票后看仓位权重与证据强度（Strength = 独立路径深度，不是买卖标签）。Transmission Graph 是上游 → 机制 → 票；Path Table 给出 tradable / warning / tier。与第四节 NBIS 推演是同一张图的交互面：先看冲突与路径，再回 Source 对账。打分只用于排序，不进 Sizing。
+选票后看仓位权重与证据强度（Strength = 独立路径深度，不是买卖标签）。左栏 Holdings Rail 切换核心仓 / 尾仓。Evidence Coverage 按 Supply / Demand / Regime / Entity / Peers 对照 T1–T3 与 Alert。Signals & Catalysts 是接到这只票上的冲击与待对账节点。Evidence Structure 给出原始路径数、独立路径数和最小割。Transmission Graph 是上游 → 机制 → 票；Path Table 列出每条边的 tradable / warning / tier。与第四节 NBIS 推演是同一张图的交互面：先看冲突与路径，再回 Source 对账。打分只用于排序，不进 Sizing。
 
 **图 · Results**
 
