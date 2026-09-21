@@ -278,7 +278,9 @@
     *   **列 · 校准阶段**：**Human**（纯人工）→ **Shadow**（影子试运行）→ **Assisted**（人机协同）→ **Auto**（可自动）
 *   **Execution & Signals（执行与信号）**：三张计数卡——**Rule** = 规则 / code 自动执行的判断 · **Human** = 人工拍板 · **Review Queue** = 待人复核条数；下方是**待处理冲击**与**证伪信号** feed，链回 Source / Results。
 *   **左栏筛选**：按**执行方**（Rule / Human / LLM）· **校准阶段** · **投研档 A/B/C** · **判断分组** · **Owner** 收窄登记表。
-*   **Decision Registry（判断登记表）**：**12 类**具体判断（如源分类五元组、证伪 stance、方向选择…）各一行，列示：**谁执行** · **在校准漏斗哪一档** · **日志条数** · **outcome 条数**。点某行下钻到**单条实例**——**六元组** = 当时看到了什么（state）→ 有哪些候选（candidates）→ 选了什么（choice）→ 置信度 → 依据 → 事后结果（outcome）。这是未来校准 decision model 的训练样本。
+*   **Decision Registry（判断登记表）**：**12 类**具体判断（如源分类五元组、证伪 stance、方向选择…）各一行；点某行下钻到单条实例。这是未来校准 decision model 的训练样本。
+    *   **表头列**：**谁执行**（Rule / Human / LLM）· **在校准漏斗哪一档** · **日志条数** · **outcome 条数**
+    *   **单条实例 · 六元组**：当时看到了什么（state）→ 有哪些候选（candidates）→ 选了什么（choice）→ 置信度 → 依据 → 事后结果（outcome）
 
 **图 · Judgment**
 
