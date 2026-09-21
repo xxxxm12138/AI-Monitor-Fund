@@ -233,7 +233,13 @@
 
 ### 5.1 持仓扫描 · Overview
 
-本屏总览本周需要盯的持仓与上游信号节点变化。Shared Exposure 看上游节点砸穿会打到多少仓；Weekly Focus 给出 Alert / Book / Events / Mandate；Holdings Coverage 对照仓位权重与独立证据路径（仓位大、图薄的票优先下钻 Results）；Data Calendar 是披露与数据点排期，不是新闻流。底栏是管线健康：覆盖、P1 占比、复核队列、outcome 回填。
+本屏总览本周需要盯的持仓与上游信号节点变化。
+
+*   **Shared Exposure**：上游节点砸穿会打到多少仓
+*   **Weekly Focus**：Alert / Book / Events / Mandate
+*   **Holdings Coverage**：仓位权重对照独立证据路径；仓位大、图薄的票下钻 Results
+*   **Data Calendar**：披露与数据点排期，不是新闻流
+*   **底栏**：覆盖、P1 占比、复核队列、outcome 回填
 
 **图 · Overview**
 
@@ -243,7 +249,12 @@
 
 ### 5.2 事实溯源 · Source
 
-对应数据层。左栏按 D1–D7 展开指标树，可按 Quant / Event / View / Frontier 过滤；右栏是选定指标的观测记录：期间、值、类型、P 级、来源、知悉日。顶栏 Dimension Coverage 看哪一维还薄。用法：Results 上看到的数，回到这里对账。
+对应数据层。Results 上看到的数，回到这里对账。
+
+*   **Dimension Coverage**：D1–D7 在 T1 / T2 / T3 / Frontier 上的覆盖
+*   **Data Calendar**：即将披露的数据点，点进去落到对应指标
+*   **左栏 Source Metrics**：按七维展开的指标树，可按 Quant / Event / View / Frontier 过滤
+*   **右栏 Observations**：期间、值、类型、P 级、来源、知悉日
 
 **图 · Source**
 
@@ -253,7 +264,13 @@
 
 ### 5.3 判断记录 · Judgment
 
-对应治理层。研究员看判断有没有回写、校准到哪一档；数据岗核验执行方、状态机与 outcome。顶栏 Outcome Backfill 是已回写结果的判断条数；Decision Coverage 按 Represent / Edge / Gate / Regime / Ops 对照 Human → Auto 校准档；Execution & Signals 给出 Rule / Human / Review Queue 计数，以及待处理的冲击与证伪信号。左栏按执行方、校准阶段、投研分层筛选。Decision Registry 列出 12 类判断的执行方、校准档、日志数与 outcome；点开一行看实例六元组（对象、选择、置信度、依据、结果）。LLM 校准面见下一点。
+对应治理层。研究员看判断有没有回写、校准到哪一档；数据岗核验执行方、状态机与 outcome。LLM 校准面见下一点。
+
+*   **Outcome Backfill**：已回写结果的判断条数
+*   **Decision Coverage**：Represent / Edge / Gate / Regime / Ops × Human → Auto
+*   **Execution & Signals**：Rule / Human / Review Queue，以及待处理冲击与证伪信号
+*   **左栏**：按执行方、校准阶段、投研分层筛选
+*   **Decision Registry**：12 类判断的执行方、校准档、日志与 outcome；点开看实例六元组
 
 **图 · Judgment**
 
@@ -263,7 +280,11 @@
 
 ### 5.4 LLM 校准 · Judgment（规划）
 
-左栏切到 LLM，判断记录变成监控面：升级率、Eval、幻觉、成本、队列，以及每类判断停在 Human / Shadow / Assisted / Auto 的哪一档。下面是优先队列（幻觉、低分待复核、分布外逃逸）和按 REPRESENT / PROPOSE / SELECT 分列的判断类型。当前 LLM 路由为 demo、在跑条数为 0；Trace 预留的是规划中的 Langfuse 接入，数字为演示，不是已上线监控。数据岗在这里看哪类判断还停在 shadow、何时可以升档。
+左栏切到 LLM 后的监控面。当前路由为 demo、在跑条数为 0；Trace 预留 Langfuse，数字是演示，不是已上线监控。
+
+*   **LLM Health**：升级率、Eval、幻觉、成本、队列、校准档
+*   **Priority Queue**：幻觉、低分待复核、分布外逃逸
+*   **LLM Decision Types**：按 REPRESENT / PROPOSE / SELECT 分列，看哪类还停在 shadow
 
 **图 · LLM 校准（演示布局）**
 
@@ -273,7 +294,14 @@
 
 ### 5.5 持仓传导 · Results
 
-选票后看仓位权重与证据强度（Strength = 独立路径深度，不是买卖标签）。左栏 Holdings Rail 切换核心仓 / 尾仓。Evidence Coverage 按 Supply / Demand / Regime / Entity / Peers 对照 T1–T3 与 Alert。Signals & Catalysts 是接到这只票上的冲击与待对账节点。Evidence Structure 给出原始路径数、独立路径数和最小割。Transmission Graph 是上游 → 机制 → 票；Path Table 列出每条边的 tradable / warning / tier。与第四节 NBIS 推演是同一张图的交互面：先看冲突与路径，再回 Source 对账。打分只用于排序，不进 Sizing。
+选票后看仓位权重与证据强度（Strength = 独立路径深度，不是买卖标签）。与第四节 NBIS 推演是同一张图：先看冲突与路径，再回 Source 对账。打分只用于排序，不进 Sizing。
+
+*   **Holdings Rail**：切换核心仓 / 尾仓
+*   **Evidence Coverage**：Supply / Demand / Regime / Entity / Peers × T1–T3 与 Alert
+*   **Signals & Catalysts**：接到这只票上的冲击与待对账节点
+*   **Evidence Structure**：原始路径、独立路径、最小割
+*   **Transmission Graph**：上游 → 机制 → 票
+*   **Path Table**：每条边的 tradable / warning / tier
 
 **图 · Results**
 
