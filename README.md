@@ -1,4 +1,4 @@
-**图 · Anatole 体系总览**
+**图 · AI 发展监测体系总览**
 
 <div align="center">
 
