@@ -132,9 +132,15 @@
 *   **Agent Trace (设想与规划)**：未来的规划是全面接入 Langfuse。通过留存每一次 Prompt 与 Output 形成观测轨迹，并建立 Eval 机制对模型分类准确度持续打分，确保高精度数据资产沉淀。
 
 ### 3. 呈现层：四屏决策面板
-底层是点边与计算循环，出口不把 schema 摊开，而是压成研究员可扫的四屏。同一张 DuckDB 的四种投影，在线面板：[AI Monitoring System](https://creatoraix.top/AI-Monitoring-System/)。
-*   **思路**：Overview 排组合注意力；Source 核观测与溯源；Judgment 看判断类型与校准状态；Results 把信号落到持仓边上的 tradable / warning。
-*   **用法**：周初从 Overview 看共享暴露与本周焦点；对到数先去 Source 对账；路径选择前后看 Judgment 的 `decision_log`；下钻单票进 Results。四屏细读见 [第五节](#v-决策面板四屏用法)。
+点边和计算循环留在库里，研究员打开的是四块屏幕，数据同源。在线面板：[AI Monitoring System](https://creatoraix.top/AI-Monitoring-System/)。
+
+四屏各管一件事：
+*   **Overview**：这周先看什么，哪些持仓证据偏薄。
+*   **Source**：这个数字从哪来，能不能对上原始披露。
+*   **Judgment**：这类判断谁做、校准到哪一档、事后有没有回写。
+*   **Results**：这条信号怎么打到持仓，哪条边更可交易、哪条只作预警。
+
+日常顺序是：周初看 Overview，核对数字去 Source，看判断记录去 Judgment，查单票传导去 Results。各屏画面见 [第五节](#v-决策面板四屏用法)。
 
 ---
 
