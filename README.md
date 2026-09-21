@@ -261,7 +261,7 @@
 
 ### 5.3 判断记录 · Judgment
 
-对应治理层。Decision Registry 列出判断类型（执行方 / 校准阶段 / 日志 / outcome）；点开看实例六元组。左侧 LLM 路由标了 demo、当前为 off，Langfuse 接入是规划不是现状。本屏回答：这类判断谁做、校准到哪一档、事后有没有回写。
+对应治理层，也是数据岗作为辅助用户主要进入的视图。Decision Registry 列出判断类型（执行方 / 校准阶段 / 日志 / outcome）；点开看实例六元组。左侧 LLM 路由标了 demo、当前为 off，Langfuse 接入是规划不是现状。本屏回答：这类判断谁做、校准到哪一档、事后有没有回写。
 
 **图 · Judgment**
 
