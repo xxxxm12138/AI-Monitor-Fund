@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 570" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">
+<rect x="1" y="1" width="1198" height="568" rx="22" fill="#fbfcfe" stroke="#dce3ed"/>
+<text x="48" y="57" font-size="27" font-weight="700" fill="#152237">研究工作台 · 四个工作入口</text>
+<text x="48" y="91" font-size="16" fill="#617187">功能结构示意 · 从研究优先级到证据核查，再到判断与传导。</text>
+<rect x="48" y="125" width="536" height="150" rx="14" fill="white" stroke="#dce3ed"/>
+<rect x="48" y="141" width="4" height="32" rx="2" fill="#2962ff"/>
+<text x="72" y="162" font-size="21" font-weight="700" fill="#2962ff">Overview · 先研究什么</text>
+<text x="72" y="197" font-size="16" fill="#43516a">研究重点与待办 / 共同暴露</text>
+<text x="72" y="224" font-size="16" fill="#43516a">证据覆盖 / 数据与披露日程</text>
+<text x="72" y="251" font-size="16" fill="#43516a">定位需要进一步核查的对象</text>
+<rect x="616" y="125" width="536" height="150" rx="14" fill="white" stroke="#dce3ed"/>
+<rect x="616" y="141" width="4" height="32" rx="2" fill="#8053dc"/>
+<text x="640" y="162" font-size="21" font-weight="700" fill="#8053dc">Source · 信息来自哪里</text>
+<text x="640" y="197" font-size="16" fill="#43516a">指标目录 / 数值、事件与观点</text>
+<text x="640" y="224" font-size="16" fill="#43516a">来源等级 / 单位 / 观测期 / 知悉时间</text>
+<text x="640" y="251" font-size="16" fill="#43516a">核对原文与不同口径</text>
+<rect x="48" y="299" width="536" height="150" rx="14" fill="white" stroke="#dce3ed"/>
+<rect x="48" y="315" width="4" height="32" rx="2" fill="#008b78"/>
+<text x="72" y="336" font-size="21" font-weight="700" fill="#008b78">Judgment · 如何形成判断</text>
+<text x="72" y="371" font-size="16" fill="#43516a">解释候选 / 选择 / 置信度 / 依据</text>
+<text x="72" y="398" font-size="16" fill="#43516a">执行方 / 复核状态 / 结果回填</text>
+<text x="72" y="425" font-size="16" fill="#43516a">Eval &amp; Evolve：评测接入规划</text>
+<rect x="616" y="299" width="536" height="150" rx="14" fill="white" stroke="#dce3ed"/>
+<rect x="616" y="315" width="4" height="32" rx="2" fill="#ba7100"/>
+<text x="640" y="336" font-size="21" font-weight="700" fill="#ba7100">Results · 如何影响公司</text>
+<text x="640" y="371" font-size="16" fill="#43516a">信号 → 机制 → 公司指标</text>
+<text x="640" y="398" font-size="16" fill="#43516a">共同依赖 / 薄弱环节 / 路径排序</text>
+<text x="640" y="425" font-size="16" fill="#43516a">财务与估值连接：建设方向</text>
+<text x="48" y="515" font-size="17" font-weight="600" fill="#152237">统一研究对象与信息截止时点 · 将新信息映射为判断变化与验证任务</text>
+<text x="48" y="546" font-size="13" fill="#718096">FinWorld Workbench · 功能与方法示意，实际能力以 README 状态说明为准</text>
+</svg>

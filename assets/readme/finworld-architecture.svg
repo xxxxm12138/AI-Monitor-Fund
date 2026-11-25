@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 570" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">
+<rect x="1" y="1" width="1198" height="568" rx="22" fill="#fbfcfe" stroke="#dce3ed"/>
+<text x="48" y="57" font-size="27" font-weight="700" fill="#152237">研究架构 · 证据、判断与呈现</text>
+<text x="48" y="91" font-size="16" fill="#617187">分离来源事实与主观解释，使每个结论都可以追溯。</text>
+<rect x="48" y="125" width="536" height="150" rx="14" fill="white" stroke="#dce3ed"/>
+<rect x="48" y="141" width="4" height="32" rx="2" fill="#2962ff"/>
+<text x="72" y="162" font-size="21" font-weight="700" fill="#2962ff">DATA · 证据层</text>
+<text x="72" y="197" font-size="16" fill="#43516a">指标目录 + 四类观测记录 + 来源快照</text>
+<text x="72" y="224" font-size="16" fill="#43516a">DuckDB / 编号迁移 / 变更日志</text>
+<text x="72" y="251" font-size="16" fill="#43516a">按知悉时间重放研究输入</text>
+<rect x="616" y="125" width="536" height="150" rx="14" fill="white" stroke="#dce3ed"/>
+<rect x="616" y="141" width="4" height="32" rx="2" fill="#8053dc"/>
+<text x="640" y="162" font-size="21" font-weight="700" fill="#8053dc">JUDGMENT · 判断层</text>
+<text x="640" y="197" font-size="16" fill="#43516a">传导关系 + 假设台账 + 候选池</text>
+<text x="640" y="224" font-size="16" fill="#43516a">状态 / 候选 / 选择 / 置信度 / 依据 / 结果</text>
+<text x="640" y="251" font-size="16" fill="#43516a">验证档位与人工复核</text>
+<rect x="48" y="299" width="536" height="150" rx="14" fill="white" stroke="#dce3ed"/>
+<rect x="48" y="315" width="4" height="32" rx="2" fill="#008b78"/>
+<text x="72" y="336" font-size="21" font-weight="700" fill="#008b78">WORKBENCH · 呈现层</text>
+<text x="72" y="371" font-size="16" fill="#43516a">任务总览 / 事实溯源 / 判断 / 传导</text>
+<text x="72" y="398" font-size="16" fill="#43516a">图检查结构；表核查记录与参数</text>
+<text x="72" y="425" font-size="16" fill="#43516a">将证据缺口转成下一步研究任务</text>
+<rect x="616" y="299" width="536" height="150" rx="14" fill="white" stroke="#dce3ed"/>
+<rect x="616" y="315" width="4" height="32" rx="2" fill="#ba7100"/>
+<text x="640" y="336" font-size="21" font-weight="700" fill="#ba7100">EVALUATION · 校准反馈</text>
+<text x="640" y="371" font-size="16" fill="#43516a">披露结果与事前判断对照</text>
+<text x="640" y="398" font-size="16" fill="#43516a">抽取质量 / 候选覆盖 / 置信度校准</text>
+<text x="640" y="425" font-size="16" fill="#43516a">调用追踪与自动评测：待接入</text>
+<text x="48" y="515" font-size="17" font-weight="600" fill="#152237">代码执行确定性规则 · 模型辅助语义任务 · 研究员复核关键判断</text>
+<text x="48" y="546" font-size="13" fill="#718096">FinWorld Workbench · 功能与方法示意，实际能力以 README 状态说明为准</text>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 570" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">
+<rect x="1" y="1" width="1198" height="568" rx="22" fill="#fbfcfe" stroke="#dce3ed"/>
+<text x="48" y="57" font-size="27" font-weight="700" fill="#152237">Intelligence Graph · 研究判断循环</text>
+<text x="48" y="91" font-size="16" fill="#617187">研究任务确定边界；每一步保留输入、依据与输出。</text>
+<rect x="48" y="125" width="536" height="150" rx="14" fill="white" stroke="#dce3ed"/>
+<rect x="48" y="141" width="4" height="32" rx="2" fill="#2962ff"/>
+<text x="72" y="162" font-size="21" font-weight="700" fill="#2962ff">01  REPRESENT · 证据表征</text>
+<text x="72" y="197" font-size="16" fill="#43516a">指标定义 / 来源记录 / 知悉时间</text>
+<text x="72" y="224" font-size="16" fill="#43516a">区分实际、指引、观点与待验证信息</text>
+<text x="72" y="251" font-size="16" fill="#43516a">输出：可回放的信息状态</text>
+<rect x="616" y="125" width="536" height="150" rx="14" fill="white" stroke="#dce3ed"/>
+<rect x="616" y="141" width="4" height="32" rx="2" fill="#8053dc"/>
+<text x="640" y="162" font-size="21" font-weight="700" fill="#8053dc">02  PROPOSE · 候选解释</text>
+<text x="640" y="197" font-size="16" fill="#43516a">沿公司、需求、供给和竞争关系展开</text>
+<text x="640" y="224" font-size="16" fill="#43516a">记录解释差异、适用条件与证伪方式</text>
+<text x="640" y="251" font-size="16" fill="#43516a">输出：可比较的候选集合</text>
+<rect x="48" y="299" width="536" height="150" rx="14" fill="white" stroke="#dce3ed"/>
+<rect x="48" y="315" width="4" height="32" rx="2" fill="#008b78"/>
+<text x="72" y="336" font-size="21" font-weight="700" fill="#008b78">03  PREDICT · 指标预测</text>
+<text x="72" y="371" font-size="16" fill="#43516a">明确期间、方向、区间与参数假设</text>
+<text x="72" y="398" font-size="16" fill="#43516a">识别传导时滞和关键数据缺口</text>
+<text x="72" y="425" font-size="16" fill="#43516a">输出：能够对账的预测</text>
+<rect x="616" y="299" width="536" height="150" rx="14" fill="white" stroke="#dce3ed"/>
+<rect x="616" y="315" width="4" height="32" rx="2" fill="#ba7100"/>
+<text x="640" y="336" font-size="21" font-weight="700" fill="#ba7100">04  SELECT · 判断记录</text>
+<text x="640" y="371" font-size="16" fill="#43516a">研究员复核候选并记录选择</text>
+<text x="640" y="398" font-size="16" fill="#43516a">保存置信度、依据和下次验证时间</text>
+<text x="640" y="425" font-size="16" fill="#43516a">输出：判断日志与后续任务</text>
+<text x="48" y="515" font-size="17" font-weight="600" fill="#152237">结果回写 → 定位抽取、机制、参数或选择错误 → 更新下一轮研究</text>
+<text x="48" y="546" font-size="13" fill="#718096">FinWorld Workbench · 功能与方法示意，实际能力以 README 状态说明为准</text>
+</svg>
