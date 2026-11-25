@@ -1,0 +1,20 @@
+# Anatole 面板反代(nginx)。面板本体由 serve.py 跑在 127.0.0.1:8090。
+# 选一种变体。HTTPS 证书请用 certbot 或公司内网 CA 自行配置。
+
+# ── 变体 A(推荐): 独立子域名 ──
+server {
+    listen 80;
+    server_name monitor.example.com;
+    location / {
+        proxy_pass http://127.0.0.1:8090;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $remote_addr;
+    }
+}
+
+# ── 变体 B: 挂在已有 server 的某路径(放进已有 server {} 内) ──
+# location /AI-Monitoring-System/ {
+#     rewrite ^/AI-Monitoring-System/(.*)$ /$1 break;
+#     proxy_pass http://127.0.0.1:8090;
+#     proxy_set_header Host $host;
+# }

@@ -1,0 +1,20 @@
+# Anatole 面板反代(Caddy)。面板本体由 serve.py 跑在 127.0.0.1:8090。
+# 选一种变体放进你公司服务器的 Caddyfile。
+
+# ── 变体 A(推荐): 独立子域名 ──
+# 前提: monitor.example.com 的 DNS 已指向本服务器, 80/443 放行; Caddy 自动签 HTTPS。
+monitor.example.com {
+    encode gzip
+    reverse_proxy 127.0.0.1:8090
+}
+
+# ── 变体 B: 挂在已有站点的某个路径(放进已有域名的 block 内) ──
+# handle_path 会剥掉 /AI-Monitoring-System 前缀, serve.py 再把 "/" 当首页返回 panel_full.html。
+# panel_full.html 为自包含单文件, 子路径下资源不会错位。
+#
+# example.com {
+#     ...(你原有配置)...
+#     handle_path /AI-Monitoring-System* {
+#         reverse_proxy 127.0.0.1:8090
+#     }
+# }

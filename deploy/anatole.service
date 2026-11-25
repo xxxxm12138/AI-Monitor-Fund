@@ -1,0 +1,20 @@
+[Unit]
+Description=Anatole panel (static server)
+After=network.target
+
+[Service]
+# ↓↓↓ 改成服务器上的实际绝对路径(仓库里的 pipeline/ 目录) ↓↓↓
+WorkingDirectory=/REPLACE_ME/AI-Monitor-Fund/pipeline
+ExecStart=/usr/bin/python3 -u /REPLACE_ME/AI-Monitor-Fund/pipeline/serve.py
+# serve.py 只用标准库,用系统 python3 即可(构建才需要 venv+duckdb)
+Environment=ANATOLE_BIND=127.0.0.1
+Environment=ANATOLE_PORT=8090
+# ── 可选:直接公网 + 基础鉴权(仍需自行加 TLS/反代) ──
+# Environment=ANATOLE_BIND=0.0.0.0
+# Environment=ANATOLE_USER=admin
+# Environment=ANATOLE_PASS=改成强密码
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=default.target
