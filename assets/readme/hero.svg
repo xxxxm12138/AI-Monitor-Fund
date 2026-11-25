@@ -1,1 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="390" viewBox="0 0 1200 390" role="img" aria-labelledby="title desc"><title id="title">FinWorld Workbench</title><desc id="desc">动态金融研究与模型能力验证工作台；证据分支汇入判断，结果回流校准。</desc><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#607087"/></marker></defs><rect width="1200" height="390" rx="20" fill="#F6F8FC"/><g font-family="Noto Sans CJK SC,PingFang SC,Microsoft YaHei,Segoe UI,sans-serif"><text x="52" y="57" fill="#315BE8" font-size="20" font-weight="600">FINWORLD / INTELLIGENCE ARCHITECTURE</text><text x="52" y="127" fill="#152238" font-size="56" font-weight="650">FinWorld Workbench</text><text x="52" y="176" fill="#152238" font-size="28" font-weight="400">让每一次研究判断，都留下可验证的路径。</text><text x="52" y="218" fill="#607087" font-size="22" font-weight="400">证据 · 候选 · 预测 · 选择 · 结果校准</text><path d="M700 280 L790 252 L900 280 L1010 250 L1120 280" fill="none" stroke="#607087" stroke-width="2"  marker-end="url(#arrow)"/><path d="M700 280 L790 318 L900 280" fill="none" stroke="#607087" stroke-width="2"  marker-end="url(#arrow)"/><path d="M1120 280 L1120 350 L700 350 L700 296" fill="none" stroke="#607087" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arrow)"/><circle cx="700" cy="280" r="8" fill="#315BE8"/><circle cx="790" cy="252" r="8" fill="#315BE8"/><circle cx="790" cy="318" r="8" fill="#315BE8"/><circle cx="900" cy="280" r="8" fill="#315BE8"/><circle cx="1010" cy="250" r="8" fill="#315BE8"/><circle cx="1120" cy="280" r="8" fill="#008577"/><text x="52" y="300" fill="#008577" font-size="20" font-weight="600">RESEARCH → DECISIONS</text><text x="52" y="338" fill="#607087" font-size="20" font-weight="400">DuckDB / Python / Point-in-time evidence</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 380" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', Helvetica, Arial, sans-serif">
+  <rect width="1280" height="380" rx="20" fill="#FBFCFE"/>
+  <rect x="1" y="1" width="1278" height="378" rx="19" fill="none" stroke="#E0E3EB" stroke-width="1"/>
+
+  <!-- 右上角 causal-graph 装饰 -->
+  <g opacity="0.55" stroke="#B9C6E6" stroke-width="1.4" fill="#2158E0">
+    <line x1="1116" y1="70" x2="1176" y2="96"/>
+    <line x1="1176" y1="96" x2="1120" y2="128"/>
+    <line x1="1120" y1="128" x2="1196" y2="148"/>
+    <line x1="1116" y1="70" x2="1210" y2="60"/>
+    <circle cx="1116" cy="70" r="5"/>
+    <circle cx="1176" cy="96" r="4" fill="#7C3AED"/>
+    <circle cx="1120" cy="128" r="4" fill="#077568"/>
+    <circle cx="1196" cy="148" r="5" fill="#B26A00"/>
+    <circle cx="1210" cy="60" r="3"/>
+  </g>
+
+  <!-- 标题区 -->
+  <text x="64" y="60" font-size="14" font-weight="600" letter-spacing="3" fill="#7A8494">GROWTH-EQUITY FUND · 港股 / 美股 · INTELLIGENCE GRAPH</text>
+  <text x="63" y="120" font-size="46" font-weight="800" fill="#131722">AI 发展监测体系</text>
+  <text x="66" y="150" font-size="16" letter-spacing="1" fill="#5B6472">AI-Development Monitoring System · 一张自我校准的因果图</text>
+  <g>
+    <rect x="66" y="166" width="34" height="4" rx="2" fill="#2962FF"/>
+    <rect x="106" y="166" width="34" height="4" rx="2" fill="#8B5CF6"/>
+    <rect x="146" y="166" width="34" height="4" rx="2" fill="#089981"/>
+    <rect x="186" y="166" width="34" height="4" rx="2" fill="#E0912B"/>
+  </g>
+
+  <!-- 闭环回边(置于节点之下) -->
+  <path d="M1094 308 C1094 352 1094 354 1050 354 L232 354 C188 354 188 352 188 308" fill="none" stroke="#9AA3B2" stroke-width="1.6" stroke-dasharray="5 5"/>
+  <path d="M188 302 L182 313 L194 313 Z" fill="#9AA3B2"/>
+  <rect x="585" y="345" width="118" height="18" fill="#FBFCFE"/>
+  <text x="644" y="358" text-anchor="middle" font-size="13" fill="#7A8494">闭环 · outcome → 校准</text>
+
+  <!-- 四算子节点 -->
+  <g>
+    <rect x="64" y="236" width="248" height="72" rx="12" fill="#EAF0FE" stroke="#2962FF" stroke-width="1.4"/>
+    <text x="188" y="268" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="2" fill="#2158E0">REPRESENT</text>
+    <text x="188" y="293" text-anchor="middle" font-size="17" fill="#1C2430">压缩 · 表征</text>
+
+    <rect x="366" y="236" width="248" height="72" rx="12" fill="#F1EBFE" stroke="#8B5CF6" stroke-width="1.4"/>
+    <text x="490" y="268" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="2" fill="#7C3AED">PROPOSE</text>
+    <text x="490" y="293" text-anchor="middle" font-size="17" fill="#1C2430">枚举 · 候选</text>
+
+    <rect x="668" y="236" width="248" height="72" rx="12" fill="#E3F4F0" stroke="#089981" stroke-width="1.4"/>
+    <text x="792" y="268" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="2" fill="#077568">PREDICT</text>
+    <text x="792" y="293" text-anchor="middle" font-size="17" fill="#1C2430">指标 · 预判</text>
+
+    <rect x="970" y="236" width="248" height="72" rx="12" fill="#FDF1DC" stroke="#E0912B" stroke-width="1.4"/>
+    <text x="1094" y="268" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="2" fill="#B26A00">SELECT</text>
+    <text x="1094" y="293" text-anchor="middle" font-size="17" fill="#1C2430">剪枝 · 选择</text>
+  </g>
+
+  <!-- 节点间箭头 -->
+  <g fill="#9AA3B2" font-size="22">
+    <text x="339" y="279" text-anchor="middle">→</text>
+    <text x="641" y="279" text-anchor="middle">→</text>
+    <text x="943" y="279" text-anchor="middle">→</text>
+  </g>
+
+  <!-- 右下 tagline -->
+  <text x="1216" y="120" text-anchor="end" font-size="15" fill="#6E7681">不是重生成,是重决策</text>
+  <text x="1216" y="146" text-anchor="end" font-size="15" fill="#6E7681">为后来的 AI 基建做设计</text>
+</svg>
