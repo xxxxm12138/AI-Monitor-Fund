@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="960" viewBox="0 0 1440 960" font-family="Noto Sans CJK SC, Microsoft YaHei, Arial, sans-serif">
+<rect x="0" y="0" width="1440" height="960" rx="0" fill="#f4f6fa"/>
+<text x="48" y="65" font-size="29" fill="#142238" font-weight="700">新系统如何工作：把“价格上涨”变成可验证的研究判断</text>
+<text x="48" y="103" font-size="20" fill="#617187" font-weight="400">贯穿示例：公司 A 的 NOR 产品涨价，能否提高下一季度毛利？</text>
+<rect x="48" y="155" width="408" height="234" rx="14" fill="#fff" stroke="#dfe5ee"/>
+<rect x="72" y="175" width="58" height="30" rx="6" fill="#edf3ff"/>
+<text x="84" y="196" font-size="14" fill="#2860dc" font-weight="600">01</text>
+<text x="72" y="242" font-size="24" fill="#2860dc" font-weight="700">定义研究任务</text>
+<text x="72" y="283" font-size="18" fill="#25324a" font-weight="400">对象：公司 A / NOR 业务</text>
+<text x="72" y="316" font-size="18" fill="#25324a" font-weight="400">问题：涨价是否进入毛利？</text>
+<text x="72" y="349" font-size="18" fill="#25324a" font-weight="400">期间：下一季度；输入截止 T0</text>
+<rect x="516" y="155" width="408" height="234" rx="14" fill="#fff" stroke="#dfe5ee"/>
+<rect x="540" y="175" width="58" height="30" rx="6" fill="#edf3ff"/>
+<text x="552" y="196" font-size="14" fill="#8053dc" font-weight="600">02</text>
+<text x="540" y="242" font-size="24" fill="#8053dc" font-weight="700">核查证据</text>
+<text x="540" y="283" font-size="18" fill="#25324a" font-weight="400">价格：报价还是成交价？</text>
+<text x="540" y="316" font-size="18" fill="#25324a" font-weight="400">来源：公告 / 渠道 / 研究判断</text>
+<text x="540" y="349" font-size="18" fill="#25324a" font-weight="400">保留来源、期间、知悉时间</text>
+<rect x="984" y="155" width="408" height="234" rx="14" fill="#fff" stroke="#dfe5ee"/>
+<rect x="1008" y="175" width="58" height="30" rx="6" fill="#edf3ff"/>
+<text x="1020" y="196" font-size="14" fill="#008b78" font-weight="600">03</text>
+<text x="1008" y="242" font-size="24" fill="#008b78" font-weight="700">拆解传导关系</text>
+<text x="1008" y="283" font-size="18" fill="#25324a" font-weight="400">报价 → ASP → 收入 → 毛利</text>
+<text x="1008" y="316" font-size="18" fill="#25324a" font-weight="400">叠加销量、成本与库存结转</text>
+<text x="1008" y="349" font-size="18" fill="#25324a" font-weight="400">记录权重、时滞与未知参数</text>
+<rect x="48" y="477" width="408" height="234" rx="14" fill="#fff" stroke="#dfe5ee"/>
+<rect x="72" y="497" width="58" height="30" rx="6" fill="#edf3ff"/>
+<text x="84" y="518" font-size="14" fill="#008b78" font-weight="600">06</text>
+<text x="72" y="564" font-size="24" fill="#008b78" font-weight="700">结果回填与评测</text>
+<text x="72" y="605" font-size="18" fill="#25324a" font-weight="400">实际 ASP / 销量 / 单位成本</text>
+<text x="72" y="638" font-size="18" fill="#25324a" font-weight="400">分别检查抽取、参数与选择</text>
+<text x="72" y="671" font-size="18" fill="#25324a" font-weight="400">更新置信度与下一次研究任务</text>
+<rect x="516" y="477" width="408" height="234" rx="14" fill="#fff" stroke="#dfe5ee"/>
+<rect x="540" y="497" width="58" height="30" rx="6" fill="#edf3ff"/>
+<text x="552" y="518" font-size="14" fill="#8053dc" font-weight="600">05</text>
+<text x="540" y="564" font-size="24" fill="#8053dc" font-weight="700">记录研究判断</text>
+<text x="540" y="605" font-size="18" fill="#25324a" font-weight="400">保留多个解释与证伪条件</text>
+<text x="540" y="638" font-size="18" fill="#25324a" font-weight="400">研究员选定情景并写明依据</text>
+<text x="540" y="671" font-size="18" fill="#25324a" font-weight="400">保存置信度与待补数据清单</text>
+<rect x="984" y="477" width="408" height="234" rx="14" fill="#fff" stroke="#dfe5ee"/>
+<rect x="1008" y="497" width="58" height="30" rx="6" fill="#edf3ff"/>
+<text x="1020" y="518" font-size="14" fill="#2860dc" font-weight="600">04</text>
+<text x="1008" y="564" font-size="24" fill="#2860dc" font-weight="700">测算情景影响</text>
+<text x="1008" y="605" font-size="18" fill="#25324a" font-weight="400">基准 / 上行 / 下行假设组合</text>
+<text x="1008" y="638" font-size="18" fill="#25324a" font-weight="400">输出毛利区间与变量敏感性</text>
+<text x="1008" y="671" font-size="18" fill="#25324a" font-weight="400">财务、估值连接层：建设方向</text>
+<text x="470" y="280" font-size="32" fill="#8295b0" font-weight="400">→</text>
+<text x="938" y="280" font-size="32" fill="#8295b0" font-weight="400">→</text>
+<text x="1170" y="442" font-size="32" fill="#8295b0" font-weight="400">↓</text>
+<text x="938" y="602" font-size="32" fill="#8295b0" font-weight="400">←</text>
+<text x="470" y="602" font-size="32" fill="#8295b0" font-weight="400">←</text>
+<rect x="48" y="762" width="1344" height="136" rx="12" fill="#eaf1fb"/>
+<text x="73" y="801" font-size="23" fill="#244a87" font-weight="700">三类信息始终分开</text>
+<text x="73" y="839" font-size="19" fill="#25324a" font-weight="400">已验证事实：能回到来源核查     合理推断：写明前提与适用条件     未知变量：保留空缺并安排验证</text>
+<text x="73" y="874" font-size="16" fill="#617187" font-weight="400">示意流程，不代表各环节均已自动接通；示例不对应任何真实公司的预测或投资建议。</text>
+</svg>
